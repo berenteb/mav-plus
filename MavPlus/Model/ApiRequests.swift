@@ -1,10 +1,3 @@
-//
-//  ApiRequests.swift
-//  TransitAppModels
-//
-//  Created by Berente Bálint on 2022. 10. 01..
-//
-
 import Foundation
 
 func citiesRequest(completion: @escaping (Cities, Error?) -> Void){
