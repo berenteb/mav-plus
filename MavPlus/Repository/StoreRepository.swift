@@ -1,14 +1,17 @@
 import Foundation
 
 class StoreRepository: ObservableObject{
+    
+    static let shared = StoreRepository()
+    
     @Published var favoriteStations: [FavoriteStation]
     @Published var recentOffers: [RecentOffer]
     var controller: PersistenceController
     
-    init(controller: PersistenceController){
+    private init(){
         self.favoriteStations = []
         self.recentOffers = []
-        self.controller = controller
+        self.controller = PersistenceController.shared
         updateFavoriteStationList()
         updateRecentOfferList()
     }

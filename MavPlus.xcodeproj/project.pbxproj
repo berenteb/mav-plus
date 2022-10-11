@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		DF809B4128F5D2B200043E5E /* StationListScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF809B4028F5D2B200043E5E /* StationListScreen.swift */; };
+		DF809B4328F5D68300043E5E /* HomeScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF809B4228F5D68300043E5E /* HomeScreen.swift */; };
+		DF809B4528F5E6AF00043E5E /* StationDetailsScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF809B4428F5E6AF00043E5E /* StationDetailsScreen.swift */; };
 		DFEBEFB728F32059007F3CCD /* MavPlusApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = DFEBEFB628F32059007F3CCD /* MavPlusApp.swift */; };
 		DFEBEFB928F32059007F3CCD /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DFEBEFB828F32059007F3CCD /* ContentView.swift */; };
 		DFEBEFBB28F3205C007F3CCD /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DFEBEFBA28F3205C007F3CCD /* Assets.xcassets */; };
@@ -36,6 +39,9 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		DF809B4028F5D2B200043E5E /* StationListScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StationListScreen.swift; sourceTree = "<group>"; };
+		DF809B4228F5D68300043E5E /* HomeScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeScreen.swift; sourceTree = "<group>"; };
+		DF809B4428F5E6AF00043E5E /* StationDetailsScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StationDetailsScreen.swift; sourceTree = "<group>"; };
 		DFEBEFB328F32059007F3CCD /* MavPlus.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MavPlus.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		DFEBEFB628F32059007F3CCD /* MavPlusApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MavPlusApp.swift; sourceTree = "<group>"; };
 		DFEBEFB828F32059007F3CCD /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -76,6 +82,23 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		DF809B3E28F5D29B00043E5E /* Screens */ = {
+			isa = PBXGroup;
+			children = (
+				DF809B4028F5D2B200043E5E /* StationListScreen.swift */,
+				DF809B4228F5D68300043E5E /* HomeScreen.swift */,
+				DF809B4428F5E6AF00043E5E /* StationDetailsScreen.swift */,
+			);
+			path = Screens;
+			sourceTree = "<group>";
+		};
+		DF809B3F28F5D2A100043E5E /* Components */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Components;
+			sourceTree = "<group>";
+		};
 		DFEBEFAA28F32059007F3CCD = {
 			isa = PBXGroup;
 			children = (
@@ -151,6 +174,8 @@
 		DFEBEFCC28F32144007F3CCD /* View */ = {
 			isa = PBXGroup;
 			children = (
+				DF809B3F28F5D2A100043E5E /* Components */,
+				DF809B3E28F5D29B00043E5E /* Screens */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -257,6 +282,7 @@
 				DFEBEFC328F3205C007F3CCD /* MavPlus.xcdatamodeld in Sources */,
 				DFEBEFE528F321B2007F3CCD /* ApiRepository.swift in Sources */,
 				DFEBEFF628F3685B007F3CCD /* OfferViewModel.swift in Sources */,
+				DF809B4328F5D68300043E5E /* HomeScreen.swift in Sources */,
 				DFEBEFF428F34875007F3CCD /* HomeViewModel.swift in Sources */,
 				DFEBEFDD28F321A1007F3CCD /* WarningMessages.swift in Sources */,
 				DFEBEFDF28F321A1007F3CCD /* Services.swift in Sources */,
@@ -271,9 +297,11 @@
 				DFEBEFDC28F321A1007F3CCD /* TrainLocation.swift in Sources */,
 				DFEBEFB928F32059007F3CCD /* ContentView.swift in Sources */,
 				DFEBEFEA28F327F2007F3CCD /* StationListViewModel.swift in Sources */,
+				DF809B4128F5D2B200043E5E /* StationListScreen.swift in Sources */,
 				DFEBEFE228F321A1007F3CCD /* Stations.swift in Sources */,
 				DFEBEFEE28F33B52007F3CCD /* UtilFunctions.swift in Sources */,
 				DFEBEFB728F32059007F3CCD /* MavPlusApp.swift in Sources */,
+				DF809B4528F5E6AF00043E5E /* StationDetailsScreen.swift in Sources */,
 				DFEBEFEC28F32CCD007F3CCD /* StationDetailsViewModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

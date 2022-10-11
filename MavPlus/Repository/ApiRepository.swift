@@ -1,12 +1,18 @@
 import Foundation
 
-class ApiRepository: ObservableObject{
+class ApiRepository: ObservableObject, Updateable{
+    static let shared = ApiRepository()
+    
     @Published var cities: Cities = []
     @Published var customers: CustomersAndDiscounts?
     @Published var stationList: StationList = []
     @Published var services: ServicesDto?
     
-    init() {
+    private init() {
+        update()
+    }
+    
+    func update(){
         updateCities()
         updateCustomersAndDiscounts()
         updateStationList()

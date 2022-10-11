@@ -9,17 +9,16 @@ protocol StationListProtocol {
     var stationList: [StationListItem] {get}
 }
 
-class StationListViewModel: StationListProtocol, ObservableObject {
+class StationListViewModel: StationListProtocol, ObservableObject, Updateable {
     @Published var stationList: [StationListItem]
-    private var apiRepository: ApiRepository
     
-    init(api: ApiRepository){
-        self.apiRepository = api
+    init(){
         self.stationList = []
-        apiRepository.stationList.forEach{station in
-            if let code = station.code, let name = station.name {
-                self.stationList.append(StationListItem(code: code , name: name ))
-            }
+    }
+    
+    func update() {
+        self.stationList = ApiRepository.shared.stationList.map{station in
+            return StationListItem(code: station.code ?? "", name: station.name ?? "Unknown")
         }
     }
 }

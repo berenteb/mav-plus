@@ -22,34 +22,30 @@ struct RecentOfferListItem {
 class HomeViewModel: HomeProtocol, ObservableObject {
     @Published var favoriteStations: [FavoriteStationListItem]
     @Published var recentOffers: [RecentOfferListItem]
-    private var storeRepository: StoreRepository
-    private var apiRepository: ApiRepository
     
-    init(store: StoreRepository, api: ApiRepository) {
-        self.storeRepository = store
-        self.apiRepository = api
+    init() {
         self.favoriteStations = []
         self.recentOffers = []
         update()
     }
     
     func deleteRecentOffer(id: UUID){
-        storeRepository.deleteRecentOffer(id: id)
+        StoreRepository.shared.deleteRecentOffer(id: id)
         update()
     }
     
     func update(){
-        self.favoriteStations = apiRepository.stationList
+        self.favoriteStations = ApiRepository.shared.stationList
             .filter { station in
                 guard let code = station.code else {return false}
-                return storeRepository.isFavoriteStation(code: code)
+                return StoreRepository.shared.isFavoriteStation(code: code)
             }.map{ fs in
                 return FavoriteStationListItem(name: fs.name ?? "Unknown", code: fs.code!)
             }
         self.recentOffers = []
-        storeRepository.recentOffers.forEach{offer in
-            let startName = apiRepository.stationList.first{station in station.code==offer.startCode}?.name ?? "Unknown"
-            let endName = apiRepository.stationList.first{station in station.code==offer.endCode}?.name ?? "Unknown"
+        StoreRepository.shared.recentOffers.forEach{offer in
+            let startName = ApiRepository.shared.stationList.first{station in station.code==offer.startCode}?.name ?? "Unknown"
+            let endName = ApiRepository.shared.stationList.first{station in station.code==offer.endCode}?.name ?? "Unknown"
             if let startCode = offer.startCode, let endCode = offer.endCode, let id = offer.id {
                 self.recentOffers.append(RecentOfferListItem(id: id, startStationName: startName, startStationCode: startCode, endStationName: endName, endStationCode: endCode))
             }

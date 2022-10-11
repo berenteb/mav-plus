@@ -21,15 +21,11 @@ class OfferViewModel: OfferProtocol, ObservableObject {
     @Published var isError: Bool
     private var startCode: String
     private var endCode: String
-    private var apiRepository: ApiRepository
-    private var storeRepository: StoreRepository
     
-    init(start: String, end: String,api: ApiRepository, store: StoreRepository) {
+    init(start: String, end: String) {
         self.startCode = start
         self.endCode = end
         self.offers = []
-        self.apiRepository = api
-        self.storeRepository = store
         self.isLoading = true
         self.isError = false
     }
@@ -37,7 +33,7 @@ class OfferViewModel: OfferProtocol, ObservableObject {
     func update() {
         isLoading = true
         isError = false
-        apiRepository.getOffer(startCode: startCode, endCode: endCode){ offers, error in
+        ApiRepository.shared.getOffer(startCode: startCode, endCode: endCode){ offers, error in
             self.isError = error != nil
             self.offers = []
             guard let routes = offers?.route else { return }
@@ -54,7 +50,7 @@ class OfferViewModel: OfferProtocol, ObservableObject {
                 let type = routeDetails.trainDetails?.type
                 let travelTime = routeDetails.travelTime ?? "Unknown"
                 self.offers.append(OfferData(startStationName: startName, endStationName: endName, price: priceTag, travelTime: travelTime, transferCount: transferCount))
-                self.storeRepository.saveRecentOffer(startCode: sCode ?? self.startCode, endCode: eCode ?? self.endCode)
+                StoreRepository.shared.saveRecentOffer(startCode: sCode ?? self.startCode, endCode: eCode ?? self.endCode)
             }
             self.isLoading = false
         }

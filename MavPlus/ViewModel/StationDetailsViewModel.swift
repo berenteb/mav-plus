@@ -23,14 +23,12 @@ class StationDetailsViewModel: StationDetailsProtocol, ObservableObject {
     @Published var station: StationDetails?
     @Published var isLoading: Bool
     @Published var isError: Bool
-    private var storeRepository: StoreRepository
     private var code: String
-    init(code: String, store: StoreRepository){
+    
+    init(code: String){
         self.code = code
         self.isLoading = true
         self.isError = false
-        self.storeRepository = store
-        update()
     }
     
     func update() {
@@ -43,7 +41,7 @@ class StationDetailsViewModel: StationDetailsProtocol, ObservableObject {
                     departures.append(Departure(trainCode: dep.kind?.code ?? "", fromStationName: dep.startStation?.name ?? "Unknown", destinationStationName: dep.endStation?.name ?? "Unknown", trainName: dep.fullNameAndType, departureDate: DateFromIso(dep.actualOrEstimatedStart ?? "")))
                 }
             }
-            self.station = StationDetails(name: station?.stationSchedulerDetails?.station?.name ?? "Unknown", isFavorite: self.storeRepository.isFavoriteStation(code: self.code), departures: departures)
+            self.station = StationDetails(name: station?.stationSchedulerDetails?.station?.name ?? "Unknown", isFavorite: StoreRepository.shared.isFavoriteStation(code: self.code), departures: departures)
             self.isLoading = false
         }
     }
@@ -51,9 +49,9 @@ class StationDetailsViewModel: StationDetailsProtocol, ObservableObject {
     func toggleFavorite() {
         if let isFavorite = self.station?.isFavorite {
             if isFavorite {
-                storeRepository.deleteFavoriteStation(code: self.code)
+                StoreRepository.shared.deleteFavoriteStation(code: self.code)
             }else{
-                storeRepository.saveFavoriteStation(code: self.code)
+                StoreRepository.shared.saveFavoriteStation(code: self.code)
             }
         }
     }
