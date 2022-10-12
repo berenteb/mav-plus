@@ -9,11 +9,11 @@ import SwiftUI
 
 struct DirectionsQueryInput: View {
     
-    @State public var startStation: String = String()
-    @State public var endStation: String = String()
-    @State public var time: Date = Date.now
-    @State public var isDeparture: Bool = true
-    @State public var passengerNumber: Int = 1
+    @Binding public var startStation: String
+    @Binding public var endStation: String
+    @Binding public var time: Date
+    @Binding public var isDeparture: Bool
+    @Binding public var passengerNumber: Int
     
     var body: some View {
         GeometryReader { root in
@@ -95,7 +95,20 @@ struct DirectionsQueryInput: View {
 }
 
 struct DirectionsQueryInput_Previews: PreviewProvider {
+    
+    @State private static var startStation: String = String()
+    @State private static var endStation: String = String()
+    @State private static var time: Date = Date.now
+    @State private static var isDeparture: Bool = true
+    @State private static var passengerNumber: Int = 1
+    
     static var previews: some View {
-        DirectionsQueryInput()
+        DirectionsQueryInput(
+            startStation: self.$startStation,
+            endStation: self.$endStation,
+            time: self.$time,
+            isDeparture: self.$isDeparture,
+            passengerNumber: self.$passengerNumber
+        )
     }
 }

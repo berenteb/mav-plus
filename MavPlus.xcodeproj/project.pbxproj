@@ -11,7 +11,6 @@
 		DF809B4328F5D68300043E5E /* HomeScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF809B4228F5D68300043E5E /* HomeScreen.swift */; };
 		DF809B4528F5E6AF00043E5E /* StationDetailsScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF809B4428F5E6AF00043E5E /* StationDetailsScreen.swift */; };
 		DF809B6028F7233000043E5E /* RssItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF809B4728F7233000043E5E /* RssItem.swift */; };
-		DF809B6128F7233000043E5E /* DirectionsQuery.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF809B4828F7233000043E5E /* DirectionsQuery.swift */; };
 		DF809B6228F7233000043E5E /* UniqueObjectWithId.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF809B4928F7233000043E5E /* UniqueObjectWithId.swift */; };
 		DF809B6428F7233000043E5E /* Directions.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF809B4E28F7233000043E5E /* Directions.swift */; };
 		DF809B6528F7233000043E5E /* DirectionsResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF809B4F28F7233000043E5E /* DirectionsResult.swift */; };
@@ -61,7 +60,6 @@
 		DF809B4228F5D68300043E5E /* HomeScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeScreen.swift; sourceTree = "<group>"; };
 		DF809B4428F5E6AF00043E5E /* StationDetailsScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StationDetailsScreen.swift; sourceTree = "<group>"; };
 		DF809B4728F7233000043E5E /* RssItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RssItem.swift; sourceTree = "<group>"; };
-		DF809B4828F7233000043E5E /* DirectionsQuery.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DirectionsQuery.swift; sourceTree = "<group>"; };
 		DF809B4928F7233000043E5E /* UniqueObjectWithId.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UniqueObjectWithId.swift; sourceTree = "<group>"; };
 		DF809B4E28F7233000043E5E /* Directions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Directions.swift; sourceTree = "<group>"; };
 		DF809B4F28F7233000043E5E /* DirectionsResult.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DirectionsResult.swift; sourceTree = "<group>"; };
@@ -258,7 +256,6 @@
 		DFEBEFCD28F3214B007F3CCD /* Utility */ = {
 			isa = PBXGroup;
 			children = (
-				DF809B4828F7233000043E5E /* DirectionsQuery.swift */,
 				DFEBEFCE28F32166007F3CCD /* Paths.swift */,
 				DFEBEFED28F33B52007F3CCD /* UtilFunctions.swift */,
 			);
@@ -382,7 +379,6 @@
 				DFEBEFDA28F321A1007F3CCD /* StationInfo.swift in Sources */,
 				DFEBEFC028F3205C007F3CCD /* Persistence.swift in Sources */,
 				DF809B6828F7233000043E5E /* Home.swift in Sources */,
-				DF809B6128F7233000043E5E /* DirectionsQuery.swift in Sources */,
 				DF809B6728F7233000043E5E /* TrafficNews.swift in Sources */,
 				DFEBEFDC28F321A1007F3CCD /* TrainLocation.swift in Sources */,
 				DFEBEFB928F32059007F3CCD /* ContentView.swift in Sources */,

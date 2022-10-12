@@ -9,7 +9,7 @@ import SwiftUI
 
 struct DirectionsQuerySummary: View {
     
-    public let content: DirectionsQuery
+    @ObservedObject public var model: OfferViewModel
     
     private func getOptionsString(input: [String]) -> String {
         
@@ -33,7 +33,7 @@ struct DirectionsQuerySummary: View {
                 
                 Spacer()
                 
-                Text(self.content.startStation)
+                Text(self.model.startCode)
             }
 
             HStack {
@@ -42,7 +42,7 @@ struct DirectionsQuerySummary: View {
                 
                 Spacer()
                 
-                Text(self.content.endStation)
+                Text(self.model.endCode)
             }
             
             HStack {
@@ -51,7 +51,7 @@ struct DirectionsQuerySummary: View {
                 
                 Spacer()
                 
-                Text(self.content.time.formatted(date: .abbreviated, time: .shortened))
+                Text(self.model.startDate.formatted(date: .abbreviated, time: .shortened))
             }
             
             HStack {
@@ -60,7 +60,7 @@ struct DirectionsQuerySummary: View {
                 
                 Spacer()
                 
-                Text(self.content.passengerNumber.description)
+                Text(self.model.passengerCount.description)
             }
         }
         .padding()
@@ -69,6 +69,6 @@ struct DirectionsQuerySummary: View {
 
 struct DirectionsQuerySummary_Previews: PreviewProvider {
     static var previews: some View {
-        DirectionsQuerySummary(content: DirectionsQuery(time: Date.now, isDepartureTime: true, startStation: "Vasalma", endStation: "Jónásapátfalva", passengerNumber: 1))
+        DirectionsQuerySummary(model: OfferViewModel(start: "Vasalma", end: "Jónásapátfalva", count: 1, date: Date.now))
     }
 }

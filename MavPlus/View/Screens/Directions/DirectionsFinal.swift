@@ -9,13 +9,13 @@ import SwiftUI
 
 struct DirectionsFinal: View {
     
-    public let query: DirectionsQuery
+    @ObservedObject public var model: OfferViewModel
     public let offer: OfferData
     
     var body: some View {
         GeometryReader { root in
             VStack {
-                DirectionsQuerySummary(content: self.query)
+                DirectionsQuerySummary(model: self.model)
                 
                 DirectionsOfferView(content: self.offer)
                 .disabled(true)
@@ -38,16 +38,15 @@ struct DirectionsFinal: View {
     }
 }
 
-/*
+
 struct DirectionsFinal_Previews: PreviewProvider {
     
     @State private static var navPath: NavigationPath = NavigationPath()
     
     static var previews: some View {
         DirectionsFinal(
-            query: DirectionsQuery(time: Date.now, isDepartureTime: true, startStation: "Vasalma", endStation: "Jónásapátfalva", passengerNumber: 1, additionalOptions: ["With Bike"]),
-            offer: DirectionsOffer(startTime: Date.now, endTime: Date.now, trainNumber: 2244, price: 2000, name: "Kékhullám", additionalInfo: "Seat reservation compulsory")
+            model: OfferViewModel(start: "Vasalma", end: "Jónásapátfalva", count: 1, date: Date.now),
+            offer: OfferData(startStationName: "Vasalma", endStationName: "Jónásapátfalva", price: "2000 HUF", travelTime: "234min", transferCount: 0)
         )
     }
 }
-*/
