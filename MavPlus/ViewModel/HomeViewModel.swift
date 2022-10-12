@@ -11,7 +11,7 @@ struct FavoriteStationListItem {
     var code: String
 }
 
-struct RecentOfferListItem {
+struct RecentOfferListItem: Identifiable {
     var id: UUID
     var startStationName: String
     var startStationCode: String
