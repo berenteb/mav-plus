@@ -87,9 +87,9 @@ struct DirectionsQueryInput: View {
                             self.passengerNumber -= 1
                         }
                     }
+                    .frame(maxWidth: (root.size.width / 4))
                 }
             }
-            .frame(maxWidth: (root.size.width / 4))
         }
     }
 }
