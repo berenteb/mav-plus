@@ -5,7 +5,8 @@ protocol OfferProtocol: RequestStatus, Updateable, ObservableObject {
     var offers: [OfferData] {get}
 }
 
-struct OfferData {
+struct OfferData: Identifiable {
+    var id: UUID = UUID()
     var startStationName: String
     var endStationName: String
     var price: String
@@ -21,19 +22,21 @@ class OfferViewModel: OfferProtocol, ObservableObject {
     @Published var isError: Bool
     private var startCode: String
     private var endCode: String
+    private var passengerCount: Int
     
-    init(start: String, end: String) {
+    init(start: String, end: String, count: Int) {
         self.startCode = start
         self.endCode = end
         self.offers = []
         self.isLoading = true
         self.isError = false
+        self.passengerCount = count
     }
     
     func update() {
         isLoading = true
         isError = false
-        ApiRepository.shared.getOffer(startCode: startCode, endCode: endCode){ offers, error in
+        ApiRepository.shared.getOffer(startCode: startCode, endCode: endCode, passengerCount: passengerCount){ offers, error in
             self.isError = error != nil
             self.offers = []
             guard let routes = offers?.route else { return }
@@ -49,8 +52,10 @@ class OfferViewModel: OfferProtocol, ObservableObject {
                 let name = route.details?.trainFullName
                 let type = routeDetails.trainDetails?.type
                 let travelTime = routeDetails.travelTime ?? "Unknown"
-                self.offers.append(OfferData(startStationName: startName, endStationName: endName, price: priceTag, travelTime: travelTime, transferCount: transferCount))
+                var offers: [OfferData] = []
+                offers.append(OfferData(startStationName: startName, endStationName: endName, price: priceTag, travelTime: travelTime, transferCount: transferCount))
                 StoreRepository.shared.saveRecentOffer(startCode: sCode ?? self.startCode, endCode: eCode ?? self.endCode)
+                self.offers = offers
             }
             self.isLoading = false
         }

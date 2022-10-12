@@ -42,8 +42,8 @@ class ApiRepository: ObservableObject, Updateable{
     }
     
     
-    func getOffer(startCode: String, endCode: String, completion: @escaping (Offer?, Error?) -> Void){
-        offerRequest(startCode: startCode, endCode: endCode, completion: completion)
+    func getOffer(startCode: String, endCode: String, passengerCount: Int, completion: @escaping (Offer?, Error?) -> Void){
+        offerRequest(startCode: startCode, endCode: endCode, passengerCount: passengerCount, completion: completion)
     }
     
 }

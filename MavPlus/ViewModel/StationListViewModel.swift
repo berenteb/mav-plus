@@ -5,11 +5,11 @@ struct StationListItem {
     var name: String
 }
 
-protocol StationListProtocol {
+protocol StationListProtocol: Updateable, ObservableObject {
     var stationList: [StationListItem] {get}
 }
 
-class StationListViewModel: StationListProtocol, ObservableObject, Updateable {
+class StationListViewModel: StationListProtocol {
     @Published var stationList: [StationListItem]
     
     init(){

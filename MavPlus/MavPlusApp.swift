@@ -4,7 +4,7 @@ import SwiftUI
 struct MavPlusApp: App {
     var body: some Scene {
         WindowGroup {
-            ContentView()
+            RootNavigation()
                 .environment(\.managedObjectContext, PersistenceController.shared.container.viewContext)
         }
     }
