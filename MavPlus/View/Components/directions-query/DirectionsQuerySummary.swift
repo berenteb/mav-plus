@@ -24,29 +24,44 @@ struct DirectionsQuerySummary: View {
         return result
     }
     
-    private func generateContent() -> [TitledView<Text>] {
-        return [
-            TitledView(title: "From")       { Text(self.content.startStation) },
-            TitledView(title: "To")         { Text(self.content.endStation) },
-            TitledView(title: "When")       { Text(self.content.time.formatted(date: .abbreviated, time: .shortened)) },
-            TitledView(title: "Passengers") { Text(self.content.passengerNumber.description) }
-        ]
-    }
-    
     var body: some View {
         
         VStack(alignment: .leading, spacing: CGFloat(5)) {
-            ForEach(self.generateContent()) { viewItem in
-                HStack {
-                    Text(viewItem.title)
-                    .bold()
-                    
-                    Spacer()
-                    
-                    viewItem.content
-                }
+            HStack {
+                Text("From")
+                .bold()
+                
+                Spacer()
+                
+                Text(self.content.startStation)
             }
 
+            HStack {
+                Text("To")
+                .bold()
+                
+                Spacer()
+                
+                Text(self.content.endStation)
+            }
+            
+            HStack {
+                Text("When")
+                .bold()
+                
+                Spacer()
+                
+                Text(self.content.time.formatted(date: .abbreviated, time: .shortened))
+            }
+            
+            HStack {
+                Text("Passengers")
+                .bold()
+                
+                Spacer()
+                
+                Text(self.content.passengerNumber.description)
+            }
         }
         .padding()
     }

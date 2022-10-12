@@ -13,7 +13,6 @@
 		DF809B6028F7233000043E5E /* RssItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF809B4728F7233000043E5E /* RssItem.swift */; };
 		DF809B6128F7233000043E5E /* DirectionsQuery.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF809B4828F7233000043E5E /* DirectionsQuery.swift */; };
 		DF809B6228F7233000043E5E /* UniqueObjectWithId.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF809B4928F7233000043E5E /* UniqueObjectWithId.swift */; };
-		DF809B6328F7233000043E5E /* TitledView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF809B4A28F7233000043E5E /* TitledView.swift */; };
 		DF809B6428F7233000043E5E /* Directions.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF809B4E28F7233000043E5E /* Directions.swift */; };
 		DF809B6528F7233000043E5E /* DirectionsResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF809B4F28F7233000043E5E /* DirectionsResult.swift */; };
 		DF809B6628F7233000043E5E /* DirectionsFinal.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF809B5028F7233000043E5E /* DirectionsFinal.swift */; };
@@ -26,7 +25,6 @@
 		DF809B6D28F7233000043E5E /* SelectableTile.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF809B5828F7233000043E5E /* SelectableTile.swift */; };
 		DF809B6E28F7233000043E5E /* NormalButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF809B5928F7233000043E5E /* NormalButton.swift */; };
 		DF809B6F28F7233000043E5E /* StationInput.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF809B5A28F7233000043E5E /* StationInput.swift */; };
-		DF809B7028F7233000043E5E /* DirectionsQueryBase.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF809B5C28F7233000043E5E /* DirectionsQueryBase.swift */; };
 		DF809B7128F7233000043E5E /* DirectionsQueryInput.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF809B5D28F7233000043E5E /* DirectionsQueryInput.swift */; };
 		DF809B7228F7233000043E5E /* DirectionsQuerySummary.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF809B5E28F7233000043E5E /* DirectionsQuerySummary.swift */; };
 		DF809B7328F7233000043E5E /* DirectionsOfferView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF809B5F28F7233000043E5E /* DirectionsOfferView.swift */; };
@@ -65,7 +63,6 @@
 		DF809B4728F7233000043E5E /* RssItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RssItem.swift; sourceTree = "<group>"; };
 		DF809B4828F7233000043E5E /* DirectionsQuery.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DirectionsQuery.swift; sourceTree = "<group>"; };
 		DF809B4928F7233000043E5E /* UniqueObjectWithId.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UniqueObjectWithId.swift; sourceTree = "<group>"; };
-		DF809B4A28F7233000043E5E /* TitledView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TitledView.swift; sourceTree = "<group>"; };
 		DF809B4E28F7233000043E5E /* Directions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Directions.swift; sourceTree = "<group>"; };
 		DF809B4F28F7233000043E5E /* DirectionsResult.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DirectionsResult.swift; sourceTree = "<group>"; };
 		DF809B5028F7233000043E5E /* DirectionsFinal.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DirectionsFinal.swift; sourceTree = "<group>"; };
@@ -78,7 +75,6 @@
 		DF809B5828F7233000043E5E /* SelectableTile.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SelectableTile.swift; sourceTree = "<group>"; };
 		DF809B5928F7233000043E5E /* NormalButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NormalButton.swift; sourceTree = "<group>"; };
 		DF809B5A28F7233000043E5E /* StationInput.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StationInput.swift; sourceTree = "<group>"; };
-		DF809B5C28F7233000043E5E /* DirectionsQueryBase.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DirectionsQueryBase.swift; sourceTree = "<group>"; };
 		DF809B5D28F7233000043E5E /* DirectionsQueryInput.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DirectionsQueryInput.swift; sourceTree = "<group>"; };
 		DF809B5E28F7233000043E5E /* DirectionsQuerySummary.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DirectionsQuerySummary.swift; sourceTree = "<group>"; };
 		DF809B5F28F7233000043E5E /* DirectionsOfferView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DirectionsOfferView.swift; sourceTree = "<group>"; };
@@ -153,7 +149,6 @@
 		DF809B5B28F7233000043E5E /* directions-query */ = {
 			isa = PBXGroup;
 			children = (
-				DF809B5C28F7233000043E5E /* DirectionsQueryBase.swift */,
 				DF809B5D28F7233000043E5E /* DirectionsQueryInput.swift */,
 				DF809B5E28F7233000043E5E /* DirectionsQuerySummary.swift */,
 			);
@@ -273,7 +268,6 @@
 		DFEBEFD028F32196007F3CCD /* Types */ = {
 			isa = PBXGroup;
 			children = (
-				DF809B4A28F7233000043E5E /* TitledView.swift */,
 				DF809B4928F7233000043E5E /* UniqueObjectWithId.swift */,
 				DF809B4728F7233000043E5E /* RssItem.swift */,
 				DFEBEFD728F321A1007F3CCD /* Cities.swift */,
@@ -361,7 +355,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				DFEBEFE028F321A1007F3CCD /* Cities.swift in Sources */,
-				DF809B7028F7233000043E5E /* DirectionsQueryBase.swift in Sources */,
 				DF809B6B28F7233000043E5E /* RootNavigation.swift in Sources */,
 				DFEBEFDE28F321A1007F3CCD /* TrainInfo.swift in Sources */,
 				DFEBEFE128F321A1007F3CCD /* Offer.swift in Sources */,
@@ -386,7 +379,6 @@
 				DFEBEFF028F33CF3007F3CCD /* MapViewModel.swift in Sources */,
 				DF809B6D28F7233000043E5E /* SelectableTile.swift in Sources */,
 				DF809B6F28F7233000043E5E /* StationInput.swift in Sources */,
-				DF809B6328F7233000043E5E /* TitledView.swift in Sources */,
 				DFEBEFDA28F321A1007F3CCD /* StationInfo.swift in Sources */,
 				DFEBEFC028F3205C007F3CCD /* Persistence.swift in Sources */,
 				DF809B6828F7233000043E5E /* Home.swift in Sources */,
