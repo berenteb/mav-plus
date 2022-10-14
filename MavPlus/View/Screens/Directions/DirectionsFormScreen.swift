@@ -31,10 +31,10 @@ struct DirectionsFormScreen: View {
                         Section("Passengers"){
                             Stepper("Count: \(passengerNumber)", value: $passengerNumber, in: 1...10)
                         }
-                        if let startCode = startStation?.code, let endCode = endStation?.code {
+                        if let startStation = startStation, let endStation = endStation {
                             Section{
                                 NavigationLink(destination: {
-                                    DirectionsResult(model: OfferViewModel(start: startCode, end: endCode, count: passengerNumber, date: time))
+                                    DirectionsResultScreen(model: OfferViewModel(start: startStation, end: endStation, passengerCount: passengerNumber, startDate: time))
                                 }, label: {
                                     Text("Search")
                                 })

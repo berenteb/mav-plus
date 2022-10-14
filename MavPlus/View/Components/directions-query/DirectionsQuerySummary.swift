@@ -11,64 +11,24 @@ struct DirectionsQuerySummary: View {
     
     @ObservedObject public var model: OfferViewModel
     
-    private func getOptionsString(input: [String]) -> String {
-        
-        var realInput: [String] = input
-        var result: String = (realInput.isEmpty ? String() : realInput.removeFirst())
-        
-        for optionsItem in realInput {
-            result += " "
-            result += optionsItem
-        }
-        
-        return result
-    }
-    
     var body: some View {
         
-        VStack(alignment: .leading, spacing: CGFloat(5)) {
-            HStack {
-                Text("From")
-                .bold()
-                
-                Spacer()
-                
-                Text(self.model.startCode)
+        Section("Parameters"){
+            HStack{
+                Image(systemName: "app.connected.to.app.below.fill")
+                VStack(alignment: .leading){
+                    Text(model.start.name)
+                    Text(model.end.name)
+                }
             }
-
-            HStack {
-                Text("To")
-                .bold()
-                
-                Spacer()
-                
-                Text(self.model.endCode)
-            }
-            
-            HStack {
-                Text("When")
-                .bold()
-                
-                Spacer()
-                
-                Text(self.model.startDate.formatted(date: .abbreviated, time: .shortened))
-            }
-            
-            HStack {
-                Text("Passengers")
-                .bold()
-                
-                Spacer()
-                
-                Text(self.model.passengerCount.description)
-            }
+            IconField(iconName: "person", value: String(model.passengerCount))
+            IconField(iconName: "clock", value: model.startDate.formatted(date: .long, time: .shortened))
         }
-        .padding()
     }
 }
 
 struct DirectionsQuerySummary_Previews: PreviewProvider {
     static var previews: some View {
-        DirectionsQuerySummary(model: OfferViewModel(start: "Vasalma", end: "Jónásapátfalva", count: 1, date: Date.now))
+        DirectionsQuerySummary(model: OfferViewModel(start: FormStationListItem(code: "asd", name: "Szeged"), end: FormStationListItem(code: "asd", name: "Szeged"), passengerCount: 1, startDate: Date.now))
     }
 }

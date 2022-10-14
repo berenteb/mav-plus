@@ -9,12 +9,13 @@
 /* Begin PBXBuildFile section */
 		DF292AC828F96CF20050C3B5 /* DirectionsFormViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF292AC728F96CF20050C3B5 /* DirectionsFormViewModel.swift */; };
 		DF292ACA28F975170050C3B5 /* StationPicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF292AC928F975170050C3B5 /* StationPicker.swift */; };
+		DF292ACC28F99D3A0050C3B5 /* IconField.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF292ACB28F99D3A0050C3B5 /* IconField.swift */; };
 		DF809B4128F5D2B200043E5E /* StationListScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF809B4028F5D2B200043E5E /* StationListScreen.swift */; };
 		DF809B4528F5E6AF00043E5E /* StationDetailsScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF809B4428F5E6AF00043E5E /* StationDetailsScreen.swift */; };
 		DF809B6028F7233000043E5E /* RssItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF809B4728F7233000043E5E /* RssItem.swift */; };
 		DF809B6228F7233000043E5E /* UniqueObjectWithId.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF809B4928F7233000043E5E /* UniqueObjectWithId.swift */; };
 		DF809B6428F7233000043E5E /* DirectionsFormScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF809B4E28F7233000043E5E /* DirectionsFormScreen.swift */; };
-		DF809B6528F7233000043E5E /* DirectionsResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF809B4F28F7233000043E5E /* DirectionsResult.swift */; };
+		DF809B6528F7233000043E5E /* DirectionsResultScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF809B4F28F7233000043E5E /* DirectionsResultScreen.swift */; };
 		DF809B6628F7233000043E5E /* DirectionsFinal.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF809B5028F7233000043E5E /* DirectionsFinal.swift */; };
 		DF809B6728F7233000043E5E /* TrafficNews.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF809B5128F7233000043E5E /* TrafficNews.swift */; };
 		DF809B6828F7233000043E5E /* HomeScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF809B5228F7233000043E5E /* HomeScreen.swift */; };
@@ -25,7 +26,6 @@
 		DF809B6D28F7233000043E5E /* SelectableTile.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF809B5828F7233000043E5E /* SelectableTile.swift */; };
 		DF809B6E28F7233000043E5E /* NormalButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF809B5928F7233000043E5E /* NormalButton.swift */; };
 		DF809B6F28F7233000043E5E /* StationInput.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF809B5A28F7233000043E5E /* StationInput.swift */; };
-		DF809B7128F7233000043E5E /* DirectionsQueryInput.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF809B5D28F7233000043E5E /* DirectionsQueryInput.swift */; };
 		DF809B7228F7233000043E5E /* DirectionsQuerySummary.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF809B5E28F7233000043E5E /* DirectionsQuerySummary.swift */; };
 		DF809B7328F7233000043E5E /* DirectionsOfferView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF809B5F28F7233000043E5E /* DirectionsOfferView.swift */; };
 		DFEBEFB728F32059007F3CCD /* MavPlusApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = DFEBEFB628F32059007F3CCD /* MavPlusApp.swift */; };
@@ -58,12 +58,13 @@
 /* Begin PBXFileReference section */
 		DF292AC728F96CF20050C3B5 /* DirectionsFormViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DirectionsFormViewModel.swift; sourceTree = "<group>"; };
 		DF292AC928F975170050C3B5 /* StationPicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StationPicker.swift; sourceTree = "<group>"; };
+		DF292ACB28F99D3A0050C3B5 /* IconField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IconField.swift; sourceTree = "<group>"; };
 		DF809B4028F5D2B200043E5E /* StationListScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StationListScreen.swift; sourceTree = "<group>"; };
 		DF809B4428F5E6AF00043E5E /* StationDetailsScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StationDetailsScreen.swift; sourceTree = "<group>"; };
 		DF809B4728F7233000043E5E /* RssItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RssItem.swift; sourceTree = "<group>"; };
 		DF809B4928F7233000043E5E /* UniqueObjectWithId.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UniqueObjectWithId.swift; sourceTree = "<group>"; };
 		DF809B4E28F7233000043E5E /* DirectionsFormScreen.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DirectionsFormScreen.swift; sourceTree = "<group>"; };
-		DF809B4F28F7233000043E5E /* DirectionsResult.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DirectionsResult.swift; sourceTree = "<group>"; };
+		DF809B4F28F7233000043E5E /* DirectionsResultScreen.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DirectionsResultScreen.swift; sourceTree = "<group>"; };
 		DF809B5028F7233000043E5E /* DirectionsFinal.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DirectionsFinal.swift; sourceTree = "<group>"; };
 		DF809B5128F7233000043E5E /* TrafficNews.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TrafficNews.swift; sourceTree = "<group>"; };
 		DF809B5228F7233000043E5E /* HomeScreen.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeScreen.swift; sourceTree = "<group>"; };
@@ -74,7 +75,6 @@
 		DF809B5828F7233000043E5E /* SelectableTile.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SelectableTile.swift; sourceTree = "<group>"; };
 		DF809B5928F7233000043E5E /* NormalButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NormalButton.swift; sourceTree = "<group>"; };
 		DF809B5A28F7233000043E5E /* StationInput.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StationInput.swift; sourceTree = "<group>"; };
-		DF809B5D28F7233000043E5E /* DirectionsQueryInput.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DirectionsQueryInput.swift; sourceTree = "<group>"; };
 		DF809B5E28F7233000043E5E /* DirectionsQuerySummary.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DirectionsQuerySummary.swift; sourceTree = "<group>"; };
 		DF809B5F28F7233000043E5E /* DirectionsOfferView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DirectionsOfferView.swift; sourceTree = "<group>"; };
 		DFEBEFB328F32059007F3CCD /* MavPlus.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MavPlus.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -140,6 +140,7 @@
 				DF809B5B28F7233000043E5E /* directions-query */,
 				DF809B5F28F7233000043E5E /* DirectionsOfferView.swift */,
 				DF292AC928F975170050C3B5 /* StationPicker.swift */,
+				DF292ACB28F99D3A0050C3B5 /* IconField.swift */,
 			);
 			path = Components;
 			sourceTree = "<group>";
@@ -147,7 +148,6 @@
 		DF809B5B28F7233000043E5E /* directions-query */ = {
 			isa = PBXGroup;
 			children = (
-				DF809B5D28F7233000043E5E /* DirectionsQueryInput.swift */,
 				DF809B5E28F7233000043E5E /* DirectionsQuerySummary.swift */,
 			);
 			path = "directions-query";
@@ -165,7 +165,7 @@
 			isa = PBXGroup;
 			children = (
 				DF809B4E28F7233000043E5E /* DirectionsFormScreen.swift */,
-				DF809B4F28F7233000043E5E /* DirectionsResult.swift */,
+				DF809B4F28F7233000043E5E /* DirectionsResultScreen.swift */,
 				DF809B5028F7233000043E5E /* DirectionsFinal.swift */,
 			);
 			path = Directions;
@@ -366,6 +366,7 @@
 				DFEBEFDF28F321A1007F3CCD /* Services.swift in Sources */,
 				DFEBEFDB28F321A1007F3CCD /* Customers.swift in Sources */,
 				DFEBEFE628F321B2007F3CCD /* StoreRepository.swift in Sources */,
+				DF292ACC28F99D3A0050C3B5 /* IconField.swift in Sources */,
 				DFEBEFF228F33E46007F3CCD /* Protocols.swift in Sources */,
 				DFEBEFCF28F32166007F3CCD /* Paths.swift in Sources */,
 				DFEBEFE828F32393007F3CCD /* ApiRequests.swift in Sources */,
@@ -382,8 +383,7 @@
 				DF809B6728F7233000043E5E /* TrafficNews.swift in Sources */,
 				DFEBEFDC28F321A1007F3CCD /* TrainLocation.swift in Sources */,
 				DFEBEFEA28F327F2007F3CCD /* StationListViewModel.swift in Sources */,
-				DF809B6528F7233000043E5E /* DirectionsResult.swift in Sources */,
-				DF809B7128F7233000043E5E /* DirectionsQueryInput.swift in Sources */,
+				DF809B6528F7233000043E5E /* DirectionsResultScreen.swift in Sources */,
 				DF809B7228F7233000043E5E /* DirectionsQuerySummary.swift in Sources */,
 				DF809B4128F5D2B200043E5E /* StationListScreen.swift in Sources */,
 				DFEBEFE228F321A1007F3CCD /* Stations.swift in Sources */,

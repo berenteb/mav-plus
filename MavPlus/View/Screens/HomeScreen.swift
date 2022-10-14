@@ -20,7 +20,7 @@ struct HomeScreen: View {
                 Section("Recents") {
                     ForEach(self.model.recentOffers) { directionItem in
                         NavigationLink(destination: {
-                            DirectionsResult(model: OfferViewModel(start: directionItem.startStationCode, end: directionItem.endStationCode, count: 2, date: .now))
+                            DirectionsResultScreen(model:OfferViewModel(start: FormStationListItem(code: directionItem.startStationCode, name: directionItem.startStationName), end: FormStationListItem(code: directionItem.endStationCode, name: directionItem.endStationName), passengerCount: 1, startDate: Date.now))
                         }, label: {
                             VStack(alignment: .leading, spacing: 5){
                                 Text(directionItem.startStationName)

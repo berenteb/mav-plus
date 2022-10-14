@@ -8,59 +8,21 @@
 import SwiftUI
 
 struct DirectionsOfferView: View {
-    
-    public let content: OfferData
-    public let selectColor: Color
-    public let unSelectColor: Color
-    
-    public init(content: OfferData, selectColor: Color = Color.blue, unSelectColor: Color = Color.teal) {
-        self.content = content
-        self.selectColor = selectColor
-        self.unSelectColor = unSelectColor
-    }
-    
-    @State private var isSelected: Bool = false
-    
-    private func getTrainData() -> Text? {
-        var result: Text? = nil
-        
-        if let actualType: String = self.content.type {
-            result = Text(actualType) + Text(" ")
-        }
-        
-        if let actualName: String = self.content.name {
-            let localText: Text = Text(actualName) + Text(" ")
-            
-            guard result != nil else {
-                result = localText
-                return result
-            }
-            
-            result = result! + localText
-        }
-        
-        return result
-    }
-    
+    @State var offer: OfferData
     var body: some View {
-        SelectableTile(selectColor: self.selectColor, unSelectColor: self.unSelectColor, isSelected: self.$isSelected) {
-            VStack(alignment: .leading, spacing: CGFloat(7)) {
-                HStack {
-                    /*
-                    Text(self.content.startTime.formatted(date: .omitted, time: .shortened)) + Text("-") + Text(self.content.endTime.formatted(date: .omitted, time: .shortened))
-                     */
-                    Text(self.content.travelTime)
-                    
-                    Spacer()
-                    
-                    Text(self.content.price.description) + Text(" HUF")
-                }
-                
-                Group {
-                    if let actualTrainData: Text = self.getTrainData() {
-                        actualTrainData
-                    }
-                }
+        VStack(alignment: .leading, spacing: 10){
+            HStack{
+                Text(offer.depDate.formatted(date: .omitted, time: .shortened))
+                Image(systemName: "arrow.forward")
+                Text(offer.arrDate.formatted(date: .omitted, time: .shortened))
+            }
+            IconField(iconName: "clock.arrow.circlepath", value: offer.travelTime)
+            IconField(iconName: "dollarsign", value: offer.price)
+            if offer.transferCount > 0 {
+                IconField(iconName: "arrow.left.arrow.right", value: String(offer.transferCount))
+            }
+            if let type = offer.type, let name = offer.name {
+                IconField(iconName: "tram.circle", value: "\(type) \(name)")
             }
         }
     }
@@ -69,8 +31,7 @@ struct DirectionsOfferView: View {
 struct DirectionsOfferView_Previews: PreviewProvider {
     static var previews: some View {
         DirectionsOfferView(
-            content: OfferData(startStationName: "Vasalma", endStationName: "Budapest Keleti", price: "2000 HUF", travelTime: "16min", transferCount: 1),
-            selectColor: Color.blue, unSelectColor: Color.teal
+            offer: OfferData(startStationName: "Vasalma", endStationName: "Budapest Keleti", depDate: Date(), arrDate: Date(), price: "2000 HUF", travelTime: "16min", transferCount: 1)
         )
     }
 }

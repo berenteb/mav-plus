@@ -157,7 +157,6 @@ func offerRequest(startCode: String, endCode: String, passengerCount: Int, start
     
     guard let encodedBody = try? JSONEncoder().encode(body) else {return}
     request.httpBody = encodedBody
-    print(body)
     let task = URLSession.shared.dataTask(with: request) { data, response, error in
         if(error != nil){
             return
