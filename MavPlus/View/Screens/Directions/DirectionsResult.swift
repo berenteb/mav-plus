@@ -9,19 +9,18 @@ import SwiftUI
 
 struct DirectionsResult: View {
     
-    public let query: DirectionsQuery
     @ObservedObject var model: OfferViewModel
     
     var body: some View {
         VStack {
-            DirectionsQuerySummary(content: self.query)
+            DirectionsQuerySummary(model: self.model)
             Group {
-//                if (self.model.isLoading) {
-//                    ProgressView()
-//                }
+                if (self.model.isLoading) {
+                    ProgressView()
+                }
                 List(self.model.offers) { item in
                     NavigationLink {
-                        DirectionsFinal(query: self.query, offer: item)
+                        DirectionsFinal(model: self.model, offer: item)
                     } label: {
                         DirectionsOfferView(content: item)
                             .disabled(true)
@@ -36,10 +35,10 @@ struct DirectionsResult: View {
     }
 }
 
-/*
+
  struct DirectionsResult_Previews: PreviewProvider {
- static var previews: some View {
- DirectionsResult(query: DirectionsQuery(time: Date.now, isDepartureTime: true, startStation: "Vasalma", endStation: "Jónásapátfalva", passengerNumber: 1, additionalOptions: ["With Bike"]))
+     static var previews: some View {
+         DirectionsResult(model: OfferViewModel(start: "Vasalma", end: "Jónásapátfalva", count: 1, date: Date.now))
+     }
  }
- }
- */
+ 

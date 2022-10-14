@@ -8,46 +8,36 @@
 import SwiftUI
 
 struct Directions: View {
-    @State var from: String = ""
-    @State var to: String = ""
+    
+    @State private var startStation: String = String()
+    @State private var endStation: String = String()
+    @State private var time: Date = Date.now
+    @State private var isDeparture: Bool = true
+    @State private var passengerNumber: Int = 1
     
     var body: some View {
         GeometryReader { root in
             NavigationStack {
                 VStack {
-                    TextField("Origin", text: $from)
-                    .frame(maxWidth: (root.size.width / 2))
-                    .padding(CGFloat(5))
-                    .cornerRadius(CGFloat(5))
-                    .overlay(
-                        RoundedRectangle(cornerRadius: 5)
-                            .stroke(.blue, lineWidth: 2)
-                    )
-                    TextField("Destination", text: $to)
-                    .frame(maxWidth: (root.size.width / 2))
-                    .padding(CGFloat(5))
-                    .cornerRadius(CGFloat(5))
-                    .overlay(
-                        RoundedRectangle(cornerRadius: 5)
-                            .stroke(.blue, lineWidth: 2)
+                    DirectionsQueryInput(
+                        startStation: self.$startStation,
+                        endStation: self.$endStation,
+                        time: self.$time,
+                        isDeparture: self.$isDeparture,
+                        passengerNumber: self.$passengerNumber
                     )
                     
                     NavigationLink {
-                        DirectionsResult(
-                            query:
-                                DirectionsQuery(
-                                    time: Date(),
-                                    isDepartureTime: true,
-                                    startStation: from,
-                                    endStation: to,
-                                    passengerNumber: 2
-                                ),
-                            model: OfferViewModel(start: from, end: to, count: 2)
-                        )
+                        DirectionsResult(model: OfferViewModel(
+                            start: self.startStation,
+                            end: self.endStation,
+                            count: self.passengerNumber,
+                            date: self.time
+                        ))
                     } label: {
                         NormalButton(name: "Plan", geo: root, backgroundColor: Color.green, action: {})
-                        .disabled(true)
-                        .foregroundColor(Color.black)
+                            .disabled(true)
+                            .foregroundColor(Color.black)
                     }
                 }
                 .navigationTitle("Route")
@@ -57,10 +47,9 @@ struct Directions: View {
     }
 }
 
-/*
+
 struct Directions_Previews: PreviewProvider {
     static var previews: some View {
         Directions()
     }
 }
-*/

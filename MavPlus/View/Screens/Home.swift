@@ -23,42 +23,29 @@ struct Home: View {
     
     var body: some View {
         NavigationStack {
-            VStack(alignment: .leading, spacing: CGFloat(5)) {
-//                Group {
-//                    Text("Recents")
-//                    .font(.title2)
-//                    .bold()
-//
-//                    ForEach(self.model.recentOffers) { directionItem in
-//                        Group {
-//                            Text(directionItem.startStationName) + Text("->") + Text(directionItem.endStationName)
-//                        }
-//                        .foregroundColor(Color.blue)
-//                        .onTapGesture {
-//                            self.tabSelection = "directions"
-//                        }
-//                    }
-//                }
+            List {
+                Section("Recents") {
+                    ForEach(self.model.recentOffers) { directionItem in
+                        NavigationLink(destination: {
+                            DirectionsResult(model: OfferViewModel(start: directionItem.startStationCode, end: directionItem.endStationCode, count: 2, date: .now))
+                        }, label: {
+                            VStack(alignment: .leading, spacing: 5){
+                                Text(directionItem.startStationName)
+                                Text(directionItem.endStationName)
+                            }
+                        })
+                    }
+                }
                 
-                Group {
-                    Text("Favorites")
-                    .font(.title2)
-                    .bold()
-                    
-                    List(self.model.favoriteStations, id: \.code) { stationItem in
-                        Text(stationItem.name)
-                        .foregroundColor(Color.blue)
-                        .onTapGesture {
-                            self.tabSelection = "map"
+                Section("Favorites") {
+                    ForEach(self.model.favoriteStations, id: \.code) { stationItem in
+                        NavigationLink(stationItem.name){
+                            StationDetailsScreen(code: stationItem.code)
                         }
                     }
                 }
                 
-                Group {
-                    Text("Alerts")
-                    .font(.title2)
-                    .bold()
-                    
+                Section("Alerts") {
                     ForEach(self.getTrafficNews()) { newsItem in
                         Text(newsItem.title)
                         .foregroundColor(Color.blue)
@@ -73,7 +60,6 @@ struct Home: View {
     }
 }
 
-/*
 struct Home_Previews: PreviewProvider {
     
     @State private static var isSelected: String = "home"
@@ -82,4 +68,3 @@ struct Home_Previews: PreviewProvider {
         Home(tabSelection: $isSelected)
     }
 }
-*/

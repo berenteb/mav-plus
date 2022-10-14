@@ -20,23 +20,25 @@ class OfferViewModel: OfferProtocol, ObservableObject {
     @Published var offers: [OfferData]
     @Published var isLoading: Bool
     @Published var isError: Bool
-    private var startCode: String
-    private var endCode: String
-    private var passengerCount: Int
+    private(set) var startCode: String
+    private(set) var endCode: String
+    private(set) var passengerCount: Int
+    private(set) var startDate: Date
     
-    init(start: String, end: String, count: Int) {
+    init(start: String, end: String, count: Int, date: Date) {
         self.startCode = start
         self.endCode = end
         self.offers = []
         self.isLoading = true
         self.isError = false
         self.passengerCount = count
+        self.startDate = date
     }
     
     func update() {
         isLoading = true
         isError = false
-        ApiRepository.shared.getOffer(startCode: startCode, endCode: endCode, passengerCount: passengerCount){ offers, error in
+        ApiRepository.shared.getOffer(startCode: startCode, endCode: endCode, passengerCount: passengerCount, startDate: self.startDate){ offers, error in
             self.isError = error != nil
             self.offers = []
             guard let routes = offers?.route else { return }
@@ -45,7 +47,7 @@ class OfferViewModel: OfferProtocol, ObservableObject {
                 let startName = routeDetails.startStation?.name ?? "Unknown"
                 let sCode = routeDetails.startStation?.code
                 let endName = routeDetails.destionationStation?.name ?? "Unknown"
-                let eCode = routeDetails.startStation?.code
+                let eCode = routeDetails.destionationStation?.code
                 let price = routeDetails.travelClasses?[0].price
                 let priceTag = "\(price?.amount ?? 0) \(price?.currency?.name ?? "?")"
                 let transferCount = route.transfersCount ?? 0

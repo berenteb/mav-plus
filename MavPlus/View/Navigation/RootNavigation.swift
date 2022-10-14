@@ -13,36 +13,42 @@ struct RootNavigation: View {
     
     var body: some View {
         TabView(selection: self.$tabSelection) {
-            Home(tabSelection: self.$tabSelection)
-                .tabItem {
-                    Image(systemName: "house")
-                }
-                .tag("home")
+
             TrafficNews()
-                .tabItem {
-                    Image(systemName: "exclamationmark.triangle")
-                }
-                .tag("traffic")
-            Directions()
-                .tabItem {
-                    Image(systemName: "signpost.right")
-                }
-                .tag("directions")
-            StationListScreen()
-                .tabItem{
-                    Label("Stations", systemImage: "list.bullet")
-                }.tag("stations")
-            MavMap(model: MapViewModel())
-                .tabItem {
-                    Image(systemName: "map")
-                }
-                .tag("map")
+            .tabItem {
+                Image(systemName: "exclamationmark.triangle")
+            }
+            .tag("traffic")
             
-            Settings()
-                .tabItem {
-                    Image(systemName: "gearshape.2")
-                }
-                .tag("settings")
+            Directions()
+            .tabItem {
+                Image(systemName: "signpost.right")
+            }
+            .tag("directions")
+            
+            Home(tabSelection: self.$tabSelection)
+            .tabItem {
+                Image(systemName: "house")
+            }
+            .tag("home")
+            
+            MavMap(model: MapViewModel())
+            .tabItem {
+                Image(systemName: "map")
+            }
+            .tag("map")
+            
+            StationListScreen()
+            .tabItem{
+                Image(systemName: "list.bullet")
+            }
+            .tag("stations")
+            
+//            Settings()
+//            .tabItem {
+//                Image(systemName: "gearshape.2")
+//            }
+//            .tag("settings")
             
         }
     }

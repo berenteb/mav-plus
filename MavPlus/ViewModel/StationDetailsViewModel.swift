@@ -54,5 +54,6 @@ class StationDetailsViewModel: StationDetailsProtocol, ObservableObject {
                 StoreRepository.shared.saveFavoriteStation(code: self.code)
             }
         }
+        self.station?.isFavorite.toggle()
     }
 }
