@@ -14,6 +14,18 @@ struct HomeScreen: View {
         return result
     }
     
+    func removeRecent(index: IndexSet) {
+        guard let i = index.first else {return}
+        let item = model.recentOffers[i]
+        StoreRepository.shared.deleteRecentOffer(id:item.id)
+    }
+    
+    func removeFavorite(index: IndexSet) {
+        guard let i = index.first else {return}
+        let item = model.favoriteStations[i]
+        StoreRepository.shared.deleteFavoriteStation(code: item.code)
+    }
+        
     var body: some View {
         NavigationStack {
             List {
@@ -27,7 +39,7 @@ struct HomeScreen: View {
                                 Text(directionItem.endStationName)
                             }
                         })
-                    }
+                    }.onDelete(perform: removeRecent)
                 }
                 
                 Section("Favorites") {
@@ -35,16 +47,16 @@ struct HomeScreen: View {
                         NavigationLink(stationItem.name){
                             StationDetailsScreen(code: stationItem.code)
                         }
-                    }
+                    }.onDelete(perform: removeFavorite)
                 }
                 
                 Section("Alerts") {
                     ForEach(self.getTrafficNews()) { newsItem in
                         Text(newsItem.title)
-                        .foregroundColor(Color.blue)
-                        .onTapGesture {
-                            self.tabSelection = "traffic"
-                        }
+                            .foregroundColor(Color.blue)
+                            .onTapGesture {
+                                self.tabSelection = "traffic"
+                            }
                     }
                 }
             }
