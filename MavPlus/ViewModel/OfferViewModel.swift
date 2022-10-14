@@ -47,7 +47,7 @@ class OfferViewModel: OfferProtocol, ObservableObject {
                 let startName = routeDetails.startStation?.name ?? "Unknown"
                 let sCode = routeDetails.startStation?.code
                 let endName = routeDetails.destionationStation?.name ?? "Unknown"
-                let eCode = routeDetails.startStation?.code
+                let eCode = routeDetails.destionationStation?.code
                 let price = routeDetails.travelClasses?[0].price
                 let priceTag = "\(price?.amount ?? 0) \(price?.currency?.name ?? "?")"
                 let transferCount = route.transfersCount ?? 0

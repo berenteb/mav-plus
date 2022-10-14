@@ -26,22 +26,21 @@ struct Home: View {
             List {
                 Section("Recents") {
                     ForEach(self.model.recentOffers) { directionItem in
-                        Group {
-                            Text(directionItem.startStationName) + Text("->") + Text(directionItem.endStationName)
-                        }
-                        .foregroundColor(Color.blue)
-                        .onTapGesture {
-                            self.tabSelection = "directions"
-                        }
+                        NavigationLink(destination: {
+                            DirectionsResult(model: OfferViewModel(start: directionItem.startStationCode, end: directionItem.endStationCode, count: 2, date: .now))
+                        }, label: {
+                            VStack(alignment: .leading, spacing: 5){
+                                Text(directionItem.startStationName)
+                                Text(directionItem.endStationName)
+                            }
+                        })
                     }
                 }
                 
                 Section("Favorites") {
                     ForEach(self.model.favoriteStations, id: \.code) { stationItem in
-                        Text(stationItem.name)
-                        .foregroundColor(Color.blue)
-                        .onTapGesture {
-                            self.tabSelection = "map"
+                        NavigationLink(stationItem.name){
+                            StationDetailsScreen(code: stationItem.code)
                         }
                     }
                 }

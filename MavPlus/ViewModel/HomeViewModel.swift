@@ -1,4 +1,5 @@
 import Foundation
+import Combine
 
 protocol HomeProtocol: Updateable {
     var favoriteStations: [FavoriteStationListItem] {get}
@@ -23,10 +24,12 @@ class HomeViewModel: HomeProtocol, ObservableObject {
     @Published var favoriteStations: [FavoriteStationListItem]
     @Published var recentOffers: [RecentOfferListItem]
     
+    private var disposables = Set<AnyCancellable>()
+    
     init() {
         self.favoriteStations = []
         self.recentOffers = []
-        update()
+        subscribe()
     }
     
     func deleteRecentOffer(id: UUID){
@@ -34,7 +37,23 @@ class HomeViewModel: HomeProtocol, ObservableObject {
         update()
     }
     
+    func subscribe(){
+        ApiRepository.shared.publisher
+            .sink(receiveValue: { [unowned self] value in
+                update()
+                })
+            .store(in: &disposables)
+        StoreRepository.shared.publisher.sink(receiveValue: {[unowned self] value in
+            update()
+        }).store(in: &disposables)
+    }
+    
     func update(){
+        updateRecentOffers()
+        updateFavoriteStations()
+    }
+    
+    func updateFavoriteStations(){
         self.favoriteStations = ApiRepository.shared.stationList
             .filter { station in
                 guard let code = station.code else {return false}
@@ -42,6 +61,10 @@ class HomeViewModel: HomeProtocol, ObservableObject {
             }.map{ fs in
                 return FavoriteStationListItem(name: fs.name ?? "Unknown", code: fs.code!)
             }
+        
+    }
+    
+    func updateRecentOffers(){
         self.recentOffers = []
         StoreRepository.shared.recentOffers.forEach{offer in
             let startName = ApiRepository.shared.stationList.first{station in station.code==offer.startCode}?.name ?? "Unknown"

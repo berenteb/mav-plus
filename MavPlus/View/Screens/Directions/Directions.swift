@@ -29,15 +29,15 @@ struct Directions: View {
                     
                     NavigationLink {
                         DirectionsResult(model: OfferViewModel(
-                                                                start: self.startStation,
-                                                                end: self.endStation,
-                                                                count: self.passengerNumber,
-                                                                date: self.time
+                            start: self.startStation,
+                            end: self.endStation,
+                            count: self.passengerNumber,
+                            date: self.time
                         ))
                     } label: {
                         NormalButton(name: "Plan", geo: root, backgroundColor: Color.green, action: {})
-                        .disabled(true)
-                        .foregroundColor(Color.black)
+                            .disabled(true)
+                            .foregroundColor(Color.black)
                     }
                 }
                 .navigationTitle("Route")

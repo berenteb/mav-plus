@@ -21,45 +21,45 @@ struct DirectionsQueryInput: View {
                 
                 HStack {
                     Text("From")
-                    .bold()
+                        .bold()
                     
                     Spacer()
                     
                     TextField("Origin", text: self.$startStation)
-                    .frame(maxWidth: (root.size.width / 2))
-                    .padding(CGFloat(5))
-                    .cornerRadius(CGFloat(5))
-                    .overlay(
-                        RoundedRectangle(cornerRadius: 5)
-                        .stroke(.blue, lineWidth: 2)
-                    )
+                        .frame(maxWidth: (root.size.width / 2))
+                        .padding(CGFloat(5))
+                        .cornerRadius(CGFloat(5))
+                        .overlay(
+                            RoundedRectangle(cornerRadius: 5)
+                                .stroke(.blue, lineWidth: 2)
+                        )
                 }
                 
                 HStack {
                     Text("To")
-                    .bold()
+                        .bold()
                     
                     Spacer()
                     
                     TextField("Destination", text: self.$endStation)
-                    .frame(maxWidth: (root.size.width / 2))
-                    .padding(CGFloat(5))
-                    .cornerRadius(CGFloat(5))
-                    .overlay(
-                        RoundedRectangle(cornerRadius: 5)
-                            .stroke(.blue, lineWidth: 2)
-                    )
+                        .frame(maxWidth: (root.size.width / 2))
+                        .padding(CGFloat(5))
+                        .cornerRadius(CGFloat(5))
+                        .overlay(
+                            RoundedRectangle(cornerRadius: 5)
+                                .stroke(.blue, lineWidth: 2)
+                        )
                 }
                 
                 HStack {
                     Text("When")
-                    .bold()
+                        .bold()
                     
                     Spacer()
                     
                     VStack(alignment: .trailing) {
                         Toggle( (self.isDeparture ? "Leave at" : "Arrive by"), isOn: self.$isDeparture)
-                        .frame(maxWidth: (root.size.width / 2))
+                            .frame(maxWidth: (root.size.width / 2))
                         
                         DatePicker(
                             "",
@@ -71,7 +71,7 @@ struct DirectionsQueryInput: View {
                 
                 HStack {
                     Text("Passengers")
-                    .bold()
+                        .bold()
                     
                     Spacer()
                     

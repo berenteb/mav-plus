@@ -1,12 +1,40 @@
 import Foundation
+import Combine
 
-class StoreRepository: ObservableObject{
+protocol StoreProtocol {
+    static var shared: any StoreProtocol {get}
     
-    static let shared = StoreRepository()
+    var favoriteStations: [FavoriteStation] {get}
+    var recentOffers: [RecentOffer] {get}
+    var controller: PersistenceController {get}
     
-    @Published var favoriteStations: [FavoriteStation]
-    @Published var recentOffers: [RecentOffer]
+    func updateFavoriteStationList() -> Void
+    func deleteFavoriteStation(code: String) -> Void
+    func saveFavoriteStation(code: String) -> Void
+    
+    func updateRecentOfferList() -> Void
+    func deleteRecentOffer(id: UUID) -> Void
+    func saveRecentOffer(startCode: String, endCode: String) -> Void
+    
+    func isFavoriteStation(code: String) -> Bool
+    
+    var publisher: PassthroughSubject<StoreFields, Never> { get }
+}
+
+struct StoreFields {
+    var favoriteStations: [FavoriteStation]
+    var recentOffers: [RecentOffer]
+}
+
+class StoreRepository: StoreProtocol{
+    
+    static var shared = StoreRepository() as (any StoreProtocol)
+    
+    var favoriteStations: [FavoriteStation]
+    var recentOffers: [RecentOffer]
     var controller: PersistenceController
+    
+    var publisher = PassthroughSubject<StoreFields, Never>()
     
     private init(){
         self.favoriteStations = []
@@ -16,8 +44,13 @@ class StoreRepository: ObservableObject{
         updateRecentOfferList()
     }
     
+    func notify(){
+        publisher.send(StoreFields(favoriteStations: favoriteStations, recentOffers: recentOffers))
+    }
+    
     func updateFavoriteStationList(){
         self.favoriteStations = controller.getFavoriteStationList()
+        notify()
     }
     
     func deleteFavoriteStation(code: String){
@@ -32,6 +65,7 @@ class StoreRepository: ObservableObject{
     
     func updateRecentOfferList(){
         self.recentOffers = controller.getRecentOfferList()
+        notify()
     }
     
     func deleteRecentOffer(id: UUID){
@@ -40,6 +74,10 @@ class StoreRepository: ObservableObject{
     }
     
     func saveRecentOffer(startCode: String, endCode: String){
+        let sameOffer = recentOffers.first{item in
+            return item.startCode == startCode && item.endCode == endCode
+        }
+        if sameOffer != nil {return}
         controller.saveRecentOffer(startCode: startCode, endCode: endCode)
         updateRecentOfferList()
     }
