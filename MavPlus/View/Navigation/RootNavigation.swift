@@ -20,13 +20,13 @@ struct RootNavigation: View {
             }
             .tag("traffic")
             
-            Directions()
+            DirectionsFormScreen()
             .tabItem {
                 Image(systemName: "signpost.right")
             }
             .tag("directions")
             
-            Home(tabSelection: self.$tabSelection)
+            HomeScreen(tabSelection: self.$tabSelection)
             .tabItem {
                 Image(systemName: "house")
             }
