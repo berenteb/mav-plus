@@ -10,6 +10,8 @@
 		DF292AC828F96CF20050C3B5 /* DirectionsFormViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF292AC728F96CF20050C3B5 /* DirectionsFormViewModel.swift */; };
 		DF292ACA28F975170050C3B5 /* StationPicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF292AC928F975170050C3B5 /* StationPicker.swift */; };
 		DF292ACC28F99D3A0050C3B5 /* IconField.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF292ACB28F99D3A0050C3B5 /* IconField.swift */; };
+		DF292AD128FC61930050C3B5 /* StationDetailsMapScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF292AD028FC61930050C3B5 /* StationDetailsMapScreen.swift */; };
+		DF292AD428FC72BF0050C3B5 /* Stations.plist in Resources */ = {isa = PBXBuildFile; fileRef = DF292AD328FC72BF0050C3B5 /* Stations.plist */; };
 		DF809B4128F5D2B200043E5E /* StationListScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF809B4028F5D2B200043E5E /* StationListScreen.swift */; };
 		DF809B4528F5E6AF00043E5E /* StationDetailsScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF809B4428F5E6AF00043E5E /* StationDetailsScreen.swift */; };
 		DF809B6028F7233000043E5E /* RssItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF809B4728F7233000043E5E /* RssItem.swift */; };
@@ -59,6 +61,8 @@
 		DF292AC728F96CF20050C3B5 /* DirectionsFormViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DirectionsFormViewModel.swift; sourceTree = "<group>"; };
 		DF292AC928F975170050C3B5 /* StationPicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StationPicker.swift; sourceTree = "<group>"; };
 		DF292ACB28F99D3A0050C3B5 /* IconField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IconField.swift; sourceTree = "<group>"; };
+		DF292AD028FC61930050C3B5 /* StationDetailsMapScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StationDetailsMapScreen.swift; sourceTree = "<group>"; };
+		DF292AD328FC72BF0050C3B5 /* Stations.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Stations.plist; sourceTree = "<group>"; };
 		DF809B4028F5D2B200043E5E /* StationListScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StationListScreen.swift; sourceTree = "<group>"; };
 		DF809B4428F5E6AF00043E5E /* StationDetailsScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StationDetailsScreen.swift; sourceTree = "<group>"; };
 		DF809B4728F7233000043E5E /* RssItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RssItem.swift; sourceTree = "<group>"; };
@@ -116,6 +120,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		DF292AD228FC72A70050C3B5 /* Resource */ = {
+			isa = PBXGroup;
+			children = (
+				DF292AD328FC72BF0050C3B5 /* Stations.plist */,
+			);
+			path = Resource;
+			sourceTree = "<group>";
+		};
 		DF809B3E28F5D29B00043E5E /* Screens */ = {
 			isa = PBXGroup;
 			children = (
@@ -125,6 +137,7 @@
 				DF809B5428F7233000043E5E /* MavMap.swift */,
 				DF809B7528F7249100043E5E /* Directions */,
 				DF809B4028F5D2B200043E5E /* StationListScreen.swift */,
+				DF292AD028FC61930050C3B5 /* StationDetailsMapScreen.swift */,
 				DF809B4428F5E6AF00043E5E /* StationDetailsScreen.swift */,
 			);
 			path = Screens;
@@ -190,6 +203,7 @@
 		DFEBEFB528F32059007F3CCD /* MavPlus */ = {
 			isa = PBXGroup;
 			children = (
+				DF292AD228FC72A70050C3B5 /* Resource */,
 				DFEBEFD028F32196007F3CCD /* Types */,
 				DFEBEFCD28F3214B007F3CCD /* Utility */,
 				DFEBEFCC28F32144007F3CCD /* View */,
@@ -340,6 +354,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				DFEBEFBE28F3205C007F3CCD /* Preview Assets.xcassets in Resources */,
+				DF292AD428FC72BF0050C3B5 /* Stations.plist in Resources */,
 				DFEBEFBB28F3205C007F3CCD /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -367,6 +382,7 @@
 				DFEBEFDB28F321A1007F3CCD /* Customers.swift in Sources */,
 				DFEBEFE628F321B2007F3CCD /* StoreRepository.swift in Sources */,
 				DF292ACC28F99D3A0050C3B5 /* IconField.swift in Sources */,
+				DF292AD128FC61930050C3B5 /* StationDetailsMapScreen.swift in Sources */,
 				DFEBEFF228F33E46007F3CCD /* Protocols.swift in Sources */,
 				DFEBEFCF28F32166007F3CCD /* Paths.swift in Sources */,
 				DFEBEFE828F32393007F3CCD /* ApiRequests.swift in Sources */,

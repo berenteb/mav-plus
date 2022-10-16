@@ -1,11 +1,19 @@
 import Foundation
 import Combine
 
+struct StationLocation: Decodable {
+    var code: String
+    var name: String
+    var lat: Double?
+    var lon: Double?
+}
+
 protocol ApiProtocol: Updateable{
     static var shared: any ApiProtocol {get}
     var cities: Cities {get}
     var customers: CustomersAndDiscounts? {get}
     var stationList: StationList {get}
+    var stationLocationList: [StationLocation] {get}
     var services: ServicesDto? {get}
     func updateCities() -> Void
     func updateCustomersAndDiscounts() -> Void
@@ -29,10 +37,12 @@ class ApiRepository: ApiProtocol{
     var customers: CustomersAndDiscounts?
     var stationList: StationList = []
     var services: ServicesDto?
+    var stationLocationList: [StationLocation] = []
     
     var publisher = PassthroughSubject<ApiRepositoryFields, Never>()
     
     private init() {
+        getStationLocation()
         update()
     }
     
@@ -76,6 +86,17 @@ class ApiRepository: ApiProtocol{
     
     func getOffer(startCode: String, endCode: String, passengerCount: Int, startDate: Date, completion: @escaping (Offer?, Error?) -> Void){
         offerRequest(startCode: startCode, endCode: endCode, passengerCount: passengerCount, startDate: startDate, completion: completion)
+    }
+    
+    func getStationLocation(){
+        var result: [StationLocation] = []
+        if let path = Bundle.main.path(forResource: "Stations", ofType: "plist"), let xml = FileManager.default.contents(atPath: path)
+        {
+            if let list = try? PropertyListDecoder().decode([StationLocation].self, from: xml) {
+                result = list
+            }
+        }
+        self.stationLocationList = result
     }
     
 }

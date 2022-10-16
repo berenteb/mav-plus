@@ -1,9 +1,11 @@
 import Foundation
+import MapKit
 import Combine
 
 struct StationListItem {
     var code: String
     var name: String
+    var location: CLLocationCoordinate2D?
 }
 
 protocol StationListProtocol: Updateable, ObservableObject {
@@ -11,12 +13,11 @@ protocol StationListProtocol: Updateable, ObservableObject {
 }
 
 class StationListViewModel: StationListProtocol {
-    @Published var stationList: [StationListItem]
+    @Published var stationList: [StationListItem] = []
     
     private var disposables = Set<AnyCancellable>()
     
     init(){
-        self.stationList = []
         subscribe()
     }
     
@@ -25,9 +26,16 @@ class StationListViewModel: StationListProtocol {
             .sink(
                 receiveCompletion: {error in
                     print(error)
-                }, receiveValue: { [unowned self] value in
-                    self.stationList = value.stationList.map{station in
-                        return StationListItem(code: station.code ?? "", name: station.name ?? "Unknown")
+                }, receiveValue: { [weak self] value in
+                    self?.stationList = value.stationList.map{station in
+                        let location = ApiRepository.shared.stationLocationList.first{ loc in
+                            return loc.code == station.code
+                        }
+                        var listItem = StationListItem(code: station.code ?? "", name: station.name ?? "Unknown")
+                        if let lat = location?.lat, let lon = location?.lon {
+                            listItem.location = CLLocationCoordinate2D(latitude: lat, longitude: lon)
+                        }
+                        return listItem
                     }
                 })
             .store(in: &disposables)
