@@ -21,13 +21,26 @@ struct StationDetailsScreen: View {
             if viewModel.isLoading {
                 ProgressView()
             }else if let station = viewModel.station{
-                    List(station.departures, id: \.trainCode){dep in
-                        HStack{
-                            Text(dep.destinationStationName)
-                            Spacer()
-                            Text(dep.departureDate?.formatted() ?? "?")
+                List{
+                    if station.location != nil {
+                        Section("Map"){
+                            NavigationLink(destination:{
+                                StationDetailsMapScreen(viewModel: viewModel)
+                            },label:{
+                                Label("Show on map", systemImage: "map.fill")
+                            })
                         }
                     }
+                    Section("Departures"){
+                        ForEach(station.departures, id: \.trainCode){dep in
+                            HStack{
+                                Text(dep.destinationStationName)
+                                Spacer()
+                                Text(dep.departureDate?.formatted(date: .omitted, time: .standard) ?? "?")
+                            }
+                        }
+                    }
+                }
             }else{
                 Text("Error")
             }

@@ -1,9 +1,11 @@
 import Foundation
+import MapKit
 
 struct StationDetails {
     var name: String
     var isFavorite: Bool
     var departures: [Departure]
+    var location: CLLocationCoordinate2D?
 }
 
 struct Departure {
@@ -41,7 +43,14 @@ class StationDetailsViewModel: StationDetailsProtocol, ObservableObject {
                     departures.append(Departure(trainCode: dep.kind?.code ?? "", fromStationName: dep.startStation?.name ?? "Unknown", destinationStationName: dep.endStation?.name ?? "Unknown", trainName: dep.fullNameAndType, departureDate: DateFromIso(dep.actualOrEstimatedStart ?? "")))
                 }
             }
-            self.station = StationDetails(name: station?.stationSchedulerDetails?.station?.name ?? "Unknown", isFavorite: StoreRepository.shared.isFavoriteStation(code: self.code), departures: departures)
+            let location = ApiRepository.shared.stationLocationList.first{ loc in
+                return loc.code == self.code
+            }
+            var station = StationDetails(name: station?.stationSchedulerDetails?.station?.name ?? "Unknown", isFavorite: StoreRepository.shared.isFavoriteStation(code: self.code), departures: departures)
+            if let lat = location?.lat, let lon = location?.lon {
+                station.location = CLLocationCoordinate2D(latitude: lat, longitude: lon)
+            }
+            self.station = station
             self.isLoading = false
         }
     }
@@ -54,5 +63,6 @@ class StationDetailsViewModel: StationDetailsProtocol, ObservableObject {
                 StoreRepository.shared.saveFavoriteStation(code: self.code)
             }
         }
+        self.station?.isFavorite.toggle()
     }
 }

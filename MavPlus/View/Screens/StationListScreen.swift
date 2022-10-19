@@ -9,18 +9,31 @@ import SwiftUI
 
 struct StationListScreen: View {
     @ObservedObject var viewModel: StationListViewModel = StationListViewModel()
+    @State var searchText = ""
     var body: some View {
         NavigationView{
-                List(viewModel.stationList, id:\.code ){ item in
-                    NavigationLink(item.name){
-                        StationDetailsScreen(code: item.code)
-                    }
-                }.onAppear{
-                    viewModel.update()
-                }.refreshable {
-                    viewModel.update()
-                }.navigationTitle("Stations")
-        }.navigationViewStyle(.stack)
+            List(filteredStations, id:\.code ){ item in
+                NavigationLink(item.name){
+                    StationDetailsScreen(code: item.code)
+                }
+            }.onAppear{
+                viewModel.update()
+            }.refreshable {
+                viewModel.update()
+            }.navigationTitle("Stations")
+        }
+        .navigationViewStyle(.stack)
+        .searchable(
+            text: $searchText,
+            placement: .navigationBarDrawer(displayMode: .always)
+        )
+    }
+    var filteredStations: [StationListItem] {
+        if searchText.isEmpty {
+            return viewModel.stationList
+        } else {
+            return viewModel.stationList.filter { $0.name.localizedCaseInsensitiveContains(searchText) }
+        }
     }
 }
 

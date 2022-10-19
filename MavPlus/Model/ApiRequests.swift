@@ -143,7 +143,7 @@ func stationInfoRequest(stationNumberCode: String,completion: @escaping (Station
     task.resume()
 }
 
-func offerRequest(startCode: String, endCode: String, passengerCount: Int, completion: @escaping (Offer?, Error?) -> Void){
+func offerRequest(startCode: String, endCode: String, passengerCount: Int, startDate: Date, completion: @escaping (Offer?, Error?) -> Void){
     let url = URL(string: OfferRequestPath)!
     var request = URLRequest(url: url)
     request.setValue("application/json", forHTTPHeaderField: "Content-Type")
@@ -153,11 +153,10 @@ func offerRequest(startCode: String, endCode: String, passengerCount: Int, compl
     
     let passenger = Passenger(passengerCount: passengerCount, passengerId: 0, customerTypeKey: "HU_44_026-065")
     
-    let body = OfferRequestQueryDto(startStationCode: startCode, endStationCode: endCode, passangers: [passenger], travelStartDate: Date().ISO8601Format(), travelReturnDate: Date().ISO8601Format())
+    let body = OfferRequestQueryDto(startStationCode: startCode, endStationCode: endCode, passangers: [passenger], travelStartDate: startDate.ISO8601Format(), travelReturnDate: Date().ISO8601Format())
     
     guard let encodedBody = try? JSONEncoder().encode(body) else {return}
     request.httpBody = encodedBody
-    print(body)
     let task = URLSession.shared.dataTask(with: request) { data, response, error in
         if(error != nil){
             return

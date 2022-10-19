@@ -62,7 +62,7 @@ struct DetailsRoute: Codable {
     let travelClasses: [TravelClass]?
     let startStation, destionationStation: DestionationStationClass?
     let touchedStationsString: String?
-    let havariaInfo: HavarianInfok?
+    let havariaInfo: String?
     let distance: Int?
     let description: String?
     let masodlagosEszkozSzolgaltatasok: [MasodlagosEszkozSzolgaltatasok]?
@@ -292,10 +292,10 @@ struct OfferRequestQueryDto: Codable {
     var isSupplementaryTicketsOnly: Bool = false
     let travelStartDate: String
     let travelReturnDate: String
-    var selectedServices: [Int] = []
+    var selectedServices: [Int] = [52]
     var selectedSearchServices: [String] = []
     var eszkozSzamok: [Int] = []
-    var isOfDetailedSearch: Bool = false
+    var isOfDetailedSearch: Bool = true
 }
 
 // MARK: - Passenger

@@ -45,8 +45,12 @@ class MapViewModel: MapProtocol, ObservableObject {
             if let trains = locations?.Vonatok {
                 self.locations = []
                 trains.forEach{ loc in
-                    if let id = loc.VonatID, let name = loc.Vonatnev, let lat = loc.GpsLat, let lon = loc.GpsLon {
-                        self.locations.append(LocationItem(id: id, name: name, lat: lat, long: lon))
+                    if let id = loc.VonatID, let name = loc.Vonatnev {
+                        let lat = loc.EGpsLat ?? loc.GpsLat
+                        let lon = loc.EGpsLon ?? loc.GpsLon
+                        if let lon = lon, let lat = lat {
+                            self.locations.append(LocationItem(id: id, name: name, lat: lat, long: lon))
+                        }
                     }
                 }
             }
