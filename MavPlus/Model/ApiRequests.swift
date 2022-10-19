@@ -209,12 +209,12 @@ func trainLocationRequest(completion: @escaping (TrainLocationList?, Error?) -> 
     task.resume()
 }
 
-func basicGetRequest(inputUrl: String? = nil, completion: @escaping (Data?) -> Void){
-    guard let url = URL(string: (inputUrl != nil ? inputUrl! : RssFeedRequestPath) ) else {
+func basicGetRequest(inputUrl: String, completion: @escaping (Data?) -> Void){
+    guard let url: URL = URL(string: inputUrl) else {
         return
     }
     
-    var request = URLRequest(url: url)
+    var request: URLRequest = URLRequest(url: url)
     request.httpMethod = "GET"
     
     let task = URLSession.shared.dataTask(with: request) { data, response, error in

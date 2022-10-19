@@ -42,7 +42,7 @@ public class RssViewModel: NSObject, RssProtocol {
         self.isLoading = true
         self.parseList.removeAll()
         
-        basicGetRequest(completion: { inputData in
+        basicGetRequest(inputUrl: RssFeedRequestPath, completion: { inputData in
             if let realInputData: Data = inputData {
                 let parser: XMLParser = XMLParser(data: realInputData)
                 parser.delegate = self
