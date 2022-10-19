@@ -32,7 +32,7 @@ struct RootNavigation: View {
             }
             .tag("home")
             
-            MavMap(model: MapViewModel())
+            MavMap()
             .tabItem {
                 Image(systemName: "map")
             }
