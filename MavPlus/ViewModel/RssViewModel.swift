@@ -26,7 +26,7 @@ public class RssViewModel: NSObject, RssProtocol {
     private var lastContent: String?
     private var parseList: [RssItem]
     
-    public override init() {
+    public init(_ startWithUpdate: Bool = true) {
         self.rssItemList = [RssItem]()
         self.isError = false
         self.isLoading = true
@@ -35,7 +35,9 @@ public class RssViewModel: NSObject, RssProtocol {
         self.parseList = [RssItem]()
         super.init()
         
-        self.update()
+        if (startWithUpdate) {
+            self.update()
+        }
     }
     
     public func update() {
@@ -43,23 +45,8 @@ public class RssViewModel: NSObject, RssProtocol {
         self.parseList.removeAll()
         
         basicGetRequest(inputUrl: RssFeedRequestPath, completion: { inputData in
-            if let realInputData: Data = inputData {
-                let parser: XMLParser = XMLParser(data: realInputData)
-                parser.delegate = self
-                
-                if (parser.parse()) {
-                    self.handleNewTag()
-                    
-                    DispatchQueue.main.async {
-                        if (!self.parseList.isEmpty) {
-                            self.rssItemList.removeAll()
-                        }
-                        
-                        self.rssItemList.append(contentsOf: self.parseList)
-                        self.isLoading = false
-                    }
-                }
-            }
+            self.startParsing(inputData: inputData)
+            self.isLoading = false
         })
     }
     
@@ -72,6 +59,25 @@ public class RssViewModel: NSObject, RssProtocol {
                 self.lastContent = actualContent + string
             } else {
                 self.lastContent = string
+            }
+        }
+    }
+    
+    private func startParsing(inputData: Data?) -> Void {
+        if let realInputData: Data = inputData {
+            let parser: XMLParser = XMLParser(data: realInputData)
+            parser.delegate = self
+            
+            if (parser.parse()) {
+                self.handleNewTag()
+                
+                DispatchQueue.main.async {
+                    if (!self.parseList.isEmpty) {
+                        self.rssItemList.removeAll()
+                    }
+                    
+                    self.rssItemList.append(contentsOf: self.parseList)
+                }
             }
         }
     }
