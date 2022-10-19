@@ -83,14 +83,14 @@ public class RssViewModel: NSObject, RssProtocol {
             if let actualContent: String = self.lastContent {
                 switch actualTag {
                     case InterestingTag.title.rawValue:
-                        self.parseList.append(RssItem(title: actualContent))
+                        self.parseList.append(RssItem(title: actualContent.trimmingCharacters(in: .whitespacesAndNewlines)))
                         break
                     case InterestingTag.link.rawValue:
                         if (!self.parseList.isEmpty) {
                             let localIndex: Int = (self.parseList.count - 1)
                             
                             if (self.parseList.last!.url.isEmpty) {
-                                self.parseList[ localIndex ].url = actualContent
+                                self.parseList[ localIndex ].url = actualContent.trimmingCharacters(in: .whitespacesAndNewlines)
                             }
                             
                             basicGetRequest(inputUrl: actualContent.trimmingCharacters(in: .whitespacesAndNewlines), completion: { inputData in
