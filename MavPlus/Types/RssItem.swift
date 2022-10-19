@@ -10,12 +10,12 @@ import Foundation
 class RssItem: UniqueObjectWithId {
     
     public let title: String
-    public let preview: String
-    public let content: String
+    public var url: String
+    public var content: String
     
-    public init(title: String = String(), preview: String = String(), content: String = String()) {
+    public init(title: String = String(), url: String = String(), content: String = String()) {
         self.title = title
-        self.preview = preview
+        self.url = url
         self.content = content
         super.init()
     }

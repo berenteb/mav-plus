@@ -208,3 +208,26 @@ func trainLocationRequest(completion: @escaping (TrainLocationList?, Error?) -> 
     
     task.resume()
 }
+
+func basicGetRequest(inputUrl: String? = nil, completion: @escaping (Data?) -> Void){
+    guard let url = URL(string: (inputUrl != nil ? inputUrl! : RssFeedRequestPath) ) else {
+        return
+    }
+    
+    var request = URLRequest(url: url)
+    request.httpMethod = "GET"
+    
+    let task = URLSession.shared.dataTask(with: request) { data, response, error in
+        if (error != nil) {
+            return
+        }
+        
+        guard let data = data else {
+            return
+        }
+        
+        completion(data)
+    }
+    
+    task.resume()
+}

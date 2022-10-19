@@ -13,3 +13,5 @@ let StationsRequestPath = "https://jegy-a.mav.hu/IK_API_PROD/api/OfferRequestApi
 let WarningMessagesRequestPath = "https://jegy-a.mav.hu/IK_API_PROD/api/InformationApi/GetWarningMessages"
 
 let TrainLocationRequestPath = "https://vim.mav-start.hu/VIM/PR/20210220/MobileService.svc/rest/GetVonatok"
+
+let RssFeedRequestPath = "https://www.mavcsoport.hu/mavinform/rss.xml"
