@@ -27,7 +27,7 @@ struct RootNavigation: View {
             }
             .tag("directions")
             
-            HomeScreen(tabSelection: self.$tabSelection)
+            HomeScreen(tabSelection: self.$tabSelection, trafficNewsModel: trafficNewsModel)
             .tabItem {
                 Image(systemName: "house")
             }

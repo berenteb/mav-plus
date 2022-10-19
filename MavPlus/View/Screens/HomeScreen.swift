@@ -4,15 +4,7 @@ struct HomeScreen: View {
     
     @Binding public var tabSelection: String
     @ObservedObject var model: HomeViewModel = HomeViewModel()
-    
-    private func getTrafficNews() -> [RssItem] {
-        let result: [RssItem] = [
-            RssItem(title: "MyTitle", preview: "Something happened...", content: "Lorem ipsum dolor."),
-            RssItem(title: "MyBestTitle", preview: "Something other happened...", content: "Lorem ipsum!"),
-            RssItem(title: "YourTitle", preview: "Something different happened...", content: "Lorem dolor."),
-        ]
-        return result
-    }
+    @ObservedObject var trafficNewsModel: RssViewModel
     
     func removeRecent(index: IndexSet) {
         guard let i = index.first else {return}
@@ -51,7 +43,7 @@ struct HomeScreen: View {
                 }
                 
                 Section("Alerts") {
-                    ForEach(self.getTrafficNews()) { newsItem in
+                    ForEach(self.trafficNewsModel.rssItemList) { newsItem in
                         Text(newsItem.title)
                             .foregroundColor(Color.blue)
                             .onTapGesture {
@@ -65,11 +57,11 @@ struct HomeScreen: View {
     }
 }
 
-struct Home_Previews: PreviewProvider {
-    
-    @State private static var isSelected: String = "home"
-    
-    static var previews: some View {
-        HomeScreen(tabSelection: $isSelected)
-    }
-}
+//struct Home_Previews: PreviewProvider {
+//
+//    @State private static var isSelected: String = "home"
+//
+//    static var previews: some View {
+//        HomeScreen(tabSelection: $isSelected)
+//    }
+//}
