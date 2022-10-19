@@ -27,6 +27,9 @@ struct MavMap: View {
                 .font(.title2)
             }
         }
+//        .onAppear {
+//            self.model.stepUpdate()
+//        }
     }
 }
 
