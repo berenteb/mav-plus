@@ -10,11 +10,12 @@ import SwiftUI
 struct RootNavigation: View {
     
     @State private var tabSelection: String = "home"
+    @StateObject private var trafficNewsModel: RssViewModel = RssViewModel()
     
     var body: some View {
         TabView(selection: self.$tabSelection) {
 
-            TrafficNews()
+            TrafficNews(model: self.trafficNewsModel)
             .tabItem {
                 Image(systemName: "exclamationmark.triangle")
             }

@@ -11,15 +11,7 @@ struct Home: View {
     
     @Binding public var tabSelection: String
     @ObservedObject var model: HomeViewModel = HomeViewModel()
-    
-    private func getTrafficNews() -> [RssItem] {
-        let result: [RssItem] = [
-            RssItem(title: "MyTitle", url: "Something happened...", content: "Lorem ipsum dolor."),
-            RssItem(title: "MyBestTitle", url: "Something other happened...", content: "Lorem ipsum!"),
-            RssItem(title: "YourTitle", url: "Something different happened...", content: "Lorem dolor."),
-        ]
-        return result
-    }
+    @ObservedObject var trafficNewsModel: RssViewModel
     
     var body: some View {
         NavigationStack {
@@ -46,7 +38,7 @@ struct Home: View {
                 }
                 
                 Section("Alerts") {
-                    ForEach(self.getTrafficNews()) { newsItem in
+                    ForEach(self.trafficNewsModel.rssItemList) { newsItem in
                         Text(newsItem.title)
                         .foregroundColor(Color.blue)
                         .onTapGesture {
@@ -65,6 +57,6 @@ struct Home_Previews: PreviewProvider {
     @State private static var isSelected: String = "home"
     
     static var previews: some View {
-        Home(tabSelection: $isSelected)
+        Home(tabSelection: $isSelected, trafficNewsModel: RssViewModel())
     }
 }
