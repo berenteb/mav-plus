@@ -32,15 +32,14 @@ struct DirectionsFormScreen: View {
                             Stepper("Count: \(passengerNumber)", value: $passengerNumber, in: 1...10)
                         }
                         if let startStation = startStation, let endStation = endStation {
-                            Section{
                                 NavigationLink(destination: {
                                     DirectionsResultScreen(model: OfferViewModel(start: startStation, end: endStation, passengerCount: passengerNumber, startDate: time))
                                 }, label: {
-                                    Text("Search")
-                                })
-                            }
+                                    Label("Search", systemImage: "magnifyingglass").foregroundColor(.black)
+                                }).listRowBackground(Color("Primary"))
                         }
                     }
+                    
                 }
                 .navigationTitle("Directions")
             }
@@ -51,6 +50,6 @@ struct DirectionsFormScreen: View {
 
 struct Directions_Previews: PreviewProvider {
     static var previews: some View {
-        DirectionsFormScreen()
+        DirectionsFormScreen(startStation: FormStationListItem(code: "Teszt", name: "Teszt"), endStation: FormStationListItem(code: "Teszt", name: "Teszt"))
     }
 }

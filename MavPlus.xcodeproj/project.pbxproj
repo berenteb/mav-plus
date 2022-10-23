@@ -13,6 +13,8 @@
 		DF292ACC28F99D3A0050C3B5 /* IconField.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF292ACB28F99D3A0050C3B5 /* IconField.swift */; };
 		DF292AD128FC61930050C3B5 /* StationDetailsMapScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF292AD028FC61930050C3B5 /* StationDetailsMapScreen.swift */; };
 		DF292AD428FC72BF0050C3B5 /* Stations.plist in Resources */ = {isa = PBXBuildFile; fileRef = DF292AD328FC72BF0050C3B5 /* Stations.plist */; };
+		DF30B73B2905CD1F00200B48 /* MapIcon.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF30B73A2905CD1F00200B48 /* MapIcon.swift */; };
+		DF30B73D2905D98F00200B48 /* Theme.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF30B73C2905D98F00200B48 /* Theme.swift */; };
 		DF809B4128F5D2B200043E5E /* StationListScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF809B4028F5D2B200043E5E /* StationListScreen.swift */; };
 		DF809B4528F5E6AF00043E5E /* StationDetailsScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF809B4428F5E6AF00043E5E /* StationDetailsScreen.swift */; };
 		DF809B6028F7233000043E5E /* RssItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF809B4728F7233000043E5E /* RssItem.swift */; };
@@ -65,6 +67,8 @@
 		DF292ACB28F99D3A0050C3B5 /* IconField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IconField.swift; sourceTree = "<group>"; };
 		DF292AD028FC61930050C3B5 /* StationDetailsMapScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StationDetailsMapScreen.swift; sourceTree = "<group>"; };
 		DF292AD328FC72BF0050C3B5 /* Stations.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Stations.plist; sourceTree = "<group>"; };
+		DF30B73A2905CD1F00200B48 /* MapIcon.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapIcon.swift; sourceTree = "<group>"; };
+		DF30B73C2905D98F00200B48 /* Theme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Theme.swift; sourceTree = "<group>"; };
 		DF809B4028F5D2B200043E5E /* StationListScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StationListScreen.swift; sourceTree = "<group>"; };
 		DF809B4428F5E6AF00043E5E /* StationDetailsScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StationDetailsScreen.swift; sourceTree = "<group>"; };
 		DF809B4728F7233000043E5E /* RssItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RssItem.swift; sourceTree = "<group>"; };
@@ -156,6 +160,7 @@
 				DF809B5F28F7233000043E5E /* DirectionsOfferView.swift */,
 				DF292AC928F975170050C3B5 /* StationPicker.swift */,
 				DF292ACB28F99D3A0050C3B5 /* IconField.swift */,
+				DF30B73A2905CD1F00200B48 /* MapIcon.swift */,
 			);
 			path = Components;
 			sourceTree = "<group>";
@@ -275,6 +280,7 @@
 			children = (
 				DFEBEFCE28F32166007F3CCD /* Paths.swift */,
 				DFEBEFED28F33B52007F3CCD /* UtilFunctions.swift */,
+				DF30B73C2905D98F00200B48 /* Theme.swift */,
 			);
 			path = Utility;
 			sourceTree = "<group>";
@@ -372,11 +378,13 @@
 				DFEBEFE028F321A1007F3CCD /* Cities.swift in Sources */,
 				DF809B6B28F7233000043E5E /* RootNavigation.swift in Sources */,
 				DFEBEFDE28F321A1007F3CCD /* TrainInfo.swift in Sources */,
+				DF30B73B2905CD1F00200B48 /* MapIcon.swift in Sources */,
 				DFEBEFE128F321A1007F3CCD /* Offer.swift in Sources */,
 				DFEBEFC328F3205C007F3CCD /* MavPlus.xcdatamodeld in Sources */,
 				DFEBEFE528F321B2007F3CCD /* ApiRepository.swift in Sources */,
 				DFEBEFF628F3685B007F3CCD /* OfferViewModel.swift in Sources */,
 				DF809B6228F7233000043E5E /* UniqueObjectWithId.swift in Sources */,
+				DF30B73D2905D98F00200B48 /* Theme.swift in Sources */,
 				DF809B6A28F7233000043E5E /* MavMap.swift in Sources */,
 				DFEBEFF428F34875007F3CCD /* HomeViewModel.swift in Sources */,
 				DF809B6C28F7233000043E5E /* RssView.swift in Sources */,
