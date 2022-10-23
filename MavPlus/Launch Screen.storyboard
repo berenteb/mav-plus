@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="21225" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" launchScreen="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="01J-lp-oVM">
+    <device id="retina6_0" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21207"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--View Controller-->
+        <scene sceneID="EHf-IW-A2E">
+            <objects>
+                <viewController id="01J-lp-oVM" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="Ze5-6b-2t3">
+                        <rect key="frame" x="0.0" y="0.0" width="390" height="844"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="I1O-18-9z6">
+                                <rect key="frame" x="119" y="47" width="152" height="763"/>
+                                <subviews>
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Icon" translatesAutoresizingMaskIntoConstraints="NO" id="tVd-8o-a4z">
+                                        <rect key="frame" x="0.0" y="0.0" width="152" height="763"/>
+                                    </imageView>
+                                </subviews>
+                            </stackView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="Bcu-3y-fUS"/>
+                        <color key="backgroundColor" name="Secondary"/>
+                        <color key="tintColor" name="Secondary"/>
+                        <constraints>
+                            <constraint firstItem="I1O-18-9z6" firstAttribute="centerX" secondItem="Bcu-3y-fUS" secondAttribute="centerX" id="Lxp-xa-emQ"/>
+                            <constraint firstItem="Bcu-3y-fUS" firstAttribute="trailing" secondItem="I1O-18-9z6" secondAttribute="trailing" constant="119" id="RCq-Kv-cdW"/>
+                            <constraint firstItem="I1O-18-9z6" firstAttribute="height" secondItem="Ze5-6b-2t3" secondAttribute="height" multiplier="0.904028" id="Ysd-cb-Xge"/>
+                            <constraint firstItem="I1O-18-9z6" firstAttribute="centerY" secondItem="Bcu-3y-fUS" secondAttribute="centerY" id="bQM-G0-DRK"/>
+                            <constraint firstItem="I1O-18-9z6" firstAttribute="leading" secondItem="Bcu-3y-fUS" secondAttribute="leading" constant="119" id="h1I-cN-57j"/>
+                        </constraints>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="iYj-Kq-Ea1" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="52.307692307692307" y="374.64454976303318"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="Icon" width="1000" height="1000"/>
+        <namedColor name="Secondary">
+            <color red="0.054901960784313725" green="0.41960784313725491" blue="0.96078431372549022" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+        </namedColor>
+    </resources>
+</document>
