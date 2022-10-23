@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		2E9364C829000180007EA6B7 /* RssViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E9364C729000180007EA6B7 /* RssViewModel.swift */; };
 		DF292AC828F96CF20050C3B5 /* DirectionsFormViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF292AC728F96CF20050C3B5 /* DirectionsFormViewModel.swift */; };
 		DF292ACA28F975170050C3B5 /* StationPicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF292AC928F975170050C3B5 /* StationPicker.swift */; };
 		DF292ACC28F99D3A0050C3B5 /* IconField.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF292ACB28F99D3A0050C3B5 /* IconField.swift */; };
@@ -58,6 +59,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		2E9364C729000180007EA6B7 /* RssViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RssViewModel.swift; sourceTree = "<group>"; };
 		DF292AC728F96CF20050C3B5 /* DirectionsFormViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DirectionsFormViewModel.swift; sourceTree = "<group>"; };
 		DF292AC928F975170050C3B5 /* StationPicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StationPicker.swift; sourceTree = "<group>"; };
 		DF292ACB28F99D3A0050C3B5 /* IconField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IconField.swift; sourceTree = "<group>"; };
@@ -252,6 +254,7 @@
 				DFEBEFEF28F33CF3007F3CCD /* MapViewModel.swift */,
 				DFEBEFF328F34875007F3CCD /* HomeViewModel.swift */,
 				DFEBEFF528F3685B007F3CCD /* OfferViewModel.swift */,
+				2E9364C729000180007EA6B7 /* RssViewModel.swift */,
 				DF292AC728F96CF20050C3B5 /* DirectionsFormViewModel.swift */,
 			);
 			path = ViewModel;
@@ -403,6 +406,7 @@
 				DF809B7228F7233000043E5E /* DirectionsQuerySummary.swift in Sources */,
 				DF809B4128F5D2B200043E5E /* StationListScreen.swift in Sources */,
 				DFEBEFE228F321A1007F3CCD /* Stations.swift in Sources */,
+				2E9364C829000180007EA6B7 /* RssViewModel.swift in Sources */,
 				DFEBEFEE28F33B52007F3CCD /* UtilFunctions.swift in Sources */,
 				DFEBEFB728F32059007F3CCD /* MavPlusApp.swift in Sources */,
 				DF809B6E28F7233000043E5E /* NormalButton.swift in Sources */,

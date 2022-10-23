@@ -22,9 +22,6 @@ struct RssView: View {
                 .font(.title)
                 .bold()
                 Group {
-                    Text(self.content.preview)
-                    .font(.headline)
-                    
                     if (self.isSelected) {
                         Text(self.content.content)
                         .font(.body)
@@ -37,6 +34,6 @@ struct RssView: View {
 
 struct RssView_Previews: PreviewProvider {
     static var previews: some View {
-        RssView(content: RssItem(title: "MyTitle", preview: "Something happened...", content: "Lorem ipsum dolor."), selectColor: Color.teal, unSelectColor: Color.blue)
+        RssView(content: RssItem(title: "MyTitle", url: "Something happened...", content: "Lorem ipsum dolor."), selectColor: Color.teal, unSelectColor: Color.blue)
     }
 }

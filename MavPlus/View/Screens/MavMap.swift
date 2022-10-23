@@ -18,20 +18,23 @@ struct MavMap: View {
         longitudinalMeters: 10000
     )
     
-    @ObservedObject public var model: MapViewModel
+    @StateObject private var model: MapViewModel = MapViewModel()
     
     var body: some View {
-        Map(coordinateRegion: self.$region, annotationItems: model.locations) { place in
+        Map(coordinateRegion: self.$region, annotationItems: self.model.locations) { place in
             MapAnnotation(coordinate: place.location) {
                 Image(systemName: "tram.circle.fill")
                 .font(.title2)
             }
         }
+//        .onAppear {
+//            self.model.stepUpdate()
+//        }
     }
 }
 
 struct MavMap_Previews: PreviewProvider {
     static var previews: some View {
-        MavMap(model: MapViewModel())
+        MavMap()
     }
 }

@@ -10,11 +10,12 @@ import SwiftUI
 struct RootNavigation: View {
     
     @State private var tabSelection: String = "home"
+    @StateObject private var trafficNewsModel: RssViewModel = RssViewModel()
     
     var body: some View {
         TabView(selection: self.$tabSelection) {
 
-            TrafficNews()
+            TrafficNews(model: self.trafficNewsModel)
             .tabItem {
                 Image(systemName: "exclamationmark.triangle")
             }
@@ -26,13 +27,13 @@ struct RootNavigation: View {
             }
             .tag("directions")
             
-            HomeScreen(tabSelection: self.$tabSelection)
+            HomeScreen(tabSelection: self.$tabSelection, trafficNewsModel: trafficNewsModel)
             .tabItem {
                 Image(systemName: "house")
             }
             .tag("home")
             
-            MavMap(model: MapViewModel())
+            MavMap()
             .tabItem {
                 Image(systemName: "map")
             }
