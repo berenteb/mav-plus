@@ -21,7 +21,7 @@ struct HomeScreen: View {
     var body: some View {
         NavigationStack {
             List {
-                Section("Recents") {
+                Section(content: {
                     ForEach(self.model.recentOffers) { directionItem in
                         NavigationLink(destination: {
                             DirectionsResultScreen(model:OfferViewModel(start: FormStationListItem(code: directionItem.startStationCode, name: directionItem.startStationName), end: FormStationListItem(code: directionItem.endStationCode, name: directionItem.endStationName), passengerCount: 1, startDate: Date.now))
@@ -32,17 +32,21 @@ struct HomeScreen: View {
                             }
                         })
                     }.onDelete(perform: removeRecent)
-                }
+                }, header: {
+                    Text("Recents", comment: "Recent direction queries section title")
+                })
                 
-                Section("Favorites") {
+                Section(content: {
                     ForEach(self.model.favoriteStations, id: \.code) { stationItem in
                         NavigationLink(stationItem.name){
                             StationDetailsScreen(code: stationItem.code)
                         }
                     }.onDelete(perform: removeFavorite)
-                }
+                }, header: {
+                    Text("Favorites", comment: "Favorite stations section title")
+                })
                 
-                Section("Alerts") {
+                Section(content: {
                     ForEach(self.trafficNewsModel.rssItemList) { newsItem in
                         Text(newsItem.title)
                             .foregroundColor(Color.blue)
@@ -50,9 +54,11 @@ struct HomeScreen: View {
                                 self.tabSelection = "traffic"
                             }
                     }
-                }
+                }, header: {
+                    Text("Alerts", comment: "RSS links section title")
+                })
             }
-            .navigationTitle("Home")
+            .navigationTitle(Text("Home", comment: "Home tabview title"))
         }
     }
 }

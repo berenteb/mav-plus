@@ -12,7 +12,7 @@ struct Settings: View {
         NavigationStack {
             Text("Settings placeholder")
             .italic()
-            .navigationTitle("Settings")
+            .navigationTitle(Text("Settings", comment: "Settings tabview title"))
         }
     }
 }

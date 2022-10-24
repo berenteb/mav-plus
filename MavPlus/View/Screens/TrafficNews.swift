@@ -17,7 +17,7 @@ struct TrafficNews: View {
                 RssView(content: item, selectColor: Color.blue, unSelectColor: Color.teal)
             }
             .listStyle(.plain)
-            .navigationTitle("Traffic News")
+            .navigationTitle(Text("Traffic News", comment: "RSS tabview title"))
         }
     }
 }

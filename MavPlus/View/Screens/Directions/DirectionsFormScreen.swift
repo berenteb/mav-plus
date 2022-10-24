@@ -19,29 +19,49 @@ struct DirectionsFormScreen: View {
         GeometryReader { root in
             NavigationStack {
                 VStack {
-                    Form{
-                        Section("Route"){
-                            StationPickerField(label: "From", list: viewModel.stationList, selectedStation: $startStation)
-                            StationPickerField(label: "To", list: viewModel.stationList, selectedStation: $endStation)
-                        }
-                        Section("Date"){
-                            DatePicker("Date", selection: $time)
-                            Toggle("Arrive by", isOn: $isArrival)
-                        }
-                        Section("Passengers"){
-                            Stepper("Count: \(passengerNumber)", value: $passengerNumber, in: 1...10)
-                        }
+                    Form {
+                        Section(content: {
+                            StationPickerField(label: Text("From", comment: "Directions input, origin"), list: viewModel.stationList, selectedStation: $startStation)
+                            StationPickerField(label: Text("To", comment: "Directions input, destination"), list: viewModel.stationList, selectedStation: $endStation)
+                        }, header: {
+                            Text("Route", comment: "Directions input, origin/destination section title")
+                        })
+                        
+                        Section(content: {
+                            DatePicker(selection: $time) {
+                                Text("Date", comment: "Directions input, date selection")
+                            }
+                            Toggle(isOn: $isArrival) {
+                                Text("Arrive by", comment: "Directions input, arrive by toggle")
+                            }
+                        }, header: {
+                            Text("Date", comment: "Directions input, date section title")
+                        })
+                        
+                        Section(content: {
+                            Stepper(value: $passengerNumber, in: 1...10) {
+                                Text("Count: ", comment: "Directions input, passenger count title") + Text(String(self.passengerNumber))
+                            }
+                        }, header: {
+                            Text("Passengers", comment: "Directions input, passenger section title")
+                        })
+                        
                         if let startStation = startStation, let endStation = endStation {
                                 NavigationLink(destination: {
                                     DirectionsResultScreen(model: OfferViewModel(start: startStation, end: endStation, passengerCount: passengerNumber, startDate: time))
                                 }, label: {
-                                    Label("Search", systemImage: "magnifyingglass").foregroundColor(.black)
+                                    Label(title: {
+                                        Text("Search", comment: "Directions input, go button")
+                                    }, icon: {
+                                        Image(systemName: "magnifyingglass")
+                                    })
+                                    .foregroundColor(.black)
                                 }).listRowBackground(Color("Primary"))
                         }
                     }
                     
                 }
-                .navigationTitle("Directions")
+                .navigationTitle(Text("Directions", comment: "Directions input tabview title"))
             }
         }
     }

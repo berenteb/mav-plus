@@ -12,10 +12,12 @@ struct DirectionsFinal: View {
     
     var body: some View {
         List{
-            Section("Route"){
+            Section(content: {
                 
-            }
-        }.navigationTitle("Ticket")
+            }, header: {
+                Text("Route", comment: "Directions final result, section title")
+            })
+        }.navigationTitle(Text("Ticket", comment: "Directions final result, tabview title"))
     }
 }
 

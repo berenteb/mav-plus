@@ -7,7 +7,7 @@ struct DirectionsResultScreen: View {
     var body: some View {
         List {
             DirectionsQuerySummary(model: self.model)
-            Section("Offers"){
+            Section(content: {
                 ForEach(self.model.offers) { item in
                     NavigationLink {
                         DirectionsFinal(offer: item)
@@ -15,9 +15,11 @@ struct DirectionsResultScreen: View {
                         DirectionsOfferView(offer: item)
                     }
                 }
-            }
+            }, header: {
+                Text("Offers", comment: "Directions result section title")
+            })
         }
-        .navigationTitle("Route")
+        .navigationTitle(Text("Route", comment: "Directions result, tabview title"))
     }
 }
 

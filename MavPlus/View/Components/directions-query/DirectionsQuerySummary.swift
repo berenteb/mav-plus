@@ -13,7 +13,7 @@ struct DirectionsQuerySummary: View {
     
     var body: some View {
         
-        Section("Parameters"){
+        Section(content: {
             HStack{
                 Image(systemName: "app.connected.to.app.below.fill")
                 VStack(alignment: .leading){
@@ -23,7 +23,9 @@ struct DirectionsQuerySummary: View {
             }
             IconField(iconName: "person", value: String(model.passengerCount))
             IconField(iconName: "clock", value: model.startDate.formatted(date: .long, time: .shortened))
-        }
+        }, header: {
+            Text("Parameters", comment: "Directions query summary component title")
+        })
     }
 }
 
