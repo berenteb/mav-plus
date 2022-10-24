@@ -15,7 +15,7 @@ struct MavMap: View {
     var body: some View {
             Map(coordinateRegion: self.$region, annotationItems: self.model.locations) { place in
                 MapAnnotation(coordinate: place.location) {
-                    MapIcon("Train")
+                    MapIcon( (place.isStation ? "Station" : "Train") )
                 }
             }.edgesIgnoringSafeArea(.top).overlay(alignment: .top){
                 Rectangle().frame(height:0).background(.regularMaterial)
