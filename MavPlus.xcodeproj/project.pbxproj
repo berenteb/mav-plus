@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		2E4535FA290679BA004E6FCB /* hu.xcloc in Resources */ = {isa = PBXBuildFile; fileRef = 2E4535F8290679BA004E6FCB /* hu.xcloc */; };
+		2E4535FB290679BA004E6FCB /* en.xcloc in Resources */ = {isa = PBXBuildFile; fileRef = 2E4535F9290679BA004E6FCB /* en.xcloc */; };
 		2E9364C829000180007EA6B7 /* RssViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E9364C729000180007EA6B7 /* RssViewModel.swift */; };
 		DF292AC828F96CF20050C3B5 /* DirectionsFormViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF292AC728F96CF20050C3B5 /* DirectionsFormViewModel.swift */; };
 		DF292ACA28F975170050C3B5 /* StationPicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF292AC928F975170050C3B5 /* StationPicker.swift */; };
@@ -62,6 +64,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		2E4535F8290679BA004E6FCB /* hu.xcloc */ = {isa = PBXFileReference; lastKnownFileType = wrapper; path = hu.xcloc; sourceTree = "<group>"; };
+		2E4535F9290679BA004E6FCB /* en.xcloc */ = {isa = PBXFileReference; lastKnownFileType = wrapper; path = en.xcloc; sourceTree = "<group>"; };
 		2E9364C729000180007EA6B7 /* RssViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RssViewModel.swift; sourceTree = "<group>"; };
 		DF292AC728F96CF20050C3B5 /* DirectionsFormViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DirectionsFormViewModel.swift; sourceTree = "<group>"; };
 		DF292AC928F975170050C3B5 /* StationPicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StationPicker.swift; sourceTree = "<group>"; };
@@ -128,6 +132,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		2E4535F7290679BA004E6FCB /* i18n */ = {
+			isa = PBXGroup;
+			children = (
+				2E4535F8290679BA004E6FCB /* hu.xcloc */,
+				2E4535F9290679BA004E6FCB /* en.xcloc */,
+			);
+			path = i18n;
+			sourceTree = "<group>";
+		};
 		DF292AD228FC72A70050C3B5 /* Resource */ = {
 			isa = PBXGroup;
 			children = (
@@ -212,6 +225,7 @@
 		DFEBEFB528F32059007F3CCD /* MavPlus */ = {
 			isa = PBXGroup;
 			children = (
+				2E4535F7290679BA004E6FCB /* i18n */,
 				DF30B73E2905DFE800200B48 /* Launch Screen.storyboard */,
 				DF292AD228FC72A70050C3B5 /* Resource */,
 				DFEBEFD028F32196007F3CCD /* Types */,
@@ -349,6 +363,7 @@
 			knownRegions = (
 				en,
 				Base,
+				hu,
 			);
 			mainGroup = DFEBEFAA28F32059007F3CCD;
 			productRefGroup = DFEBEFB428F32059007F3CCD /* Products */;
@@ -368,6 +383,8 @@
 				DFEBEFBE28F3205C007F3CCD /* Preview Assets.xcassets in Resources */,
 				DF292AD428FC72BF0050C3B5 /* Stations.plist in Resources */,
 				DF30B73F2905DFE800200B48 /* Launch Screen.storyboard in Resources */,
+				2E4535FA290679BA004E6FCB /* hu.xcloc in Resources */,
+				2E4535FB290679BA004E6FCB /* en.xcloc in Resources */,
 				DFEBEFBB28F3205C007F3CCD /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
