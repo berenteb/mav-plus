@@ -27,6 +27,11 @@ class MapViewModel: MapProtocol, ObservableObject {
     @Published var isError: Bool
     @Published var isLoading: Bool
     
+    // needs to be turned off, as SwiftUI does not support clustering
+    // see: https://developer.apple.com/forums/thread/684811
+    // with UIKit: https://developer.apple.com/documentation/mapkit/mkannotationview/decluttering_a_map_with_mapkit_annotation_clustering
+    private let stationsEnabled: Bool = false
+    
     private var timer: Timer?
     private var disposables = Set<AnyCancellable>()
     
@@ -34,7 +39,11 @@ class MapViewModel: MapProtocol, ObservableObject {
         isError = false
         isLoading = true
         locations = [LocationItem]()
-        subscribe()
+        
+        if (self.stationsEnabled) {
+            subscribe()
+        }
+        
         update()
         startTimer()
     }
@@ -117,31 +126,33 @@ class MapViewModel: MapProtocol, ObservableObject {
     func update() {
         self.updateTrains()
         
-        var localStationList: [LocationItem] = ApiRepository.shared.stationList.map{ station in
-            let stationLocation = ApiRepository.shared.stationLocationList.first{ loc in
-                return loc.code == station.code
+        if (self.stationsEnabled) {
+            var localStationList: [LocationItem] = ApiRepository.shared.stationList.map{ station in
+                let stationLocation = ApiRepository.shared.stationLocationList.first{ loc in
+                    return loc.code == station.code
+                }
+                if let lat = stationLocation?.lat, let lon = stationLocation?.lon {
+                    var listItem = LocationItem(id: station.code ?? "", name: station.name ?? "Unknown", lat: lat, long: lon, isStation: true)
+                    
+                    return listItem
+                }
+                return LocationItem(id: "", name: "", lat: 0, long: 0)
             }
-            if let lat = stationLocation?.lat, let lon = stationLocation?.lon {
-                var listItem = LocationItem(id: station.code ?? "", name: station.name ?? "Unknown", lat: lat, long: lon, isStation: true)
-                
-                return listItem
+            
+            var stationIndex: Int = 0
+            while (stationIndex < localStationList.count) {
+                if (!localStationList[stationIndex].isStation) {
+                    localStationList.remove(at: stationIndex)
+                } else if let locationIndex: Int = self.locations.firstIndex(where: { iterator in
+                    return (localStationList[stationIndex].id == iterator.id)
+                }) {
+                    self.locations[locationIndex] = localStationList.remove(at: stationIndex)
+                } else {
+                    stationIndex += 1
+                }
             }
-            return LocationItem(id: "", name: "", lat: 0, long: 0)
+            self.locations.append(contentsOf: localStationList)
         }
-        
-        var stationIndex: Int = 0
-        while (stationIndex < localStationList.count) {
-            if (!localStationList[stationIndex].isStation) {
-                localStationList.remove(at: stationIndex)
-            } else if let locationIndex: Int = self.locations.firstIndex(where: { iterator in
-                return (localStationList[stationIndex].id == iterator.id)
-            }) {
-                self.locations[locationIndex] = localStationList.remove(at: stationIndex)
-            } else {
-                stationIndex += 1
-            }
-        }
-        self.locations.append(contentsOf: localStationList)
     }
     
 }
