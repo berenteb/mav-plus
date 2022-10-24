@@ -40,7 +40,7 @@ struct DirectionsFormScreen: View {
                         
                         Section(content: {
                             Stepper(value: $passengerNumber, in: 1...10) {
-                                Text("Count: ", comment: "Directions input, passenger count title") + Text(String(self.passengerNumber))
+                                Text("Count:", comment: "Directions input, passenger count title") + Text(" \(self.passengerNumber)")
                             }
                         }, header: {
                             Text("Passengers", comment: "Directions input, passenger section title")
