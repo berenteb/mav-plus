@@ -22,13 +22,14 @@ struct RssView: View {
                 .font(.title)
                 .bold()
                 Group {
-                    if (self.isSelected) {
+                    if (false && self.isSelected) {
                         Text(self.content.content)
                         .font(.body)
                     }
                 }
             }
         }
+        .disabled(true)
     }
 }
 

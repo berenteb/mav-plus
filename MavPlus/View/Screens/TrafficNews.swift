@@ -6,6 +6,21 @@
 //
 
 import SwiftUI
+import WebKit
+
+fileprivate struct WebView: UIViewRepresentable {
+    
+    var url: URL
+ 
+    func makeUIView(context: Context) -> WKWebView {
+        return WKWebView()
+    }
+ 
+    func updateUIView(_ webView: WKWebView, context: Context) {
+        let request = URLRequest(url: url)
+        webView.load(request)
+    }
+}
 
 struct TrafficNews: View {
     
@@ -14,7 +29,15 @@ struct TrafficNews: View {
     var body: some View {
         NavigationStack {
             List(self.model.rssItemList) { item in
-                RssView(content: item, selectColor: Color.blue, unSelectColor: Color.teal)
+                if let actualUrl: URL = URL(string: item.url) {
+                    NavigationLink(destination: {
+                        WebView(url: actualUrl)
+                    }, label: {
+                        RssView(content: item, selectColor: Color.blue, unSelectColor: Color.blue)
+                    })
+                } else {
+                    RssView(content: item, selectColor: Color.blue, unSelectColor: Color.blue)
+                }
             }
             .listStyle(.plain)
             .navigationTitle(Text("Traffic News", comment: "RSS tabview title"))
