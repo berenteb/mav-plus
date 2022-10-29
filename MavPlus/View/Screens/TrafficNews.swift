@@ -8,38 +8,22 @@
 import SwiftUI
 import WebKit
 
-fileprivate struct WebView: UIViewRepresentable {
-    
-    var url: URL
- 
-    func makeUIView(context: Context) -> WKWebView {
-        return WKWebView()
-    }
- 
-    func updateUIView(_ webView: WKWebView, context: Context) {
-        let request = URLRequest(url: url)
-        webView.load(request)
-    }
-}
-
 struct TrafficNews: View {
-    
-    @ObservedObject public var model: RssViewModel
+    @ObservedObject var model: AlertsViewModel = AlertsViewModel()
     
     var body: some View {
         NavigationStack {
-            List(self.model.rssItemList) { item in
-                if let actualUrl: URL = URL(string: item.url) {
+            List(model.alerts) { alert in
+                if let url: URL = URL(string: alert.url) {
                     NavigationLink(destination: {
-                        WebView(url: actualUrl)
+                        WebView(url: url)
                     }, label: {
-                        RssView(content: item, selectColor: Color.blue, unSelectColor: Color.blue)
+                        IconField(iconName: "exclamationmark.triangle", value: alert.title)
                     })
                 } else {
-                    RssView(content: item, selectColor: Color.blue, unSelectColor: Color.blue)
+                    IconField(iconName: "exclamationmark.triangle", value: alert.title)
                 }
             }
-            .listStyle(.plain)
             .navigationTitle(Text("Traffic News", comment: "RSS tabview title"))
         }
     }
@@ -47,6 +31,6 @@ struct TrafficNews: View {
 
 struct TrafficNews_Previews: PreviewProvider {
     static var previews: some View {
-        TrafficNews(model: RssViewModel())
+        TrafficNews(model: AlertsViewModel())
     }
 }

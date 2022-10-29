@@ -20,15 +20,26 @@ struct RecentOfferListItem: Identifiable {
     var endStationCode: String
 }
 
+struct AlertListItem: Identifiable{
+    var id: UUID
+    var title: String
+    var url: String
+}
+
 class HomeViewModel: HomeProtocol, ObservableObject {
     @Published var favoriteStations: [FavoriteStationListItem]
     @Published var recentOffers: [RecentOfferListItem]
+    @Published var alerts: [AlertListItem]
     
     private var disposables = Set<AnyCancellable>()
     
     init() {
         self.favoriteStations = []
         self.recentOffers = []
+        let items = RssRepository.shared.rssItemList.map{item in
+            return AlertListItem(id: item.id, title: item.title, url: item.url)
+        }
+        self.alerts = items.count > 5 ? Array(items[0..<5]) : items
         subscribe()
     }
     
@@ -46,6 +57,13 @@ class HomeViewModel: HomeProtocol, ObservableObject {
         StoreRepository.shared.publisher.sink(receiveValue: {[unowned self] value in
             update()
         }).store(in: &disposables)
+        
+        RssRepository.shared.publisher.sink{fields in
+            let items = fields.rssItemList.map{item in
+                return AlertListItem(id: item.id, title: item.title, url: item.url)
+            }
+            self.alerts = items.count > 5 ? Array(items[0..<5]) : items
+        }.store(in: &disposables)
     }
     
     func update(){

@@ -4,7 +4,6 @@ struct HomeScreen: View {
     
     @Binding public var tabSelection: String
     @ObservedObject var model: HomeViewModel = HomeViewModel()
-    @ObservedObject var trafficNewsModel: RssViewModel
     
     func removeRecent(index: IndexSet) {
         guard let i = index.first else {return}
@@ -47,12 +46,16 @@ struct HomeScreen: View {
                 })
                 
                 Section(content: {
-                    ForEach(self.trafficNewsModel.rssItemList) { newsItem in
-                        Text(newsItem.title)
-                            .foregroundColor(Color.blue)
-                            .onTapGesture {
-                                self.tabSelection = "traffic"
-                            }
+                    ForEach(self.model.alerts) { alert in
+                        if let url: URL = URL(string: alert.url) {
+                            NavigationLink(destination: {
+                                WebView(url: url)
+                            }, label: {
+                                IconField(iconName: "exclamationmark.triangle", value: alert.title)
+                            })
+                        } else {
+                            IconField(iconName: "exclamationmark.triangle", value: alert.title)
+                        }
                     }
                 }, header: {
                     Text("Alerts", comment: "RSS links section title")

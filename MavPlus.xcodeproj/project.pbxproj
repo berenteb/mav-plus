@@ -10,7 +10,9 @@
 		2E4535FC29067C27004E6FCB /* hu.xcloc in Resources */ = {isa = PBXBuildFile; fileRef = 2E4535FE29067C27004E6FCB /* hu.xcloc */; };
 		2E4535FF29067C34004E6FCB /* en.xcloc in Resources */ = {isa = PBXBuildFile; fileRef = 2E45360129067C34004E6FCB /* en.xcloc */; };
 		2E45360429067CB0004E6FCB /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 2E45360229067CB0004E6FCB /* Localizable.strings */; };
-		2E9364C829000180007EA6B7 /* RssViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E9364C729000180007EA6B7 /* RssViewModel.swift */; };
+		2E9364C829000180007EA6B7 /* AlertsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E9364C729000180007EA6B7 /* AlertsViewModel.swift */; };
+		DF01D5B5290D9B08008B33AB /* RssRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF01D5B4290D9B08008B33AB /* RssRepository.swift */; };
+		DF01D5B7290DD642008B33AB /* WebView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF01D5B6290DD642008B33AB /* WebView.swift */; };
 		DF292AC828F96CF20050C3B5 /* DirectionsFormViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF292AC728F96CF20050C3B5 /* DirectionsFormViewModel.swift */; };
 		DF292ACA28F975170050C3B5 /* StationPicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF292AC928F975170050C3B5 /* StationPicker.swift */; };
 		DF292ACC28F99D3A0050C3B5 /* IconField.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF292ACB28F99D3A0050C3B5 /* IconField.swift */; };
@@ -68,7 +70,9 @@
 		2E4535FD29067C27004E6FCB /* hu */ = {isa = PBXFileReference; lastKnownFileType = wrapper; name = hu; path = hu.lproj/hu.xcloc; sourceTree = "<group>"; };
 		2E45360029067C34004E6FCB /* en */ = {isa = PBXFileReference; lastKnownFileType = wrapper; name = en; path = en.lproj/en.xcloc; sourceTree = "<group>"; };
 		2E45360329067CB0004E6FCB /* hu */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = hu; path = hu.lproj/Localizable.strings; sourceTree = "<group>"; };
-		2E9364C729000180007EA6B7 /* RssViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RssViewModel.swift; sourceTree = "<group>"; };
+		2E9364C729000180007EA6B7 /* AlertsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertsViewModel.swift; sourceTree = "<group>"; };
+		DF01D5B4290D9B08008B33AB /* RssRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RssRepository.swift; sourceTree = "<group>"; };
+		DF01D5B6290DD642008B33AB /* WebView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebView.swift; sourceTree = "<group>"; };
 		DF292AC728F96CF20050C3B5 /* DirectionsFormViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DirectionsFormViewModel.swift; sourceTree = "<group>"; };
 		DF292AC928F975170050C3B5 /* StationPicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StationPicker.swift; sourceTree = "<group>"; };
 		DF292ACB28F99D3A0050C3B5 /* IconField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IconField.swift; sourceTree = "<group>"; };
@@ -179,6 +183,7 @@
 				DF292AC928F975170050C3B5 /* StationPicker.swift */,
 				DF292ACB28F99D3A0050C3B5 /* IconField.swift */,
 				DF30B73A2905CD1F00200B48 /* MapIcon.swift */,
+				DF01D5B6290DD642008B33AB /* WebView.swift */,
 			);
 			path = Components;
 			sourceTree = "<group>";
@@ -267,6 +272,7 @@
 			children = (
 				DFEBEFE328F321B2007F3CCD /* ApiRepository.swift */,
 				DFEBEFE428F321B2007F3CCD /* StoreRepository.swift */,
+				DF01D5B4290D9B08008B33AB /* RssRepository.swift */,
 			);
 			path = Repository;
 			sourceTree = "<group>";
@@ -279,7 +285,7 @@
 				DFEBEFEF28F33CF3007F3CCD /* MapViewModel.swift */,
 				DFEBEFF328F34875007F3CCD /* HomeViewModel.swift */,
 				DFEBEFF528F3685B007F3CCD /* OfferViewModel.swift */,
-				2E9364C729000180007EA6B7 /* RssViewModel.swift */,
+				2E9364C729000180007EA6B7 /* AlertsViewModel.swift */,
 				DF292AC728F96CF20050C3B5 /* DirectionsFormViewModel.swift */,
 			);
 			path = ViewModel;
@@ -408,8 +414,10 @@
 				DFEBEFC328F3205C007F3CCD /* MavPlus.xcdatamodeld in Sources */,
 				DFEBEFE528F321B2007F3CCD /* ApiRepository.swift in Sources */,
 				DFEBEFF628F3685B007F3CCD /* OfferViewModel.swift in Sources */,
+				DF01D5B5290D9B08008B33AB /* RssRepository.swift in Sources */,
 				DF809B6228F7233000043E5E /* UniqueObjectWithId.swift in Sources */,
 				DF30B73D2905D98F00200B48 /* Theme.swift in Sources */,
+				DF01D5B7290DD642008B33AB /* WebView.swift in Sources */,
 				DF809B6A28F7233000043E5E /* MavMap.swift in Sources */,
 				DFEBEFF428F34875007F3CCD /* HomeViewModel.swift in Sources */,
 				DF809B6C28F7233000043E5E /* RssView.swift in Sources */,
@@ -439,7 +447,7 @@
 				DF809B7228F7233000043E5E /* DirectionsQuerySummary.swift in Sources */,
 				DF809B4128F5D2B200043E5E /* StationListScreen.swift in Sources */,
 				DFEBEFE228F321A1007F3CCD /* Stations.swift in Sources */,
-				2E9364C829000180007EA6B7 /* RssViewModel.swift in Sources */,
+				2E9364C829000180007EA6B7 /* AlertsViewModel.swift in Sources */,
 				DFEBEFEE28F33B52007F3CCD /* UtilFunctions.swift in Sources */,
 				DFEBEFB728F32059007F3CCD /* MavPlusApp.swift in Sources */,
 				DF809B6E28F7233000043E5E /* NormalButton.swift in Sources */,
