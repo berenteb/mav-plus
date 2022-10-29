@@ -1,18 +1,21 @@
 import Foundation
 import MapKit
+import Combine
 
 protocol MapProtocol: RequestStatus, Updateable {
     var locations: [LocationItem] {get}
-//    func stepUpdate() -> Void
 }
 
 struct LocationItem: Identifiable {
     let id: String
     let name: String
+    let isStation: Bool
     let location: CLLocationCoordinate2D
-    init(id: String, name: String, lat: Double, long: Double) {
+    
+    init(id: String, name: String, lat: Double, long: Double, isStation: Bool = false) {
         self.id = id
         self.name = name
+        self.isStation = isStation
         self.location = CLLocationCoordinate2D(
             latitude: lat,
             longitude: long)
@@ -24,87 +27,131 @@ class MapViewModel: MapProtocol, ObservableObject {
     @Published var isError: Bool
     @Published var isLoading: Bool
     
+    // needs to be turned off, as SwiftUI does not support clustering
+    // see: https://developer.apple.com/forums/thread/684811
+    // with UIKit: https://developer.apple.com/documentation/mapkit/mkannotationview/decluttering_a_map_with_mapkit_annotation_clustering
+    private let stationsEnabled: Bool = false
+    
     private var timer: Timer?
-//    private var upToDateLocations: [LocationItem]
-//
-//    private static let minimumDistance: Double = 0.5
+    private var disposables = Set<AnyCancellable>()
     
     init(){
         isError = false
         isLoading = true
-        locations = []
-//        self.upToDateLocations = [LocationItem]()
+        locations = [LocationItem]()
+        
+        if (self.stationsEnabled) {
+            subscribe()
+        }
+        
         update()
         startTimer()
     }
     
-//    private func evaluateCoordinateStep(originalItem: Double, item: Double) -> Double {
-//        let distance: Double = ( originalItem - item )
-//
-//        var result: Double = originalItem
-//        if (abs(distance) > MapViewModel.minimumDistance) {
-//            var step: Double = abs(distance) / 100
-//            if (step < MapViewModel.minimumDistance) {
-//                step = MapViewModel.minimumDistance
-//            }
-//
-//            if (distance > 0) {
-//                step *= (-1)
-//            }
-//
-//            result += step
-//        }
-//
-//        return result
-//    }
-//
-//    public func stepUpdate() -> Void {
-//        var outputList: [LocationItem] = [LocationItem]()
-//
-//        for item in self.upToDateLocations {
-//            if let originalItem: LocationItem = self.locations.first(where: { iterationItem in
-//                return (iterationItem.id == item.id)
-//            }) {
-//                let latitudeResult: Double = self.evaluateCoordinateStep(originalItem: originalItem.location.latitude, item: item.location.latitude)
-//                let longitudeResult: Double = self.evaluateCoordinateStep(originalItem: originalItem.location.longitude, item: item.location.longitude)
-//
-//                outputList.append(LocationItem(id: item.id, name: item.name, lat: latitudeResult, long: longitudeResult))
-//            } else {
-//                outputList.append(item)
-//            }
-//        }
-//
-//        self.locations = outputList
-//    }
+    private func subscribe(){
+        ApiRepository.shared.publisher
+            .sink(
+                receiveCompletion: {error in
+                    print(error)
+                }, receiveValue: { [weak self] value in
+                    var localStationList: [LocationItem] = value.stationList.map{ station in
+                        let stationLocation = ApiRepository.shared.stationLocationList.first{ loc in
+                            return loc.code == station.code
+                        }
+                        if let lat = stationLocation?.lat, let lon = stationLocation?.lon {
+                            var listItem = LocationItem(id: station.code ?? "", name: station.name ?? "Unknown", lat: lat, long: lon, isStation: true)
+                            
+                            return listItem
+                        }
+                        return LocationItem(id: "", name: "", lat: 0, long: 0)
+                    }
+                    
+                    var stationIndex: Int = 0
+                    while (stationIndex < localStationList.count) {
+                        if (!localStationList[stationIndex].isStation) {
+                            localStationList.remove(at: stationIndex)
+                        } else {
+                            stationIndex += 1
+                        }
+                    }
+                    self?.locations.append(contentsOf: localStationList)
+                })
+            .store(in: &disposables)
+    }
     
     private func startTimer(){
         timer?.invalidate()
         timer = Timer.scheduledTimer(withTimeInterval: 5.0, repeats: true) { timer in
-            self.update()
+            self.updateTrains()
         }
     }
     
-    func update() {
+    private func updateTrains() -> Void {
         isLoading = true
         trainLocationRequest(){ locations, error in
             self.isError = error != nil
             if let trains = locations?.Vonatok {
-                self.locations = []
-//                self.upToDateLocations = [LocationItem]()
+                var localTrainList: [LocationItem] = [LocationItem]()
                 trains.forEach{ loc in
                     if let id = loc.VonatID, let name = loc.Vonatnev {
                         let lat = loc.EGpsLat ?? loc.GpsLat
                         let lon = loc.EGpsLon ?? loc.GpsLon
                         if let lon = lon, let lat = lat {
-                            self.locations.append(LocationItem(id: id, name: name, lat: lat, long: lon))
-//                            self.upToDateLocations.append(LocationItem(id: id, name: name, lat: lat, long: lon))
+                            localTrainList.append(LocationItem(id: id, name: name, lat: lat, long: lon))
                         }
                     }
                 }
+                
+                var locationIndex: Int = 0
+                while (locationIndex < self.locations.count) {
+                    if let newTrainIndex: Int = localTrainList.firstIndex(where: { trainIterator in
+                        return (self.locations[locationIndex].id == trainIterator.id)
+                    }) {
+                        self.locations[locationIndex] = localTrainList.remove(at: newTrainIndex)
+                        locationIndex += 1
+                        
+                    } else if (!self.locations[locationIndex].isStation) {
+                        self.locations.remove(at: locationIndex)
+                    } else {
+                        locationIndex += 1
+                    }
+                }
+                
+                self.locations.append(contentsOf: localTrainList)
             }
             self.isLoading = false
+        }
+    }
+    
+    func update() {
+        self.updateTrains()
+        
+        if (self.stationsEnabled) {
+            var localStationList: [LocationItem] = ApiRepository.shared.stationList.map{ station in
+                let stationLocation = ApiRepository.shared.stationLocationList.first{ loc in
+                    return loc.code == station.code
+                }
+                if let lat = stationLocation?.lat, let lon = stationLocation?.lon {
+                    var listItem = LocationItem(id: station.code ?? "", name: station.name ?? "Unknown", lat: lat, long: lon, isStation: true)
+                    
+                    return listItem
+                }
+                return LocationItem(id: "", name: "", lat: 0, long: 0)
+            }
             
-//            self.stepUpdate()
+            var stationIndex: Int = 0
+            while (stationIndex < localStationList.count) {
+                if (!localStationList[stationIndex].isStation) {
+                    localStationList.remove(at: stationIndex)
+                } else if let locationIndex: Int = self.locations.firstIndex(where: { iterator in
+                    return (localStationList[stationIndex].id == iterator.id)
+                }) {
+                    self.locations[locationIndex] = localStationList.remove(at: stationIndex)
+                } else {
+                    stationIndex += 1
+                }
+            }
+            self.locations.append(contentsOf: localStationList)
         }
     }
     

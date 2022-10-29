@@ -20,7 +20,7 @@ struct StationListScreen: View {
                 viewModel.update()
             }.refreshable {
                 viewModel.update()
-            }.navigationTitle("Stations")
+            }.navigationTitle(Text("Stations", comment: "Station list tabview title"))
         }
         .navigationViewStyle(.stack)
         .searchable(

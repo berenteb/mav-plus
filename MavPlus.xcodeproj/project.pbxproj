@@ -7,12 +7,18 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		2E4535FC29067C27004E6FCB /* hu.xcloc in Resources */ = {isa = PBXBuildFile; fileRef = 2E4535FE29067C27004E6FCB /* hu.xcloc */; };
+		2E4535FF29067C34004E6FCB /* en.xcloc in Resources */ = {isa = PBXBuildFile; fileRef = 2E45360129067C34004E6FCB /* en.xcloc */; };
+		2E45360429067CB0004E6FCB /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 2E45360229067CB0004E6FCB /* Localizable.strings */; };
 		2E9364C829000180007EA6B7 /* RssViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E9364C729000180007EA6B7 /* RssViewModel.swift */; };
 		DF292AC828F96CF20050C3B5 /* DirectionsFormViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF292AC728F96CF20050C3B5 /* DirectionsFormViewModel.swift */; };
 		DF292ACA28F975170050C3B5 /* StationPicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF292AC928F975170050C3B5 /* StationPicker.swift */; };
 		DF292ACC28F99D3A0050C3B5 /* IconField.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF292ACB28F99D3A0050C3B5 /* IconField.swift */; };
 		DF292AD128FC61930050C3B5 /* StationDetailsMapScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF292AD028FC61930050C3B5 /* StationDetailsMapScreen.swift */; };
 		DF292AD428FC72BF0050C3B5 /* Stations.plist in Resources */ = {isa = PBXBuildFile; fileRef = DF292AD328FC72BF0050C3B5 /* Stations.plist */; };
+		DF30B73B2905CD1F00200B48 /* MapIcon.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF30B73A2905CD1F00200B48 /* MapIcon.swift */; };
+		DF30B73D2905D98F00200B48 /* Theme.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF30B73C2905D98F00200B48 /* Theme.swift */; };
+		DF30B73F2905DFE800200B48 /* Launch Screen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DF30B73E2905DFE800200B48 /* Launch Screen.storyboard */; };
 		DF809B4128F5D2B200043E5E /* StationListScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF809B4028F5D2B200043E5E /* StationListScreen.swift */; };
 		DF809B4528F5E6AF00043E5E /* StationDetailsScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF809B4428F5E6AF00043E5E /* StationDetailsScreen.swift */; };
 		DF809B6028F7233000043E5E /* RssItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF809B4728F7233000043E5E /* RssItem.swift */; };
@@ -59,12 +65,18 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		2E4535FD29067C27004E6FCB /* hu */ = {isa = PBXFileReference; lastKnownFileType = wrapper; name = hu; path = hu.lproj/hu.xcloc; sourceTree = "<group>"; };
+		2E45360029067C34004E6FCB /* en */ = {isa = PBXFileReference; lastKnownFileType = wrapper; name = en; path = en.lproj/en.xcloc; sourceTree = "<group>"; };
+		2E45360329067CB0004E6FCB /* hu */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = hu; path = hu.lproj/Localizable.strings; sourceTree = "<group>"; };
 		2E9364C729000180007EA6B7 /* RssViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RssViewModel.swift; sourceTree = "<group>"; };
 		DF292AC728F96CF20050C3B5 /* DirectionsFormViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DirectionsFormViewModel.swift; sourceTree = "<group>"; };
 		DF292AC928F975170050C3B5 /* StationPicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StationPicker.swift; sourceTree = "<group>"; };
 		DF292ACB28F99D3A0050C3B5 /* IconField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IconField.swift; sourceTree = "<group>"; };
 		DF292AD028FC61930050C3B5 /* StationDetailsMapScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StationDetailsMapScreen.swift; sourceTree = "<group>"; };
 		DF292AD328FC72BF0050C3B5 /* Stations.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Stations.plist; sourceTree = "<group>"; };
+		DF30B73A2905CD1F00200B48 /* MapIcon.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapIcon.swift; sourceTree = "<group>"; };
+		DF30B73C2905D98F00200B48 /* Theme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Theme.swift; sourceTree = "<group>"; };
+		DF30B73E2905DFE800200B48 /* Launch Screen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = "Launch Screen.storyboard"; sourceTree = "<group>"; };
 		DF809B4028F5D2B200043E5E /* StationListScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StationListScreen.swift; sourceTree = "<group>"; };
 		DF809B4428F5E6AF00043E5E /* StationDetailsScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StationDetailsScreen.swift; sourceTree = "<group>"; };
 		DF809B4728F7233000043E5E /* RssItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RssItem.swift; sourceTree = "<group>"; };
@@ -122,6 +134,16 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		2E4535F7290679BA004E6FCB /* i18n */ = {
+			isa = PBXGroup;
+			children = (
+				2E45360229067CB0004E6FCB /* Localizable.strings */,
+				2E4535FE29067C27004E6FCB /* hu.xcloc */,
+				2E45360129067C34004E6FCB /* en.xcloc */,
+			);
+			path = i18n;
+			sourceTree = "<group>";
+		};
 		DF292AD228FC72A70050C3B5 /* Resource */ = {
 			isa = PBXGroup;
 			children = (
@@ -156,6 +178,7 @@
 				DF809B5F28F7233000043E5E /* DirectionsOfferView.swift */,
 				DF292AC928F975170050C3B5 /* StationPicker.swift */,
 				DF292ACB28F99D3A0050C3B5 /* IconField.swift */,
+				DF30B73A2905CD1F00200B48 /* MapIcon.swift */,
 			);
 			path = Components;
 			sourceTree = "<group>";
@@ -205,6 +228,8 @@
 		DFEBEFB528F32059007F3CCD /* MavPlus */ = {
 			isa = PBXGroup;
 			children = (
+				2E4535F7290679BA004E6FCB /* i18n */,
+				DF30B73E2905DFE800200B48 /* Launch Screen.storyboard */,
 				DF292AD228FC72A70050C3B5 /* Resource */,
 				DFEBEFD028F32196007F3CCD /* Types */,
 				DFEBEFCD28F3214B007F3CCD /* Utility */,
@@ -275,6 +300,7 @@
 			children = (
 				DFEBEFCE28F32166007F3CCD /* Paths.swift */,
 				DFEBEFED28F33B52007F3CCD /* UtilFunctions.swift */,
+				DF30B73C2905D98F00200B48 /* Theme.swift */,
 			);
 			path = Utility;
 			sourceTree = "<group>";
@@ -340,6 +366,7 @@
 			knownRegions = (
 				en,
 				Base,
+				hu,
 			);
 			mainGroup = DFEBEFAA28F32059007F3CCD;
 			productRefGroup = DFEBEFB428F32059007F3CCD /* Products */;
@@ -358,6 +385,10 @@
 			files = (
 				DFEBEFBE28F3205C007F3CCD /* Preview Assets.xcassets in Resources */,
 				DF292AD428FC72BF0050C3B5 /* Stations.plist in Resources */,
+				DF30B73F2905DFE800200B48 /* Launch Screen.storyboard in Resources */,
+				2E45360429067CB0004E6FCB /* Localizable.strings in Resources */,
+				2E4535FC29067C27004E6FCB /* hu.xcloc in Resources */,
+				2E4535FF29067C34004E6FCB /* en.xcloc in Resources */,
 				DFEBEFBB28F3205C007F3CCD /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -372,11 +403,13 @@
 				DFEBEFE028F321A1007F3CCD /* Cities.swift in Sources */,
 				DF809B6B28F7233000043E5E /* RootNavigation.swift in Sources */,
 				DFEBEFDE28F321A1007F3CCD /* TrainInfo.swift in Sources */,
+				DF30B73B2905CD1F00200B48 /* MapIcon.swift in Sources */,
 				DFEBEFE128F321A1007F3CCD /* Offer.swift in Sources */,
 				DFEBEFC328F3205C007F3CCD /* MavPlus.xcdatamodeld in Sources */,
 				DFEBEFE528F321B2007F3CCD /* ApiRepository.swift in Sources */,
 				DFEBEFF628F3685B007F3CCD /* OfferViewModel.swift in Sources */,
 				DF809B6228F7233000043E5E /* UniqueObjectWithId.swift in Sources */,
+				DF30B73D2905D98F00200B48 /* Theme.swift in Sources */,
 				DF809B6A28F7233000043E5E /* MavMap.swift in Sources */,
 				DFEBEFF428F34875007F3CCD /* HomeViewModel.swift in Sources */,
 				DF809B6C28F7233000043E5E /* RssView.swift in Sources */,
@@ -419,6 +452,33 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		2E4535FE29067C27004E6FCB /* hu.xcloc */ = {
+			isa = PBXVariantGroup;
+			children = (
+				2E4535FD29067C27004E6FCB /* hu */,
+			);
+			name = hu.xcloc;
+			sourceTree = "<group>";
+		};
+		2E45360129067C34004E6FCB /* en.xcloc */ = {
+			isa = PBXVariantGroup;
+			children = (
+				2E45360029067C34004E6FCB /* en */,
+			);
+			name = en.xcloc;
+			sourceTree = "<group>";
+		};
+		2E45360229067CB0004E6FCB /* Localizable.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				2E45360329067CB0004E6FCB /* hu */,
+			);
+			name = Localizable.strings;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
 		DFEBEFC428F3205C007F3CCD /* Debug */ = {
@@ -549,6 +609,7 @@
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UILaunchStoryboardName = "Launch Screen.storyboard";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -578,6 +639,7 @@
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UILaunchStoryboardName = "Launch Screen.storyboard";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				LD_RUNPATH_SEARCH_PATHS = (

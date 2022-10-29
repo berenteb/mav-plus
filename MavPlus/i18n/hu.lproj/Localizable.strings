@@ -1,0 +1,83 @@
+/* RSS links section title */
+"Alerts" = "Haváriainfo";
+
+/* Directions input, arrive by toggle */
+"Arrive by" = "Érkezési idő";
+
+/* Cancel button prompt */
+"Cancel" = "Mégsem";
+
+/* Directions input, passenger count title */
+"Count: " = "Utasok száma:";
+
+/* Directions input, date selection */
+"Date" = "Dátum";
+
+/* Station details, departures section title */
+"Departures" = "Indulások";
+
+/* Directions input tabview title */
+"Directions" = "Útvonaltervezés";
+
+/* Station details error */
+"Error" = "Hiba történt";
+
+/* Favorite stations section title */
+"Favorites" = "Kedvencek";
+
+/* Directions input, origin */
+"From" = "Honnan";
+
+/* Home tabview title */
+"Home" = "Főoldal";
+
+/* Station details loading */
+"Loading..." = "Betöltés...";
+
+/* Station details, map section title */
+"Map" = "Térkép";
+
+/* Directions result section title */
+"Offers" = "Ajánlatok";
+
+/* Directions query summary component title */
+"Parameters" = "Keresési feltételek";
+
+/* Directions input, passenger section title */
+"Passengers" = "Utasok";
+
+/* Recent direction queries section title */
+"Recents" = "Korábbi keresések";
+
+/* Directions final result, section title
+Directions input, origin/destination section title
+Directions result, tabview title */
+"Route" = "Útvonal";
+
+/* Directions input, go button */
+"Search" = "Keresés";
+
+/* Placeholder to select station */
+"Select station..." = "Állomás választása";
+
+/* Settings tabview title */
+"Settings" = "Beállítások";
+
+/* No comment provided by engineer. */
+"Settings placeholder" = "Beállítások helye";
+
+/* Station details, map button prompt */
+"Show on map" = "Térképen";
+
+/* Station list tabview title */
+"Stations" = "Állomások";
+
+/* Directions final result, tabview title */
+"Ticket" = "Jegy";
+
+/* Directions input, destination */
+"To" = "Hova";
+
+/* RSS tabview title */
+"Traffic News" = "Haváriainfo";
+

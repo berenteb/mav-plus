@@ -23,15 +23,22 @@ struct StationDetailsScreen: View {
             }else if let station = viewModel.station{
                 List{
                     if station.location != nil {
-                        Section("Map"){
+                        Section(content: {
                             NavigationLink(destination:{
                                 StationDetailsMapScreen(viewModel: viewModel)
                             },label:{
-                                Label("Show on map", systemImage: "map.fill")
+                                Label(title: {
+                                    Text("Show on map", comment: "Station details, map button prompt")
+                                }, icon: {
+                                    Image(systemName: "map.fill")
+                                })
                             })
-                        }
+                        }, header: {
+                            Text("Map", comment: "Station details, map section title")
+                        })
                     }
-                    Section("Departures"){
+                    
+                    Section(content: {
                         ForEach(station.departures, id: \.trainCode){dep in
                             HStack{
                                 Text(dep.destinationStationName)
@@ -39,12 +46,17 @@ struct StationDetailsScreen: View {
                                 Text(dep.departureDate?.formatted(date: .omitted, time: .standard) ?? "?")
                             }
                         }
-                    }
+                    }, header: {
+                        Text("Departures", comment: "Station details, departures section title")
+                    })
                 }
             }else{
-                Text("Error")
+                Text("Error", comment: "Station details error")
             }
-        }.navigationTitle(viewModel.station?.name ?? "Loading...")
+        }
+        .navigationTitle(
+            Text(self.viewModel.station?.name ?? NSLocalizedString("Loading...", comment: "Station details loading"))
+        )
             .toolbar{
                 if let isFavorite = viewModel.station?.isFavorite {
                     Image(systemName: isFavorite ? "star.slash.fill" : "star").foregroundColor(Color.yellow).onTapGesture{

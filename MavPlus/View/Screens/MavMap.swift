@@ -1,16 +1,8 @@
-//
-//  MavMap.swift
-//  mav-ui
-//
-//  Created by Márton Pfemeter on 2022-10-03.
-//
-
 import SwiftUI
 import MapKit
 
 struct MavMap: View {
     
-    // Coordinates of zero km stone in bp (Clark Adam square)
     @State private var region = MKCoordinateRegion(
         center: CLLocationCoordinate2D(latitude: 47.497854,
                                        longitude: 19.040170),
@@ -21,15 +13,13 @@ struct MavMap: View {
     @StateObject private var model: MapViewModel = MapViewModel()
     
     var body: some View {
-        Map(coordinateRegion: self.$region, annotationItems: self.model.locations) { place in
-            MapAnnotation(coordinate: place.location) {
-                Image(systemName: "tram.circle.fill")
-                .font(.title2)
-            }
+            Map(coordinateRegion: self.$region, annotationItems: self.model.locations) { place in
+                MapAnnotation(coordinate: place.location) {
+                    MapIcon( (place.isStation ? "Station" : "Train") )
+                }
+            }.edgesIgnoringSafeArea(.top).overlay(alignment: .top){
+                Rectangle().frame(height:0).background(.regularMaterial)
         }
-//        .onAppear {
-//            self.model.stepUpdate()
-//        }
     }
 }
 

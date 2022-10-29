@@ -12,36 +12,40 @@ struct RootNavigation: View {
     @State private var tabSelection: String = "home"
     @StateObject private var trafficNewsModel: RssViewModel = RssViewModel()
     
+    init() {
+        Theme.setup()
+    }
+    
     var body: some View {
         TabView(selection: self.$tabSelection) {
 
             TrafficNews(model: self.trafficNewsModel)
             .tabItem {
-                Image(systemName: "exclamationmark.triangle")
+                Image(systemName: "exclamationmark.circle")
             }
             .tag("traffic")
             
             DirectionsFormScreen()
             .tabItem {
-                Image(systemName: "signpost.right")
+                Image("Directions")
             }
             .tag("directions")
             
             HomeScreen(tabSelection: self.$tabSelection, trafficNewsModel: trafficNewsModel)
             .tabItem {
-                Image(systemName: "house")
+                Image("Home")
             }
             .tag("home")
             
             MavMap()
             .tabItem {
-                Image(systemName: "map")
+                Image("Map")
             }
             .tag("map")
             
             StationListScreen()
             .tabItem{
-                Image(systemName: "list.bullet")
+                Image("Station")
             }
             .tag("stations")
             

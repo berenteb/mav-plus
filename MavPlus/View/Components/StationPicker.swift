@@ -8,15 +8,19 @@
 import SwiftUI
 
 struct StationPickerField: View{
-    @State var label: String
+    @State var label: Text
     @State var list: [FormStationListItem]
     @Binding var selectedStation: FormStationListItem?
     @State var modalPresented = false
     var body: some View {
         HStack{
-            Text(label)
+            self.label
             Spacer()
-            Text(selectedStation?.name ?? "Select station...")
+            if let actualStationName: String = selectedStation?.name {
+                Text(actualStationName)
+            } else {
+                Text("Select station...", comment: "Placeholder to select station")
+            }
             Image(systemName: "chevron.right")
         }.onTapGesture {
             modalPresented = true
@@ -46,9 +50,11 @@ struct StationPickerModal: View {
                 }
             }.searchable(text: $searchText, placement: .navigationBarDrawer(displayMode: .always))
                 .toolbar{
-                    Button("Cancel"){
+                    Button(action: {
                         presentationMode.wrappedValue.dismiss()
-                    }
+                    }, label: {
+                        Text("Cancel", comment: "Cancel button prompt")
+                    })
                 }
         }
         
