@@ -103,7 +103,7 @@ class ApiRepository: ApiProtocol{
                 if let error = error{
                     promise(.failure(error))
                 }else{
-                    promise(.success(stationList))
+                    promise(.success(stationList.filter{!$0.isAlias}))
                 }
             }
         }.eraseToAnyPublisher()

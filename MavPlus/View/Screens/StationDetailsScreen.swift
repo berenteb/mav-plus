@@ -41,9 +41,31 @@ struct StationDetailsScreen: View {
                     Section(content: {
                         ForEach(station.departures){dep in
                             HStack{
-                                Text(dep.destinationStationName)
+                                VStack(alignment: .leading){
+                                    HStack{
+                                        if let pictogram = dep.trainPictogram{
+                                            Text(pictogram.name)
+                                                .bold()
+                                                .foregroundColor(Color(hex: pictogram.foregroundColor))
+                                        }
+                                        if let name = dep.trainName{
+                                            Text(name)
+                                        }
+                                    }
+                                    Text(dep.destinationStationName)
+                                }
                                 Spacer()
-                                Text(dep.departureDate?.formatted(date: .omitted, time:.shortened) ?? "?")
+                                VStack(alignment: .leading){
+                                    Text(dep.departureDate?.formatted(date: .omitted, time:.shortened) ?? "?")
+                                        .strikethrough(dep.isDelayed)
+                                        .foregroundColor(!dep.isDelayed && dep.corrigatedDepartureDate != nil ? .green : nil)
+                                    if let actualDate = dep.corrigatedDepartureDate{
+                                        if dep.isDelayed{
+                                            Text(actualDate.formatted(date: .omitted, time: .shortened))
+                                                .foregroundColor(.red)
+                                        }
+                                    }
+                                }
                             }
                         }
                     }, header: {

@@ -17,6 +17,8 @@
 		DF01D5BB290E9556008B33AB /* LoadingViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF01D5BA290E9556008B33AB /* LoadingViewModel.swift */; };
 		DF01D5BD290EB067008B33AB /* Spinner.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF01D5BC290EB067008B33AB /* Spinner.swift */; };
 		DF01D5BF290EDA8F008B33AB /* TextFieldDebouncer.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF01D5BE290EDA8F008B33AB /* TextFieldDebouncer.swift */; };
+		DF01D5C1290F00A6008B33AB /* ColorExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF01D5C0290F00A6008B33AB /* ColorExtension.swift */; };
+		DF01D5C5290F02DD008B33AB /* MNR.ttf in Resources */ = {isa = PBXBuildFile; fileRef = DF01D5C4290F02DD008B33AB /* MNR.ttf */; };
 		DF292AC828F96CF20050C3B5 /* DirectionsFormViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF292AC728F96CF20050C3B5 /* DirectionsFormViewModel.swift */; };
 		DF292ACA28F975170050C3B5 /* StationPicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF292AC928F975170050C3B5 /* StationPicker.swift */; };
 		DF292ACC28F99D3A0050C3B5 /* IconField.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF292ACB28F99D3A0050C3B5 /* IconField.swift */; };
@@ -81,6 +83,9 @@
 		DF01D5BA290E9556008B33AB /* LoadingViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadingViewModel.swift; sourceTree = "<group>"; };
 		DF01D5BC290EB067008B33AB /* Spinner.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Spinner.swift; sourceTree = "<group>"; };
 		DF01D5BE290EDA8F008B33AB /* TextFieldDebouncer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextFieldDebouncer.swift; sourceTree = "<group>"; };
+		DF01D5C0290F00A6008B33AB /* ColorExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorExtension.swift; sourceTree = "<group>"; };
+		DF01D5C4290F02DD008B33AB /* MNR.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = MNR.ttf; sourceTree = "<group>"; };
+		DF01D5C6290F0332008B33AB /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		DF292AC728F96CF20050C3B5 /* DirectionsFormViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DirectionsFormViewModel.swift; sourceTree = "<group>"; };
 		DF292AC928F975170050C3B5 /* StationPicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StationPicker.swift; sourceTree = "<group>"; };
 		DF292ACB28F99D3A0050C3B5 /* IconField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IconField.swift; sourceTree = "<group>"; };
@@ -159,6 +164,7 @@
 		DF292AD228FC72A70050C3B5 /* Resource */ = {
 			isa = PBXGroup;
 			children = (
+				DF01D5C4290F02DD008B33AB /* MNR.ttf */,
 				DF292AD328FC72BF0050C3B5 /* Stations.plist */,
 			);
 			path = Resource;
@@ -243,6 +249,7 @@
 		DFEBEFB528F32059007F3CCD /* MavPlus */ = {
 			isa = PBXGroup;
 			children = (
+				DF01D5C6290F0332008B33AB /* Info.plist */,
 				2E4535F7290679BA004E6FCB /* i18n */,
 				DF30B73E2905DFE800200B48 /* Launch Screen.storyboard */,
 				DF292AD228FC72A70050C3B5 /* Resource */,
@@ -319,6 +326,7 @@
 				DFEBEFED28F33B52007F3CCD /* UtilFunctions.swift */,
 				DF30B73C2905D98F00200B48 /* Theme.swift */,
 				DF01D5BE290EDA8F008B33AB /* TextFieldDebouncer.swift */,
+				DF01D5C0290F00A6008B33AB /* ColorExtension.swift */,
 			);
 			path = Utility;
 			sourceTree = "<group>";
@@ -401,6 +409,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				DF01D5C5290F02DD008B33AB /* MNR.ttf in Resources */,
 				DFEBEFBE28F3205C007F3CCD /* Preview Assets.xcassets in Resources */,
 				DF292AD428FC72BF0050C3B5 /* Stations.plist in Resources */,
 				DF30B73F2905DFE800200B48 /* Launch Screen.storyboard in Resources */,
@@ -427,6 +436,7 @@
 				DF01D5B9290E9338008B33AB /* LoadingScreen.swift in Sources */,
 				DFEBEFC328F3205C007F3CCD /* MavPlus.xcdatamodeld in Sources */,
 				DFEBEFE528F321B2007F3CCD /* ApiRepository.swift in Sources */,
+				DF01D5C1290F00A6008B33AB /* ColorExtension.swift in Sources */,
 				DFEBEFF628F3685B007F3CCD /* OfferViewModel.swift in Sources */,
 				DF01D5B5290D9B08008B33AB /* RssRepository.swift in Sources */,
 				DF809B6228F7233000043E5E /* UniqueObjectWithId.swift in Sources */,
@@ -630,6 +640,7 @@
 				DEVELOPMENT_TEAM = 56NN429W8H;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = MavPlus/Info.plist;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -660,6 +671,7 @@
 				DEVELOPMENT_TEAM = 56NN429W8H;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = MavPlus/Info.plist;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;

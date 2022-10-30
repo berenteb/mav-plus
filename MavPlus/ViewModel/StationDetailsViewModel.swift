@@ -8,20 +8,31 @@ struct StationDetails {
     var location: CLLocationCoordinate2D?
 }
 
+struct TrainPictogram{
+    var foregroundColor: String
+    var backgroundColor: String
+    var name: String
+}
+
 struct Departure: Identifiable {
     var id: UUID
     var trainCode: String
     var fromStationName: String
     var destinationStationName: String
     var trainName: String?
+    var trainPictogram: TrainPictogram?
     var departureDate: Date?
-    init(trainCode: String, fromStationName: String, destinationStationName: String, trainName: String? = nil, departureDate: Date? = nil) {
+    var corrigatedDepartureDate: Date?
+    var isDelayed: Bool
+    init(trainCode: String, fromStationName: String, destinationStationName: String, trainName: String? = nil, departureDate: Date? = nil, corrigatedDepartureDate: Date? = nil, isDelayed: Bool) {
         self.id = UUID()
         self.trainCode = trainCode
         self.fromStationName = fromStationName
         self.destinationStationName = destinationStationName
         self.trainName = trainName
         self.departureDate = departureDate
+        self.corrigatedDepartureDate = corrigatedDepartureDate
+        self.isDelayed = isDelayed
     }
 }
 
@@ -49,13 +60,33 @@ class StationDetailsViewModel: StationDetailsProtocol, ObservableObject {
             var departures: [Departure] = []
             if let stationTimetable = station?.stationSchedulerDetails?.departureScheduler {
                 departures = stationTimetable.map{dep in
-                    return Departure(
+                    
+                    var departure = Departure(
                         trainCode: dep.kind?.code ?? "",
                         fromStationName: dep.startStation?.name ?? "Unknown",
                         destinationStationName: dep.endStation?.name ?? "Unknown",
-                        trainName: dep.fullNameAndType,
-                        departureDate: DateFromIso(dep.start ?? "")
+                        trainName: dep.name,
+                        departureDate: DateFromIso(dep.start ?? ""),
+                        corrigatedDepartureDate: DateFromIso(dep.actualOrEstimatedStart ?? ""),
+                        isDelayed: false
                     )
+                    if let start = dep.start, let actual = dep.actualOrEstimatedStart{
+                        departure.isDelayed = actual > start
+                    }
+                    if let signName = dep.viszonylatiJel?.jel, let fgColor = dep.viszonylatiJel?.fontSzinKod, let bgColor = dep.viszonylatiJel?.hatterSzinKod {
+                        departure.trainPictogram = TrainPictogram(
+                            foregroundColor: fgColor,
+                            backgroundColor: bgColor,
+                            name: signName
+                        )
+                    }else if let signName = dep.kind?.sortName, let fgColor = dep.kind?.foregroundColorCode, let bgColor = dep.kind?.backgroundColorCode {
+                        departure.trainPictogram = TrainPictogram(
+                            foregroundColor: fgColor,
+                            backgroundColor: bgColor,
+                            name: signName
+                        )
+                    }
+                    return departure
                 }.sorted{a,b in
                     if let aStart = a.departureDate, let bStart = b.departureDate{
                         return aStart < bStart
