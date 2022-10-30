@@ -8,12 +8,21 @@ struct StationDetails {
     var location: CLLocationCoordinate2D?
 }
 
-struct Departure {
+struct Departure: Identifiable {
+    var id: UUID
     var trainCode: String
     var fromStationName: String
     var destinationStationName: String
     var trainName: String?
     var departureDate: Date?
+    init(trainCode: String, fromStationName: String, destinationStationName: String, trainName: String? = nil, departureDate: Date? = nil) {
+        self.id = UUID()
+        self.trainCode = trainCode
+        self.fromStationName = fromStationName
+        self.destinationStationName = destinationStationName
+        self.trainName = trainName
+        self.departureDate = departureDate
+    }
 }
 
 protocol StationDetailsProtocol: RequestStatus, Updateable {
@@ -38,9 +47,21 @@ class StationDetailsViewModel: StationDetailsProtocol, ObservableObject {
         ApiRepository.shared.getStationInfo(stationNumberCode: code){station, error in
             self.isError = error != nil
             var departures: [Departure] = []
-            if let stationTimetable = station?.stationSchedulerDetails {
-                stationTimetable.departureScheduler?.forEach{dep in
-                    departures.append(Departure(trainCode: dep.kind?.code ?? "", fromStationName: dep.startStation?.name ?? "Unknown", destinationStationName: dep.endStation?.name ?? "Unknown", trainName: dep.fullNameAndType, departureDate: DateFromIso(dep.actualOrEstimatedStart ?? "")))
+            if let stationTimetable = station?.stationSchedulerDetails?.departureScheduler {
+                departures = stationTimetable.map{dep in
+                    return Departure(
+                        trainCode: dep.kind?.code ?? "",
+                        fromStationName: dep.startStation?.name ?? "Unknown",
+                        destinationStationName: dep.endStation?.name ?? "Unknown",
+                        trainName: dep.fullNameAndType,
+                        departureDate: DateFromIso(dep.start ?? "")
+                    )
+                }.sorted{a,b in
+                    if let aStart = a.departureDate, let bStart = b.departureDate{
+                        return aStart < bStart
+                    }else{
+                        return false
+                    }
                 }
             }
             let location = ApiRepository.shared.stationLocationList.first{ loc in

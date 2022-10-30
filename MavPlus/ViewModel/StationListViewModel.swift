@@ -20,7 +20,11 @@ class StationListViewModel: StationListProtocol {
     }
     
     func update() {
-        self.stationList = ApiRepository.shared.stationList.map{station in
+        self.stationList = ApiRepository.shared.stationList
+            .filter{
+                return !$0.isAlias
+            }
+            .map{station in
             let location = ApiRepository.shared.stationLocationList.first{ loc in
                 return loc.code == station.code
             }
