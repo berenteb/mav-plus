@@ -38,14 +38,13 @@ class MapViewModel: MapProtocol, ObservableObject {
     init(){
         isError = false
         isLoading = true
-        locations = [LocationItem]()
+        locations = []
         
         if (self.stationsEnabled) {
             subscribe()
         }
         
         update()
-        startTimer()
     }
     
     private func subscribe(){
@@ -60,12 +59,12 @@ class MapViewModel: MapProtocol, ObservableObject {
                         }
                         if let lat = stationLocation?.lat, let lon = stationLocation?.lon {
                             var listItem = LocationItem(id: station.code ?? "", name: station.name ?? "Unknown", lat: lat, long: lon, isStation: true)
-                            
+
                             return listItem
                         }
                         return LocationItem(id: "", name: "", lat: 0, long: 0)
                     }
-                    
+
                     var stationIndex: Int = 0
                     while (stationIndex < localStationList.count) {
                         if (!localStationList[stationIndex].isStation) {
@@ -79,16 +78,20 @@ class MapViewModel: MapProtocol, ObservableObject {
             .store(in: &disposables)
     }
     
-    private func startTimer(){
+    public func startTimer(){
         timer?.invalidate()
-        timer = Timer.scheduledTimer(withTimeInterval: 5.0, repeats: true) { timer in
+        timer = Timer.scheduledTimer(withTimeInterval: 10.0, repeats: true) { timer in
             self.updateTrains()
         }
     }
     
+    public func stopTimer(){
+        timer?.invalidate()
+    }
+    
     private func updateTrains() -> Void {
         isLoading = true
-        trainLocationRequest(){ locations, error in
+        ApiRepository.shared.getTrainLocations(){ locations, error in
             self.isError = error != nil
             if let trains = locations?.Vonatok {
                 var localTrainList: [LocationItem] = [LocationItem]()

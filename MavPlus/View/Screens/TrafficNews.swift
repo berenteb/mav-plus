@@ -16,7 +16,7 @@ struct TrafficNews: View {
             List(model.alerts) { alert in
                 if let url: URL = URL(string: alert.url) {
                     NavigationLink(destination: {
-                        WebView(url: url)
+                        WebView(url: url).navigationBarTitleDisplayMode(.inline)
                     }, label: {
                         IconField(iconName: "exclamationmark.triangle", value: alert.title)
                     })

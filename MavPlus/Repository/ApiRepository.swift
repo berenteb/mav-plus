@@ -20,6 +20,8 @@ protocol ApiProtocol: Updateable{
     func updateStationList() -> Void
     func updateServices() -> Void
     func getOffer(startCode: String, endCode: String, passengerCount: Int, startDate: Date, completion: @escaping (Offer?, Error?) -> Void) -> Void
+    func getTrainLocations(completion: @escaping (TrainLocationList?, Error?) -> Void)
+    func getStationInfo(stationNumberCode: String, completion: @escaping (StationInfo?, Error?) -> Void)
     var publisher: PassthroughSubject<ApiRepositoryFields, Never> {get}
 }
 
@@ -99,4 +101,11 @@ class ApiRepository: ApiProtocol{
         self.stationLocationList = result
     }
     
+    func getTrainLocations(completion: @escaping (TrainLocationList?, Error?) -> Void){
+        trainLocationRequest(completion: completion)
+    }
+    
+    func getStationInfo(stationNumberCode: String, completion: @escaping (StationInfo?, Error?) -> Void){
+        stationInfoRequest(stationNumberCode: stationNumberCode, completion: completion)
+    }
 }

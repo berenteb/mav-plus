@@ -35,7 +35,7 @@ class StationDetailsViewModel: StationDetailsProtocol, ObservableObject {
     
     func update() {
         self.isLoading = true
-        stationInfoRequest(stationNumberCode: code){station, error in
+        ApiRepository.shared.getStationInfo(stationNumberCode: code){station, error in
             self.isError = error != nil
             var departures: [Departure] = []
             if let stationTimetable = station?.stationSchedulerDetails {

@@ -19,7 +19,11 @@ struct MavMap: View {
                 }
             }.edgesIgnoringSafeArea(.top).overlay(alignment: .top){
                 Rectangle().frame(height:0).background(.regularMaterial)
-        }
+            }.onAppear{
+                model.startTimer()
+            }.onDisappear{
+                model.stopTimer()
+            }
     }
 }
 

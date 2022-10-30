@@ -3,9 +3,9 @@ import WebKit
 import Combine
 
 protocol RssProtocol: RequestStatus, Updateable, XMLParserDelegate {
+    static var shared: RssProtocol {get}
     var rssItemList: [RssItem] {get}
     var publisher: PassthroughSubject<RssFields, Never> { get }
-
 }
 
 enum InterestingTag: String {
