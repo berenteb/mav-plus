@@ -39,43 +39,7 @@ class MapViewModel: MapProtocol, ObservableObject {
         isError = false
         isLoading = true
         locations = []
-        
-        if (self.stationsEnabled) {
-            subscribe()
-        }
-        
         update()
-    }
-    
-    private func subscribe(){
-        ApiRepository.shared.publisher
-            .sink(
-                receiveCompletion: {error in
-                    print(error)
-                }, receiveValue: { [weak self] value in
-                    var localStationList: [LocationItem] = value.stationList.map{ station in
-                        let stationLocation = ApiRepository.shared.stationLocationList.first{ loc in
-                            return loc.code == station.code
-                        }
-                        if let lat = stationLocation?.lat, let lon = stationLocation?.lon {
-                            var listItem = LocationItem(id: station.code ?? "", name: station.name ?? "Unknown", lat: lat, long: lon, isStation: true)
-
-                            return listItem
-                        }
-                        return LocationItem(id: "", name: "", lat: 0, long: 0)
-                    }
-
-                    var stationIndex: Int = 0
-                    while (stationIndex < localStationList.count) {
-                        if (!localStationList[stationIndex].isStation) {
-                            localStationList.remove(at: stationIndex)
-                        } else {
-                            stationIndex += 1
-                        }
-                    }
-                    self?.locations.append(contentsOf: localStationList)
-                })
-            .store(in: &disposables)
     }
     
     public func startTimer(){

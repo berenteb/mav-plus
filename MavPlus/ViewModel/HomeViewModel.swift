@@ -40,6 +40,7 @@ class HomeViewModel: HomeProtocol, ObservableObject {
             return AlertListItem(id: item.id, title: item.title, url: item.url)
         }
         self.alerts = items.count > 5 ? Array(items[0..<5]) : items
+        update()
         subscribe()
     }
     
@@ -49,11 +50,6 @@ class HomeViewModel: HomeProtocol, ObservableObject {
     }
     
     func subscribe(){
-        ApiRepository.shared.publisher
-            .sink(receiveValue: { [unowned self] value in
-                update()
-                })
-            .store(in: &disposables)
         StoreRepository.shared.publisher.sink(receiveValue: {[unowned self] value in
             update()
         }).store(in: &disposables)

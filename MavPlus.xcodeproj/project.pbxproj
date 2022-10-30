@@ -13,6 +13,9 @@
 		2E9364C829000180007EA6B7 /* AlertsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E9364C729000180007EA6B7 /* AlertsViewModel.swift */; };
 		DF01D5B5290D9B08008B33AB /* RssRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF01D5B4290D9B08008B33AB /* RssRepository.swift */; };
 		DF01D5B7290DD642008B33AB /* WebView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF01D5B6290DD642008B33AB /* WebView.swift */; };
+		DF01D5B9290E9338008B33AB /* LoadingScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF01D5B8290E9338008B33AB /* LoadingScreen.swift */; };
+		DF01D5BB290E9556008B33AB /* LoadingViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF01D5BA290E9556008B33AB /* LoadingViewModel.swift */; };
+		DF01D5BD290EB067008B33AB /* Spinner.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF01D5BC290EB067008B33AB /* Spinner.swift */; };
 		DF292AC828F96CF20050C3B5 /* DirectionsFormViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF292AC728F96CF20050C3B5 /* DirectionsFormViewModel.swift */; };
 		DF292ACA28F975170050C3B5 /* StationPicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF292AC928F975170050C3B5 /* StationPicker.swift */; };
 		DF292ACC28F99D3A0050C3B5 /* IconField.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF292ACB28F99D3A0050C3B5 /* IconField.swift */; };
@@ -73,6 +76,9 @@
 		2E9364C729000180007EA6B7 /* AlertsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertsViewModel.swift; sourceTree = "<group>"; };
 		DF01D5B4290D9B08008B33AB /* RssRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RssRepository.swift; sourceTree = "<group>"; };
 		DF01D5B6290DD642008B33AB /* WebView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebView.swift; sourceTree = "<group>"; };
+		DF01D5B8290E9338008B33AB /* LoadingScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadingScreen.swift; sourceTree = "<group>"; };
+		DF01D5BA290E9556008B33AB /* LoadingViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadingViewModel.swift; sourceTree = "<group>"; };
+		DF01D5BC290EB067008B33AB /* Spinner.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Spinner.swift; sourceTree = "<group>"; };
 		DF292AC728F96CF20050C3B5 /* DirectionsFormViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DirectionsFormViewModel.swift; sourceTree = "<group>"; };
 		DF292AC928F975170050C3B5 /* StationPicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StationPicker.swift; sourceTree = "<group>"; };
 		DF292ACB28F99D3A0050C3B5 /* IconField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IconField.swift; sourceTree = "<group>"; };
@@ -167,6 +173,7 @@
 				DF809B4028F5D2B200043E5E /* StationListScreen.swift */,
 				DF292AD028FC61930050C3B5 /* StationDetailsMapScreen.swift */,
 				DF809B4428F5E6AF00043E5E /* StationDetailsScreen.swift */,
+				DF01D5B8290E9338008B33AB /* LoadingScreen.swift */,
 			);
 			path = Screens;
 			sourceTree = "<group>";
@@ -184,6 +191,7 @@
 				DF292ACB28F99D3A0050C3B5 /* IconField.swift */,
 				DF30B73A2905CD1F00200B48 /* MapIcon.swift */,
 				DF01D5B6290DD642008B33AB /* WebView.swift */,
+				DF01D5BC290EB067008B33AB /* Spinner.swift */,
 			);
 			path = Components;
 			sourceTree = "<group>";
@@ -287,6 +295,7 @@
 				DFEBEFF528F3685B007F3CCD /* OfferViewModel.swift */,
 				2E9364C729000180007EA6B7 /* AlertsViewModel.swift */,
 				DF292AC728F96CF20050C3B5 /* DirectionsFormViewModel.swift */,
+				DF01D5BA290E9556008B33AB /* LoadingViewModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -411,15 +420,18 @@
 				DFEBEFDE28F321A1007F3CCD /* TrainInfo.swift in Sources */,
 				DF30B73B2905CD1F00200B48 /* MapIcon.swift in Sources */,
 				DFEBEFE128F321A1007F3CCD /* Offer.swift in Sources */,
+				DF01D5B9290E9338008B33AB /* LoadingScreen.swift in Sources */,
 				DFEBEFC328F3205C007F3CCD /* MavPlus.xcdatamodeld in Sources */,
 				DFEBEFE528F321B2007F3CCD /* ApiRepository.swift in Sources */,
 				DFEBEFF628F3685B007F3CCD /* OfferViewModel.swift in Sources */,
 				DF01D5B5290D9B08008B33AB /* RssRepository.swift in Sources */,
 				DF809B6228F7233000043E5E /* UniqueObjectWithId.swift in Sources */,
+				DF01D5BD290EB067008B33AB /* Spinner.swift in Sources */,
 				DF30B73D2905D98F00200B48 /* Theme.swift in Sources */,
 				DF01D5B7290DD642008B33AB /* WebView.swift in Sources */,
 				DF809B6A28F7233000043E5E /* MavMap.swift in Sources */,
 				DFEBEFF428F34875007F3CCD /* HomeViewModel.swift in Sources */,
+				DF01D5BB290E9556008B33AB /* LoadingViewModel.swift in Sources */,
 				DF809B6C28F7233000043E5E /* RssView.swift in Sources */,
 				DFEBEFDD28F321A1007F3CCD /* WarningMessages.swift in Sources */,
 				DFEBEFDF28F321A1007F3CCD /* Services.swift in Sources */,
