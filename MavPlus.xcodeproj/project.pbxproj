@@ -16,6 +16,7 @@
 		DF01D5B9290E9338008B33AB /* LoadingScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF01D5B8290E9338008B33AB /* LoadingScreen.swift */; };
 		DF01D5BB290E9556008B33AB /* LoadingViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF01D5BA290E9556008B33AB /* LoadingViewModel.swift */; };
 		DF01D5BD290EB067008B33AB /* Spinner.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF01D5BC290EB067008B33AB /* Spinner.swift */; };
+		DF01D5BF290EDA8F008B33AB /* TextFieldDebouncer.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF01D5BE290EDA8F008B33AB /* TextFieldDebouncer.swift */; };
 		DF292AC828F96CF20050C3B5 /* DirectionsFormViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF292AC728F96CF20050C3B5 /* DirectionsFormViewModel.swift */; };
 		DF292ACA28F975170050C3B5 /* StationPicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF292AC928F975170050C3B5 /* StationPicker.swift */; };
 		DF292ACC28F99D3A0050C3B5 /* IconField.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF292ACB28F99D3A0050C3B5 /* IconField.swift */; };
@@ -79,6 +80,7 @@
 		DF01D5B8290E9338008B33AB /* LoadingScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadingScreen.swift; sourceTree = "<group>"; };
 		DF01D5BA290E9556008B33AB /* LoadingViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadingViewModel.swift; sourceTree = "<group>"; };
 		DF01D5BC290EB067008B33AB /* Spinner.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Spinner.swift; sourceTree = "<group>"; };
+		DF01D5BE290EDA8F008B33AB /* TextFieldDebouncer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextFieldDebouncer.swift; sourceTree = "<group>"; };
 		DF292AC728F96CF20050C3B5 /* DirectionsFormViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DirectionsFormViewModel.swift; sourceTree = "<group>"; };
 		DF292AC928F975170050C3B5 /* StationPicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StationPicker.swift; sourceTree = "<group>"; };
 		DF292ACB28F99D3A0050C3B5 /* IconField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IconField.swift; sourceTree = "<group>"; };
@@ -316,6 +318,7 @@
 				DFEBEFCE28F32166007F3CCD /* Paths.swift */,
 				DFEBEFED28F33B52007F3CCD /* UtilFunctions.swift */,
 				DF30B73C2905D98F00200B48 /* Theme.swift */,
+				DF01D5BE290EDA8F008B33AB /* TextFieldDebouncer.swift */,
 			);
 			path = Utility;
 			sourceTree = "<group>";
@@ -416,6 +419,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				DFEBEFE028F321A1007F3CCD /* Cities.swift in Sources */,
+				DF01D5BF290EDA8F008B33AB /* TextFieldDebouncer.swift in Sources */,
 				DF809B6B28F7233000043E5E /* RootNavigation.swift in Sources */,
 				DFEBEFDE28F321A1007F3CCD /* TrainInfo.swift in Sources */,
 				DF30B73B2905CD1F00200B48 /* MapIcon.swift in Sources */,

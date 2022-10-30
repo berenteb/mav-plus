@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import Combine
 
 struct StationPickerField: View{
     @State var label: Text
@@ -32,9 +33,9 @@ struct StationPickerField: View{
 
 struct StationPickerModal: View {
     @Environment(\.presentationMode) var presentationMode
+    @ObservedObject var textField = TextFieldDebouncer()
     @State var stationList: [FormStationListItem]
     @Binding var pickedStation: FormStationListItem?
-    @State private var searchText = ""
     var body: some View {
         NavigationView{
             List(filteredStations, id: \.name) {station in
@@ -48,7 +49,7 @@ struct StationPickerModal: View {
                     pickedStation = station
                     presentationMode.wrappedValue.dismiss()
                 }
-            }.searchable(text: $searchText, placement: .navigationBarDrawer(displayMode: .always))
+            }.searchable(text: $textField.searchText, placement: .navigationBarDrawer(displayMode: .always))
                 .toolbar{
                     Button(action: {
                         presentationMode.wrappedValue.dismiss()
@@ -61,10 +62,10 @@ struct StationPickerModal: View {
     }
     
     var filteredStations: [FormStationListItem] {
-            if searchText.isEmpty {
+        if textField.debouncedText.isEmpty {
                 return stationList
             } else {
-                return stationList.filter { $0.name.localizedCaseInsensitiveContains(searchText) }
+                return stationList.filter { $0.name.localizedCaseInsensitiveContains(textField.debouncedText) }
             }
         }
 }

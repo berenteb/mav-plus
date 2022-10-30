@@ -7,7 +7,19 @@
 
 import SwiftUI
 
-struct Spinner: View {
+struct SpinnerView: View{
+    let size: Double
+    init(size: Double = 50){
+        self.size = size
+    }
+    
+    var body: some View{
+        ProgressView().progressViewStyle(Spinner(size: self.size))
+    }
+}
+
+struct Spinner: ProgressViewStyle {
+    
     static let initialDegree: Angle = .degrees(180)
     @State var spinnerStart: CGFloat = 0
     @State var spinnerEnd: CGFloat = 0.3
@@ -16,13 +28,14 @@ struct Spinner: View {
     let rotationTime: Double = 1
     let fullRotation: Angle = .degrees(360)
     let animationTime: Double = 1
+    let size: Double
     
-    var body: some View {
-        ZStack {
-            SpinnerCircle(start: spinnerStart, end: spinnerEnd, rotation: rotationDegree1, color: Color("Primary"))
-            SpinnerCircle(start: spinnerStart, end: spinnerEnd, rotation: rotationDegree2, color: Color("Secondary"))
+    func makeBody(configuration: Configuration) -> some View {
+        return ZStack {
+            SpinnerCircle(start: spinnerStart, end: spinnerEnd, rotation: rotationDegree1, color: Color("Primary"), size: size)
+            SpinnerCircle(start: spinnerStart, end: spinnerEnd, rotation: rotationDegree2, color: Color("Secondary"), size: size)
             
-        }.frame(width: 200, height: 200)
+        }.frame(width: size, height: size)
             .onAppear {
                 animateBoth()
                 Timer.scheduledTimer(withTimeInterval: animationTime, repeats: true) { (mainTimer) in
@@ -51,17 +64,12 @@ struct SpinnerCircle: View {
     var end: CGFloat
     var rotation: Angle
     var color: Color
+    var size: Double
     var body: some View {
         Circle()
             .trim(from: start, to: end)
-            .stroke(style: StrokeStyle(lineWidth: 20, lineCap: .round))
+            .stroke(style: StrokeStyle(lineWidth: size/10, lineCap: .round))
             .fill(color)
             .rotationEffect(rotation)
-    }
-}
-
-struct Spinner_Previews: PreviewProvider {
-    static var previews: some View {
-        Spinner()
     }
 }
