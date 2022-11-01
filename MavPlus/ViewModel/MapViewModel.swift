@@ -4,6 +4,7 @@ import Combine
 
 protocol MapProtocol: RequestStatus, Updateable {
     var locations: [LocationItem] {get}
+    var region: MKCoordinateRegion { get set }
 }
 
 struct LocationItem: Identifiable {
@@ -26,6 +27,7 @@ class MapViewModel: MapProtocol, ObservableObject {
     @Published var locations: [LocationItem]
     @Published var isError: Bool
     @Published var isLoading: Bool
+    @Published var region: MKCoordinateRegion
     
     // needs to be turned off, as SwiftUI does not support clustering
     // see: https://developer.apple.com/forums/thread/684811
@@ -39,6 +41,14 @@ class MapViewModel: MapProtocol, ObservableObject {
         isError = false
         isLoading = true
         locations = []
+        
+        self.region = MKCoordinateRegion(
+            center: CLLocationCoordinate2D(latitude: 47.497854,
+                                           longitude: 19.040170),
+            latitudinalMeters: 10000,
+            longitudinalMeters: 10000
+        )
+        
         update()
     }
     
