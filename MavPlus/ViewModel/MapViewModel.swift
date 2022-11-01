@@ -77,7 +77,27 @@ class MapViewModel: MapProtocol, ObservableObject {
             if (locationLatitudeDegrees > regionMaxLatitudeDegree && locationLongitudeDegrees > regionMaxLongitudeDegree) {
                 // location is in region
                 
-                outputLocationList.append(locationIterator)
+                var isCovered: Bool = false
+                for validLocationIterator in outputLocationList {
+                    let minIconSizeFactor: Double = 20.0
+                    
+                    let fromRegionLocation: CLLocation = CLLocation(latitude: region.center.latitude, longitude: region.center.longitude)
+                    let toRegionLocation: CLLocation = CLLocation(latitude: (region.center.latitude + (region.span.latitudeDelta / minIconSizeFactor)), longitude: (region.center.longitude + (region.span.longitudeDelta / minIconSizeFactor)) )
+                    let regionDeltaDistance: CLLocationDistance = toRegionLocation.distance(from: fromRegionLocation)
+                    
+                    let fromLocation: CLLocation = CLLocation(latitude: validLocationIterator.location.latitude, longitude: validLocationIterator.location.longitude)
+                    let toLocation: CLLocation = CLLocation(latitude: locationIterator.location.latitude, longitude: locationIterator.location.longitude)
+                    let deltaDistance: CLLocationDistance = toLocation.distance(from: fromLocation)
+                    
+                    if (deltaDistance < regionDeltaDistance) {
+                        isCovered = true
+                        break
+                    }
+                }
+                
+                if (!isCovered) {
+                    outputLocationList.append(locationIterator)
+                }
             }
         }
         
@@ -102,22 +122,16 @@ class MapViewModel: MapProtocol, ObservableObject {
                     }
                 }
                 
-                var locationIndex: Int = 0
-                while (locationIndex < self.allLocationsList.count) {
-                    if let newTrainIndex: Int = localTrainList.firstIndex(where: { trainIterator in
-                        return (self.allLocationsList[locationIndex].id == trainIterator.id)
-                    }) {
-                        self.allLocationsList[locationIndex] = localTrainList.remove(at: newTrainIndex)
-                        locationIndex += 1
-                        
-                    } else if (!self.allLocationsList[locationIndex].isStation) {
-                        self.allLocationsList.remove(at: locationIndex)
-                    } else {
-                        locationIndex += 1
-                    }
-                }
+                var filteredLocationList: [LocationItem] = self.allLocationsList.filter({ locationIterator in
+                    let isNotContained: Bool = !localTrainList.contains(where: { containIterator in
+                        return (containIterator.id == locationIterator.id)
+                    })
+                    return (isNotContained && locationIterator.isStation)
+                })
                 
-                self.allLocationsList.append(contentsOf: localTrainList)
+                filteredLocationList.append(contentsOf: localTrainList)
+                
+                self.allLocationsList = filteredLocationList
             }
             self.filterForVisibleLocation()
             self.isLoading = false
@@ -139,19 +153,17 @@ class MapViewModel: MapProtocol, ObservableObject {
             return LocationItem(id: "", name: "", lat: 0, long: 0)
         }
         
-        var stationIndex: Int = 0
-        while (stationIndex < localStationList.count) {
-            if (!localStationList[stationIndex].isStation) {
-                localStationList.remove(at: stationIndex)
-            } else if let locationIndex: Int = self.allLocationsList.firstIndex(where: { iterator in
-                return (localStationList[stationIndex].id == iterator.id)
+        var filteredLocationList: [LocationItem] = localStationList.filter({ stationIterator in
+            if let oldIndex: Int = self.allLocationsList.firstIndex(where: { locationIterator in
+                return (locationIterator.id == stationIterator.id)
             }) {
-                self.allLocationsList[locationIndex] = localStationList.remove(at: stationIndex)
-            } else {
-                stationIndex += 1
+                self.allLocationsList.remove(at: oldIndex)
             }
-        }
-        self.allLocationsList.append(contentsOf: localStationList)
+            
+            return stationIterator.isStation
+        })
+        
+        self.allLocationsList.append(contentsOf: filteredLocationList)
         self.filterForVisibleLocation()
     }
     
