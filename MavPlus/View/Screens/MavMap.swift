@@ -6,17 +6,32 @@ struct MavMap: View {
     @StateObject private var model: MapViewModel = MapViewModel()
     
     var body: some View {
-        Map(coordinateRegion: self.$model.region, annotationItems: self.model.locations) { place in
+        ZStack(alignment: .topLeading) {
+            Map(coordinateRegion: self.$model.region, annotationItems: self.model.locations) { place in
                 MapAnnotation(coordinate: place.location) {
                     MapIcon( (place.isStation ? "Station" : "Train") )
                 }
-            }.edgesIgnoringSafeArea(.top).overlay(alignment: .top){
+            }
+            .edgesIgnoringSafeArea(.top).overlay(alignment: .top){
                 Rectangle().frame(height:0).background(.regularMaterial)
-            }.onAppear{
+            }
+            .onAppear{
                 model.startTimer()
-            }.onDisappear{
+            }
+            .onDisappear{
                 model.stopTimer()
             }
+            
+            VStack(alignment: .trailing) {
+                Text("Show stations")
+                .bold()
+                .padding(5)
+                .background(Color("Secondary"))
+                .cornerRadius(10)
+                Toggle("", isOn: self.$model.showStations)
+            }
+            .padding()
+        }
     }
 }
 
