@@ -32,6 +32,7 @@ struct Scheduler: Codable {
     let fullName, fullNameAndType: String?
     let kinds, kindsToDisplay: [Kind]
     let kind: Kind?
+    let startTrack, endTrack: String?
     //let services: [Service?]?
     let actualOrEstimatedStart, actualOrEstimatedArrive: String?
     let havarianInfok: HavarianInfok?

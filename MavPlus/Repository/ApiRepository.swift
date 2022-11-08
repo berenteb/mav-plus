@@ -8,19 +8,17 @@ struct StationLocation: Decodable {
     var lon: Double?
 }
 
-protocol ApiProtocol: Updateable{
+protocol ApiProtocol: Updateable, RequestStatus{
     static var shared: any ApiProtocol {get}
     var cities: Cities {get}
     var customers: CustomersAndDiscounts? {get}
     var stationList: StationList {get}
     var stationLocationList: [StationLocation] {get}
     var services: ServicesDto? {get}
-    func updateCities() -> Void
-    func updateCustomersAndDiscounts() -> Void
-    func updateStationList() -> Void
-    func updateServices() -> Void
     func getOffer(startCode: String, endCode: String, passengerCount: Int, startDate: Date, completion: @escaping (Offer?, Error?) -> Void) -> Void
-    var publisher: PassthroughSubject<ApiRepositoryFields, Never> {get}
+    func getTrainLocations(completion: @escaping (TrainLocationList?, Error?) -> Void)
+    func getStationInfo(stationNumberCode: String, completion: @escaping (StationInfo?, Error?) -> Void)
+    var notifier: PassthroughSubject<(), Never> {get}
 }
 
 struct ApiRepositoryFields {
@@ -39,50 +37,90 @@ class ApiRepository: ApiProtocol{
     var services: ServicesDto?
     var stationLocationList: [StationLocation] = []
     
-    var publisher = PassthroughSubject<ApiRepositoryFields, Never>()
+    var isLoading: Bool
+    var isError: Bool
+    
+    private var cancellableSet: Set<AnyCancellable> = []
+    
+    public var notifier = PassthroughSubject<(), Never>()
     
     private init() {
+        self.isLoading = true;
+        self.isError = false;
         getStationLocation()
         update()
     }
     
-    private func notify(){
-        publisher.send(ApiRepositoryFields(cities: cities, customers: customers, stationList: stationList, services: services))
+    public func update(){
+        Publishers
+            .CombineLatest4(updateCities(), updateServices(), updateStationList(), updateCustomersAndDiscounts())
+            .sink(receiveCompletion: { completion in
+                switch completion {
+                case .finished:
+                    self.isError = false;
+                    break
+                case .failure(_):
+                    self.isError = true;
+                    break
+                }
+            }, receiveValue: {values in
+                self.cities = values.0
+                self.services = values.1
+                self.stationList = values.2
+                self.customers = values.3
+                self.isLoading = false
+                self.notifier.send()
+            }).store(in: &cancellableSet)
     }
     
-    func update(){
-        updateCities()
-        updateCustomersAndDiscounts()
-        updateStationList()
-        updateServices()
+    private func updateCities()->AnyPublisher<Cities, Error>{
+        Future{promise in
+            citiesRequest(){cities, error in
+                if let error = error{
+                    promise(.failure(error))
+                }else{
+                    promise(.success(cities))
+                }
+            }
+        }.eraseToAnyPublisher()
     }
     
-    func updateCities(){
-        citiesRequest(){ [weak self] cities, error in
-            self?.cities = cities
-            self?.notify()
-        }
-    }
-    func updateCustomersAndDiscounts(){
-        customersRequest(){ [weak self] customers, error in
-            self?.customers = customers
-            self?.notify()
-        }
-    }
-    func updateStationList(){
-        stationListRequest(){ [weak self] stationList, error in
-            self?.stationList = stationList
-            self?.notify()
-        }
-        
-    }
-    func updateServices(){
-        servicesRequest(){ [weak self] services, error in
-            self?.services = services
-            self?.notify()
-        }
+    private func updateCustomersAndDiscounts()->AnyPublisher<CustomersAndDiscounts?, Error>{
+        Future{promise in
+            customersRequest(){customers, error in
+                if let error = error{
+                    promise(.failure(error))
+                }else{
+                    promise(.success(customers))
+                }
+            }
+        }.eraseToAnyPublisher()
     }
     
+    private func updateStationList()->AnyPublisher<StationList, Error>{
+        Future{promise in
+            stationListRequest(){stationList, error in
+                if let error = error{
+                    promise(.failure(error))
+                }else{
+                    promise(.success(stationList.filter{!$0.isAlias}))
+                }
+            }
+        }.eraseToAnyPublisher()
+    }
+    
+    private func updateServices()->AnyPublisher<ServicesDto?, Error>{
+        Future{promise in
+            servicesRequest(){services, error in
+                if let error = error{
+                    promise(.failure(error))
+                }else{
+                    promise(.success(services))
+                }
+            }
+        }.eraseToAnyPublisher()
+    }
+    // MARK: Ad-hoc queries
     
     func getOffer(startCode: String, endCode: String, passengerCount: Int, startDate: Date, completion: @escaping (Offer?, Error?) -> Void){
         offerRequest(startCode: startCode, endCode: endCode, passengerCount: passengerCount, startDate: startDate, completion: completion)
@@ -99,4 +137,11 @@ class ApiRepository: ApiProtocol{
         self.stationLocationList = result
     }
     
+    func getTrainLocations(completion: @escaping (TrainLocationList?, Error?) -> Void){
+        trainLocationRequest(completion: completion)
+    }
+    
+    func getStationInfo(stationNumberCode: String, completion: @escaping (StationInfo?, Error?) -> Void){
+        stationInfoRequest(stationNumberCode: stationNumberCode, completion: completion)
+    }
 }

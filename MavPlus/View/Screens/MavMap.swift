@@ -3,22 +3,34 @@ import MapKit
 
 struct MavMap: View {
     
-    @State private var region = MKCoordinateRegion(
-        center: CLLocationCoordinate2D(latitude: 47.497854,
-                                       longitude: 19.040170),
-        latitudinalMeters: 10000,
-        longitudinalMeters: 10000
-    )
-    
     @StateObject private var model: MapViewModel = MapViewModel()
     
     var body: some View {
-            Map(coordinateRegion: self.$region, annotationItems: self.model.locations) { place in
+        ZStack(alignment: .topLeading) {
+            Map(coordinateRegion: self.$model.region, annotationItems: self.model.locations) { place in
                 MapAnnotation(coordinate: place.location) {
                     MapIcon( (place.isStation ? "Station" : "Train") )
                 }
-            }.edgesIgnoringSafeArea(.top).overlay(alignment: .top){
+            }
+            .edgesIgnoringSafeArea(.top).overlay(alignment: .top){
                 Rectangle().frame(height:0).background(.regularMaterial)
+            }
+            .onAppear{
+                model.startTimer()
+            }
+            .onDisappear{
+                model.stopTimer()
+            }
+            
+            VStack(alignment: .trailing) {
+                Text("Show stations")
+                .bold()
+                .padding(5)
+                .background(Color("Secondary"))
+                .cornerRadius(10)
+                Toggle("", isOn: self.$model.showStations)
+            }
+            .padding()
         }
     }
 }

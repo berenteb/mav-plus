@@ -19,7 +19,7 @@ struct StationDetailsScreen: View {
     var body: some View {
         VStack{
             if viewModel.isLoading {
-                ProgressView()
+                SpinnerView()
             }else if let station = viewModel.station{
                 List{
                     if station.location != nil {
@@ -39,11 +39,33 @@ struct StationDetailsScreen: View {
                     }
                     
                     Section(content: {
-                        ForEach(station.departures, id: \.trainCode){dep in
+                        ForEach(station.departures){dep in
                             HStack{
-                                Text(dep.destinationStationName)
+                                VStack(alignment: .leading){
+                                    HStack{
+                                        if let pictogram = dep.trainPictogram{
+                                            Text(pictogram.name)
+                                                .bold()
+                                                .foregroundColor(Color(hex: pictogram.foregroundColor))
+                                        }
+                                        if let name = dep.trainName{
+                                            Text(name)
+                                        }
+                                    }
+                                    Text(dep.destinationStationName)
+                                }
                                 Spacer()
-                                Text(dep.departureDate?.formatted(date: .omitted, time: .standard) ?? "?")
+                                VStack(alignment: .leading){
+                                    Text(dep.departureDate?.formatted(date: .omitted, time:.shortened) ?? "?")
+                                        .strikethrough(dep.isDelayed)
+                                        .foregroundColor(!dep.isDelayed && dep.corrigatedDepartureDate != nil ? .green : nil)
+                                    if let actualDate = dep.corrigatedDepartureDate{
+                                        if dep.isDelayed{
+                                            Text(actualDate.formatted(date: .omitted, time: .shortened))
+                                                .foregroundColor(.red)
+                                        }
+                                    }
+                                }
                             }
                         }
                     }, header: {
@@ -57,15 +79,15 @@ struct StationDetailsScreen: View {
         .navigationTitle(
             Text(self.viewModel.station?.name ?? NSLocalizedString("Loading...", comment: "Station details loading"))
         )
-            .toolbar{
-                if let isFavorite = viewModel.station?.isFavorite {
-                    Image(systemName: isFavorite ? "star.slash.fill" : "star").foregroundColor(Color.yellow).onTapGesture{
-                        viewModel.toggleFavorite()
-                    }
+        .toolbar{
+            if let isFavorite = viewModel.station?.isFavorite {
+                Image(systemName: isFavorite ? "star.slash.fill" : "star").foregroundColor(Color.yellow).onTapGesture{
+                    viewModel.toggleFavorite()
                 }
-            }.onAppear{
-                viewModel.update()
             }
+        }.onAppear{
+            viewModel.update()
+        }
     }
 }
 

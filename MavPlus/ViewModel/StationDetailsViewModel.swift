@@ -8,12 +8,32 @@ struct StationDetails {
     var location: CLLocationCoordinate2D?
 }
 
-struct Departure {
+struct TrainPictogram{
+    var foregroundColor: String
+    var backgroundColor: String
+    var name: String
+}
+
+struct Departure: Identifiable {
+    var id: UUID
     var trainCode: String
     var fromStationName: String
     var destinationStationName: String
     var trainName: String?
+    var trainPictogram: TrainPictogram?
     var departureDate: Date?
+    var corrigatedDepartureDate: Date?
+    var isDelayed: Bool
+    init(trainCode: String, fromStationName: String, destinationStationName: String, trainName: String? = nil, departureDate: Date? = nil, corrigatedDepartureDate: Date? = nil, isDelayed: Bool) {
+        self.id = UUID()
+        self.trainCode = trainCode
+        self.fromStationName = fromStationName
+        self.destinationStationName = destinationStationName
+        self.trainName = trainName
+        self.departureDate = departureDate
+        self.corrigatedDepartureDate = corrigatedDepartureDate
+        self.isDelayed = isDelayed
+    }
 }
 
 protocol StationDetailsProtocol: RequestStatus, Updateable {
@@ -35,12 +55,44 @@ class StationDetailsViewModel: StationDetailsProtocol, ObservableObject {
     
     func update() {
         self.isLoading = true
-        stationInfoRequest(stationNumberCode: code){station, error in
+        ApiRepository.shared.getStationInfo(stationNumberCode: code){station, error in
             self.isError = error != nil
             var departures: [Departure] = []
-            if let stationTimetable = station?.stationSchedulerDetails {
-                stationTimetable.departureScheduler?.forEach{dep in
-                    departures.append(Departure(trainCode: dep.kind?.code ?? "", fromStationName: dep.startStation?.name ?? "Unknown", destinationStationName: dep.endStation?.name ?? "Unknown", trainName: dep.fullNameAndType, departureDate: DateFromIso(dep.actualOrEstimatedStart ?? "")))
+            if let stationTimetable = station?.stationSchedulerDetails?.departureScheduler {
+                departures = stationTimetable.map{dep in
+                    
+                    var departure = Departure(
+                        trainCode: dep.kind?.code ?? "",
+                        fromStationName: dep.startStation?.name ?? "Unknown",
+                        destinationStationName: dep.endStation?.name ?? "Unknown",
+                        trainName: dep.name,
+                        departureDate: DateFromIso(dep.start ?? ""),
+                        corrigatedDepartureDate: DateFromIso(dep.actualOrEstimatedStart ?? ""),
+                        isDelayed: false
+                    )
+                    if let start = dep.start, let actual = dep.actualOrEstimatedStart{
+                        departure.isDelayed = actual > start
+                    }
+                    if let signName = dep.viszonylatiJel?.jel, let fgColor = dep.viszonylatiJel?.fontSzinKod, let bgColor = dep.viszonylatiJel?.hatterSzinKod {
+                        departure.trainPictogram = TrainPictogram(
+                            foregroundColor: fgColor,
+                            backgroundColor: bgColor,
+                            name: signName
+                        )
+                    }else if let signName = dep.kind?.sortName, let fgColor = dep.kind?.foregroundColorCode, let bgColor = dep.kind?.backgroundColorCode {
+                        departure.trainPictogram = TrainPictogram(
+                            foregroundColor: fgColor,
+                            backgroundColor: bgColor,
+                            name: signName
+                        )
+                    }
+                    return departure
+                }.sorted{a,b in
+                    if let aStart = a.departureDate, let bStart = b.departureDate{
+                        return aStart < bStart
+                    }else{
+                        return false
+                    }
                 }
             }
             let location = ApiRepository.shared.stationLocationList.first{ loc in

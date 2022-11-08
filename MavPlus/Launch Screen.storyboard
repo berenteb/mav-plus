@@ -26,7 +26,7 @@
                             </stackView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="Bcu-3y-fUS"/>
-                        <color key="backgroundColor" name="Secondary"/>
+                        <color key="backgroundColor" red="0.047058823529411764" green="0.42352941176470588" blue="0.96078431372549022" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                         <color key="tintColor" name="Secondary"/>
                         <constraints>
                             <constraint firstItem="I1O-18-9z6" firstAttribute="centerX" secondItem="Bcu-3y-fUS" secondAttribute="centerX" id="Lxp-xa-emQ"/>
@@ -43,7 +43,7 @@
         </scene>
     </scenes>
     <resources>
-        <image name="Icon" width="1000" height="1000"/>
+        <image name="Icon" width="996" height="996"/>
         <namedColor name="Secondary">
             <color red="0.054901960784313725" green="0.41960784313725491" blue="0.96078431372549022" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
         </namedColor>

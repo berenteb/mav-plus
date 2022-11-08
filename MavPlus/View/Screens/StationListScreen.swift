@@ -8,8 +8,8 @@
 import SwiftUI
 
 struct StationListScreen: View {
+    @ObservedObject var searchField = TextFieldDebouncer()
     @ObservedObject var viewModel: StationListViewModel = StationListViewModel()
-    @State var searchText = ""
     var body: some View {
         NavigationView{
             List(filteredStations, id:\.code ){ item in
@@ -24,15 +24,15 @@ struct StationListScreen: View {
         }
         .navigationViewStyle(.stack)
         .searchable(
-            text: $searchText,
+            text: $searchField.searchText,
             placement: .navigationBarDrawer(displayMode: .always)
         )
     }
     var filteredStations: [StationListItem] {
-        if searchText.isEmpty {
+        if searchField.debouncedText.isEmpty {
             return viewModel.stationList
         } else {
-            return viewModel.stationList.filter { $0.name.localizedCaseInsensitiveContains(searchText) }
+            return viewModel.stationList.filter { $0.name.localizedCaseInsensitiveContains(searchField.debouncedText) }
         }
     }
 }
