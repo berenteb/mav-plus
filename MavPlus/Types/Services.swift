@@ -27,7 +27,7 @@ struct Service: Codable {
     let foreignNames: ForeignNames?
     let groupID, groupName, groupNameForExclusion, mainGroupID: String?
     let mainGroupName: String?
-    let isFare, isExtraCharge: Bool
+    let isFare, isExtraCharge: Bool?
     let serviceType: Int?
     let description, uicCode: String?
     let code: Int?
@@ -36,18 +36,18 @@ struct Service: Codable {
     let className: String?
     let classFromCode: String?
     let classFromName: String?
-    let classIndependent, classChanger: Bool
+    let classIndependent, classChanger: Bool?
     let allowedCustomerTypeID, allowedCustomerTypeCode: [String]?
-    let hasAllowedCustomerTypeWidthAge: Bool
-    let isSeasonTicketSign, isDefault, isPlaceReservationService, isInternal: Bool
-    let isTicket: Bool
+    let hasAllowedCustomerTypeWidthAge: Bool?
+    let isSeasonTicketSign, isDefault, isPlaceReservationService, isInternal: Bool?
+    let isTicket: Bool?
     let vatValue: Double?
     let placeType: String?
     let orderID: Int?
     let groupOrderID: Int?
-    let hasDefaultInGroup: Bool
+    let hasDefaultInGroup: Bool?
     let offerKind: Int?
-    let isSelected, canChangeSelection: Bool
+    let isSelected, canChangeSelection: Bool?
     let passengerCount, reservationKind: Int?
 }
 

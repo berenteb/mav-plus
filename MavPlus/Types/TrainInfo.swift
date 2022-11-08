@@ -24,8 +24,8 @@ struct TrainScheduler: Codable {
 
 // MARK: - Train
 struct Train: Codable {
-    let aggregatedServiceIDS: [String]
-    let name, seatReservationCode, code: String
+    let aggregatedServiceIds: [String]?
+    let name, seatReservationCode, code: String?
     let companyCode: String?
     let startStationReservationCode, endStationReservationCode: String?
     let startStation, endStation: Station?
@@ -42,12 +42,12 @@ struct Train: Codable {
     let services: [StationService]?
     let actualOrEstimatedStart, actualOrEstimatedArrive: String?
     let havarianInfok: HavarianInfok?
-    let directTrains, carrierTrains, startTrack, endTrack: String?
+    let directTrains, startTrack, endTrack: String?
     let jeEszkozAlapId: Int?
     let fullType, fullShortType: String?
     let fullNameAndPiktogram: FullNameAndPiktogram?
     let footer: String?
-    let viszonylatiJel: String?
+    let viszonylatiJel: ViszonylatiJel?
     let viszonylatObject: ViszonylatObject?
     let description: String?
     let sameCar: Bool
@@ -61,5 +61,5 @@ struct TrainInfoQueryDto: Encodable{
     let travelDate: String
     let minCount = "0"
     let maxCount = "9999999"
-    let trainId: String
+    let trainId: Int
 }

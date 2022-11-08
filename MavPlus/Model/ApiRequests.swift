@@ -112,6 +112,38 @@ func servicesRequest(completion: @escaping (ServicesDto?, Error?) -> Void){
     task.resume()
 }
 
+func trainInfoRequest(trainId: Int, completion: @escaping (TrainInfo?, Error?) -> Void){
+    let url = URL(string: TimetableRequestPath)!
+    var request = URLRequest(url: url)
+    request.setValue("application/json", forHTTPHeaderField: "Content-Type")
+    request.setValue("hu", forHTTPHeaderField: "Language")
+    request.httpMethod = "POST"
+    let body = TrainInfoQueryDto(travelDate: Date().ISO8601Format(), trainId: trainId)
+    guard let encodedBody = try? JSONEncoder().encode(body) else {return}
+    request.httpBody = encodedBody
+    
+    let task = URLSession.shared.dataTask(with: request) { data, response, error in
+        if(error != nil){
+            return
+        }
+        guard let data = data else {return}
+        do{
+            let parsed = try JSONDecoder().decode(TrainInfo.self, from: data)
+            DispatchQueue.main.async {
+                completion(parsed, nil)
+            }
+        }catch{
+            DispatchQueue.main.async {
+                print(error)
+                completion(nil, error)
+            }
+        }
+    }
+    
+    task.resume()
+}
+
+
 func stationInfoRequest(stationNumberCode: String,completion: @escaping (StationInfo?, Error?) -> Void){
     let url = URL(string: TimetableRequestPath)!
     var request = URLRequest(url: url)

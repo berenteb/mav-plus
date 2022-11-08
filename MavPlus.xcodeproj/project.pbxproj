@@ -70,6 +70,9 @@
 		DFEBEFF228F33E46007F3CCD /* Protocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = DFEBEFF128F33E46007F3CCD /* Protocols.swift */; };
 		DFEBEFF428F34875007F3CCD /* HomeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DFEBEFF328F34875007F3CCD /* HomeViewModel.swift */; };
 		DFEBEFF628F3685B007F3CCD /* OfferViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DFEBEFF528F3685B007F3CCD /* OfferViewModel.swift */; };
+		DFFABAE8291ADF1A007E5D88 /* TrainListItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = DFFABAE7291ADF1A007E5D88 /* TrainListItem.swift */; };
+		DFFABAEC291B04DE007E5D88 /* TrainViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DFFABAEB291B04DE007E5D88 /* TrainViewModel.swift */; };
+		DFFABAEE291B0C88007E5D88 /* TrainDetailsScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = DFFABAED291B0C88007E5D88 /* TrainDetailsScreen.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -138,6 +141,9 @@
 		DFEBEFF128F33E46007F3CCD /* Protocols.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Protocols.swift; sourceTree = "<group>"; };
 		DFEBEFF328F34875007F3CCD /* HomeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewModel.swift; sourceTree = "<group>"; };
 		DFEBEFF528F3685B007F3CCD /* OfferViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OfferViewModel.swift; sourceTree = "<group>"; };
+		DFFABAE7291ADF1A007E5D88 /* TrainListItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrainListItem.swift; sourceTree = "<group>"; };
+		DFFABAEB291B04DE007E5D88 /* TrainViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrainViewModel.swift; sourceTree = "<group>"; };
+		DFFABAED291B0C88007E5D88 /* TrainDetailsScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrainDetailsScreen.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -182,6 +188,7 @@
 				DF292AD028FC61930050C3B5 /* StationDetailsMapScreen.swift */,
 				DF809B4428F5E6AF00043E5E /* StationDetailsScreen.swift */,
 				DF01D5B8290E9338008B33AB /* LoadingScreen.swift */,
+				DFFABAED291B0C88007E5D88 /* TrainDetailsScreen.swift */,
 			);
 			path = Screens;
 			sourceTree = "<group>";
@@ -200,6 +207,7 @@
 				DF30B73A2905CD1F00200B48 /* MapIcon.swift */,
 				DF01D5B6290DD642008B33AB /* WebView.swift */,
 				DF01D5BC290EB067008B33AB /* Spinner.swift */,
+				DFFABAE7291ADF1A007E5D88 /* TrainListItem.swift */,
 			);
 			path = Components;
 			sourceTree = "<group>";
@@ -305,6 +313,7 @@
 				2E9364C729000180007EA6B7 /* AlertsViewModel.swift */,
 				DF292AC728F96CF20050C3B5 /* DirectionsFormViewModel.swift */,
 				DF01D5BA290E9556008B33AB /* LoadingViewModel.swift */,
+				DFFABAEB291B04DE007E5D88 /* TrainViewModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -450,12 +459,15 @@
 				DFEBEFDD28F321A1007F3CCD /* WarningMessages.swift in Sources */,
 				DFEBEFDF28F321A1007F3CCD /* Services.swift in Sources */,
 				DFEBEFDB28F321A1007F3CCD /* Customers.swift in Sources */,
+				DFFABAE8291ADF1A007E5D88 /* TrainListItem.swift in Sources */,
 				DFEBEFE628F321B2007F3CCD /* StoreRepository.swift in Sources */,
 				DF292ACC28F99D3A0050C3B5 /* IconField.swift in Sources */,
 				DF292AD128FC61930050C3B5 /* StationDetailsMapScreen.swift in Sources */,
 				DFEBEFF228F33E46007F3CCD /* Protocols.swift in Sources */,
 				DFEBEFCF28F32166007F3CCD /* Paths.swift in Sources */,
 				DFEBEFE828F32393007F3CCD /* ApiRequests.swift in Sources */,
+				DFFABAEC291B04DE007E5D88 /* TrainViewModel.swift in Sources */,
+				DFFABAEE291B0C88007E5D88 /* TrainDetailsScreen.swift in Sources */,
 				DF292ACA28F975170050C3B5 /* StationPicker.swift in Sources */,
 				DF809B6628F7233000043E5E /* DirectionsFinal.swift in Sources */,
 				DF809B6928F7233000043E5E /* Settings.swift in Sources */,

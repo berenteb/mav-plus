@@ -41,19 +41,7 @@ struct StationDetailsScreen: View {
                     Section(content: {
                         ForEach(station.departures){dep in
                             HStack{
-                                VStack(alignment: .leading){
-                                    HStack{
-                                        if let pictogram = dep.trainPictogram{
-                                            Text(pictogram.name)
-                                                .bold()
-                                                .foregroundColor(Color(hex: pictogram.foregroundColor))
-                                        }
-                                        if let name = dep.trainName{
-                                            Text(name)
-                                        }
-                                    }
-                                    Text(dep.destinationStationName)
-                                }
+                                TrainListItem(trainData: TrainListItemData(pictogram: dep.trainPictogram, trainName: dep.trainName, destination: dep.destinationStationName))
                                 Spacer()
                                 VStack(alignment: .leading){
                                     Text(dep.departureDate?.formatted(date: .omitted, time:.shortened) ?? "?")

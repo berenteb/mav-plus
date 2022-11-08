@@ -29,7 +29,7 @@ struct StoreFields {
 class StoreRepository: StoreProtocol{
     
     static var shared = StoreRepository() as (any StoreProtocol)
-    
+    // Idea: CurrentValueSubjects
     var favoriteStations: [FavoriteStation]
     var recentOffers: [RecentOffer]
     var controller: PersistenceController

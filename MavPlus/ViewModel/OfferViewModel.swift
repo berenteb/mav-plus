@@ -14,8 +14,30 @@ struct OfferData: Identifiable {
     var price: String
     var travelTime: String
     var transferCount: Int
-    var type: String?
-    var name: String?
+    var route: [OfferRoutePart]
+}
+
+struct OfferRoutePart: Identifiable {
+    var id: UUID
+    var startStationName: String
+    var endStationName: String
+    var trainName: String
+    var trainCode: String
+    var startDate: Date?
+    var endDate: Date?
+    var trainPictogram: TrainPictogram?
+    var travelTime: String
+    init(startStationName: String, endStationName: String, trainName: String, trainCode: String, startDate: Date? = nil, endDate: Date? = nil, trainPictogram: TrainPictogram? = nil, travelTime: String) {
+        self.id = UUID()
+        self.startStationName = startStationName
+        self.endStationName = endStationName
+        self.trainName = trainName
+        self.startDate = startDate
+        self.endDate = endDate
+        self.trainPictogram = trainPictogram
+        self.travelTime = travelTime
+        self.trainCode = trainCode
+    }
 }
 
 class OfferViewModel: OfferProtocol, ObservableObject {
@@ -44,31 +66,48 @@ class OfferViewModel: OfferProtocol, ObservableObject {
             guard let routes = offers?.route else { return }
             var offers: [OfferData] = []
             routes.forEach{route in
-                guard let routeDetails = route.details?.routes?[0] else {return}
                 guard let depDate = DateFromIso(route.departure?.time ?? ""), let arrDate = DateFromIso(route.arrival?.time ?? "") else {return}
-                let startName = routeDetails.startStation?.name ?? "Unknown"
-                let endName = routeDetails.destionationStation?.name ?? "Unknown"
-                let tickets = route.details?.tickets ?? []
+                let startName = route.details?.routes?[0].startStation?.name ?? "Unknown"
+                let endName = route.lastStation ?? "Unknown"
+                let tickets = route.travelClasses ?? []
                 var priceTag = "Unknown"
                 if !tickets.isEmpty{
-                    priceTag = "\(Int(tickets[0].grossPrice?.amount ?? 0)) \(tickets[0].grossPrice?.currency?.name ?? "?")"
+                    priceTag = "\(Int(tickets[0].price?.amount ?? 0)) \(tickets[0].price?.currency?.name ?? "?")"
                 }
                 let transferCount = route.transfersCount ?? 0
-                let name = route.details?.trainFullName
-                let type = routeDetails.trainDetails?.type
-                let travelTime = routeDetails.travelTime ?? "Unknown"
+                let travelTime = route.travelTimeMin ?? "Unknown"
+                var routeParts: [OfferRoutePart] = []
+                route.details?.routes?.forEach{route in
+                    var pictogram: TrainPictogram? = nil
+                    if let signName = route.trainDetails?.viszonylatiJel?.jel, let fgColor = route.trainDetails?.viszonylatiJel?.fontSzinKod, let bgColor = route.trainDetails?.viszonylatiJel?.hatterSzinKod {
+                        pictogram = TrainPictogram(
+                            foregroundColor: fgColor,
+                            backgroundColor: bgColor,
+                            name: signName
+                        )
+                    }else if let signName = route.trainDetails?.trainKind?.sortName,
+                            let fgColor = route.trainDetails?.trainKind?.foregroundColorCode,
+                            let bgColor = route.trainDetails?.trainKind?.backgroundColorCode {
+                        pictogram = TrainPictogram(
+                            foregroundColor: fgColor,
+                            backgroundColor: bgColor,
+                            name: signName
+                        )
+                    }
+                    routeParts.append(
+                        OfferRoutePart(
+                            startStationName: route.startStation?.name ?? "Unknown",
+                            endStationName: route.destionationStation?.name ?? "Unknown",
+                            trainName: "\(route.trainDetails?.trainNumber ?? "") \(route.trainDetails?.name ?? "")",
+                            trainCode: route.trainDetails?.jeId ?? "",
+                            startDate: DateFromIso(route.departure?.time ?? ""),
+                            endDate: DateFromIso(route.arrival?.time ?? ""), trainPictogram: pictogram,
+                            travelTime: route.travelTime ?? "?"))
+                }
                 
                 offers.append(
-                    OfferData(
-                        startStationName: startName,
-                        endStationName: endName,
-                        depDate: depDate,
-                        arrDate: arrDate,
-                        price: priceTag,
-                        travelTime: travelTime,
-                        transferCount: transferCount,
-                        type: type,
-                        name: name))
+                    OfferData(startStationName: startName, endStationName: endName, depDate: depDate, arrDate: arrDate, price: priceTag, travelTime: travelTime, transferCount: transferCount, route: routeParts)
+                    )
                 
                 StoreRepository.shared.saveRecentOffer(startCode: self.start.code, endCode: self.end.code)
             }
