@@ -14,7 +14,26 @@ struct HomeScreen: View {
     func removeFavorite(index: IndexSet) {
         guard let i = index.first else {return}
         let item = model.favoriteStations[i]
-        StoreRepository.shared.deleteFavoriteStation(code: item.code)
+        StoreRepository.shared.saveFavoriteStation(code: item.code, searchCount: item.searchCount, isFavorite: false)
+    }
+    
+    private func generateOfferViewModel(inputOffer: RecentOfferListItem) -> OfferViewModel {
+        let start: FormStationListItem = FormStationListItem(
+                                                                code: inputOffer.startStationCode,
+                                                                name: inputOffer.startStationName,
+                                                                searchCount: StoreRepository.shared.favoriteStationSearchCount(code: inputOffer.startStationCode),
+                                                                isFavorite: StoreRepository.shared.isFavoriteStation(code: inputOffer.startStationCode)
+                                                            )
+        let end: FormStationListItem = FormStationListItem(
+                                                                code: inputOffer.endStationCode,
+                                                                name: inputOffer.endStationName,
+                                                                searchCount: StoreRepository.shared.favoriteStationSearchCount(code: inputOffer.endStationCode),
+                                                                isFavorite: StoreRepository.shared.isFavoriteStation(code: inputOffer.endStationCode)
+                                                            )
+        
+        let result: OfferViewModel = OfferViewModel(start: start, end: end, passengerCount: 1, startDate: Date.now)
+        
+        return result
     }
         
     var body: some View {
@@ -23,7 +42,7 @@ struct HomeScreen: View {
                 Section(content: {
                     ForEach(self.model.recentOffers) { directionItem in
                         NavigationLink(destination: {
-                            DirectionsResultScreen(model:OfferViewModel(start: FormStationListItem(code: directionItem.startStationCode, name: directionItem.startStationName), end: FormStationListItem(code: directionItem.endStationCode, name: directionItem.endStationName), passengerCount: 1, startDate: Date.now))
+                            DirectionsResultScreen(model: self.generateOfferViewModel(inputOffer: directionItem))
                         }, label: {
                             VStack(alignment: .leading, spacing: 5){
                                 Text(directionItem.startStationName)

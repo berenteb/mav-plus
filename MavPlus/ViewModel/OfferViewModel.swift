@@ -69,9 +69,9 @@ class OfferViewModel: OfferProtocol, ObservableObject {
                         transferCount: transferCount,
                         type: type,
                         name: name))
-                
-                StoreRepository.shared.saveRecentOffer(startCode: self.start.code, endCode: self.end.code)
             }
+            StoreRepository.shared.saveRecentOffer(startCode: self.start.code, endCode: self.end.code)
+            
             self.offers = offers
             self.isLoading = false
         }

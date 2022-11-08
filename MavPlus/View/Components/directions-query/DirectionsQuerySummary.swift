@@ -31,6 +31,6 @@ struct DirectionsQuerySummary: View {
 
 struct DirectionsQuerySummary_Previews: PreviewProvider {
     static var previews: some View {
-        DirectionsQuerySummary(model: OfferViewModel(start: FormStationListItem(code: "asd", name: "Szeged"), end: FormStationListItem(code: "asd", name: "Szeged"), passengerCount: 1, startDate: Date.now))
+        DirectionsQuerySummary(model: OfferViewModel(start: FormStationListItem(code: "asd", name: "Szeged", searchCount: 2, isFavorite: true), end: FormStationListItem(code: "asd", name: "Szeged", searchCount: 4, isFavorite: false), passengerCount: 1, startDate: Date.now))
     }
 }
