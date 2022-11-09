@@ -26,7 +26,7 @@ struct DirectionsResultScreen: View {
 
  struct DirectionsResult_Previews: PreviewProvider {
      static var previews: some View {
-         DirectionsResultScreen(model: OfferViewModel(start: FormStationListItem(code: "asd", name: "Szeged"), end: FormStationListItem(code: "asd", name: "Szeged"), passengerCount: 1, startDate: Date.now))
+         DirectionsResultScreen(model: OfferViewModel(start: FormStationListItem(code: "asd", name: "Szeged", searchCount: 4, isFavorite: true), end: FormStationListItem(code: "asd", name: "Szeged", searchCount: 6, isFavorite: false), passengerCount: 1, startDate: Date.now))
      }
  }
  

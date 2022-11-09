@@ -106,11 +106,20 @@ class OfferViewModel: OfferProtocol, ObservableObject {
                 }
                 
                 offers.append(
-                    OfferData(startStationName: startName, endStationName: endName, depDate: depDate, arrDate: arrDate, price: priceTag, travelTime: travelTime, transferCount: transferCount, route: routeParts)
+                    OfferData(
+                        startStationName: startName,
+                        endStationName: endName,
+                        depDate: depDate,
+                        arrDate: arrDate,
+                        price: priceTag,
+                        travelTime: travelTime,
+                        transferCount: transferCount,
+                        route: routeParts
                     )
-                
+                )
                 StoreRepository.shared.saveRecentOffer(startCode: self.start.code, endCode: self.end.code)
             }
+            
             self.offers = offers
             self.isLoading = false
         }

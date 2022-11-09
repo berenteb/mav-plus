@@ -30,9 +30,11 @@ struct StationListScreen: View {
     }
     var filteredStations: [StationListItem] {
         if searchField.debouncedText.isEmpty {
-            return viewModel.stationList
+            let result: [StationListItem] = viewModel.stationList.sorted(by: >)
+            return result
         } else {
-            return viewModel.stationList.filter { $0.name.localizedCaseInsensitiveContains(searchField.debouncedText) }
+            let result: [StationListItem] = viewModel.stationList.filter { $0.name.localizedCaseInsensitiveContains(searchField.debouncedText) }
+            return result.sorted(by: >)
         }
     }
 }

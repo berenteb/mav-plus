@@ -48,7 +48,7 @@ struct DirectionsFormScreen: View {
                         
                         if let startStation = startStation, let endStation = endStation {
                                 NavigationLink(destination: {
-                                    DirectionsResultScreen(model: OfferViewModel(start: startStation, end: endStation, passengerCount: passengerNumber, startDate: time))
+                                    DirectionsResultScreen(model: self.viewModel.createOfferViewModel(start: startStation, end: endStation, count: self.passengerNumber, startDate: self.time))
                                 }, label: {
                                     Label(title: {
                                         Text("Search", comment: "Directions input, go button")
@@ -70,6 +70,6 @@ struct DirectionsFormScreen: View {
 
 struct Directions_Previews: PreviewProvider {
     static var previews: some View {
-        DirectionsFormScreen(startStation: FormStationListItem(code: "Teszt", name: "Teszt"), endStation: FormStationListItem(code: "Teszt", name: "Teszt"))
+        DirectionsFormScreen(startStation: FormStationListItem(code: "Teszt", name: "Teszt", searchCount: 3, isFavorite: false), endStation: FormStationListItem(code: "Teszt", name: "Teszt", searchCount: 2, isFavorite: false))
     }
 }
