@@ -9,13 +9,14 @@ protocol StoreProtocol {
     var controller: PersistenceController {get}
     
     func updateFavoriteStationList() -> Void
-    func deleteFavoriteStation(code: String) -> Void
-    func saveFavoriteStation(code: String) -> Void
+//    func deleteFavoriteStation(code: String) -> Void
+    func saveFavoriteStation(code: String, searchCount: Int32, isFavorite: Bool) -> Void
     
     func updateRecentOfferList() -> Void
     func deleteRecentOffer(id: UUID) -> Void
     func saveRecentOffer(startCode: String, endCode: String) -> Void
     
+    func favoriteStationSearchCount(code: String) -> Int32
     func isFavoriteStation(code: String) -> Bool
     
     var publisher: PassthroughSubject<StoreFields, Never> { get }
@@ -29,7 +30,7 @@ struct StoreFields {
 class StoreRepository: StoreProtocol{
     
     static var shared = StoreRepository() as (any StoreProtocol)
-    
+    // Idea: CurrentValueSubjects
     var favoriteStations: [FavoriteStation]
     var recentOffers: [RecentOffer]
     var controller: PersistenceController
@@ -53,13 +54,13 @@ class StoreRepository: StoreProtocol{
         notify()
     }
     
-    func deleteFavoriteStation(code: String){
-        controller.deleteFavoriteStation(code: code)
-        updateFavoriteStationList()
-    }
+//    func deleteFavoriteStation(code: String){
+//        controller.deleteFavoriteStation(code: code)
+//        updateFavoriteStationList()
+//    }
     
-    func saveFavoriteStation(code: String){
-        controller.saveFavoriteStation(code: code)
+    func saveFavoriteStation(code: String, searchCount: Int32 = 0, isFavorite: Bool = false){
+        controller.saveFavoriteStation(code: code, searchCount: searchCount, isFavorite: isFavorite)
         updateFavoriteStationList()
     }
     
@@ -82,9 +83,18 @@ class StoreRepository: StoreProtocol{
         updateRecentOfferList()
     }
     
+    func favoriteStationSearchCount(code: String) -> Int32 {
+        for favoriteStation in favoriteStations {
+            if (favoriteStation.code == code) {
+                return favoriteStation.searchCount
+            }
+        }
+        return 0
+    }
+    
     func isFavoriteStation(code: String) -> Bool {
         for favoriteStation in favoriteStations {
-            if favoriteStation.code == code {
+            if (favoriteStation.code == code && favoriteStation.isFavorite) {
                 return true
             }
         }

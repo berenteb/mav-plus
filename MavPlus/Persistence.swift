@@ -61,25 +61,34 @@ struct PersistenceController {
         }
     }
 
-    func deleteFavoriteStation(code: String) {
+    func deleteFavoriteStation(code: String, saveDb: Bool = true) {
         do{
             let request = FavoriteStation.fetchRequest()
             request.predicate = NSPredicate(format: "code = %@", code)
             let items = try container.viewContext.fetch(request)
             if(items.isEmpty) {return}
             container.viewContext.delete(items[0])
-            try container.viewContext.save()
+            
+            if (saveDb) {
+                try container.viewContext.save()
+            }
         }catch{
+            print("error deleting from db - \(error)")
             return
         }
     }
 
-    func saveFavoriteStation(code: String) {
+    func saveFavoriteStation(code: String, searchCount: Int32 = 0, isFavorite: Bool = false) {
+        self.deleteFavoriteStation(code: code, saveDb: false)
+        
         let newFavorite = FavoriteStation(context: container.viewContext)
         newFavorite.code = code
+        newFavorite.searchCount = searchCount
+        newFavorite.isFavorite = isFavorite
         do{
             try container.viewContext.save()
         }catch{
+            print("error saving to db - \(error)")
             return
         }
     }

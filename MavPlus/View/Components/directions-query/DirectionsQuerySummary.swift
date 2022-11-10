@@ -15,14 +15,20 @@ struct DirectionsQuerySummary: View {
         
         Section(content: {
             HStack{
-                Image(systemName: "app.connected.to.app.below.fill")
+                Image("Directions").foregroundColor(Color("Secondary")).rotationEffect(Angle(degrees: 90))
                 VStack(alignment: .leading){
                     Text(model.start.name)
                     Text(model.end.name)
                 }
             }
-            IconField(iconName: "person", value: String(model.passengerCount))
-            IconField(iconName: "clock", value: model.startDate.formatted(date: .long, time: .shortened))
+            HStack{
+                Image("Person").foregroundColor(Color("Secondary"))
+                Text(String(model.passengerCount))
+            }
+            HStack{
+                Image("Calendar").foregroundColor(Color("Secondary"))
+                Text(model.startDate.formatted(date: .long, time: .shortened))
+            }
         }, header: {
             Text("Parameters", comment: "Directions query summary component title")
         })
@@ -31,6 +37,6 @@ struct DirectionsQuerySummary: View {
 
 struct DirectionsQuerySummary_Previews: PreviewProvider {
     static var previews: some View {
-        DirectionsQuerySummary(model: OfferViewModel(start: FormStationListItem(code: "asd", name: "Szeged"), end: FormStationListItem(code: "asd", name: "Szeged"), passengerCount: 1, startDate: Date.now))
+        DirectionsQuerySummary(model: OfferViewModel(start: FormStationListItem(code: "asd", name: "Szeged", searchCount: 2, isFavorite: true), end: FormStationListItem(code: "asd", name: "Szeged", searchCount: 4, isFavorite: false), passengerCount: 1, startDate: Date.now))
     }
 }

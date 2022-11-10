@@ -18,6 +18,7 @@ protocol ApiProtocol: Updateable, RequestStatus{
     func getOffer(startCode: String, endCode: String, passengerCount: Int, startDate: Date, completion: @escaping (Offer?, Error?) -> Void) -> Void
     func getTrainLocations(completion: @escaping (TrainLocationList?, Error?) -> Void)
     func getStationInfo(stationNumberCode: String, completion: @escaping (StationInfo?, Error?) -> Void)
+    func getTrainInfo(trainId: Int, completion: @escaping (TrainInfo?, Error?)->Void)
     var notifier: PassthroughSubject<(), Never> {get}
 }
 
@@ -30,13 +31,13 @@ struct ApiRepositoryFields {
 
 class ApiRepository: ApiProtocol{
     static var shared = ApiRepository() as (any ApiProtocol)
-    
+    // Idea: implement fields as CurrentValueSubject
     var cities: Cities = []
     var customers: CustomersAndDiscounts?
     var stationList: StationList = []
     var services: ServicesDto?
     var stationLocationList: [StationLocation] = []
-    
+    // TODO: remove this
     var isLoading: Bool
     var isError: Bool
     
@@ -143,5 +144,9 @@ class ApiRepository: ApiProtocol{
     
     func getStationInfo(stationNumberCode: String, completion: @escaping (StationInfo?, Error?) -> Void){
         stationInfoRequest(stationNumberCode: stationNumberCode, completion: completion)
+    }
+    
+    func getTrainInfo(trainId: Int, completion: @escaping (TrainInfo?, Error?)->Void){
+        trainInfoRequest(trainId: trainId, completion: completion)
     }
 }

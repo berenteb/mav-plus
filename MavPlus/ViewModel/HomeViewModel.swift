@@ -10,6 +10,7 @@ protocol HomeProtocol: Updateable {
 struct FavoriteStationListItem {
     var name: String
     var code: String
+    var searchCount: Int32
 }
 
 struct RecentOfferListItem: Identifiable {
@@ -73,7 +74,7 @@ class HomeViewModel: HomeProtocol, ObservableObject {
                 guard let code = station.code else {return false}
                 return StoreRepository.shared.isFavoriteStation(code: code)
             }.map{ fs in
-                return FavoriteStationListItem(name: fs.name ?? "Unknown", code: fs.code!)
+                return FavoriteStationListItem(name: fs.name ?? "Unknown", code: fs.code!, searchCount: StoreRepository.shared.favoriteStationSearchCount(code: fs.code!))
             }
         
     }

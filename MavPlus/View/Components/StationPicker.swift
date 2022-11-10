@@ -62,10 +62,13 @@ struct StationPickerModal: View {
     }
     
     var filteredStations: [FormStationListItem] {
-        if textField.debouncedText.isEmpty {
-                return stationList
+            if textField.debouncedText.isEmpty {
+                let result: [FormStationListItem] = stationList.sorted(by: >)
+                return result
             } else {
-                return stationList.filter { $0.name.localizedCaseInsensitiveContains(textField.debouncedText) }
+                let resultList: [FormStationListItem] = stationList.filter { $0.name.localizedCaseInsensitiveContains(textField.debouncedText) }
+                let result: [FormStationListItem] = resultList.sorted(by: >)
+                return result
             }
         }
 }

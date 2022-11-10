@@ -4,6 +4,7 @@ import MapKit
 struct StationDetails {
     var name: String
     var isFavorite: Bool
+    var searchCount: Int32
     var departures: [Departure]
     var location: CLLocationCoordinate2D?
 }
@@ -98,7 +99,7 @@ class StationDetailsViewModel: StationDetailsProtocol, ObservableObject {
             let location = ApiRepository.shared.stationLocationList.first{ loc in
                 return loc.code == self.code
             }
-            var station = StationDetails(name: station?.stationSchedulerDetails?.station?.name ?? "Unknown", isFavorite: StoreRepository.shared.isFavoriteStation(code: self.code), departures: departures)
+            var station = StationDetails(name: station?.stationSchedulerDetails?.station?.name ?? "Unknown", isFavorite: StoreRepository.shared.isFavoriteStation(code: self.code), searchCount: StoreRepository.shared.favoriteStationSearchCount(code: self.code), departures: departures)
             if let lat = location?.lat, let lon = location?.lon {
                 station.location = CLLocationCoordinate2D(latitude: lat, longitude: lon)
             }
@@ -108,13 +109,9 @@ class StationDetailsViewModel: StationDetailsProtocol, ObservableObject {
     }
     
     func toggleFavorite() {
-        if let isFavorite = self.station?.isFavorite {
-            if isFavorite {
-                StoreRepository.shared.deleteFavoriteStation(code: self.code)
-            }else{
-                StoreRepository.shared.saveFavoriteStation(code: self.code)
-            }
-        }
         self.station?.isFavorite.toggle()
+        if let isFavorite = self.station?.isFavorite {
+            StoreRepository.shared.saveFavoriteStation(code: self.code, searchCount: self.station?.searchCount ?? 0, isFavorite: isFavorite)
+        }
     }
 }

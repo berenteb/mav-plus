@@ -40,6 +40,12 @@
 /* Directions result section title */
 "Offers" = "Ajánlatok";
 
+/* Directions offer details title */
+"Offer" = "Ajánlat";
+
+/* Directions offer details section */
+"Details" = "Részletek";
+
 /* Directions query summary component title */
 "Parameters" = "Keresési feltételek";
 
