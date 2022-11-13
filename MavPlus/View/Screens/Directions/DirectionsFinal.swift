@@ -25,9 +25,9 @@ struct DirectionsFinal: View {
                 }
                 IconField(iconName: "banknote", value: offer.price)
             }, header: {
-                Text("Details")
+                Text("Details", comment: "Directions result details heading")
             })
-            Section("Route"){
+            Section(content: {
                 ForEach(offer.route, id: \.id){ part in
                     NavigationLink(destination: {
                         if let id = Int(part.trainCode){
@@ -59,8 +59,10 @@ struct DirectionsFinal: View {
                         }
                     })
                 }
-            }
-        }.navigationTitle(Text("Offer"))
+            }, header: {
+                Text("Route", comment: "Directions result itinerary heading")
+            })
+        }.navigationTitle(Text("Offer", comment: "Directions result screen title"))
     }
 }
 

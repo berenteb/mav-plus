@@ -6,7 +6,7 @@ struct LoadingScreen: View {
         if model.isLoading{
             SpinnerView(size: 100)
         }else if model.isError{
-            Text("Error")
+            Text("Error", comment: "Error text")
         }else{
             RootNavigation()
         }

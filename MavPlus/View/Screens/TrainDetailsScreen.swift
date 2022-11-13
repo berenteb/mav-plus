@@ -20,7 +20,7 @@ struct TrainDetailsScreen: View {
                 SpinnerView()
             }else if let train = model.trainData{
                 List{
-                    Section("Details"){
+                    Section(content: {
                         HStack{
                             Image("Directions").foregroundColor(Color("Secondary")).rotationEffect(Angle(degrees: 90))
                             VStack(alignment: .leading){
@@ -37,19 +37,23 @@ struct TrainDetailsScreen: View {
                             Text(train.name)
                         }
                         
-                    }
-                    Section("Route"){
+                    }, header: {
+                        Text("Details", comment: "Train details screen, details title")
+                    })
+                    Section(content: {
                         ForEach(train.stations, id: \.name){ stop in
                             Text("\(stop.date?.formatted(date: .omitted, time: .shortened) ?? "?") - \(stop.name)")
                         }
-                    }
+                    }, header: {
+                        Text("Route", comment: "Train details route heading")
+                    })
                 }
             }else{
-                Text("Error")
+                Text("Error", comment: "Error text")
             }
         }
         .navigationTitle(
-            Text(self.model.trainData?.name ?? "Loading")
+            Text(self.model.trainData?.name ?? NSLocalizedString("Loading", comment: "Loading text") )
         ).onAppear{
             model.update()
         }
