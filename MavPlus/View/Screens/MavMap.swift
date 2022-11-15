@@ -35,7 +35,7 @@ struct MavMap: View {
                 }
                 
                 VStack(alignment: .trailing) {
-                    Text("Show stations")
+                    Text("Show stations", comment: "Toggle button for showing/hiding stations on map")
                         .bold()
                         .padding(5)
                         .background(Color("Secondary"))

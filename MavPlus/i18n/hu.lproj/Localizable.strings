@@ -8,7 +8,7 @@
 "Cancel" = "Mégsem";
 
 /* Directions input, passenger count title */
-"Count: " = "Utasok száma:";
+"Count:" = "Utasok száma:";
 
 /* Directions input, date selection */
 "Date" = "Dátum";
@@ -16,10 +16,15 @@
 /* Station details, departures section title */
 "Departures" = "Indulások";
 
+/* Directions result details heading
+Train details screen, details title */
+"Details" = "Részletek";
+
 /* Directions input tabview title */
 "Directions" = "Útvonaltervezés";
 
-/* Station details error */
+/* Station details error
+Error text */
 "Error" = "Hiba történt";
 
 /* Favorite stations section title */
@@ -31,20 +36,20 @@
 /* Home tabview title */
 "Home" = "Főoldal";
 
+/* Loading text */
+"Loading" = "Betöltés";
+
 /* Station details loading */
 "Loading..." = "Betöltés...";
 
 /* Station details, map section title */
 "Map" = "Térkép";
 
-/* Directions result section title */
-"Offers" = "Ajánlatok";
-
-/* Directions offer details title */
+/* Directions result screen title */
 "Offer" = "Ajánlat";
 
-/* Directions offer details section */
-"Details" = "Részletek";
+/* Directions result section title */
+"Offers" = "Ajánlatok";
 
 /* Directions query summary component title */
 "Parameters" = "Keresési feltételek";
@@ -55,16 +60,17 @@
 /* Recent direction queries section title */
 "Recents" = "Korábbi keresések";
 
-/* Directions final result, section title
+/* Directions result itinerary heading
 Directions input, origin/destination section title
-Directions result, tabview title */
+Directions result, tabview title
+Train details route heading */
 "Route" = "Útvonal";
 
 /* Directions input, go button */
 "Search" = "Keresés";
 
 /* Placeholder to select station */
-"Select station..." = "Állomás választása";
+"Select station..." = "Állomás választása...";
 
 /* Settings tabview title */
 "Settings" = "Beállítások";
@@ -75,11 +81,11 @@ Directions result, tabview title */
 /* Station details, map button prompt */
 "Show on map" = "Térképen";
 
+/* Toggle button for showing/hiding stations on map */
+"Show stations" = "Állomások megjelenítése";
+
 /* Station list tabview title */
 "Stations" = "Állomások";
-
-/* Directions final result, tabview title */
-"Ticket" = "Jegy";
 
 /* Directions input, destination */
 "To" = "Hova";

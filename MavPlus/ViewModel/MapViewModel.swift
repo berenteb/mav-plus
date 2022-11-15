@@ -8,13 +8,24 @@ protocol MapProtocol: RequestStatus, Updateable {
 }
 
 struct LocationItem: Identifiable {
-    let id: String
+    private let realId: String
+    var id: String {
+        get {
+            if (!self.isStation) {
+                if let cutIndex: String.Index = self.realId.firstIndex(of: "_") {
+                    let result: String = self.realId.prefix(upTo: cutIndex).description
+                    return result
+                }
+            }
+            return self.realId
+        }
+    }
     let name: String
     let isStation: Bool
     let location: CLLocationCoordinate2D
     
     init(id: String, name: String, lat: Double, long: Double, isStation: Bool = false) {
-        self.id = id
+        self.realId = id
         self.name = name
         self.isStation = isStation
         self.location = CLLocationCoordinate2D(

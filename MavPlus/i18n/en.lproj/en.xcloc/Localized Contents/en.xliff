@@ -1,164 +1,197 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<xliff xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" version="1.2" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 http://docs.oasis-open.org/xliff/v1.2/os/xliff-core-1.2-strict.xsd">
-  <file original="MavPlus/en.lproj/Localizable.strings" source-language="en" target-language="en" datatype="plaintext">
-    <header>
-      <tool tool-id="com.apple.dt.xcode" tool-name="Xcode" tool-version="14.0.1" build-num="14A400"/>
-    </header>
-    <body>
-      <trans-unit id="Alerts" xml:space="preserve">
-        <source>Alerts</source>
-        <target>Alerts</target>
-        <note>RSS links section title</note>
-      </trans-unit>
-      <trans-unit id="Arrive by" xml:space="preserve">
-        <source>Arrive by</source>
-        <target>Arrive by</target>
-        <note>Directions input, arrive by toggle</note>
-      </trans-unit>
-      <trans-unit id="Cancel" xml:space="preserve">
-        <source>Cancel</source>
-        <target>Cancel</target>
-        <note>Cancel button prompt</note>
-      </trans-unit>
-      <trans-unit id="Count: " xml:space="preserve">
-        <source>Count: </source>
-        <target>Count: </target>
-        <note>Directions input, passenger count title</note>
-      </trans-unit>
-      <trans-unit id="Date" xml:space="preserve">
-        <source>Date</source>
-        <target>Date</target>
-        <note>Directions input, date selection</note>
-      </trans-unit>
-      <trans-unit id="Departures" xml:space="preserve">
-        <source>Departures</source>
-        <target>Departures</target>
-        <note>Station details, departures section title</note>
-      </trans-unit>
-      <trans-unit id="Directions" xml:space="preserve">
-        <source>Directions</source>
-        <target>Directions</target>
-        <note>Directions input tabview title</note>
-      </trans-unit>
-      <trans-unit id="Error" xml:space="preserve">
-        <source>Error</source>
-        <target>Error</target>
-        <note>Station details error</note>
-      </trans-unit>
-      <trans-unit id="Favorites" xml:space="preserve">
-        <source>Favorites</source>
-        <target>Favorites</target>
-        <note>Favorite stations section title</note>
-      </trans-unit>
-      <trans-unit id="From" xml:space="preserve">
-        <source>From</source>
-        <target>From</target>
-        <note>Directions input, origin</note>
-      </trans-unit>
-      <trans-unit id="Home" xml:space="preserve">
-        <source>Home</source>
-        <target>Home</target>
-        <note>Home tabview title</note>
-      </trans-unit>
-      <trans-unit id="Loading..." xml:space="preserve">
-        <source>Loading...</source>
-        <target>Loading...</target>
-        <note>Station details loading</note>
-      </trans-unit>
-      <trans-unit id="Map" xml:space="preserve">
-        <source>Map</source>
-        <target>Map</target>
-        <note>Station details, map section title</note>
-      </trans-unit>
-      <trans-unit id="Offers" xml:space="preserve">
-        <source>Offers</source>
-        <target>Offers</target>
-        <note>Directions result section title</note>
-      </trans-unit>
-      <trans-unit id="Parameters" xml:space="preserve">
-        <source>Parameters</source>
-        <target>Parameters</target>
-        <note>Directions query summary component title</note>
-      </trans-unit>
-      <trans-unit id="Passengers" xml:space="preserve">
-        <source>Passengers</source>
-        <target>Passengers</target>
-        <note>Directions input, passenger section title</note>
-      </trans-unit>
-      <trans-unit id="Recents" xml:space="preserve">
-        <source>Recents</source>
-        <target>Recents</target>
-        <note>Recent direction queries section title</note>
-      </trans-unit>
-      <trans-unit id="Route" xml:space="preserve">
-        <source>Route</source>
-        <target>Route</target>
-        <note>Directions final result, section title
-Directions input, origin/destination section title
-Directions result, tabview title</note>
-      </trans-unit>
-      <trans-unit id="Search" xml:space="preserve">
-        <source>Search</source>
-        <target>Search</target>
-        <note>Directions input, go button</note>
-      </trans-unit>
-      <trans-unit id="Select station..." xml:space="preserve">
-        <source>Select station...</source>
-        <target>Select station...</target>
-        <note>Placeholder to select station</note>
-      </trans-unit>
-      <trans-unit id="Settings" xml:space="preserve">
-        <source>Settings</source>
-        <target>Settings</target>
-        <note>Settings tabview title</note>
-      </trans-unit>
-      <trans-unit id="Settings placeholder" xml:space="preserve">
-        <source>Settings placeholder</source>
-        <target>Settings placeholder</target>
-        <note>No comment provided by engineer.</note>
-      </trans-unit>
-      <trans-unit id="Show on map" xml:space="preserve">
-        <source>Show on map</source>
-        <target>Show on map</target>
-        <note>Station details, map button prompt</note>
-      </trans-unit>
-      <trans-unit id="Stations" xml:space="preserve">
-        <source>Stations</source>
-        <target>Stations</target>
-        <note>Station list tabview title</note>
-      </trans-unit>
-      <trans-unit id="Ticket" xml:space="preserve">
-        <source>Ticket</source>
-        <target>Ticket</target>
-        <note>Directions final result, tabview title</note>
-      </trans-unit>
-      <trans-unit id="To" xml:space="preserve">
-        <source>To</source>
-        <target>To</target>
-        <note>Directions input, destination</note>
-      </trans-unit>
-      <trans-unit id="Traffic News" xml:space="preserve">
-        <source>Traffic News</source>
-        <target>Traffic News</target>
-        <note>RSS tabview title</note>
-      </trans-unit>
-      <trans-unit id="hi" xml:space="preserve">
-        <source>hi</source>
-        <target>hi</target>
-        <note>No comment provided by engineer.</note>
-      </trans-unit>
-    </body>
-  </file>
-  <file original="MavPlus/en.lproj/MavPlus-InfoPlist.strings" source-language="en" target-language="en" datatype="plaintext">
-    <header>
-      <tool tool-id="com.apple.dt.xcode" tool-name="Xcode" tool-version="14.0.1" build-num="14A400"/>
-    </header>
-    <body>
-      <trans-unit id="CFBundleName" xml:space="preserve">
-        <source>MavPlus</source>
-        <target>MavPlus</target>
-        <note>Bundle name</note>
-      </trans-unit>
-    </body>
-  </file>
-</xliff>
+<?xml version="1.0" encoding="UTF-8"?>			
+<xliff xmlns="urn:oasis:names:tc:xliff:document:1.2" xmln
+  <file original="MavPlus/en.lproj/Localizable.strings" s		  <file original="MavPlus/en.lproj/Localizable.strings" s
+    <header>								    <header>
+      <tool tool-id="com.apple.dt.xcode" tool-name="Xcode
+    </header>								    </header>
+    <body>								    <body>
+<trans-unit id=" %lld" xml:space="preserve">
+								>               <source> %lld</source>
+								>               <target> %lld</target>
+								>               <note>No comment provided by engineer.</note>
+								>             </trans-unit>
+								>             <trans-unit id="%@ - %@" xml:space="preserve">
+								>               <source>%@ - %@</source>
+								>               <target>%@ - %@</target>
+								>               <note>No comment provided by engineer.</note>
+								>             </trans-unit>
+      <trans-unit id="Alerts" xml:space="preserve">			      <trans-unit id="Alerts" xml:space="preserve">
+        <source>Alerts</source>						        <source>Alerts</source>
+        <target>Alerts</target>						        <target>Alerts</target>
+        <note>RSS links section title</note>				        <note>RSS links section title</note>
+      </trans-unit>							      </trans-unit>
+      <trans-unit id="Arrive by" xml:space="preserve">			      <trans-unit id="Arrive by" xml:space="preserve">
+        <source>Arrive by</source>					        <source>Arrive by</source>
+        <target>Arrive by</target>					        <target>Arrive by</target>
+        <note>Directions input, arrive by toggle</note>			        <note>Directions input, arrive by toggle</note>
+      </trans-unit>							      </trans-unit>
+      <trans-unit id="Cancel" xml:space="preserve">			      <trans-unit id="Cancel" xml:space="preserve">
+        <source>Cancel</source>						        <source>Cancel</source>
+        <target>Cancel</target>						        <target>Cancel</target>
+        <note>Cancel button prompt</note>				        <note>Cancel button prompt</note>
+      </trans-unit>							      </trans-unit>
+      <trans-unit id="Count: " xml:space="preserve">		|             <trans-unit id="Count:" xml:space="preserve">
+        <source>Count: </source>				|               <source>Count:</source>
+        <target>Count: </target>				|               <target>Count:</target>
+        <note>Directions input, passenger count title</no		        <note>Directions input, passenger count title</no
+      </trans-unit>							      </trans-unit>
+      <trans-unit id="Date" xml:space="preserve">			      <trans-unit id="Date" xml:space="preserve">
+        <source>Date</source>						        <source>Date</source>
+        <target>Date</target>						        <target>Date</target>
+        <note>Directions input, date selection</note>			        <note>Directions input, date selection</note>
+      </trans-unit>							      </trans-unit>
+      <trans-unit id="Departures" xml:space="preserve">			      <trans-unit id="Departures" xml:space="preserve">
+        <source>Departures</source>					        <source>Departures</source>
+        <target>Departures</target>					        <target>Departures</target>
+        <note>Station details, departures section title</		        <note>Station details, departures section title</
+      </trans-unit>							      </trans-unit>
+								>             <trans-unit id="Details" xml:space="preserve">
+								>               <source>Details</source>
+								>               <target>Details</target>
+								>               <note>Directions result details heading
+								>       Train details screen, details title</note>
+								>             </trans-unit>
+      <trans-unit id="Directions" xml:space="preserve">			      <trans-unit id="Directions" xml:space="preserve">
+        <source>Directions</source>					        <source>Directions</source>
+        <target>Directions</target>					        <target>Directions</target>
+        <note>Directions input tabview title</note>			        <note>Directions input tabview title</note>
+      </trans-unit>							      </trans-unit>
+      <trans-unit id="Error" xml:space="preserve">			      <trans-unit id="Error" xml:space="preserve">
+        <source>Error</source>						        <source>Error</source>
+        <target>Error</target>						        <target>Error</target>
+        <note>Station details error</note>			|               <note>Station details error
+								>       Error text</note>
+      </trans-unit>							      </trans-unit>
+      <trans-unit id="Favorites" xml:space="preserve">			      <trans-unit id="Favorites" xml:space="preserve">
+        <source>Favorites</source>					        <source>Favorites</source>
+        <target>Favorites</target>					        <target>Favorites</target>
+        <note>Favorite stations section title</note>			        <note>Favorite stations section title</note>
+      </trans-unit>							      </trans-unit>
+      <trans-unit id="From" xml:space="preserve">			      <trans-unit id="From" xml:space="preserve">
+        <source>From</source>						        <source>From</source>
+        <target>From</target>						        <target>From</target>
+        <note>Directions input, origin</note>				        <note>Directions input, origin</note>
+      </trans-unit>							      </trans-unit>
+      <trans-unit id="Home" xml:space="preserve">			      <trans-unit id="Home" xml:space="preserve">
+        <source>Home</source>						        <source>Home</source>
+        <target>Home</target>						        <target>Home</target>
+        <note>Home tabview title</note>					        <note>Home tabview title</note>
+      </trans-unit>							      </trans-unit>
+								>             <trans-unit id="Loading" xml:space="preserve">
+								>               <source>Loading</source>
+								>               <target>Loading</target>
+								>               <note>Loading text</note>
+								>             </trans-unit>
+      <trans-unit id="Loading..." xml:space="preserve">			      <trans-unit id="Loading..." xml:space="preserve">
+        <source>Loading...</source>					        <source>Loading...</source>
+        <target>Loading...</target>					        <target>Loading...</target>
+        <note>Station details loading</note>				        <note>Station details loading</note>
+      </trans-unit>							      </trans-unit>
+      <trans-unit id="Map" xml:space="preserve">			      <trans-unit id="Map" xml:space="preserve">
+        <source>Map</source>						        <source>Map</source>
+        <target>Map</target>						        <target>Map</target>
+        <note>Station details, map section title</note>			        <note>Station details, map section title</note>
+      </trans-unit>							      </trans-unit>
+								>             <trans-unit id="Offer" xml:space="preserve">
+								>               <source>Offer</source>
+								>               <target>Offer</target>
+								>               <note>Directions result screen title</note>
+								>             </trans-unit>
+      <trans-unit id="Offers" xml:space="preserve">			      <trans-unit id="Offers" xml:space="preserve">
+        <source>Offers</source>						        <source>Offers</source>
+        <target>Offers</target>						        <target>Offers</target>
+        <note>Directions result section title</note>			        <note>Directions result section title</note>
+      </trans-unit>							      </trans-unit>
+      <trans-unit id="Parameters" xml:space="preserve">			      <trans-unit id="Parameters" xml:space="preserve">
+        <source>Parameters</source>					        <source>Parameters</source>
+        <target>Parameters</target>					        <target>Parameters</target>
+        <note>Directions query summary component title</n		        <note>Directions query summary component title</n
+      </trans-unit>							      </trans-unit>
+      <trans-unit id="Passengers" xml:space="preserve">			      <trans-unit id="Passengers" xml:space="preserve">
+        <source>Passengers</source>					        <source>Passengers</source>
+        <target>Passengers</target>					        <target>Passengers</target>
+        <note>Directions input, passenger section title</		        <note>Directions input, passenger section title</
+      </trans-unit>							      </trans-unit>
+      <trans-unit id="Recents" xml:space="preserve">			      <trans-unit id="Recents" xml:space="preserve">
+        <source>Recents</source>					        <source>Recents</source>
+        <target>Recents</target>					        <target>Recents</target>
+        <note>Recent direction queries section title</not		        <note>Recent direction queries section title</not
+      </trans-unit>							      </trans-unit>
+      <trans-unit id="Route" xml:space="preserve">			      <trans-unit id="Route" xml:space="preserve">
+        <source>Route</source>						        <source>Route</source>
+        <target>Route</target>						        <target>Route</target>
+        <note>Directions final result, section title		|               <note>Directions result itinerary heading
+Directions input, origin/destination section title			Directions input, origin/destination section title
+Directions result, tabview title</note>				|       Directions result, tabview title
+								>       Train details route heading</note>
+      </trans-unit>							      </trans-unit>
+      <trans-unit id="Search" xml:space="preserve">			      <trans-unit id="Search" xml:space="preserve">
+        <source>Search</source>						        <source>Search</source>
+        <target>Search</target>						        <target>Search</target>
+        <note>Directions input, go button</note>			        <note>Directions input, go button</note>
+      </trans-unit>							      </trans-unit>
+      <trans-unit id="Select station..." xml:space="prese		      <trans-unit id="Select station..." xml:space="prese
+        <source>Select station...</source>				        <source>Select station...</source>
+        <target>Select station...</target>				        <target>Select station...</target>
+        <note>Placeholder to select station</note>			        <note>Placeholder to select station</note>
+      </trans-unit>							      </trans-unit>
+      <trans-unit id="Settings" xml:space="preserve">			      <trans-unit id="Settings" xml:space="preserve">
+        <source>Settings</source>					        <source>Settings</source>
+        <target>Settings</target>					        <target>Settings</target>
+        <note>Settings tabview title</note>				        <note>Settings tabview title</note>
+      </trans-unit>							      </trans-unit>
+      <trans-unit id="Settings placeholder" xml:space="pr		      <trans-unit id="Settings placeholder" xml:space="pr
+        <source>Settings placeholder</source>				        <source>Settings placeholder</source>
+        <target>Settings placeholder</target>				        <target>Settings placeholder</target>
+        <note>No comment provided by engineer.</note>			        <note>No comment provided by engineer.</note>
+      </trans-unit>							      </trans-unit>
+      <trans-unit id="Show on map" xml:space="preserve">		      <trans-unit id="Show on map" xml:space="preserve">
+        <source>Show on map</source>					        <source>Show on map</source>
+        <target>Show on map</target>					        <target>Show on map</target>
+        <note>Station details, map button prompt</note>			        <note>Station details, map button prompt</note>
+      </trans-unit>							      </trans-unit>
+								>             <trans-unit id="Show stations" xml:space="preserve"
+								>               <source>Show stations</source>
+								>               <target>Show stations</target>
+								>               <note>Toggle button for showing/hiding stations o
+								>             </trans-unit>
+      <trans-unit id="Stations" xml:space="preserve">			      <trans-unit id="Stations" xml:space="preserve">
+        <source>Stations</source>					        <source>Stations</source>
+        <target>Stations</target>					        <target>Stations</target>
+        <note>Station list tabview title</note>				        <note>Station list tabview title</note>
+      </trans-unit>							      </trans-unit>
+      <trans-unit id="Ticket" xml:space="preserve">		<       
+        <source>Ticket</source>					<       
+        <target>Ticket</target>					<       
+        <note>Directions final result, tabview title</not       <       
+      </trans-unit>						<       
+      <trans-unit id="To" xml:space="preserve">				      <trans-unit id="To" xml:space="preserve">
+        <source>To</source>						        <source>To</source>
+        <target>To</target>						        <target>To</target>
+        <note>Directions input, destination</note>			        <note>Directions input, destination</note>
+      </trans-unit>							      </trans-unit>
+      <trans-unit id="Traffic News" xml:space="preserve">		      <trans-unit id="Traffic News" xml:space="preserve">
+        <source>Traffic News</source>					        <source>Traffic News</source>
+        <target>Traffic News</target>					        <target>Traffic News</target>
+        <note>RSS tabview title</note>					        <note>RSS tabview title</note>
+      </trans-unit>							      </trans-unit>
+      <trans-unit id="hi" xml:space="preserve">				      <trans-unit id="hi" xml:space="preserve">
+        <source>hi</source>						        <source>hi</source>
+        <target>hi</target>						        <target>hi</target>
+        <note>No comment provided by engineer.</note>			        <note>No comment provided by engineer.</note>
+      </trans-unit>						<       
+    </body>							<       
+  </file>							<       
+  <file original="MavPlus/en.lproj/MavPlus-InfoPlist.stri       <       
+    <header>							<       
+      <tool tool-id="com.apple.dt.xcode" tool-name="Xcode       <       
+    </header>							<       
+    <body>							<       
+      <trans-unit id="CFBundleName" xml:space="preserve">       <       
+        <source>MavPlus</source>				<       
+        <target>MavPlus</target>				<       
+        <note>Bundle name</note>				<       
+      </trans-unit>							      </trans-unit>
+    </body>								    </body>
+  </file>								  </file>
+</xliff>								</xliff>
