@@ -20,7 +20,7 @@ struct StationPickerField: View{
             if let actualStationName: String = selectedStation?.name {
                 Text(actualStationName)
             } else {
-                Text("Select station...", comment: "Placeholder to select station")
+                Text("Select station...")
             }
             Image(systemName: "chevron.right")
         }.onTapGesture {
@@ -73,9 +73,15 @@ struct StationPickerModal: View {
         }
 }
 
-//struct StationPicker_Previews: PreviewProvider {
-//    @State static var pickedStation: FormStationListItem?
-//    static var previews: some View {
-//        StationPickerField(label:"Station",list: [FormStationListItem(code: "ads", name: "Szeged")])
-//    }
-//}
+struct StationPicker_Previews: PreviewProvider {
+    @State static var pickedStation: FormStationListItem?
+    static var previews: some View {
+        StationPickerField(
+            label:Text("From"),
+            list:MockStationList,
+            selectedStation: $pickedStation)
+        .previewLayout(.sizeThatFits)
+        StationPickerModal(stationList: MockStationList, pickedStation: $pickedStation)
+            .previewLayout(.sizeThatFits)
+    }
+}

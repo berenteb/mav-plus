@@ -93,3 +93,8 @@ Train details route heading */
 /* RSS tabview title */
 "Traffic News" = "Haváriainfo";
 
+/* Error screen title */
+"An error occurred!" = "Sajnos ez nem sikerült!";
+
+/* Error screen button */
+"Retry" = "Újra";

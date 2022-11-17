@@ -9,7 +9,7 @@ func citiesRequest(completion: @escaping (Cities, Error?) -> Void){
     
     let task = URLSession.shared.dataTask(with: request) { data, response, error in
         if(error != nil){
-            return
+            completion([], error)
         }
         guard let data = data else {return}
         do{
@@ -38,7 +38,7 @@ func customersRequest(completion: @escaping (CustomersAndDiscounts?, Error?) -> 
     
     let task = URLSession.shared.dataTask(with: request) { data, response, error in
         if(error != nil){
-            return
+            completion(nil, error)
         }
         guard let data = data else {return}
         do{
@@ -65,7 +65,7 @@ func stationListRequest(completion: @escaping (StationList, Error?) -> Void){
     
     let task = URLSession.shared.dataTask(with: request) { data, response, error in
         if(error != nil){
-            return
+            completion([], error)
         }
         guard let data = data else {return}
         do{
@@ -94,7 +94,7 @@ func servicesRequest(completion: @escaping (ServicesDto?, Error?) -> Void){
     
     let task = URLSession.shared.dataTask(with: request) { data, response, error in
         if(error != nil){
-            return
+            completion(nil, error)
         }
         guard let data = data else {return}
         do{
@@ -124,7 +124,7 @@ func trainInfoRequest(trainId: Int, completion: @escaping (TrainInfo?, Error?) -
     
     let task = URLSession.shared.dataTask(with: request) { data, response, error in
         if(error != nil){
-            return
+            completion(nil, error)
         }
         guard let data = data else {return}
         do{
@@ -156,7 +156,7 @@ func stationInfoRequest(stationNumberCode: String,completion: @escaping (Station
     
     let task = URLSession.shared.dataTask(with: request) { data, response, error in
         if(error != nil){
-            return
+            completion(nil, error)
         }
         guard let data = data else {return}
         do{
@@ -191,9 +191,13 @@ func offerRequest(startCode: String, endCode: String, passengerCount: Int, start
     request.httpBody = encodedBody
     let task = URLSession.shared.dataTask(with: request) { data, response, error in
         if(error != nil){
+            completion(nil, error)
             return
         }
-        guard let data = data else {return}
+        guard let data = data else {
+                completion(nil, nil)
+                return
+        }
         do{
             let parsed = try JSONDecoder().decode(Offer.self, from: data)
             DispatchQueue.main.async {
@@ -222,7 +226,7 @@ func trainLocationRequest(completion: @escaping (TrainLocationList?, Error?) -> 
     
     let task = URLSession.shared.dataTask(with: request) { data, response, error in
         if(error != nil){
-            return
+            completion(nil, error)
         }
         guard let data = data else {return}
         do{

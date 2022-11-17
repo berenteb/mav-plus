@@ -54,14 +54,17 @@ class OfferViewModel: OfferProtocol, ObservableObject {
         self.end = end
         self.passengerCount = passengerCount
         self.startDate = startDate
-        update()
     }
     
     func update() {
         isLoading = true
         isError = false
         ApiRepository.shared.getOffer(startCode: start.code, endCode: end.code, passengerCount: passengerCount, startDate: startDate){ offers, error in
-            self.isError = error != nil
+            if error != nil {
+                self.isError = true
+                self.isLoading = false
+                return
+            }
             self.offers = []
             guard let routes = offers?.route else { return }
             var offers: [OfferData] = []

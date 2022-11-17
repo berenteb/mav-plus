@@ -2,7 +2,6 @@ import SwiftUI
 
 struct HomeScreen: View {
     
-    @Binding public var tabSelection: String
     @ObservedObject var model: HomeViewModel = HomeViewModel()
     
     func removeRecent(index: IndexSet) {
@@ -17,32 +16,31 @@ struct HomeScreen: View {
         StoreRepository.shared.saveFavoriteStation(code: item.code, searchCount: item.searchCount, isFavorite: false)
     }
     
-    private func generateOfferViewModel(inputOffer: RecentOfferListItem) -> OfferViewModel {
-        let start: FormStationListItem = FormStationListItem(
-                                                                code: inputOffer.startStationCode,
-                                                                name: inputOffer.startStationName,
-                                                                searchCount: StoreRepository.shared.favoriteStationSearchCount(code: inputOffer.startStationCode),
-                                                                isFavorite: StoreRepository.shared.isFavoriteStation(code: inputOffer.startStationCode)
-                                                            )
-        let end: FormStationListItem = FormStationListItem(
-                                                                code: inputOffer.endStationCode,
-                                                                name: inputOffer.endStationName,
-                                                                searchCount: StoreRepository.shared.favoriteStationSearchCount(code: inputOffer.endStationCode),
-                                                                isFavorite: StoreRepository.shared.isFavoriteStation(code: inputOffer.endStationCode)
-                                                            )
-        
-        let result: OfferViewModel = OfferViewModel(start: start, end: end, passengerCount: 1, startDate: Date.now)
-        
-        return result
+    private func generateFormStationListItem(code: String, name: String) -> FormStationListItem {
+        return FormStationListItem(
+            code: code,
+            name: name,
+            searchCount: StoreRepository.shared.favoriteStationSearchCount(code: code),
+            isFavorite: StoreRepository.shared.isFavoriteStation(code: code)
+        )
     }
-        
+    
     var body: some View {
         NavigationStack {
             List {
                 Section(content: {
                     ForEach(self.model.recentOffers) { directionItem in
                         NavigationLink(destination: {
-                            DirectionsResultScreen(model: self.generateOfferViewModel(inputOffer: directionItem))
+                            DirectionsResultScreen(
+                                start: generateFormStationListItem(
+                                    code: directionItem.startStationCode,
+                                    name: directionItem.startStationName
+                                ),
+                                end: generateFormStationListItem(
+                                    code: directionItem.endStationCode,
+                                    name: directionItem.endStationName),
+                                passengerCount: 1,
+                                startDate: Date.now)
                         }, label: {
                             VStack(alignment: .leading, spacing: 5){
                                 Text(directionItem.startStationName)
@@ -51,7 +49,7 @@ struct HomeScreen: View {
                         })
                     }.onDelete(perform: removeRecent)
                 }, header: {
-                    Text("Recents", comment: "Recent direction queries section title")
+                    Text("Recents")
                 })
                 
                 Section(content: {
@@ -61,7 +59,7 @@ struct HomeScreen: View {
                         }
                     }.onDelete(perform: removeFavorite)
                 }, header: {
-                    Text("Favorites", comment: "Favorite stations section title")
+                    Text("Favorites")
                 })
                 
                 Section(content: {
@@ -77,19 +75,16 @@ struct HomeScreen: View {
                         }
                     }
                 }, header: {
-                    Text("Alerts", comment: "RSS links section title")
+                    Text("Alerts")
                 })
             }
-            .navigationTitle(Text("Home", comment: "Home tabview title"))
+            .navigationTitle(Text("Home"))
         }
     }
 }
 
-//struct Home_Previews: PreviewProvider {
-//
-//    @State private static var isSelected: String = "home"
-//
-//    static var previews: some View {
-//        HomeScreen(tabSelection: $isSelected)
-//    }
-//}
+struct Home_Previews: PreviewProvider {
+    static var previews: some View {
+        HomeScreen()
+    }
+}

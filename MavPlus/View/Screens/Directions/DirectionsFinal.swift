@@ -1,10 +1,3 @@
-//
-//  DirectionsFinal.swift
-//  mav-ui
-//
-//  Created by Márton Pfemeter on 2022-10-05.
-//
-
 import SwiftUI
 
 struct DirectionsFinal: View {
@@ -25,7 +18,7 @@ struct DirectionsFinal: View {
                 }
                 IconField(iconName: "banknote", value: offer.price)
             }, header: {
-                Text("Details", comment: "Directions result details heading")
+                Text("Details")
             })
             Section(content: {
                 ForEach(offer.route, id: \.id){ part in
@@ -60,20 +53,18 @@ struct DirectionsFinal: View {
                     })
                 }
             }, header: {
-                Text("Route", comment: "Directions result itinerary heading")
+                Text("Route")
             })
-        }.navigationTitle(Text("Offer", comment: "Directions result screen title"))
+        }.navigationTitle(Text("Offer"))
     }
 }
 
 
 struct DirectionsFinal_Previews: PreviewProvider {
-    
-    @State private static var navPath: NavigationPath = NavigationPath()
-    
+        
     static var previews: some View {
         DirectionsFinal(
-            offer: OfferData(startStationName: "Vasalma", endStationName: "Jónásapátfalva", depDate: Date(), arrDate: Date(), price: "2000 HUF", travelTime: "234min", transferCount: 0, route: [])
+            offer: MockOfferData
         )
     }
 }

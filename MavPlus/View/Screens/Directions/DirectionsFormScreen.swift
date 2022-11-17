@@ -1,10 +1,3 @@
-//
-//  Directions.swift
-//  mav-ui
-//
-//  Created by Márton Pfemeter on 2022-10-03.
-//
-
 import SwiftUI
 
 struct DirectionsFormScreen: View {
@@ -21,37 +14,37 @@ struct DirectionsFormScreen: View {
                 VStack {
                     Form {
                         Section(content: {
-                            StationPickerField(label: Text("From", comment: "Directions input, origin"), list: viewModel.stationList, selectedStation: $startStation)
-                            StationPickerField(label: Text("To", comment: "Directions input, destination"), list: viewModel.stationList, selectedStation: $endStation)
+                            StationPickerField(label: Text("From"), list: viewModel.stationList, selectedStation: $startStation)
+                            StationPickerField(label: Text("To"), list: viewModel.stationList, selectedStation: $endStation)
                         }, header: {
-                            Text("Route", comment: "Directions input, origin/destination section title")
+                            Text("Route")
                         })
                         
                         Section(content: {
                             DatePicker(selection: $time) {
-                                Text("Date", comment: "Directions input, date selection")
+                                Text("Date")
                             }
                             Toggle(isOn: $isArrival) {
-                                Text("Arrive by", comment: "Directions input, arrive by toggle")
+                                Text("Arrive by")
                             }
                         }, header: {
-                            Text("Date", comment: "Directions input, date section title")
+                            Text("Date")
                         })
                         
                         Section(content: {
                             Stepper(value: $passengerNumber, in: 1...10) {
-                                Text("Count:", comment: "Directions input, passenger count title") + Text(" \(self.passengerNumber)")
+                                Text("Count:") + Text(" \(self.passengerNumber)")
                             }
                         }, header: {
-                            Text("Passengers", comment: "Directions input, passenger section title")
+                            Text("Passengers")
                         })
                         
                         if let startStation = startStation, let endStation = endStation {
                                 NavigationLink(destination: {
-                                    DirectionsResultScreen(model: self.viewModel.createOfferViewModel(start: startStation, end: endStation, count: self.passengerNumber, startDate: self.time))
+                                    DirectionsResultScreen(start: startStation, end: endStation, passengerCount: self.passengerNumber, startDate: self.time)
                                 }, label: {
                                     Label(title: {
-                                        Text("Search", comment: "Directions input, go button")
+                                        Text("Search")
                                     }, icon: {
                                         Image(systemName: "magnifyingglass")
                                     })
@@ -61,7 +54,7 @@ struct DirectionsFormScreen: View {
                     }
                     
                 }
-                .navigationTitle(Text("Directions", comment: "Directions input tabview title"))
+                .navigationTitle(Text("Directions"))
             }
         }
     }

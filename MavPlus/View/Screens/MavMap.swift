@@ -3,7 +3,7 @@ import MapKit
 
 struct MavMap: View {
     
-    @StateObject private var model: MapViewModel = MapViewModel()
+    @ObservedObject private var model: MapViewModel = MapViewModel()
     
     var body: some View {
         NavigationStack {
@@ -35,7 +35,7 @@ struct MavMap: View {
                 }
                 
                 VStack(alignment: .trailing) {
-                    Text("Show stations", comment: "Toggle button for showing/hiding stations on map")
+                    Text("Show stations")
                         .bold()
                         .padding(5)
                         .background(Color("Secondary"))
@@ -48,8 +48,8 @@ struct MavMap: View {
     }
 }
 
-struct MavMap_Previews: PreviewProvider {
-    static var previews: some View {
-        MavMap()
-    }
-}
+//struct MavMap_Previews: PreviewProvider {
+//    static var previews: some View {
+//        MavMap()
+//    }
+//}

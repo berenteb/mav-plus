@@ -42,7 +42,8 @@ struct Train: Codable {
     let services: [StationService]?
     let actualOrEstimatedStart, actualOrEstimatedArrive: String?
     let havarianInfok: HavarianInfok?
-    let directTrains, startTrack, endTrack: String?
+    //let directTrains: [Train]
+    let startTrack, endTrack: String?
     let jeEszkozAlapId: Int?
     let fullType, fullShortType: String?
     let fullNameAndPiktogram: FullNameAndPiktogram?

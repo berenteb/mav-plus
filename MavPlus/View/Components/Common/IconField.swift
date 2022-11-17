@@ -1,10 +1,3 @@
-//
-//  IconField.swift
-//  MavPlus
-//
-//  Created by Berente Bálint on 2022. 10. 14..
-//
-
 import SwiftUI
 
 struct IconField: View {
@@ -19,12 +12,11 @@ struct IconField: View {
     }
 }
 
-extension IconField {
-    
-}
-
 struct IconField_Previews: PreviewProvider {
     static var previews: some View {
-        IconField(iconName: "arrow.left.arrow.right", value: "Test")
+        IconField(
+            iconName: "arrow.left.arrow.right",
+            value: "Test")
+        .previewLayout(.sizeThatFits)
     }
 }
