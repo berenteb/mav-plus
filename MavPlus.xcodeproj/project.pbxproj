@@ -39,12 +39,8 @@
 		DF809B6928F7233000043E5E /* Settings.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF809B5328F7233000043E5E /* Settings.swift */; };
 		DF809B6A28F7233000043E5E /* MavMap.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF809B5428F7233000043E5E /* MavMap.swift */; };
 		DF809B6B28F7233000043E5E /* RootNavigation.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF809B5528F7233000043E5E /* RootNavigation.swift */; };
-		DF809B6C28F7233000043E5E /* RssView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF809B5728F7233000043E5E /* RssView.swift */; };
-		DF809B6D28F7233000043E5E /* SelectableTile.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF809B5828F7233000043E5E /* SelectableTile.swift */; };
-		DF809B6E28F7233000043E5E /* NormalButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF809B5928F7233000043E5E /* NormalButton.swift */; };
-		DF809B6F28F7233000043E5E /* StationInput.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF809B5A28F7233000043E5E /* StationInput.swift */; };
 		DF809B7228F7233000043E5E /* DirectionsQuerySummary.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF809B5E28F7233000043E5E /* DirectionsQuerySummary.swift */; };
-		DF809B7328F7233000043E5E /* DirectionsOfferView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF809B5F28F7233000043E5E /* DirectionsOfferView.swift */; };
+		DF809B7328F7233000043E5E /* DirectionsOfferListItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF809B5F28F7233000043E5E /* DirectionsOfferListItem.swift */; };
 		DFEBEFB728F32059007F3CCD /* MavPlusApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = DFEBEFB628F32059007F3CCD /* MavPlusApp.swift */; };
 		DFEBEFBB28F3205C007F3CCD /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DFEBEFBA28F3205C007F3CCD /* Assets.xcassets */; };
 		DFEBEFBE28F3205C007F3CCD /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DFEBEFBD28F3205C007F3CCD /* Preview Assets.xcassets */; };
@@ -70,6 +66,8 @@
 		DFEBEFF228F33E46007F3CCD /* Protocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = DFEBEFF128F33E46007F3CCD /* Protocols.swift */; };
 		DFEBEFF428F34875007F3CCD /* HomeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DFEBEFF328F34875007F3CCD /* HomeViewModel.swift */; };
 		DFEBEFF628F3685B007F3CCD /* OfferViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DFEBEFF528F3685B007F3CCD /* OfferViewModel.swift */; };
+		DFEC7BAA292428D400F7E6E3 /* ErrorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DFEC7BA9292428D400F7E6E3 /* ErrorView.swift */; };
+		DFEC7BAE2926907600F7E6E3 /* MockData.swift in Sources */ = {isa = PBXBuildFile; fileRef = DFEC7BAD2926907600F7E6E3 /* MockData.swift */; };
 		DFFABAE8291ADF1A007E5D88 /* TrainListItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = DFFABAE7291ADF1A007E5D88 /* TrainListItem.swift */; };
 		DFFABAEC291B04DE007E5D88 /* TrainViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DFFABAEB291B04DE007E5D88 /* TrainViewModel.swift */; };
 		DFFABAEE291B0C88007E5D88 /* TrainDetailsScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = DFFABAED291B0C88007E5D88 /* TrainDetailsScreen.swift */; };
@@ -109,12 +107,8 @@
 		DF809B5328F7233000043E5E /* Settings.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Settings.swift; sourceTree = "<group>"; };
 		DF809B5428F7233000043E5E /* MavMap.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MavMap.swift; sourceTree = "<group>"; };
 		DF809B5528F7233000043E5E /* RootNavigation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RootNavigation.swift; sourceTree = "<group>"; };
-		DF809B5728F7233000043E5E /* RssView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RssView.swift; sourceTree = "<group>"; };
-		DF809B5828F7233000043E5E /* SelectableTile.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SelectableTile.swift; sourceTree = "<group>"; };
-		DF809B5928F7233000043E5E /* NormalButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NormalButton.swift; sourceTree = "<group>"; };
-		DF809B5A28F7233000043E5E /* StationInput.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StationInput.swift; sourceTree = "<group>"; };
 		DF809B5E28F7233000043E5E /* DirectionsQuerySummary.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DirectionsQuerySummary.swift; sourceTree = "<group>"; };
-		DF809B5F28F7233000043E5E /* DirectionsOfferView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DirectionsOfferView.swift; sourceTree = "<group>"; };
+		DF809B5F28F7233000043E5E /* DirectionsOfferListItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DirectionsOfferListItem.swift; sourceTree = "<group>"; };
 		DFEBEFB328F32059007F3CCD /* MavPlus.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MavPlus.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		DFEBEFB628F32059007F3CCD /* MavPlusApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MavPlusApp.swift; sourceTree = "<group>"; };
 		DFEBEFBA28F3205C007F3CCD /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -141,6 +135,8 @@
 		DFEBEFF128F33E46007F3CCD /* Protocols.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Protocols.swift; sourceTree = "<group>"; };
 		DFEBEFF328F34875007F3CCD /* HomeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewModel.swift; sourceTree = "<group>"; };
 		DFEBEFF528F3685B007F3CCD /* OfferViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OfferViewModel.swift; sourceTree = "<group>"; };
+		DFEC7BA9292428D400F7E6E3 /* ErrorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ErrorView.swift; sourceTree = "<group>"; };
+		DFEC7BAD2926907600F7E6E3 /* MockData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockData.swift; sourceTree = "<group>"; };
 		DFFABAE7291ADF1A007E5D88 /* TrainListItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrainListItem.swift; sourceTree = "<group>"; };
 		DFFABAEB291B04DE007E5D88 /* TrainViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrainViewModel.swift; sourceTree = "<group>"; };
 		DFFABAED291B0C88007E5D88 /* TrainDetailsScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrainDetailsScreen.swift; sourceTree = "<group>"; };
@@ -196,28 +192,21 @@
 		DF809B3F28F5D2A100043E5E /* Components */ = {
 			isa = PBXGroup;
 			children = (
-				DF809B5728F7233000043E5E /* RssView.swift */,
-				DF809B5828F7233000043E5E /* SelectableTile.swift */,
-				DF809B5928F7233000043E5E /* NormalButton.swift */,
-				DF809B5A28F7233000043E5E /* StationInput.swift */,
-				DF809B5B28F7233000043E5E /* directions-query */,
-				DF809B5F28F7233000043E5E /* DirectionsOfferView.swift */,
-				DF292AC928F975170050C3B5 /* StationPicker.swift */,
-				DF292ACB28F99D3A0050C3B5 /* IconField.swift */,
-				DF30B73A2905CD1F00200B48 /* MapIcon.swift */,
-				DF01D5B6290DD642008B33AB /* WebView.swift */,
-				DF01D5BC290EB067008B33AB /* Spinner.swift */,
-				DFFABAE7291ADF1A007E5D88 /* TrainListItem.swift */,
+				DFEC7BAC2926892100F7E6E3 /* Train */,
+				DFEC7BAB292688F900F7E6E3 /* Common */,
+				DF809B5B28F7233000043E5E /* Directions */,
 			);
 			path = Components;
 			sourceTree = "<group>";
 		};
-		DF809B5B28F7233000043E5E /* directions-query */ = {
+		DF809B5B28F7233000043E5E /* Directions */ = {
 			isa = PBXGroup;
 			children = (
+				DF292AC928F975170050C3B5 /* StationPicker.swift */,
+				DF809B5F28F7233000043E5E /* DirectionsOfferListItem.swift */,
 				DF809B5E28F7233000043E5E /* DirectionsQuerySummary.swift */,
 			);
-			path = "directions-query";
+			path = Directions;
 			sourceTree = "<group>";
 		};
 		DF809B7428F7246100043E5E /* Navigation */ = {
@@ -336,6 +325,7 @@
 				DF30B73C2905D98F00200B48 /* Theme.swift */,
 				DF01D5BE290EDA8F008B33AB /* TextFieldDebouncer.swift */,
 				DF01D5C0290F00A6008B33AB /* ColorExtension.swift */,
+				DFEC7BAD2926907600F7E6E3 /* MockData.swift */,
 			);
 			path = Utility;
 			sourceTree = "<group>";
@@ -357,6 +347,26 @@
 				DFEBEFF128F33E46007F3CCD /* Protocols.swift */,
 			);
 			path = Types;
+			sourceTree = "<group>";
+		};
+		DFEC7BAB292688F900F7E6E3 /* Common */ = {
+			isa = PBXGroup;
+			children = (
+				DFEC7BA9292428D400F7E6E3 /* ErrorView.swift */,
+				DF30B73A2905CD1F00200B48 /* MapIcon.swift */,
+				DF292ACB28F99D3A0050C3B5 /* IconField.swift */,
+				DF01D5BC290EB067008B33AB /* Spinner.swift */,
+				DF01D5B6290DD642008B33AB /* WebView.swift */,
+			);
+			path = Common;
+			sourceTree = "<group>";
+		};
+		DFEC7BAC2926892100F7E6E3 /* Train */ = {
+			isa = PBXGroup;
+			children = (
+				DFFABAE7291ADF1A007E5D88 /* TrainListItem.swift */,
+			);
+			path = Train;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -455,11 +465,11 @@
 				DF809B6A28F7233000043E5E /* MavMap.swift in Sources */,
 				DFEBEFF428F34875007F3CCD /* HomeViewModel.swift in Sources */,
 				DF01D5BB290E9556008B33AB /* LoadingViewModel.swift in Sources */,
-				DF809B6C28F7233000043E5E /* RssView.swift in Sources */,
 				DFEBEFDD28F321A1007F3CCD /* WarningMessages.swift in Sources */,
 				DFEBEFDF28F321A1007F3CCD /* Services.swift in Sources */,
 				DFEBEFDB28F321A1007F3CCD /* Customers.swift in Sources */,
 				DFFABAE8291ADF1A007E5D88 /* TrainListItem.swift in Sources */,
+				DFEC7BAA292428D400F7E6E3 /* ErrorView.swift in Sources */,
 				DFEBEFE628F321B2007F3CCD /* StoreRepository.swift in Sources */,
 				DF292ACC28F99D3A0050C3B5 /* IconField.swift in Sources */,
 				DF292AD128FC61930050C3B5 /* StationDetailsMapScreen.swift in Sources */,
@@ -473,8 +483,6 @@
 				DF809B6928F7233000043E5E /* Settings.swift in Sources */,
 				DF809B6028F7233000043E5E /* RssItem.swift in Sources */,
 				DFEBEFF028F33CF3007F3CCD /* MapViewModel.swift in Sources */,
-				DF809B6D28F7233000043E5E /* SelectableTile.swift in Sources */,
-				DF809B6F28F7233000043E5E /* StationInput.swift in Sources */,
 				DFEBEFDA28F321A1007F3CCD /* StationInfo.swift in Sources */,
 				DFEBEFC028F3205C007F3CCD /* Persistence.swift in Sources */,
 				DF809B6828F7233000043E5E /* HomeScreen.swift in Sources */,
@@ -484,14 +492,14 @@
 				DF809B6528F7233000043E5E /* DirectionsResultScreen.swift in Sources */,
 				DF809B7228F7233000043E5E /* DirectionsQuerySummary.swift in Sources */,
 				DF809B4128F5D2B200043E5E /* StationListScreen.swift in Sources */,
+				DFEC7BAE2926907600F7E6E3 /* MockData.swift in Sources */,
 				DFEBEFE228F321A1007F3CCD /* Stations.swift in Sources */,
 				2E9364C829000180007EA6B7 /* AlertsViewModel.swift in Sources */,
 				DFEBEFEE28F33B52007F3CCD /* UtilFunctions.swift in Sources */,
 				DFEBEFB728F32059007F3CCD /* MavPlusApp.swift in Sources */,
-				DF809B6E28F7233000043E5E /* NormalButton.swift in Sources */,
 				DF809B4528F5E6AF00043E5E /* StationDetailsScreen.swift in Sources */,
 				DF292AC828F96CF20050C3B5 /* DirectionsFormViewModel.swift in Sources */,
-				DF809B7328F7233000043E5E /* DirectionsOfferView.swift in Sources */,
+				DF809B7328F7233000043E5E /* DirectionsOfferListItem.swift in Sources */,
 				DFEBEFEC28F32CCD007F3CCD /* StationDetailsViewModel.swift in Sources */,
 				DF809B6428F7233000043E5E /* DirectionsFormScreen.swift in Sources */,
 			);

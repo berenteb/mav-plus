@@ -1,10 +1,3 @@
-//
-//  Spinner.swift
-//  MavPlus
-//
-//  Created by Berente Bálint on 2022. 10. 30..
-//
-
 import SwiftUI
 
 struct SpinnerView: View{
@@ -45,18 +38,21 @@ struct Spinner: ProgressViewStyle {
     }
     
     func animateBoth(){
-        animationStep(duration: rotationTime) { self.rotationDegree1+=fullRotation }
+        animationStep(duration: rotationTime) { self.rotationDegree1+=fullRotation
+        }
         animationStep(duration: rotationTime*1.5) {
             self.rotationDegree2 += fullRotation
         }
     }
     
-    func animationStep(duration: Double, completion: @escaping (() -> Void)){
-        withAnimation(Animation.easeInOut(duration: duration)) {
-            completion()
+    func animationStep(
+        duration: Double,
+        completion: @escaping (() -> Void)){
+            withAnimation(
+                Animation.easeInOut(duration: duration)){
+                    completion()
+                }
         }
-    }
-    
 }
 
 struct SpinnerCircle: View {
@@ -71,5 +67,12 @@ struct SpinnerCircle: View {
             .stroke(style: StrokeStyle(lineWidth: size/10, lineCap: .round))
             .fill(color)
             .rotationEffect(rotation)
+    }
+}
+
+struct Spinner_Previews: PreviewProvider {
+    static var previews: some View {
+        SpinnerView()
+            .previewLayout(.sizeThatFits)
     }
 }

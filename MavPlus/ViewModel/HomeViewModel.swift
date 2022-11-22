@@ -51,16 +51,22 @@ class HomeViewModel: HomeProtocol, ObservableObject {
     }
     
     func subscribe(){
-        StoreRepository.shared.publisher.sink(receiveValue: {[unowned self] value in
-            update()
-        }).store(in: &disposables)
+        StoreRepository.shared.publisher
+            .receive(on: DispatchQueue.main)
+            .sink(receiveValue: {[unowned self] value in
+                update()
+            })
+            .store(in: &disposables)
         
-        RssRepository.shared.publisher.sink{fields in
-            let items = fields.rssItemList.map{item in
-                return AlertListItem(id: item.id, title: item.title, url: item.url)
+        RssRepository.shared.publisher
+            .receive(on: DispatchQueue.main)
+            .sink{fields in
+                let items = fields.rssItemList.map{item in
+                    return AlertListItem(id: item.id, title: item.title, url: item.url)
+                }
+                self.alerts = items.count > 5 ? Array(items[0..<5]) : items
             }
-            self.alerts = items.count > 5 ? Array(items[0..<5]) : items
-        }.store(in: &disposables)
+            .store(in: &disposables)
     }
     
     func update(){

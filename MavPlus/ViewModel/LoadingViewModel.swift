@@ -13,4 +13,7 @@ class LoadingViewModel: ObservableObject{
             self.isError = ApiRepository.shared.isError
         }.store(in: &cancellables)
     }
+    func update(){
+        ApiRepository.shared.update()
+    }
 }

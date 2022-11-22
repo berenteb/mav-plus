@@ -1,40 +1,35 @@
-//
-//  StationDetailsScreen.swift
-//  MavPlus
-//
-//  Created by Berente Bálint on 2022. 10. 11..
-//
-
 import SwiftUI
 
 struct StationDetailsScreen: View {
-    @ObservedObject var viewModel: StationDetailsViewModel
+    @ObservedObject var model: StationDetailsViewModel
     let code: String
     
     init(code: String) {
         self.code = code
-        self.viewModel = StationDetailsViewModel(code: code)
+        self.model = StationDetailsViewModel(code: code)
     }
     
     var body: some View {
         VStack{
-            if viewModel.isLoading {
+            if model.isLoading{
                 SpinnerView()
-            }else if let station = viewModel.station{
+            }else if model.isError{
+                ErrorView(onRetry: model.update)
+            }else if let station = model.station{
                 List{
                     if station.location != nil {
                         Section(content: {
                             NavigationLink(destination:{
-                                StationDetailsMapScreen(viewModel: viewModel)
+                                StationDetailsMapScreen(viewModel: model)
                             },label:{
                                 Label(title: {
-                                    Text("Show on map", comment: "Station details, map button prompt")
+                                    Text("Show on map")
                                 }, icon: {
                                     Image(systemName: "map.fill")
                                 })
                             })
                         }, header: {
-                            Text("Map", comment: "Station details, map section title")
+                            Text("Map")
                         })
                     }
                     
@@ -57,30 +52,32 @@ struct StationDetailsScreen: View {
                             }
                         }
                     }, header: {
-                        Text("Departures", comment: "Station details, departures section title")
+                        Text("Departures")
                     })
                 }
             }else{
-                Text("Error", comment: "Station details error")
+                Text("Error")
             }
         }
         .navigationTitle(
-            Text(self.viewModel.station?.name ?? NSLocalizedString("Loading...", comment: "Station details loading"))
+            Text(self.model.station?.name ?? NSLocalizedString("Loading...", comment: "Station details loading"))
         )
         .toolbar{
-            if let isFavorite = viewModel.station?.isFavorite {
-                Image(systemName: isFavorite ? "star.slash.fill" : "star").foregroundColor(Color.yellow).onTapGesture{
-                    viewModel.toggleFavorite()
+            if let isFavorite = model.station?.isFavorite {
+                Image(
+                    systemName:
+                        isFavorite ? "star.slash.fill" : "star").foregroundColor(Color.yellow).onTapGesture{
+                    model.toggleFavorite()
                 }
             }
         }.onAppear{
-            viewModel.update()
+            model.update()
         }
     }
 }
 
 struct StationDetailsScreen_Previews: PreviewProvider {
     static var previews: some View {
-        StationDetailsScreen(code: "")
+        StationDetailsScreen(code: "005517228")
     }
 }

@@ -1,10 +1,3 @@
-//
-//  RootNavigation.swift
-//  mav-ui
-//
-//  Created by Márton Pfemeter on 2022-10-03.
-//
-
 import SwiftUI
 
 struct RootNavigation: View {
@@ -30,7 +23,7 @@ struct RootNavigation: View {
             }
             .tag("directions")
             
-            HomeScreen(tabSelection: self.$tabSelection)
+            HomeScreen()
             .tabItem {
                 Image("Home")
             }

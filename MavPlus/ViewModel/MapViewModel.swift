@@ -2,11 +2,6 @@ import Foundation
 import MapKit
 import Combine
 
-protocol MapProtocol: RequestStatus, Updateable {
-    var locations: [LocationItem] {get}
-    var region: MKCoordinateRegion { get set }
-}
-
 struct LocationItem: Identifiable {
     private let realId: String
     var id: String {
@@ -34,7 +29,7 @@ struct LocationItem: Identifiable {
     }
 }
 
-class MapViewModel: MapProtocol, ObservableObject {
+class MapViewModel: Updateable, RequestStatus, ObservableObject {
     @Published var locations: [LocationItem]
     @Published var isError: Bool
     @Published var isLoading: Bool

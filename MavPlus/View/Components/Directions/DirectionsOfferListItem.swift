@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct DirectionsOfferView: View {
+struct DirectionsOfferListItem: View {
     @State var offer: OfferData
     var body: some View {
         HStack{
@@ -34,8 +34,7 @@ struct DirectionsOfferView: View {
 
 struct DirectionsOfferView_Previews: PreviewProvider {
     static var previews: some View {
-        DirectionsOfferView(
-            offer: OfferData(startStationName: "Vasalma", endStationName: "Budapest Keleti", depDate: Date(), arrDate: Date(), price: "2000 HUF", travelTime: "16min", transferCount: 1, route: [])
-        )
+        DirectionsOfferListItem(offer: MockOfferData)
+            .previewLayout(.sizeThatFits)
     }
 }

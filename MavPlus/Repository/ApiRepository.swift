@@ -55,6 +55,7 @@ class ApiRepository: ApiProtocol{
     public func update(){
         Publishers
             .CombineLatest4(updateCities(), updateServices(), updateStationList(), updateCustomersAndDiscounts())
+            .receive(on: DispatchQueue.main)
             .sink(receiveCompletion: { completion in
                 switch completion {
                 case .finished:
@@ -71,7 +72,8 @@ class ApiRepository: ApiProtocol{
                 self.customers = values.3
                 self.isLoading = false
                 self.notifier.send()
-            }).store(in: &cancellableSet)
+            })
+            .store(in: &cancellableSet)
     }
     
     private func updateCities()->AnyPublisher<Cities, Error>{
@@ -83,7 +85,9 @@ class ApiRepository: ApiProtocol{
                     promise(.success(cities))
                 }
             }
-        }.eraseToAnyPublisher()
+        }
+        .receive(on: DispatchQueue.main)
+        .eraseToAnyPublisher()
     }
     
     private func updateCustomersAndDiscounts()->AnyPublisher<CustomersAndDiscounts?, Error>{
@@ -95,7 +99,9 @@ class ApiRepository: ApiProtocol{
                     promise(.success(customers))
                 }
             }
-        }.eraseToAnyPublisher()
+        }
+        .receive(on: DispatchQueue.main)
+        .eraseToAnyPublisher()
     }
     
     private func updateStationList()->AnyPublisher<StationList, Error>{
@@ -107,7 +113,9 @@ class ApiRepository: ApiProtocol{
                     promise(.success(stationList.filter{!$0.isAlias}))
                 }
             }
-        }.eraseToAnyPublisher()
+        }
+        .receive(on: DispatchQueue.main)
+        .eraseToAnyPublisher()
     }
     
     private func updateServices()->AnyPublisher<ServicesDto?, Error>{
@@ -119,7 +127,9 @@ class ApiRepository: ApiProtocol{
                     promise(.success(services))
                 }
             }
-        }.eraseToAnyPublisher()
+        }
+        .receive(on: DispatchQueue.main)
+        .eraseToAnyPublisher()
     }
     // MARK: Ad-hoc queries
     

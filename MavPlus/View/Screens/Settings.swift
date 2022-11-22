@@ -1,10 +1,3 @@
-//
-//  Settings.swift
-//  mav-ui
-//
-//  Created by Márton Pfemeter on 2022-10-03.
-//
-
 import SwiftUI
 
 struct Settings: View {
@@ -12,7 +5,7 @@ struct Settings: View {
         NavigationStack {
             Text("Settings placeholder")
             .italic()
-            .navigationTitle(Text("Settings", comment: "Settings tabview title"))
+            .navigationTitle(Text("Settings"))
         }
     }
 }

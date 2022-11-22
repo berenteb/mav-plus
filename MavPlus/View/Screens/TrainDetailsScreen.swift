@@ -1,10 +1,3 @@
-//
-//  TrainDetailsScreen.swift
-//  MavPlus
-//
-//  Created by Berente Bálint on 2022. 11. 08..
-//
-
 import SwiftUI
 
 struct TrainDetailsScreen: View {
@@ -18,6 +11,8 @@ struct TrainDetailsScreen: View {
         VStack{
             if model.isLoading {
                 SpinnerView()
+            }else if model.isError {
+                ErrorView(onRetry: model.update)
             }else if let train = model.trainData{
                 List{
                     Section(content: {
@@ -38,18 +33,16 @@ struct TrainDetailsScreen: View {
                         }
                         
                     }, header: {
-                        Text("Details", comment: "Train details screen, details title")
+                        Text("Details")
                     })
                     Section(content: {
                         ForEach(train.stations, id: \.name){ stop in
                             Text("\(stop.date?.formatted(date: .omitted, time: .shortened) ?? "?") - \(stop.name)")
                         }
                     }, header: {
-                        Text("Route", comment: "Train details route heading")
+                        Text("Route")
                     })
                 }
-            }else{
-                Text("Error", comment: "Error text")
             }
         }
         .navigationTitle(

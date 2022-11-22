@@ -25,8 +25,8 @@ struct StationDetailsMapScreen: View {
     }
 }
 
-struct StationDetailsMapScreen_Previews: PreviewProvider {
-    static var previews: some View {
-        StationDetailsMapScreen(viewModel: StationDetailsViewModel(code: "00123455"))
-    }
-}
+//struct StationDetailsMapScreen_Previews: PreviewProvider {
+//    static var previews: some View {
+//        StationDetailsMapScreen(viewModel: StationDetailsViewModel(code: "00123455"))
+//    }
+//}

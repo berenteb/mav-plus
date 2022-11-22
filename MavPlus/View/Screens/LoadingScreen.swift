@@ -6,7 +6,11 @@ struct LoadingScreen: View {
         if model.isLoading{
             SpinnerView(size: 100)
         }else if model.isError{
-            Text("Error", comment: "Error text")
+            if model.isLoading{
+                LoadingScreen()
+            }else if model.isError{
+                ErrorView(onRetry: model.update)
+            }
         }else{
             RootNavigation()
         }

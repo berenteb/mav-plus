@@ -1,17 +1,12 @@
-//
-//  MapIcon.swift
-//  MavPlus
-//
-//  Created by Berente Bálint on 2022. 10. 23..
-//
-
 import SwiftUI
 
 struct MapIcon: View {
+    
     var imageName: String;
     init(_ imageName: String){
         self.imageName = imageName
     }
+    
     var body: some View {
         Image(imageName)
             .resizable()
@@ -25,5 +20,8 @@ struct MapIcon: View {
 struct MapIcon_Previews: PreviewProvider {
     static var previews: some View {
         MapIcon("Train")
+            .previewLayout(.sizeThatFits)
+        MapIcon("Station")
+            .previewLayout(.sizeThatFits)
     }
 }

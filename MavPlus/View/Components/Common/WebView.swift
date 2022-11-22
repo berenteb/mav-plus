@@ -14,3 +14,9 @@ struct WebView: UIViewRepresentable {
         webView.load(request)
     }
 }
+
+struct WebView_Previews: PreviewProvider {
+    static var previews: some View {
+        WebView(url: URL(string: "https://www.mavcsoport.hu")!)
+    }
+}
