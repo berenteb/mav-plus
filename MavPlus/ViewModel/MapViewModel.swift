@@ -15,11 +15,11 @@ struct LocationItem: Identifiable {
             return self.realId
         }
     }
-    let name: String
+    let name: String?
     let isStation: Bool
     let location: CLLocationCoordinate2D
     
-    init(id: String, name: String, lat: Double, long: Double, isStation: Bool = false) {
+    init(id: String, name: String?, lat: Double, long: Double, isStation: Bool = false) {
         self.realId = id
         self.name = name
         self.isStation = isStation
@@ -117,7 +117,8 @@ class MapViewModel: Updateable, RequestStatus, ObservableObject {
         }
         
         DispatchQueue.main.async {
-            self.locations = outputLocationList
+            self.locations.removeAll()
+            self.locations.append(contentsOf: outputLocationList)
         }
     }
     
@@ -128,11 +129,11 @@ class MapViewModel: Updateable, RequestStatus, ObservableObject {
             if let trains = locations?.Vonatok {
                 var localTrainList: [LocationItem] = [LocationItem]()
                 trains.forEach{ loc in
-                    if let id = loc.VonatID, let name = loc.Vonatnev {
+                    if let id = loc.VonatID {
                         let lat = loc.EGpsLat ?? loc.GpsLat
                         let lon = loc.EGpsLon ?? loc.GpsLon
                         if let lon = lon, let lat = lat {
-                            localTrainList.append(LocationItem(id: id, name: name, lat: lat, long: lon))
+                            localTrainList.append(LocationItem(id: id, name: loc.Vonatnev, lat: lat, long: lon))
                         }
                     }
                 }
