@@ -11,6 +11,7 @@ import MapKit
 struct MapKitMap: UIViewRepresentable {
     
     @ObservedObject public var model: MapViewModel
+    @State private var activeAnnotationList: [LocationItem] = [LocationItem]()
 
     class Coordinator: NSObject, MKMapViewDelegate {
         
@@ -53,13 +54,38 @@ struct MapKitMap: UIViewRepresentable {
         localView.mapType = .standard
         
         localView.addAnnotations(self.model.locations)
+        DispatchQueue.main.async {
+            self.activeAnnotationList.append(contentsOf: self.model.locations)
+        }
         
         return localView
     }
 
     public func updateUIView(_ uiView: MKMapView, context: Context) {
-        uiView.removeAnnotations(uiView.annotations)
-        uiView.addAnnotations(self.model.locations)
+        var oldAnnotationList: [LocationItem] = [LocationItem]()
+        oldAnnotationList.append(contentsOf: self.activeAnnotationList)
+        
+        var outputList: [LocationItem] = [LocationItem]()
+        for item in self.model.locations {
+            if let oldItemIndex: Int = oldAnnotationList.firstIndex(where: { iteratorItem in
+                return (iteratorItem.id == item.id)
+            }) {
+                UIView.animate(withDuration: 0.25) {
+                    var activeItem: LocationItem = oldAnnotationList.remove(at: oldItemIndex)
+                    activeItem.coordinate = item.coordinate
+                    outputList.append(activeItem)
+                }
+            } else {
+                uiView.addAnnotation(item)
+                outputList.append(item)
+            }
+        }
+        
+        uiView.removeAnnotations(oldAnnotationList)
+        
+        DispatchQueue.main.async {
+            self.activeAnnotationList = outputList
+        }
     }
 }
 

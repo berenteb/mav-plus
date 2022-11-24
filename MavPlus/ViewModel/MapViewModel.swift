@@ -17,7 +17,7 @@ class LocationItem: NSObject, MKAnnotation, Identifiable {
     }
     let name: String?
     let isStation: Bool
-    let coordinate: CLLocationCoordinate2D
+    dynamic var coordinate: CLLocationCoordinate2D
     
     init(id: String, name: String?, lat: Double, long: Double, isStation: Bool = false) {
         self.realId = id
