@@ -6,11 +6,20 @@ struct MavMap: View {
     @ObservedObject private var model: MapViewModel = MapViewModel()
     
     var body: some View {
-        NavigationStack {
+        NavigationStack(path: self.$model.locationNavStack) {
             ZStack(alignment: .topLeading) {
                 MapKitMap(model: self.model)
                 .edgesIgnoringSafeArea(.top).overlay(alignment: .top){
                     Rectangle().frame(height:0).background(.regularMaterial)
+                }
+                .navigationDestination(for: LocationItem.self) { place in
+                    Group {
+                        if (place.isStation) {
+                            StationDetailsScreen(code: place.id)
+                        } else {
+                            TrainDetailsScreen(trainId: Int(place.id) ?? 0)
+                        }
+                    }
                 }
                 .onAppear{
                     model.startTimer()

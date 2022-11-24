@@ -48,6 +48,8 @@ class MapViewModel: Updateable, RequestStatus, ObservableObject {
         }
     }
     
+    @Published var locationNavStack: [LocationItem]
+    
     private var timer: Timer?
     private var disposables = Set<AnyCancellable>()
     
@@ -57,6 +59,7 @@ class MapViewModel: Updateable, RequestStatus, ObservableObject {
         locations = []
         self.allLocationsList = [LocationItem]()
         self.showStations = true
+        self.locationNavStack = [LocationItem]()
         
         self.region = MKCoordinateRegion(
             center: CLLocationCoordinate2D(latitude: 47.497854,

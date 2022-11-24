@@ -27,6 +27,17 @@ struct MapKitMap: UIViewRepresentable {
             
             return CustomMapAnnotation(annotation: location, reuseIdentifier: CustomMapAnnotation.ReuseID, isStation: location.isStation)
         }
+        
+        func mapView(_ mapView: MKMapView, didSelect annotation: MKAnnotation) {
+            guard let location: LocationItem = annotation as? LocationItem else {
+                return
+            }
+            
+            DispatchQueue.main.async {
+                self.parent.model.locationNavStack.append(location)
+            }
+            
+        }
     }
 
     func makeCoordinator() -> Coordinator {
