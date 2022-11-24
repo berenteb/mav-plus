@@ -10,7 +10,7 @@ import MapKit
 
 struct MapKitMap: UIViewRepresentable {
     
-    @ObservedObject var model: MapViewModel
+    @ObservedObject public var model: MapViewModel
 
     class Coordinator: NSObject, MKMapViewDelegate {
         
@@ -40,12 +40,11 @@ struct MapKitMap: UIViewRepresentable {
         }
     }
 
-    func makeCoordinator() -> Coordinator {
+    public func makeCoordinator() -> Coordinator {
         MapKitMap.Coordinator(self)
     }
 
-
-    func makeUIView(context: Context) -> MKMapView {
+    public func makeUIView(context: Context) -> MKMapView {
 
         let localView: MKMapView = MKMapView()
 
@@ -58,7 +57,7 @@ struct MapKitMap: UIViewRepresentable {
         return localView
     }
 
-    func updateUIView(_ uiView: MKMapView, context: Context) {
+    public func updateUIView(_ uiView: MKMapView, context: Context) {
         uiView.removeAnnotations(uiView.annotations)
         uiView.addAnnotations(self.model.locations)
     }

@@ -49,6 +49,7 @@ class MapViewModel: Updateable, RequestStatus, ObservableObject {
     }
     
     @Published var locationNavStack: [LocationItem]
+    @Published var uiKitMap: MKMapView?
     
     private var timer: Timer?
     private var disposables = Set<AnyCancellable>()
@@ -60,6 +61,7 @@ class MapViewModel: Updateable, RequestStatus, ObservableObject {
         self.allLocationsList = [LocationItem]()
         self.showStations = true
         self.locationNavStack = [LocationItem]()
+        self.uiKitMap = nil
         
         self.region = MKCoordinateRegion(
             center: CLLocationCoordinate2D(latitude: 47.497854,
@@ -94,6 +96,10 @@ class MapViewModel: Updateable, RequestStatus, ObservableObject {
         DispatchQueue.main.async {
             self.locations.removeAll()
             self.locations.append(contentsOf: outputLocationList)
+            
+            if let realMap: MKMapView = self.uiKitMap {
+                realMap.setNeedsDisplay()
+            }
         }
     }
     
