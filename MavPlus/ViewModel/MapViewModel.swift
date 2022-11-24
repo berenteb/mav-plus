@@ -47,6 +47,11 @@ class MapViewModel: Updateable, RequestStatus, ObservableObject {
             self.filterForVisibleLocation()
         }
     }
+    @Published var showTrains: Bool {
+        didSet {
+            self.filterForVisibleLocation()
+        }
+    }
     
     @Published var locationNavStack: [LocationItem]
     @Published var uiKitMap: MKMapView?
@@ -60,6 +65,7 @@ class MapViewModel: Updateable, RequestStatus, ObservableObject {
         locations = []
         self.allLocationsList = [LocationItem]()
         self.showStations = true
+        self.showTrains = true
         self.locationNavStack = [LocationItem]()
         self.uiKitMap = nil
         
@@ -88,7 +94,10 @@ class MapViewModel: Updateable, RequestStatus, ObservableObject {
         var outputLocationList: [LocationItem] = [LocationItem]()
         
         for locationIterator in self.allLocationsList {
-            if (self.showStations || !locationIterator.isStation) {
+            if (
+                    (locationIterator.isStation && self.showStations) ||
+                    (!locationIterator.isStation && self.showTrains)
+                ) {
                 outputLocationList.append(locationIterator)
             }
         }

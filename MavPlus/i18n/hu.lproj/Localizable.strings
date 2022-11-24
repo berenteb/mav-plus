@@ -84,6 +84,9 @@ Train details route heading */
 /* Toggle button for showing/hiding stations on map */
 "Show stations" = "Állomások megjelenítése";
 
+/* Toggle button for showing/hiding trains on map */
+"Show trains" = "Vonatok megjelenítése";
+
 /* Station list tabview title */
 "Stations" = "Állomások";
 

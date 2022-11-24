@@ -28,13 +28,23 @@ struct MavMap: View {
                     model.stopTimer()
                 }
                 
-                VStack(alignment: .trailing) {
-                    Text("Show stations")
+                VStack(alignment: .leading) {
+                    Text("Show stations", comment: "Show stations toggle map")
                         .bold()
                         .padding(5)
-                        .background(Color("Secondary"))
+                        .background(self.model.showStations ? Color("Secondary") : Color.gray)
                         .cornerRadius(10)
-                    Toggle("", isOn: self.$model.showStations)
+                        .onTapGesture {
+                            self.model.showStations.toggle()
+                        }
+                    Text("Show trains", comment: "Show trains toggle map")
+                        .bold()
+                        .padding(5)
+                        .background(self.model.showTrains ? Color("Secondary") : Color.gray)
+                        .cornerRadius(10)
+                        .onTapGesture {
+                            self.model.showTrains.toggle()
+                        }
                 }
                 .padding()
             }
