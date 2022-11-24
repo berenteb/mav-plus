@@ -8,22 +8,7 @@ struct MavMap: View {
     var body: some View {
         NavigationStack {
             ZStack(alignment: .topLeading) {
-                Map(coordinateRegion: self.$model.region, annotationItems: self.model.locations) { place in
-                    MapAnnotation(coordinate: place.location) {
-                        NavigationLink(destination: {
-                            Group {
-                                if (place.isStation) {
-                                    StationDetailsScreen(code: place.id)
-                                } else {
-                                    TrainDetailsScreen(trainId: Int(place.id) ?? 0)
-                                }
-                            }
-                        }, label: {
-                            
-                            MapIcon( (place.isStation ? "Station" : "Train") )
-                        })
-                    }
-                }
+                MapKitMap(model: self.model)
                 .edgesIgnoringSafeArea(.top).overlay(alignment: .top){
                     Rectangle().frame(height:0).background(.regularMaterial)
                 }

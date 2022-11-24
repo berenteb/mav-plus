@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		2E0261F1292EA78600C1FD22 /* MapKitMap.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E0261F0292EA78600C1FD22 /* MapKitMap.swift */; };
+		2E0261F3292EB88300C1FD22 /* CustomMapAnnotation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E0261F2292EB88300C1FD22 /* CustomMapAnnotation.swift */; };
 		2E4535FC29067C27004E6FCB /* hu.xcloc in Resources */ = {isa = PBXBuildFile; fileRef = 2E4535FE29067C27004E6FCB /* hu.xcloc */; };
 		2E4535FF29067C34004E6FCB /* en.xcloc in Resources */ = {isa = PBXBuildFile; fileRef = 2E45360129067C34004E6FCB /* en.xcloc */; };
 		2E45360429067CB0004E6FCB /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 2E45360229067CB0004E6FCB /* Localizable.strings */; };
@@ -75,6 +77,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		2E0261F0292EA78600C1FD22 /* MapKitMap.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapKitMap.swift; sourceTree = "<group>"; };
+		2E0261F2292EB88300C1FD22 /* CustomMapAnnotation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomMapAnnotation.swift; sourceTree = "<group>"; };
 		2E4535FD29067C27004E6FCB /* hu */ = {isa = PBXFileReference; lastKnownFileType = wrapper; name = hu; path = hu.lproj/hu.xcloc; sourceTree = "<group>"; };
 		2E45360029067C34004E6FCB /* en */ = {isa = PBXFileReference; lastKnownFileType = wrapper; name = en; path = en.lproj/en.xcloc; sourceTree = "<group>"; };
 		2E45360329067CB0004E6FCB /* hu */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = hu; path = hu.lproj/Localizable.strings; sourceTree = "<group>"; };
@@ -182,7 +186,6 @@
 				9C9EDBF2D4EBF34682849435 /* Pods-MavPlus.debug.xcconfig */,
 				636A6FDE2180B6E266258307 /* Pods-MavPlus.release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
 			sourceTree = "<group>";
 		};
@@ -382,6 +385,8 @@
 				DF292ACB28F99D3A0050C3B5 /* IconField.swift */,
 				DF01D5BC290EB067008B33AB /* Spinner.swift */,
 				DF01D5B6290DD642008B33AB /* WebView.swift */,
+				2E0261F0292EA78600C1FD22 /* MapKitMap.swift */,
+				2E0261F2292EB88300C1FD22 /* CustomMapAnnotation.swift */,
 			);
 			path = Common;
 			sourceTree = "<group>";
@@ -537,6 +542,7 @@
 				DFEBEFDD28F321A1007F3CCD /* WarningMessages.swift in Sources */,
 				DFEBEFDF28F321A1007F3CCD /* Services.swift in Sources */,
 				DFEBEFDB28F321A1007F3CCD /* Customers.swift in Sources */,
+				2E0261F3292EB88300C1FD22 /* CustomMapAnnotation.swift in Sources */,
 				DFFABAE8291ADF1A007E5D88 /* TrainListItem.swift in Sources */,
 				DFEC7BAA292428D400F7E6E3 /* ErrorView.swift in Sources */,
 				DFEBEFE628F321B2007F3CCD /* StoreRepository.swift in Sources */,
@@ -565,6 +571,7 @@
 				DFEBEFE228F321A1007F3CCD /* Stations.swift in Sources */,
 				2E9364C829000180007EA6B7 /* AlertsViewModel.swift in Sources */,
 				DFEBEFEE28F33B52007F3CCD /* UtilFunctions.swift in Sources */,
+				2E0261F1292EA78600C1FD22 /* MapKitMap.swift in Sources */,
 				DFEBEFB728F32059007F3CCD /* MavPlusApp.swift in Sources */,
 				DF809B4528F5E6AF00043E5E /* StationDetailsScreen.swift in Sources */,
 				DF292AC828F96CF20050C3B5 /* DirectionsFormViewModel.swift in Sources */,

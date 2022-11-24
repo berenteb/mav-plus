@@ -2,7 +2,7 @@ import Foundation
 import MapKit
 import Combine
 
-struct LocationItem: Identifiable {
+class LocationItem: NSObject, MKAnnotation, Identifiable {
     private let realId: String
     var id: String {
         get {
@@ -17,13 +17,13 @@ struct LocationItem: Identifiable {
     }
     let name: String?
     let isStation: Bool
-    let location: CLLocationCoordinate2D
+    let coordinate: CLLocationCoordinate2D
     
     init(id: String, name: String?, lat: Double, long: Double, isStation: Bool = false) {
         self.realId = id
         self.name = name
         self.isStation = isStation
-        self.location = CLLocationCoordinate2D(
+        self.coordinate = CLLocationCoordinate2D(
             latitude: lat,
             longitude: long)
     }
@@ -31,6 +31,8 @@ struct LocationItem: Identifiable {
 
 class MapViewModel: Updateable, RequestStatus, ObservableObject {
     @Published var locations: [LocationItem]
+    @Published var allLocationsList: [LocationItem]
+    
     @Published var isError: Bool
     @Published var isLoading: Bool
     
@@ -48,7 +50,6 @@ class MapViewModel: Updateable, RequestStatus, ObservableObject {
     
     private var timer: Timer?
     private var disposables = Set<AnyCancellable>()
-    private var allLocationsList: [LocationItem]
     
     init(){
         isError = false
@@ -83,36 +84,7 @@ class MapViewModel: Updateable, RequestStatus, ObservableObject {
         
         for locationIterator in self.allLocationsList {
             if (self.showStations || !locationIterator.isStation) {
-                let locationLatitudeDegrees: CGFloat = cos( (self.region.center.latitude - locationIterator.location.latitude) * (.pi / 180.0) )
-                let regionMaxLatitudeDegree: CGFloat = cos( (self.region.span.latitudeDelta / 2.0) * (.pi / 180.0) )
-                let locationLongitudeDegrees: CGFloat = cos( (self.region.center.longitude - locationIterator.location.longitude) * (.pi / 180.0) )
-                let regionMaxLongitudeDegree: CGFloat = cos( (self.region.span.longitudeDelta / 2.0) * (.pi / 180.0) )
-                
-                if (locationLatitudeDegrees > regionMaxLatitudeDegree && locationLongitudeDegrees > regionMaxLongitudeDegree) {
-                    // location is in region
-                    
-                    var isCovered: Bool = false
-                    for validLocationIterator in outputLocationList {
-                        let minIconSizeFactor: Double = 20.0
-                        
-                        let fromRegionLocation: CLLocation = CLLocation(latitude: region.center.latitude, longitude: region.center.longitude)
-                        let toRegionLocation: CLLocation = CLLocation(latitude: (region.center.latitude + (region.span.latitudeDelta / minIconSizeFactor)), longitude: (region.center.longitude + (region.span.longitudeDelta / minIconSizeFactor)) )
-                        let regionDeltaDistance: CLLocationDistance = toRegionLocation.distance(from: fromRegionLocation)
-                        
-                        let fromLocation: CLLocation = CLLocation(latitude: validLocationIterator.location.latitude, longitude: validLocationIterator.location.longitude)
-                        let toLocation: CLLocation = CLLocation(latitude: locationIterator.location.latitude, longitude: locationIterator.location.longitude)
-                        let deltaDistance: CLLocationDistance = toLocation.distance(from: fromLocation)
-                        
-                        if (deltaDistance < regionDeltaDistance) {
-                            isCovered = true
-                            break
-                        }
-                    }
-                    
-                    if (!isCovered) {
-                        outputLocationList.append(locationIterator)
-                    }
-                }
+                outputLocationList.append(locationIterator)
             }
         }
         
