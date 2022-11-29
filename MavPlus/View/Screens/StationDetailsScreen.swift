@@ -35,21 +35,14 @@ struct StationDetailsScreen: View {
                     
                     Section(content: {
                         ForEach(station.departures){dep in
-                            HStack{
-                                TrainListItem(trainData: TrainListItemData(pictogram: dep.trainPictogram, trainName: dep.trainName, destination: dep.destinationStationName))
-                                Spacer()
-                                VStack(alignment: .leading){
-                                    Text(dep.departureDate?.formatted(date: .omitted, time:.shortened) ?? "?")
-                                        .strikethrough(dep.isDelayed)
-                                        .foregroundColor(!dep.isDelayed && dep.corrigatedDepartureDate != nil ? .green : nil)
-                                    if let actualDate = dep.corrigatedDepartureDate{
-                                        if dep.isDelayed{
-                                            Text(actualDate.formatted(date: .omitted, time: .shortened))
-                                                .foregroundColor(.red)
-                                        }
-                                    }
+                            if let trainId = dep.trainId {
+                                NavigationLink(destination: TrainDetailsScreen(trainId: trainId)){
+                                    DepartureListItem(dep: dep)
                                 }
+                            }else {
+                                DepartureListItem(dep: dep)
                             }
+                            
                         }
                     }, header: {
                         Text("Departures")
@@ -67,11 +60,32 @@ struct StationDetailsScreen: View {
                 Image(
                     systemName:
                         isFavorite ? "star.slash.fill" : "star").foregroundColor(Color.yellow).onTapGesture{
-                    model.toggleFavorite()
-                }
+                            model.toggleFavorite()
+                        }
             }
         }.onAppear{
             model.update()
+        }
+    }
+}
+
+struct DepartureListItem: View{
+    let dep: Departure
+    var body: some View {
+        HStack{
+            TrainListItem(trainData: TrainListItemData(pictogram: dep.trainPictogram, trainName: dep.trainName, destination: dep.destinationStationName))
+            Spacer()
+            VStack(alignment: .leading){
+                Text(dep.departureDate?.formatted(date: .omitted, time:.shortened) ?? "?")
+                    .strikethrough(dep.isDelayed)
+                    .foregroundColor(!dep.isDelayed && dep.corrigatedDepartureDate != nil ? .green : nil)
+                if let actualDate = dep.corrigatedDepartureDate{
+                    if dep.isDelayed{
+                        Text(actualDate.formatted(date: .omitted, time: .shortened))
+                            .foregroundColor(.red)
+                    }
+                }
+            }
         }
     }
 }

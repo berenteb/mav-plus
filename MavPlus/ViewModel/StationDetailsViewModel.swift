@@ -25,7 +25,8 @@ struct Departure: Identifiable {
     var departureDate: Date?
     var corrigatedDepartureDate: Date?
     var isDelayed: Bool
-    init(trainCode: String, fromStationName: String, destinationStationName: String, trainName: String? = nil, departureDate: Date? = nil, corrigatedDepartureDate: Date? = nil, isDelayed: Bool) {
+    var trainId: Int?
+    init(trainCode: String, fromStationName: String, destinationStationName: String, trainName: String? = nil, departureDate: Date? = nil, corrigatedDepartureDate: Date? = nil, isDelayed: Bool, trainId: Int?) {
         self.id = UUID()
         self.trainCode = trainCode
         self.fromStationName = fromStationName
@@ -34,6 +35,7 @@ struct Departure: Identifiable {
         self.departureDate = departureDate
         self.corrigatedDepartureDate = corrigatedDepartureDate
         self.isDelayed = isDelayed
+        self.trainId = trainId
     }
 }
 
@@ -61,7 +63,10 @@ class StationDetailsViewModel: StationDetailsProtocol, ObservableObject {
             var departures: [Departure] = []
             if let stationTimetable = station?.stationSchedulerDetails?.departureScheduler {
                 departures = stationTimetable.map{dep in
-                    
+                    var trainId: Int?
+                    if let trainIdString = dep.trainId{
+                        trainId = Int(trainIdString)
+                    }
                     var departure = Departure(
                         trainCode: dep.kind?.code ?? "",
                         fromStationName: dep.startStation?.name ?? "Unknown",
@@ -69,7 +74,8 @@ class StationDetailsViewModel: StationDetailsProtocol, ObservableObject {
                         trainName: dep.name,
                         departureDate: DateFromIso(dep.start ?? ""),
                         corrigatedDepartureDate: DateFromIso(dep.actualOrEstimatedStart ?? ""),
-                        isDelayed: false
+                        isDelayed: false,
+                        trainId: trainId
                     )
                     if let start = dep.start, let actual = dep.actualOrEstimatedStart{
                         departure.isDelayed = actual > start
