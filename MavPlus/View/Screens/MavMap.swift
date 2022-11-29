@@ -6,26 +6,20 @@ struct MavMap: View {
     @ObservedObject private var model: MapViewModel = MapViewModel()
     
     var body: some View {
-        NavigationStack {
+        NavigationStack(path: self.$model.locationNavStack) {
             ZStack(alignment: .topLeading) {
-                Map(coordinateRegion: self.$model.region, annotationItems: self.model.locations) { place in
-                    MapAnnotation(coordinate: place.location) {
-                        NavigationLink(destination: {
-                            Group {
-                                if (place.isStation) {
-                                    StationDetailsScreen(code: place.id)
-                                } else {
-                                    TrainDetailsScreen(trainId: Int(place.id) ?? 0)
-                                }
-                            }
-                        }, label: {
-                            
-                            MapIcon( (place.isStation ? "Station" : "Train") )
-                        })
-                    }
-                }
+                MapKitMap(model: self.model)
                 .edgesIgnoringSafeArea(.top).overlay(alignment: .top){
                     Rectangle().frame(height:0).background(.regularMaterial)
+                }
+                .navigationDestination(for: LocationItem.self) { place in
+                    Group {
+                        if (place.isStation) {
+                            StationDetailsScreen(code: place.id)
+                        } else {
+                            TrainDetailsScreen(trainId: Int(place.id) ?? 0)
+                        }
+                    }
                 }
                 .onAppear{
                     model.startTimer()
@@ -34,13 +28,23 @@ struct MavMap: View {
                     model.stopTimer()
                 }
                 
-                VStack(alignment: .trailing) {
-                    Text("Show stations")
+                VStack(alignment: .leading) {
+                    Text("Show stations", comment: "Show stations toggle map")
                         .bold()
                         .padding(5)
-                        .background(Color("Secondary"))
+                        .background(self.model.showStations ? Color("Secondary") : Color.gray)
                         .cornerRadius(10)
-                    Toggle("", isOn: self.$model.showStations)
+                        .onTapGesture {
+                            self.model.showStations.toggle()
+                        }
+                    Text("Show trains", comment: "Show trains toggle map")
+                        .bold()
+                        .padding(5)
+                        .background(self.model.showTrains ? Color("Secondary") : Color.gray)
+                        .cornerRadius(10)
+                        .onTapGesture {
+                            self.model.showTrains.toggle()
+                        }
                 }
                 .padding()
             }

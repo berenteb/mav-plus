@@ -2,7 +2,7 @@ import Foundation
 import MapKit
 import Combine
 
-struct LocationItem: Identifiable {
+class LocationItem: NSObject, MKAnnotation, Identifiable {
     private let realId: String
     var id: String {
         get {
@@ -15,15 +15,15 @@ struct LocationItem: Identifiable {
             return self.realId
         }
     }
-    let name: String
+    let name: String?
     let isStation: Bool
-    let location: CLLocationCoordinate2D
+    dynamic var coordinate: CLLocationCoordinate2D
     
-    init(id: String, name: String, lat: Double, long: Double, isStation: Bool = false) {
+    init(id: String, name: String?, lat: Double, long: Double, isStation: Bool = false) {
         self.realId = id
         self.name = name
         self.isStation = isStation
-        self.location = CLLocationCoordinate2D(
+        self.coordinate = CLLocationCoordinate2D(
             latitude: lat,
             longitude: long)
     }
@@ -31,6 +31,8 @@ struct LocationItem: Identifiable {
 
 class MapViewModel: Updateable, RequestStatus, ObservableObject {
     @Published var locations: [LocationItem]
+    @Published var allLocationsList: [LocationItem]
+    
     @Published var isError: Bool
     @Published var isLoading: Bool
     
@@ -45,10 +47,17 @@ class MapViewModel: Updateable, RequestStatus, ObservableObject {
             self.filterForVisibleLocation()
         }
     }
+    @Published var showTrains: Bool {
+        didSet {
+            self.filterForVisibleLocation()
+        }
+    }
+    
+    @Published var locationNavStack: [LocationItem]
+    @Published var uiKitMap: MKMapView?
     
     private var timer: Timer?
     private var disposables = Set<AnyCancellable>()
-    private var allLocationsList: [LocationItem]
     
     init(){
         isError = false
@@ -56,6 +65,9 @@ class MapViewModel: Updateable, RequestStatus, ObservableObject {
         locations = []
         self.allLocationsList = [LocationItem]()
         self.showStations = true
+        self.showTrains = true
+        self.locationNavStack = [LocationItem]()
+        self.uiKitMap = nil
         
         self.region = MKCoordinateRegion(
             center: CLLocationCoordinate2D(latitude: 47.497854,
@@ -82,42 +94,21 @@ class MapViewModel: Updateable, RequestStatus, ObservableObject {
         var outputLocationList: [LocationItem] = [LocationItem]()
         
         for locationIterator in self.allLocationsList {
-            if (self.showStations || !locationIterator.isStation) {
-                let locationLatitudeDegrees: CGFloat = cos( (self.region.center.latitude - locationIterator.location.latitude) * (.pi / 180.0) )
-                let regionMaxLatitudeDegree: CGFloat = cos( (self.region.span.latitudeDelta / 2.0) * (.pi / 180.0) )
-                let locationLongitudeDegrees: CGFloat = cos( (self.region.center.longitude - locationIterator.location.longitude) * (.pi / 180.0) )
-                let regionMaxLongitudeDegree: CGFloat = cos( (self.region.span.longitudeDelta / 2.0) * (.pi / 180.0) )
-                
-                if (locationLatitudeDegrees > regionMaxLatitudeDegree && locationLongitudeDegrees > regionMaxLongitudeDegree) {
-                    // location is in region
-                    
-                    var isCovered: Bool = false
-                    for validLocationIterator in outputLocationList {
-                        let minIconSizeFactor: Double = 20.0
-                        
-                        let fromRegionLocation: CLLocation = CLLocation(latitude: region.center.latitude, longitude: region.center.longitude)
-                        let toRegionLocation: CLLocation = CLLocation(latitude: (region.center.latitude + (region.span.latitudeDelta / minIconSizeFactor)), longitude: (region.center.longitude + (region.span.longitudeDelta / minIconSizeFactor)) )
-                        let regionDeltaDistance: CLLocationDistance = toRegionLocation.distance(from: fromRegionLocation)
-                        
-                        let fromLocation: CLLocation = CLLocation(latitude: validLocationIterator.location.latitude, longitude: validLocationIterator.location.longitude)
-                        let toLocation: CLLocation = CLLocation(latitude: locationIterator.location.latitude, longitude: locationIterator.location.longitude)
-                        let deltaDistance: CLLocationDistance = toLocation.distance(from: fromLocation)
-                        
-                        if (deltaDistance < regionDeltaDistance) {
-                            isCovered = true
-                            break
-                        }
-                    }
-                    
-                    if (!isCovered) {
-                        outputLocationList.append(locationIterator)
-                    }
-                }
+            if (
+                    (locationIterator.isStation && self.showStations) ||
+                    (!locationIterator.isStation && self.showTrains)
+                ) {
+                outputLocationList.append(locationIterator)
             }
         }
         
         DispatchQueue.main.async {
-            self.locations = outputLocationList
+            self.locations.removeAll()
+            self.locations.append(contentsOf: outputLocationList)
+            
+            if let realMap: MKMapView = self.uiKitMap {
+                realMap.setNeedsDisplay()
+            }
         }
     }
     
@@ -128,11 +119,11 @@ class MapViewModel: Updateable, RequestStatus, ObservableObject {
             if let trains = locations?.Vonatok {
                 var localTrainList: [LocationItem] = [LocationItem]()
                 trains.forEach{ loc in
-                    if let id = loc.VonatID, let name = loc.Vonatnev {
+                    if let id = loc.VonatID {
                         let lat = loc.EGpsLat ?? loc.GpsLat
                         let lon = loc.EGpsLon ?? loc.GpsLon
                         if let lon = lon, let lat = lat {
-                            localTrainList.append(LocationItem(id: id, name: name, lat: lat, long: lon))
+                            localTrainList.append(LocationItem(id: id, name: loc.Vonatnev, lat: lat, long: lon))
                         }
                     }
                 }

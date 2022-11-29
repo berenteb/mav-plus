@@ -18,7 +18,7 @@ struct StationDetailsMapScreen: View {
     
     var body: some View {
         Map(coordinateRegion: $region, annotationItems: [item]) { loc in
-            MapAnnotation(coordinate: loc.location) {
+            MapAnnotation(coordinate: loc.coordinate) {
                 MapIcon("Station")
             }
         }.navigationTitle(viewModel.station!.name)
