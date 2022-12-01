@@ -1,10 +1,15 @@
 import SwiftUI
 
+/// Error screen.
 struct ErrorView: View {
     
+    /// The description of the error
     var error: String?
+    
+    /// Callback to execute on tap of Retry button
     var onRetry: (()->Void)?
     
+    /// SwiftUI view generation.
     var body: some View {
         VStack(spacing:30){
             Image(systemName: "exclamationmark.circle")
@@ -34,7 +39,10 @@ struct ErrorView: View {
     }
 }
 
+/// SwiftUI Preview
 struct ErrorView_Previews: PreviewProvider {
+    
+    /// SwiftUI Preview content generation.
     static var previews: some View {
         ErrorView(error: MockError){
             print("Retry")

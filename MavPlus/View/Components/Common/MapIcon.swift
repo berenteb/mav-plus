@@ -1,12 +1,18 @@
 import SwiftUI
 
+/// An icon on the map with an image.
 struct MapIcon: View {
     
+    /// Name of the asset to display as image
     var imageName: String;
+    
+    /// Default initializer
+    /// - Parameter imageName: The nem of the asset to display as image
     init(_ imageName: String){
         self.imageName = imageName
     }
     
+    /// SwiftUI view generation.
     var body: some View {
         Image(imageName)
             .resizable()
@@ -17,7 +23,10 @@ struct MapIcon: View {
     }
 }
 
+/// SwiftUI view generation.
 struct MapIcon_Previews: PreviewProvider {
+    
+    /// SwiftUI Preview content generation.
     static var previews: some View {
         MapIcon("Train")
             .previewLayout(.sizeThatFits)

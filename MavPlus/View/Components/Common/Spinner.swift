@@ -1,18 +1,27 @@
 import SwiftUI
 
+/// Spinning loading icon UI component
 struct SpinnerView: View{
+    
+    /// Size of the icon
     let size: Double
+    
+    /// Default initializer
+    /// - Parameter size: The size of the icon
     init(size: Double = 50){
         self.size = size
     }
     
+    /// SwiftUI view generation.
     var body: some View{
         ProgressView().progressViewStyle(Spinner(size: self.size))
     }
 }
 
+/// Model for custom loading UI component
 struct Spinner: ProgressViewStyle {
     
+    /// The original starting angle for the spinning loading icon
     static let initialDegree: Angle = .degrees(180)
     @State var spinnerStart: CGFloat = 0
     @State var spinnerEnd: CGFloat = 0.3
@@ -70,7 +79,10 @@ struct SpinnerCircle: View {
     }
 }
 
+/// SwiftUI Preview
 struct Spinner_Previews: PreviewProvider {
+    
+    /// SwiftUI Preview content generation.
     static var previews: some View {
         SpinnerView()
             .previewLayout(.sizeThatFits)
