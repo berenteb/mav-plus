@@ -1,8 +1,12 @@
 import SwiftUI
 
+/// View presenting a single directions Offer
 struct DirectionsFinal: View {
+    
+    /// Data for the view.
     var offer: OfferData
     
+    /// SwiftUI view generation.
     var body: some View {
         List{
             Section(content: {
@@ -59,9 +63,10 @@ struct DirectionsFinal: View {
     }
 }
 
-
+/// SwiftUI Preview
 struct DirectionsFinal_Previews: PreviewProvider {
-        
+
+    /// SwiftUI Preview content generation.
     static var previews: some View {
         DirectionsFinal(
             offer: MockOfferData
