@@ -1,12 +1,21 @@
 import SwiftUI
 
+/// View for the summary of the query
 struct DirectionsQuerySummary: View {
     
+    /// Name of the start station
     var startStationName: String
+    
+    /// Name of the end station
     var endStationName: String
+    
+    /// Number of passengers
     var passengerCount: Int
+    
+    /// The date of the query
     var startDate: Date
     
+    /// SwiftUI view generation.
     var body: some View {
         
         Section(content: {
@@ -31,7 +40,9 @@ struct DirectionsQuerySummary: View {
     }
 }
 
+/// SwiftUI Preview
 struct DirectionsQuerySummary_Previews: PreviewProvider {
+    /// SwiftUI Preview content generation.
     static var previews: some View {
         List{
             DirectionsQuerySummary(

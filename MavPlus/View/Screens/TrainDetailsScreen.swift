@@ -1,12 +1,18 @@
 import SwiftUI
 
+/// View presenting the details of a train (e.g. name, stops, how late it is, etc.)
 struct TrainDetailsScreen: View {
+    
+    /// Data for the view.
     @ObservedObject var model: TrainViewModel
     
+    /// Default initializer
+    /// - Parameter trainId: The id of the train to present
     init(trainId: Int) {
         self.model = TrainViewModel(trainId: trainId)
     }
     
+    /// SwiftUI view generation.
     var body: some View {
         VStack{
             if model.isLoading {
@@ -53,7 +59,10 @@ struct TrainDetailsScreen: View {
     }
 }
 
+/// SwiftUI Preview
 struct TrainDetailsScreen_Previews: PreviewProvider {
+
+    /// SwiftUI Preview content generation.
     static var previews: some View {
         TrainDetailsScreen(trainId: 649641)
     }

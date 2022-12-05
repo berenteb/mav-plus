@@ -1,13 +1,27 @@
 import SwiftUI
 
+/// View for direction query input, with TextInputs
 struct DirectionsFormScreen: View {
+    
+    /// Data for the view.
     @ObservedObject var viewModel = DirectionsFormViewModel()
+    
+    /// The starting station for the query
     @State var startStation: FormStationListItem?
+    
+    /// The ending station for the query
     @State var endStation: FormStationListItem?
+    
+    /// The date for the query
     @State var time: Date = Date.now
+    
+    /// Whether the given date is the time to arrive by, or the time to leave at
     @State var isArrival: Bool = true
+    
+    /// The number of passengers
     @State var passengerNumber: Int = 1
     
+    /// SwiftUI view generation.
     var body: some View {
         GeometryReader { root in
             NavigationStack {
@@ -60,8 +74,10 @@ struct DirectionsFormScreen: View {
     }
 }
 
-
+/// SwiftUI Preview
 struct Directions_Previews: PreviewProvider {
+    
+    /// SwiftUI Preview content generation.
     static var previews: some View {
         DirectionsFormScreen(startStation: FormStationListItem(code: "Teszt", name: "Teszt", searchCount: 3, isFavorite: false), endStation: FormStationListItem(code: "Teszt", name: "Teszt", searchCount: 2, isFavorite: false))
     }

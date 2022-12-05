@@ -8,9 +8,13 @@
 import SwiftUI
 import WebKit
 
+/// View for RSS feed showing traffic news
 struct TrafficNews: View {
+    
+    /// Data for the view.
     @ObservedObject var model: AlertsViewModel = AlertsViewModel()
     
+    /// SwiftUI view generation.
     var body: some View {
         NavigationStack {
             if model.isLoading{
@@ -34,7 +38,10 @@ struct TrafficNews: View {
     }
 }
 
+/// SwiftUI Preview
 struct TrafficNews_Previews: PreviewProvider {
+    
+    /// SwiftUI Preview content generation.
     static var previews: some View {
         TrafficNews()
     }

@@ -7,8 +7,13 @@
 
 import SwiftUI
 
+/// View for an Offer item in the list of Offers
 struct DirectionsOfferListItem: View {
+    
+    /// Data for the view.
     @State var offer: OfferData
+    
+    /// SwiftUI view generation.
     var body: some View {
         HStack{
             VStack(alignment: .leading, spacing: 10){
@@ -32,7 +37,10 @@ struct DirectionsOfferListItem: View {
     }
 }
 
+/// SwiftUI Preview
 struct DirectionsOfferView_Previews: PreviewProvider {
+    
+    /// SwiftUI Preview content generation.
     static var previews: some View {
         DirectionsOfferListItem(offer: MockOfferData)
             .previewLayout(.sizeThatFits)

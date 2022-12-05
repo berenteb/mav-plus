@@ -1,10 +1,13 @@
 import SwiftUI
 import MapKit
 
+/// Custom map for showing stations and trains using MapKit Map, refreshing every 5 seconds
 struct MavMap: View {
     
+    /// Data for the view.
     @ObservedObject private var model: MapViewModel = MapViewModel()
     
+    /// SwiftUI view generation.
     var body: some View {
         NavigationStack(path: self.$model.locationNavStack) {
             ZStack(alignment: .topLeading) {
@@ -52,7 +55,10 @@ struct MavMap: View {
     }
 }
 
+///// SwiftUI Preview
 //struct MavMap_Previews: PreviewProvider {
+//
+//    /// SwiftUI Preview content generation.
 //    static var previews: some View {
 //        MavMap()
 //    }

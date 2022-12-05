@@ -73,8 +73,13 @@ struct StationPickerModal: View {
         }
 }
 
+/// SwiftUI Preview
 struct StationPicker_Previews: PreviewProvider {
+    
+    /// Mocked data for binding of picked station
     @State static var pickedStation: FormStationListItem?
+    
+    /// SwiftUI Preview content generation.
     static var previews: some View {
         StationPickerField(
             label:Text("From"),
