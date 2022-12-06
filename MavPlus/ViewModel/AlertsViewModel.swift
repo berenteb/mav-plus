@@ -1,13 +1,7 @@
-//
-//  RssViewModel.swift
-//  MavPlus
-//
-//  Created by Márton Pfemeter on 2022-10-19.
-//
-
 import Foundation
 import Combine
 
+/// Alert list item with url
 struct Alert: Identifiable{
     var id: UUID
     var title: String
@@ -15,7 +9,9 @@ struct Alert: Identifiable{
     var content: String
 }
 
-public class AlertsViewModel: ObservableObject {
+/// Alert View Model for Alert List
+public class AlertsViewModel: ObservableObject, RequestStatus {
+    /// Alerts to display in the list
     @Published var alerts: [Alert]
     @Published var isError: Bool
     @Published var isLoading: Bool
@@ -31,6 +27,7 @@ public class AlertsViewModel: ObservableObject {
         subscribe()
     }
     
+    /// Subscribe to repository result
     func subscribe(){
         RssRepository.shared.publisher.sink{fields in
             self.isError = fields.isError

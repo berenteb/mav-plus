@@ -2,6 +2,7 @@ import Foundation
 import MapKit
 import Combine
 
+/// Station list item data struct
 struct StationListItem: Comparable {
     var code: String
     var name: String
@@ -17,6 +18,7 @@ struct StationListItem: Comparable {
     }
 }
 
+/// Station list view model with every station the API returns
 class StationListViewModel: Updateable, ObservableObject {
     @Published var stationList: [StationListItem] = []
         

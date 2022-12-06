@@ -1,32 +1,56 @@
 import Foundation
 import Combine
 
+/// Store singleton protocol for storage access
 protocol StoreProtocol {
+    /// Singleton instance of the class
     static var shared: any StoreProtocol {get}
     
+    /// Favorite stations without any additional data
     var favoriteStations: [FavoriteStation] {get}
+    /// Recent offers without any additional data
     var recentOffers: [RecentOffer] {get}
+    /// Persistence controller for CoreData
     var controller: PersistenceController {get}
-    
+    /// Retrieves every saved favorite station
     func updateFavoriteStationList() -> Void
 //    func deleteFavoriteStation(code: String) -> Void
+    /// Saves a station as favorite
+    /// - Parameters:
+    ///     - code: Station code
+    ///     - searchCount: count of the offer searches for this station
+    ///     - isFavorite: whether the station has been selected as favorite
     func saveFavoriteStation(code: String, searchCount: Int32, isFavorite: Bool) -> Void
-    
+    /// Retrieves every saved recent offer
     func updateRecentOfferList() -> Void
+    /// Deletes a recent offer by ID
+    /// - Parameters:
+    ///     - id: id of the offer
     func deleteRecentOffer(id: UUID) -> Void
+    /// Saves recent offer
+    /// - Parameters:
+    ///     - startCode: start station code
+    ///     - endCode: end station code
     func saveRecentOffer(startCode: String, endCode: String) -> Void
-    
+    /// Retrieves station search count
+    /// - Parameters:
+    ///     - code: Station code
     func favoriteStationSearchCount(code: String) -> Int32
+    /// Checks whether the station with the given code is saved as favorite
+    /// - Parameters:
+    ///     - code: Station code
     func isFavoriteStation(code: String) -> Bool
-    
+    /// Async publisher, which sends when the data is retrieved from the storage
     var publisher: PassthroughSubject<StoreFields, Never> { get }
 }
 
+/// Store fields main data type
 struct StoreFields {
     var favoriteStations: [FavoriteStation]
     var recentOffers: [RecentOffer]
 }
 
+/// Store repository to load inital data and to proxy requests to CoreData
 class StoreRepository: StoreProtocol{
     
     static var shared = StoreRepository() as (any StoreProtocol)

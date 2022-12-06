@@ -11,7 +11,6 @@ protocol RssProtocol: RequestStatus, Updateable, XMLParserDelegate {
     /// The parsed list of RssItems
     var rssItemList: [RssItem] {get}
     
-    // TODO
     var publisher: PassthroughSubject<RssFields, Never> { get }
 }
 
@@ -61,7 +60,6 @@ public class RssRepository: NSObject, RssProtocol {
     /// The items parsed so far
     private var parseList: [RssItem]
     
-    // TODO
     var publisher = PassthroughSubject<RssFields, Never>()
     
     /// Default initializer, calls self.update()
@@ -85,7 +83,7 @@ public class RssRepository: NSObject, RssProtocol {
             return
         }
         
-        var request: URLRequest = URLRequest(url: url)
+        let request: URLRequest = URLRequest(url: url)
         
         let task = URLSession.shared.dataTask(with: request) { data, response, error in
             if (error != nil) {
@@ -151,8 +149,8 @@ public class RssRepository: NSObject, RssProtocol {
     
     /// Called during the parsing of the RSS feed, updates self.lastContent
     /// - Parameters:
-    ///   - parser: The parser parsing the RSS feed
-    ///   - string: The content encountered during parsing
+    ///     - parser: The parser parsing the RSS feed
+    ///     - string: The content encountered during parsing
     /// - Returns: Nothing
     public func parser(
         _ parser: XMLParser,
@@ -169,11 +167,11 @@ public class RssRepository: NSObject, RssProtocol {
     
     /// Called during the parsing of the RSS feed, at the opening of a new tag
     /// - Parameters:
-    ///   - parser: Teh parser parsing the RSS feed
-    ///   - elementName: The name of the tag started
-    ///   - namespaceURI: URI of the namespace
-    ///   - qName: Qualified name
-    ///   - attributeDict: Dictionary of the attributes of the tag
+    ///     - parser: Teh parser parsing the RSS feed
+    ///     - elementName: The name of the tag started
+    ///     - namespaceURI: URI of the namespace
+    ///     - qName: Qualified name
+    ///     - attributeDict: Dictionary of the attributes of the tag
     /// - Returns: Nothing
     public func parser(
         _ parser: XMLParser,

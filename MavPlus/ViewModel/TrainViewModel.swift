@@ -1,6 +1,7 @@
 import Foundation
 import MapKit
 
+/// Main data type for trains
 struct TrainData {
     var trainPictogram: TrainPictogram?
     var name: String
@@ -10,17 +11,22 @@ struct TrainData {
     var location: CLLocationCoordinate2D?
 }
 
+/// Where the train stops and when
 struct Stop{
     var name: String
     var date: Date?
 }
 
+/// Train details view model
 class TrainViewModel: ObservableObject, Updateable, RequestStatus{
+    /// The train ID to search for
     var trainId: Int
     @Published var isError: Bool
     @Published var isLoading: Bool
     @Published var trainData: TrainData?
     
+    /// - Parameters:
+    ///     - trainId: Int, the ID of the train
     init(trainId: Int) {
         self.isError = false
         self.isLoading = true

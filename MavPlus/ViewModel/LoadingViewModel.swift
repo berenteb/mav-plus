@@ -1,7 +1,8 @@
 import Foundation
 import Combine
 
-class LoadingViewModel: ObservableObject{
+///Loading view model to handle initial API calls, wait for them and indicate error or loading
+class LoadingViewModel: ObservableObject, RequestStatus{
     @Published var isLoading: Bool
     @Published var isError: Bool
     private var cancellables = Set<AnyCancellable>()
