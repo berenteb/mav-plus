@@ -37,7 +37,10 @@ struct TrainDetailsScreen: View {
                     })
                     Section(content: {
                         ForEach(train.stations, id: \.name){ stop in
-                            Text("\(stop.date?.formatted(date: .omitted, time: .shortened) ?? "?") - \(stop.name)")
+                            HStack(spacing:10){
+                                Text(stop.date?.formatted(date: .omitted, time: .shortened) ?? "?")
+                                Text(stop.name)
+                            }
                         }
                     }, header: {
                         Text("Route")

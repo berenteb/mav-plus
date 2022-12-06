@@ -31,6 +31,7 @@ class LocationItem: NSObject, MKAnnotation, Identifiable {
 
 class MapViewModel: Updateable, RequestStatus, ObservableObject {
     @Published var locations: [LocationItem]
+    private var stations: [LocationItem]
     @Published var allLocationsList: [LocationItem]
     
     @Published var isError: Bool
@@ -64,6 +65,7 @@ class MapViewModel: Updateable, RequestStatus, ObservableObject {
         isLoading = true
         locations = []
         self.allLocationsList = [LocationItem]()
+        self.stations = [LocationItem]()
         self.showStations = true
         self.showTrains = true
         self.locationNavStack = [LocationItem]()
@@ -76,13 +78,13 @@ class MapViewModel: Updateable, RequestStatus, ObservableObject {
             longitudinalMeters: 10000
         )
         
-        update()
+        self.update()
     }
     
     public func startTimer(){
         timer?.invalidate()
         timer = Timer.scheduledTimer(withTimeInterval: 10.0, repeats: true) { timer in
-            self.updateTrains()
+            self.update()
         }
     }
     
@@ -91,20 +93,11 @@ class MapViewModel: Updateable, RequestStatus, ObservableObject {
     }
     
     private func filterForVisibleLocation() -> Void {
-        var outputLocationList: [LocationItem] = [LocationItem]()
-        
-        for locationIterator in self.allLocationsList {
-            if (
-                    (locationIterator.isStation && self.showStations) ||
-                    (!locationIterator.isStation && self.showTrains)
-                ) {
-                outputLocationList.append(locationIterator)
-            }
-        }
-        
         DispatchQueue.main.async {
             self.locations.removeAll()
-            self.locations.append(contentsOf: outputLocationList)
+            self.locations.append(contentsOf: self.allLocationsList.filter{item in
+                return item.isStation && self.showStations || !item.isStation && self.showTrains
+            })
             
             if let realMap: MKMapView = self.uiKitMap {
                 realMap.setNeedsDisplay()
@@ -112,8 +105,9 @@ class MapViewModel: Updateable, RequestStatus, ObservableObject {
         }
     }
     
-    private func updateTrains() -> Void {
+    func update() {
         isLoading = true
+        self.updateStations()
         ApiRepository.shared.getTrainLocations(){ locations, error in
             self.isError = error != nil
             if let trains = locations?.Vonatok {
@@ -128,49 +122,26 @@ class MapViewModel: Updateable, RequestStatus, ObservableObject {
                     }
                 }
                 
-                var filteredLocationList: [LocationItem] = self.allLocationsList.filter({ locationIterator in
-                    let isNotContained: Bool = !localTrainList.contains(where: { containIterator in
-                        return (containIterator.id == locationIterator.id)
-                    })
-                    return (isNotContained && locationIterator.isStation)
-                })
-                
-                filteredLocationList.append(contentsOf: localTrainList)
-                
-                self.allLocationsList = filteredLocationList
+                self.allLocationsList.removeAll()
+                self.allLocationsList.append(contentsOf: self.stations)
+                self.allLocationsList.append(contentsOf: localTrainList)
+                self.filterForVisibleLocation()
             }
-            self.filterForVisibleLocation()
-            self.isLoading = false
         }
     }
     
-    func update() {
-        self.updateTrains()
-        
-        var localStationList: [LocationItem] = ApiRepository.shared.stationList.map{ station in
+    func updateStations(){
+        if !stations.isEmpty {return}
+        ApiRepository.shared.stationList.forEach{ station in
             let stationLocation = ApiRepository.shared.stationLocationList.first{ loc in
                 return loc.code == station.code
             }
             if let lat = stationLocation?.lat, let lon = stationLocation?.lon {
-                var listItem = LocationItem(id: station.code ?? "", name: station.name ?? "Unknown", lat: lat, long: lon, isStation: true)
+                let listItem = LocationItem(id: station.code ?? "", name: station.name ?? "Unknown", lat: lat, long: lon, isStation: true)
                 
-                return listItem
+                self.stations.append(listItem)
             }
-            return LocationItem(id: "", name: "", lat: 0, long: 0)
         }
-        
-        var filteredLocationList: [LocationItem] = localStationList.filter({ stationIterator in
-            if let oldIndex: Int = self.allLocationsList.firstIndex(where: { locationIterator in
-                return (locationIterator.id == stationIterator.id)
-            }) {
-                self.allLocationsList.remove(at: oldIndex)
-            }
-            
-            return stationIterator.isStation
-        })
-        
-        self.allLocationsList.append(contentsOf: filteredLocationList)
-        self.filterForVisibleLocation()
     }
     
 }

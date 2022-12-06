@@ -71,7 +71,7 @@ struct MapKitMap: UIViewRepresentable {
                 return (iteratorItem.id == item.id)
             }) {
                 UIView.animate(withDuration: 0.25) {
-                    var activeItem: LocationItem = oldAnnotationList.remove(at: oldItemIndex)
+                    let activeItem: LocationItem = oldAnnotationList.remove(at: oldItemIndex)
                     activeItem.coordinate = item.coordinate
                     outputList.append(activeItem)
                 }

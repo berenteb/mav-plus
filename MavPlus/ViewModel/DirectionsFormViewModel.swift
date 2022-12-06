@@ -12,11 +12,7 @@ struct FormStationListItem: Hashable, Comparable {
     }
 }
 
-protocol DirectionsFormProtocol: ObservableObject {
-    var stationList: [FormStationListItem] {get}
-}
-
-class DirectionsFormViewModel: DirectionsFormProtocol {
+class DirectionsFormViewModel: ObservableObject {
     @Published var stationList: [FormStationListItem]
     
     private var disposables = Set<AnyCancellable>()
