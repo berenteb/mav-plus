@@ -17,11 +17,7 @@ struct StationListItem: Comparable {
     }
 }
 
-protocol StationListProtocol: Updateable, ObservableObject {
-    var stationList: [StationListItem] {get}
-}
-
-class StationListViewModel: StationListProtocol {
+class StationListViewModel: Updateable, ObservableObject {
     @Published var stationList: [StationListItem] = []
         
     init(){

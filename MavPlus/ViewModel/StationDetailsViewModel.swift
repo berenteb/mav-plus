@@ -39,12 +39,7 @@ struct Departure: Identifiable {
     }
 }
 
-protocol StationDetailsProtocol: RequestStatus, Updateable {
-    var station: StationDetails? { get }
-    func toggleFavorite() -> Void
-}
-
-class StationDetailsViewModel: StationDetailsProtocol, ObservableObject {
+class StationDetailsViewModel: RequestStatus, Updateable, ObservableObject {
     @Published var station: StationDetails?
     @Published var isLoading: Bool
     @Published var isError: Bool

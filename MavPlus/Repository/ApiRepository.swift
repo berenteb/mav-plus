@@ -3,7 +3,6 @@ import Combine
 
 struct StationLocation: Decodable {
     var code: String
-    var name: String
     var lat: Double?
     var lon: Double?
 }

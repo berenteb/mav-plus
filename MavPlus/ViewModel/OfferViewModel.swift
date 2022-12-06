@@ -1,10 +1,5 @@
 import Foundation
 
-
-protocol OfferProtocol: RequestStatus, Updateable, ObservableObject {
-    var offers: [OfferData] {get}
-}
-
 struct OfferData: Identifiable {
     var id: UUID = UUID()
     var startStationName: String
@@ -40,7 +35,7 @@ struct OfferRoutePart: Identifiable {
     }
 }
 
-class OfferViewModel: OfferProtocol, ObservableObject {
+class OfferViewModel: RequestStatus, Updateable, ObservableObject {
     @Published var offers: [OfferData] = []
     @Published var isLoading: Bool = true
     @Published var isError: Bool = false

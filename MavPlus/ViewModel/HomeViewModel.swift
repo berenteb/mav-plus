@@ -1,12 +1,6 @@
 import Foundation
 import Combine
 
-protocol HomeProtocol: Updateable {
-    var favoriteStations: [FavoriteStationListItem] {get}
-    var recentOffers: [RecentOfferListItem] {get}
-    func deleteRecentOffer(id: UUID) -> Void
-}
-
 struct FavoriteStationListItem {
     var name: String
     var code: String
@@ -27,7 +21,7 @@ struct AlertListItem: Identifiable{
     var url: String
 }
 
-class HomeViewModel: HomeProtocol, ObservableObject {
+class HomeViewModel: Updateable, ObservableObject {
     @Published var favoriteStations: [FavoriteStationListItem]
     @Published var recentOffers: [RecentOfferListItem]
     @Published var alerts: [AlertListItem]
