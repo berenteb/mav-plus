@@ -1,0 +1,225 @@
+@startuml
+' STYLE START
+
+skinparam shadowing false
+' STYLE END
+
+
+class "ApiProtocol" as ApiProtocol << (P, GoldenRod) protocol >> { 
+  ~{static} shared : any ApiProtocol
+  ~cities : Cities
+  ~customers : CustomersAndDiscounts?
+  ~stationList : StationList
+  ~stationLocationList : [StationLocation]
+  ~services : ServicesDto?
+  ~getOffer(startCode:endCode:passengerCount:startDate:completion:)
+  ~getTrainLocations(completion:)
+  ~getStationInfo(stationNumberCode:completion:)
+  ~getTrainInfo(trainId:completion:)
+  ~notifier : PassthroughSubject<(), Never> 
+}
+class "ApiRepository" as ApiRepository << (C, DarkSeaGreen) >> { 
+  ~{static} shared
+  ~cities : Cities
+  ~customers : CustomersAndDiscounts?
+  ~stationList : StationList
+  ~services : ServicesDto?
+  ~stationLocationList : [StationLocation]
+  ~isLoading : Bool
+  ~isError : Bool
+  -cancellableSet : Set<AnyCancellable>
+  +notifier
+  -init()
+  +update()
+  -updateCities()
+  -updateCustomersAndDiscounts()
+  -updateStationList()
+  -updateServices()
+  ~getOffer(startCode:endCode:passengerCount:startDate:completion:)
+  ~getStationLocation()
+  ~getTrainLocations(completion:)
+  ~getStationInfo(stationNumberCode:completion:)
+  ~getTrainInfo(trainId:completion:) 
+}
+ApiProtocol <|.. ApiRepository : confirms to
+
+class "StoreProtocol" as StoreProtocol << (P, GoldenRod) protocol >> { 
+  ~{static} shared : any StoreProtocol
+  ~favoriteStations : [FavoriteStation]
+  ~recentOffers : [RecentOffer]
+  ~controller : PersistenceController
+  ~updateFavoriteStationList()
+  ~saveFavoriteStation(code:searchCount:isFavorite:)
+  ~updateRecentOfferList()
+  ~deleteRecentOffer(id:)
+  ~saveRecentOffer(startCode:endCode:)
+  ~favoriteStationSearchCount(code:)
+  ~isFavoriteStation(code:)
+  ~publisher : PassthroughSubject<StoreFields, Never> 
+}
+class "StoreRepository" as StoreRepository << (C, DarkSeaGreen) >> { 
+  ~{static} shared
+  ~favoriteStations : [FavoriteStation]
+  ~recentOffers : [RecentOffer]
+  ~controller : PersistenceController
+  ~publisher
+  -init()
+  ~notify()
+  ~updateFavoriteStationList()
+  ~saveFavoriteStation(code:searchCount:isFavorite:)
+  ~updateRecentOfferList()
+  ~deleteRecentOffer(id:)
+  ~saveRecentOffer(startCode:endCode:)
+  ~favoriteStationSearchCount(code:)
+  ~isFavoriteStation(code:) 
+}
+StoreProtocol <|.. StoreRepository : confirms to
+RssProtocol <|.. RssRepository : confirms to
+
+class "RssProtocol" as RssProtocol << (P, GoldenRod) protocol >> { 
+  ~{static} shared : RssProtocol
+  ~rssItemList : [RssItem]
+  ~publisher : PassthroughSubject<RssFields, Never> 
+}
+class "RssRepository" as RssRepository << (C, DarkSeaGreen) >> { 
+  ~{static} shared
+  ~rssItemList : [RssItem]
+  ~isError : Bool
+  ~isLoading : Bool
+  -lastTag : String?
+  -lastContent : String?
+  -parseList : [RssItem]
+  ~publisher
+  +init()
+  +update()
+  -startParsing(inputData:)
+  -handleNewTag()
+  +parser(_:foundCharacters:)
+  +parser(_:didStartElement:namespaceURI:qualifiedName:attributes:) 
+}
+
+class "StationListViewModel" as StationListViewModel << (C, DarkSeaGreen) >> { 
+  ~stationList : [StationListItem]
+  ~init()
+  ~update() 
+}
+
+StationListViewModel ---- ApiProtocol
+
+class "StationDetailsViewModel" as StationDetailsViewModel << (C, DarkSeaGreen) >> { 
+  ~station : StationDetails?
+  ~isLoading : Bool
+  ~isError : Bool
+  -code : String
+  ~init(code:)
+  ~update()
+  ~toggleFavorite() 
+}
+
+StationDetailsViewModel ---- ApiProtocol
+
+
+class "MapViewModel" as MapViewModel << (C, DarkSeaGreen) >> { 
+  ~locations : [LocationItem]
+  ~allLocationsList : [LocationItem]
+  ~isError : Bool
+  ~isLoading : Bool
+  ~region : MKCoordinateRegion
+  ~showStations : Bool
+  ~showTrains : Bool
+  ~locationNavStack : [LocationItem]
+  ~uiKitMap : MKMapView?
+  -timer : Timer?
+  -disposables
+  ~init()
+  +startTimer()
+  +stopTimer()
+  -filterForVisibleLocation()
+  -updateTrains()
+  ~update() 
+}
+
+MapViewModel ---- ApiProtocol
+
+
+class "HomeViewModel" as HomeViewModel << (C, DarkSeaGreen) >> { 
+  ~favoriteStations : [FavoriteStationListItem]
+  ~recentOffers : [RecentOfferListItem]
+  ~alerts : [AlertListItem]
+  -disposables
+  ~init()
+  ~deleteRecentOffer(id:)
+  ~subscribe()
+  ~update()
+  ~updateFavoriteStations()
+  ~updateRecentOffers() 
+}
+
+HomeViewModel ---- ApiProtocol
+
+class "OfferViewModel" as OfferViewModel << (C, DarkSeaGreen) >> { 
+  ~offers : [OfferData]
+  ~isLoading : Bool
+  ~isError : Bool
+  ~start : FormStationListItem
+  ~end : FormStationListItem
+  ~passengerCount : Int
+  ~startDate : Date
+  ~init(start:end:passengerCount:startDate:)
+  ~update() 
+}
+
+OfferViewModel ---- ApiProtocol
+
+class "AlertsViewModel" as AlertsViewModel << (C, DarkSeaGreen) >> { 
+  ~alerts : [Alert]
+  ~isError : Bool
+  ~isLoading : Bool
+  -disposables
+  ~init()
+  ~subscribe() 
+}
+
+AlertsViewModel ---- RssProtocol
+
+class "DirectionsFormViewModel" as DirectionsFormViewModel << (C, DarkSeaGreen) >> { 
+  ~stationList : [FormStationListItem]
+  -disposables
+  ~init()
+  -incrementStationSearchCount(start:end:)
+  +createOfferViewModel(start:end:count:startDate:) 
+}
+
+DirectionsFormViewModel ---- ApiProtocol
+
+
+class "LoadingViewModel" as LoadingViewModel << (C, DarkSeaGreen) >> { 
+  ~isLoading : Bool
+  ~isError : Bool
+  -cancellables
+  ~init()
+  ~update() 
+}
+
+LoadingViewModel ---- ApiProtocol
+
+
+class "TrainViewModel" as TrainViewModel << (C, DarkSeaGreen) >> { 
+  ~trainId : Int
+  ~isError : Bool
+  ~isLoading : Bool
+  ~trainData : TrainData?
+  ~init(trainId:)
+  ~update() 
+}
+
+TrainViewModel ---- ApiProtocol
+
+StationListViewModel ---- StoreProtocol
+StationDetailsViewModel ---- StoreProtocol
+HomeViewModel ---- StoreProtocol
+StationListViewModel ---- StoreProtocol
+OfferViewModel ---- StoreProtocol
+DirectionsFormViewModel ---- StoreProtocol
+HomeViewModel ---- RssProtocol
+@enduml

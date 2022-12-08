@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MavPlus - PersistenceController</title>
+    <link rel="stylesheet" type="text/css" href="/all.css" media="all" />
+</head>
+<body>
+    <header>
+        <a href="/">
+            <strong>
+                MavPlus
+            </strong>
+            <span>Documentation</span>
+        </a>
+    </header>
+
+    <!--
+    <form class="search">
+        <input type="search" placeholder="Search" />
+    </form>
+    -->
+
+    <nav>
+        <div class="wrapper">
+            <h2>On This Page</h2>
+            <ol><li><a href="#initializers">Initializers</a><ul><li class="initializer"><a href="#persistencecontroller.init(inmemory:)">init(in​Memory:​)</a></li></ul></li><li><a href="#properties">Properties</a><ul><li class="variable"><a href="#persistencecontroller.shared">shared</a></li><li class="variable"><a href="#persistencecontroller.container">container</a></li></ul></li><li><a href="#methods">Methods</a><ul><li class="function"><a href="#persistencecontroller.getrecentofferlist()">get​Recent​Offer​List()</a></li><li class="function"><a href="#persistencecontroller.deleterecentoffer(id:)">delete​Recent​Offer(id:​)</a></li><li class="function"><a href="#persistencecontroller.saverecentoffer(startcode:endcode:)">save​Recent​Offer(start​Code:​end​Code:​)</a></li><li class="function"><a href="#persistencecontroller.getfavoritestationlist()">get​Favorite​Station​List()</a></li><li class="function"><a href="#persistencecontroller.deletefavoritestation(code:savedb:)">delete​Favorite​Station(code:​save​Db:​)</a></li><li class="function"><a href="#persistencecontroller.savefavoritestation(code:searchcount:isfavorite:)">save​Favorite​Station(code:​search​Count:​is​Favorite:​)</a></li></ul></li></ol>
+        </div>
+    </nav>
+
+    <main>
+        <article>
+            <h1>
+    <small>Structure</small>
+    <code class="name">Persistence​Controller</code>
+</h1>
+
+<div class="declaration">
+<pre class="highlight"><code><html><body><span class="keyword">struct</span> <span class="type">PersistenceController</span>  </body></html></code></pre>
+</div>
+
+    <section id="initializers">
+        <h2>Initializers</h2>
+
+        <div role="article" class="initializer" id="persistencecontroller.init(inmemory:)">
+    <h3>
+        <code><a href="#persistencecontroller.init(inmemory:)">init(in​Memory:​)</a></code>
+    </h3>
+    <div class="declaration">
+<pre class="highlight"><code><html><body><span class="keyword">init</span>(<span class="variable">inMemory</span>: <span class="type">Bool</span> = <span class="keyword">false</span>)  </body></html></code></pre>
+</div>
+</div>
+    </section>
+    <section id="properties">
+        <h2>Properties</h2>
+
+        <div role="article" class="variable" id="persistencecontroller.shared">
+    <h3>
+        <code><a href="#persistencecontroller.shared">shared</a></code>
+    </h3>
+    <div class="declaration">
+<pre class="highlight"><code><html><body><span class="keyword">static</span> <span class="keyword">let</span> <span class="variable">shared</span>  </body></html></code></pre>
+</div>
+</div>
+<div role="article" class="variable" id="persistencecontroller.container">
+    <h3>
+        <code><a href="#persistencecontroller.container">container</a></code>
+    </h3>
+    <div class="declaration">
+<pre class="highlight"><code><html><body><span class="keyword">let</span> <span class="variable">container</span>: <span class="type">NSPersistentContainer</span></body></html></code></pre>
+</div>
+</div>
+    </section>
+    <section id="methods">
+        <h2>Methods</h2>
+
+        <div role="article" class="function" id="persistencecontroller.getrecentofferlist()">
+    <h3>
+        <code><a href="#persistencecontroller.getrecentofferlist()">get​Recent​Offer​List()</a></code>
+    </h3>
+    <div class="declaration">
+<pre class="highlight"><code><html><body><span class="keyword">func</span> <span class="function">getRecentOfferList</span>() -&gt; [<span class="type">RecentOffer</span>]  </body></html></code></pre>
+</div>
+</div>
+<div role="article" class="function" id="persistencecontroller.deleterecentoffer(id:)">
+    <h3>
+        <code><a href="#persistencecontroller.deleterecentoffer(id:)">delete​Recent​Offer(id:​)</a></code>
+    </h3>
+    <div class="declaration">
+<pre class="highlight"><code><html><body><span class="keyword">func</span> <span class="function">deleteRecentOffer</span>(<span class="variable">id</span>: <span class="type">UUID</span>)  </body></html></code></pre>
+</div>
+</div>
+<div role="article" class="function" id="persistencecontroller.saverecentoffer(startcode:endcode:)">
+    <h3>
+        <code><a href="#persistencecontroller.saverecentoffer(startcode:endcode:)">save​Recent​Offer(start​Code:​end​Code:​)</a></code>
+    </h3>
+    <div class="declaration">
+<pre class="highlight"><code><html><body><span class="keyword">func</span> <span class="function">saveRecentOffer</span>(<span class="variable">startCode</span>: <span class="type">String</span>, <span class="variable">endCode</span>: <span class="type">String</span>)  </body></html></code></pre>
+</div>
+</div>
+<div role="article" class="function" id="persistencecontroller.getfavoritestationlist()">
+    <h3>
+        <code><a href="#persistencecontroller.getfavoritestationlist()">get​Favorite​Station​List()</a></code>
+    </h3>
+    <div class="declaration">
+<pre class="highlight"><code><html><body><span class="keyword">func</span> <span class="function">getFavoriteStationList</span>() -&gt; [<span class="type">FavoriteStation</span>]  </body></html></code></pre>
+</div>
+</div>
+<div role="article" class="function" id="persistencecontroller.deletefavoritestation(code:savedb:)">
+    <h3>
+        <code><a href="#persistencecontroller.deletefavoritestation(code:savedb:)">delete​Favorite​Station(code:​save​Db:​)</a></code>
+    </h3>
+    <div class="declaration">
+<pre class="highlight"><code><html><body><span class="keyword">func</span> <span class="function">deleteFavoriteStation</span>(<span class="variable">code</span>: <span class="type">String</span>, <span class="variable">saveDb</span>: <span class="type">Bool</span> = <span class="keyword">true</span>)  </body></html></code></pre>
+</div>
+</div>
+<div role="article" class="function" id="persistencecontroller.savefavoritestation(code:searchcount:isfavorite:)">
+    <h3>
+        <code><a href="#persistencecontroller.savefavoritestation(code:searchcount:isfavorite:)">save​Favorite​Station(code:​search​Count:​is​Favorite:​)</a></code>
+    </h3>
+    <div class="declaration">
+<pre class="highlight"><code><html><body><span class="keyword">func</span> <span class="function">saveFavoriteStation</span>(<span class="variable">code</span>: <span class="type">String</span>, <span class="variable">searchCount</span>: <span class="type">Int32</span> = <span class="number literal">0</span>, <span class="variable">isFavorite</span>: <span class="type">Bool</span> = <span class="keyword">false</span>)  </body></html></code></pre>
+</div>
+</div>
+    </section>
+
+
+
+        </article>
+    </main>
+
+    <footer>
+        <p>
+    Generated on <time datetime="2022-12-07T21:32:57+0100">December 7, 2022</time> using <a href="https://github.com/SwiftDocOrg/swift-doc">swift-doc</a> <span class="version">1.0.0-rc.1</span>.
+</p>
+    </footer>
+</body>
+</html>

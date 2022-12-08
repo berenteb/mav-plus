@@ -1,0 +1,493 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" contentStyleType="text/css" height="1243px" preserveAspectRatio="none" style="width:2679px;height:1243px;background:#FFFFFF;" version="1.1" viewBox="0 0 2679 1243" width="2679px" zoomAndPan="magnify"><defs/><g><!--MD5=[0cda40472077748dbe54ef5d4bcbd228]
+class ApiProtocol--><g id="elem_ApiProtocol"><rect codeLine="7" fill="#F1F1F1" height="235.5313" id="ApiProtocol" rx="2.5" ry="2.5" style="stroke:#181818;stroke-width:0.5;" width="530" x="715.5" y="525"/><ellipse cx="933.75" cy="545.1328" fill="#DAA520" rx="11" ry="11" style="stroke:#181818;stroke-width:1.0;"/><path d="M933.2969,546.7266 L934.9688,546.7266 C936.5469,546.7266 937.3906,546.4453 938.1406,545.6172 C938.6875,545.0234 939,544.2109 939,543.4297 C939,541.5547 937.4688,540.2266 935.2969,540.2266 L931.3438,540.2266 C930.9063,540.2266 930.7813,540.2422 930.625,540.3359 C930.375,540.4922 930.2188,540.7891 930.2188,541.0703 C930.2188,541.3203 930.3594,541.6016 930.5781,541.7734 C930.7344,541.8828 930.9219,541.9141 931.3438,541.9141 L931.5938,541.9141 L931.5938,548.4297 L931.3438,548.4297 C930.9375,548.4297 930.7813,548.4453 930.625,548.5547 C930.375,548.7109 930.2188,548.9922 930.2188,549.2891 C930.2188,549.5391 930.3594,549.8047 930.5781,549.9609 C930.7188,550.0859 930.9531,550.1328 931.3438,550.1328 L934.9844,550.1328 C935.3281,550.1328 935.5781,550.0859 935.6875,550.0078 C935.9531,549.8672 936.1094,549.5703 936.1094,549.2891 C936.1094,549.0078 935.9688,548.7578 935.75,548.5859 C935.5781,548.4609 935.4375,548.4297 934.9844,548.4297 L933.2969,548.4297 L933.2969,546.7266 Z M933.2969,541.9141 L935.2969,541.9141 C936.4844,541.9141 937.1875,542.5234 937.1875,543.4922 C937.1875,544.4453 936.4844,545.0391 935.2969,545.0391 L933.2969,545.0391 L933.2969,541.9141 Z " fill="#000000"/><text fill="#000000" font-family="sans-serif" font-size="12" font-style="italic" lengthAdjust="spacing" textLength="63" x="965.25" y="541.1387">«protocol»</text><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="85" x="954.25" y="556.9639">ApiProtocol</text><line style="stroke:#181818;stroke-width:0.5;" x1="716.5" x2="1244.5" y1="565.2656" y2="565.2656"/><polygon fill="none" points="726.5,574.9141,722.5,580.9141,730.5,580.9141" style="stroke:#1963A0;stroke-width:1.0;"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" text-decoration="underline" textLength="175" x="735.5" y="582.2607">shared : any ApiProtocol</text><polygon fill="none" points="726.5,591.2109,722.5,597.2109,730.5,597.2109" style="stroke:#1963A0;stroke-width:1.0;"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="93" x="735.5" y="598.5576">cities : Cities</text><polygon fill="none" points="726.5,607.5078,722.5,613.5078,730.5,613.5078" style="stroke:#1963A0;stroke-width:1.0;"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="270" x="735.5" y="614.8545">customers : CustomersAndDiscounts?</text><polygon fill="none" points="726.5,623.8047,722.5,629.8047,730.5,629.8047" style="stroke:#1963A0;stroke-width:1.0;"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="169" x="735.5" y="631.1514">stationList : StationList</text><polygon fill="none" points="726.5,640.1016,722.5,646.1016,730.5,646.1016" style="stroke:#1963A0;stroke-width:1.0;"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="277" x="735.5" y="647.4482">stationLocationList : [StationLocation]</text><polygon fill="none" points="726.5,656.3984,722.5,662.3984,730.5,662.3984" style="stroke:#1963A0;stroke-width:1.0;"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="165" x="735.5" y="663.7451">services : ServicesDto?</text><line style="stroke:#181818;stroke-width:0.5;" x1="716.5" x2="1244.5" y1="671.0469" y2="671.0469"/><polygon fill="#4177AF" points="726.5,680.6953,722.5,686.6953,730.5,686.6953" style="stroke:#1963A0;stroke-width:1.0;"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="504" x="735.5" y="688.042">getOffer(startCode:endCode:passengerCount:startDate:completion:)</text><polygon fill="#4177AF" points="726.5,696.9922,722.5,702.9922,730.5,702.9922" style="stroke:#1963A0;stroke-width:1.0;"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="228" x="735.5" y="704.3389">getTrainLocations(completion:)</text><polygon fill="#4177AF" points="726.5,713.2891,722.5,719.2891,730.5,719.2891" style="stroke:#1963A0;stroke-width:1.0;"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="354" x="735.5" y="720.6357">getStationInfo(stationNumberCode:completion:)</text><polygon fill="#4177AF" points="726.5,729.5859,722.5,735.5859,730.5,735.5859" style="stroke:#1963A0;stroke-width:1.0;"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="239" x="735.5" y="736.9326">getTrainInfo(trainId:completion:)</text><polygon fill="#4177AF" points="726.5,745.8828,722.5,751.8828,730.5,751.8828" style="stroke:#1963A0;stroke-width:1.0;"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="292" x="735.5" y="753.2295">notifier : PassthroughSubject&lt;(), Never&gt;</text></g><!--MD5=[53cc0a4452c72a8cb310a4e81cf940ca]
+class ApiRepository--><g id="elem_ApiRepository"><rect codeLine="20" fill="#F1F1F1" height="390.2344" id="ApiRepository" rx="2.5" ry="2.5" style="stroke:#181818;stroke-width:0.5;" width="530" x="715.5" y="846"/><ellipse cx="924.75" cy="862" fill="#8FBC8F" rx="11" ry="11" style="stroke:#181818;stroke-width:1.0;"/><path d="M927.0938,857.6719 C926.1563,857.2344 925.5625,857.0938 924.6875,857.0938 C922.0625,857.0938 920.0625,859.1719 920.0625,861.8906 L920.0625,863.0156 C920.0625,865.5938 922.1719,867.4844 925.0625,867.4844 C926.2813,867.4844 927.4375,867.1875 928.1875,866.6406 C928.7656,866.2344 929.0938,865.7813 929.0938,865.3906 C929.0938,864.9375 928.7031,864.5469 928.2344,864.5469 C928.0156,864.5469 927.8125,864.625 927.625,864.8125 C927.1719,865.2969 927.1719,865.2969 926.9844,865.3906 C926.5625,865.6563 925.875,865.7813 925.1094,865.7813 C923.0625,865.7813 921.7656,864.6875 921.7656,862.9844 L921.7656,861.8906 C921.7656,860.1094 923.0156,858.7969 924.75,858.7969 C925.3281,858.7969 925.9375,858.9531 926.4063,859.2031 C926.8906,859.4844 927.0625,859.7031 927.1563,860.1094 C927.2188,860.5156 927.25,860.6406 927.3906,860.7656 C927.5313,860.9063 927.7656,861.0156 927.9844,861.0156 C928.25,861.0156 928.5156,860.875 928.6875,860.6563 C928.7969,860.5 928.8281,860.3125 928.8281,859.8906 L928.8281,858.4688 C928.8281,858.0313 928.8125,857.9063 928.7188,857.75 C928.5625,857.4844 928.2813,857.3438 927.9844,857.3438 C927.6875,857.3438 927.4844,857.4375 927.2656,857.75 L927.0938,857.6719 Z " fill="#000000"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="103" x="945.25" y="866.8467">ApiRepository</text><line style="stroke:#181818;stroke-width:0.5;" x1="716.5" x2="1244.5" y1="878" y2="878"/><polygon fill="none" points="726.5,887.6484,722.5,893.6484,730.5,893.6484" style="stroke:#1963A0;stroke-width:1.0;"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" text-decoration="underline" textLength="48" x="735.5" y="894.9951">shared</text><polygon fill="none" points="726.5,903.9453,722.5,909.9453,730.5,909.9453" style="stroke:#1963A0;stroke-width:1.0;"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="93" x="735.5" y="911.292">cities : Cities</text><polygon fill="none" points="726.5,920.2422,722.5,926.2422,730.5,926.2422" style="stroke:#1963A0;stroke-width:1.0;"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="270" x="735.5" y="927.5889">customers : CustomersAndDiscounts?</text><polygon fill="none" points="726.5,936.5391,722.5,942.5391,730.5,942.5391" style="stroke:#1963A0;stroke-width:1.0;"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="169" x="735.5" y="943.8857">stationList : StationList</text><polygon fill="none" points="726.5,952.8359,722.5,958.8359,730.5,958.8359" style="stroke:#1963A0;stroke-width:1.0;"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="165" x="735.5" y="960.1826">services : ServicesDto?</text><polygon fill="none" points="726.5,969.1328,722.5,975.1328,730.5,975.1328" style="stroke:#1963A0;stroke-width:1.0;"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="277" x="735.5" y="976.4795">stationLocationList : [StationLocation]</text><polygon fill="none" points="726.5,985.4297,722.5,991.4297,730.5,991.4297" style="stroke:#1963A0;stroke-width:1.0;"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="112" x="735.5" y="992.7764">isLoading : Bool</text><polygon fill="none" points="726.5,1001.7266,722.5,1007.7266,730.5,1007.7266" style="stroke:#1963A0;stroke-width:1.0;"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="92" x="735.5" y="1009.0732">isError : Bool</text><rect fill="none" height="6" style="stroke:#C82930;stroke-width:1.0;" width="6" x="723.5" y="1019.0234"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="276" x="735.5" y="1025.3701">cancellableSet : Set&lt;AnyCancellable&gt;</text><ellipse cx="726.5" cy="1038.3203" fill="none" rx="3" ry="3" style="stroke:#038048;stroke-width:1.0;"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="54" x="735.5" y="1041.667">notifier</text><line style="stroke:#181818;stroke-width:0.5;" x1="716.5" x2="1244.5" y1="1048.9688" y2="1048.9688"/><rect fill="#F24D5C" height="6" style="stroke:#C82930;stroke-width:1.0;" width="6" x="723.5" y="1059.6172"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="34" x="735.5" y="1065.9639">init()</text><ellipse cx="726.5" cy="1078.9141" fill="#84BE84" rx="3" ry="3" style="stroke:#038048;stroke-width:1.0;"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="61" x="735.5" y="1082.2607">update()</text><rect fill="#F24D5C" height="6" style="stroke:#C82930;stroke-width:1.0;" width="6" x="723.5" y="1092.2109"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="102" x="735.5" y="1098.5576">updateCities()</text><rect fill="#F24D5C" height="6" style="stroke:#C82930;stroke-width:1.0;" width="6" x="723.5" y="1108.5078"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="236" x="735.5" y="1114.8545">updateCustomersAndDiscounts()</text><rect fill="#F24D5C" height="6" style="stroke:#C82930;stroke-width:1.0;" width="6" x="723.5" y="1124.8047"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="140" x="735.5" y="1131.1514">updateStationList()</text><rect fill="#F24D5C" height="6" style="stroke:#C82930;stroke-width:1.0;" width="6" x="723.5" y="1141.1016"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="121" x="735.5" y="1147.4482">updateServices()</text><polygon fill="#4177AF" points="726.5,1156.3984,722.5,1162.3984,730.5,1162.3984" style="stroke:#1963A0;stroke-width:1.0;"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="504" x="735.5" y="1163.7451">getOffer(startCode:endCode:passengerCount:startDate:completion:)</text><polygon fill="#4177AF" points="726.5,1172.6953,722.5,1178.6953,730.5,1178.6953" style="stroke:#1963A0;stroke-width:1.0;"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="150" x="735.5" y="1180.042">getStationLocation()</text><polygon fill="#4177AF" points="726.5,1188.9922,722.5,1194.9922,730.5,1194.9922" style="stroke:#1963A0;stroke-width:1.0;"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="228" x="735.5" y="1196.3389">getTrainLocations(completion:)</text><polygon fill="#4177AF" points="726.5,1205.2891,722.5,1211.2891,730.5,1211.2891" style="stroke:#1963A0;stroke-width:1.0;"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="354" x="735.5" y="1212.6357">getStationInfo(stationNumberCode:completion:)</text><polygon fill="#4177AF" points="726.5,1221.5859,722.5,1227.5859,730.5,1227.5859" style="stroke:#1963A0;stroke-width:1.0;"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="239" x="735.5" y="1228.9326">getTrainInfo(trainId:completion:)</text></g><!--MD5=[8993c7d8204bbcbeb1d8e375c4bc4e08]
+class StoreProtocol--><g id="elem_StoreProtocol"><rect codeLine="45" fill="#F1F1F1" height="251.8281" id="StoreProtocol" rx="2.5" ry="2.5" style="stroke:#181818;stroke-width:0.5;" width="402" x="1396.5" y="517"/><ellipse cx="1542.75" cy="537.1328" fill="#DAA520" rx="11" ry="11" style="stroke:#181818;stroke-width:1.0;"/><path d="M1542.2969,538.7266 L1543.9688,538.7266 C1545.5469,538.7266 1546.3906,538.4453 1547.1406,537.6172 C1547.6875,537.0234 1548,536.2109 1548,535.4297 C1548,533.5547 1546.4688,532.2266 1544.2969,532.2266 L1540.3438,532.2266 C1539.9063,532.2266 1539.7813,532.2422 1539.625,532.3359 C1539.375,532.4922 1539.2188,532.7891 1539.2188,533.0703 C1539.2188,533.3203 1539.3594,533.6016 1539.5781,533.7734 C1539.7344,533.8828 1539.9219,533.9141 1540.3438,533.9141 L1540.5938,533.9141 L1540.5938,540.4297 L1540.3438,540.4297 C1539.9375,540.4297 1539.7813,540.4453 1539.625,540.5547 C1539.375,540.7109 1539.2188,540.9922 1539.2188,541.2891 C1539.2188,541.5391 1539.3594,541.8047 1539.5781,541.9609 C1539.7188,542.0859 1539.9531,542.1328 1540.3438,542.1328 L1543.9844,542.1328 C1544.3281,542.1328 1544.5781,542.0859 1544.6875,542.0078 C1544.9531,541.8672 1545.1094,541.5703 1545.1094,541.2891 C1545.1094,541.0078 1544.9688,540.7578 1544.75,540.5859 C1544.5781,540.4609 1544.4375,540.4297 1543.9844,540.4297 L1542.2969,540.4297 L1542.2969,538.7266 Z M1542.2969,533.9141 L1544.2969,533.9141 C1545.4844,533.9141 1546.1875,534.5234 1546.1875,535.4922 C1546.1875,536.4453 1545.4844,537.0391 1544.2969,537.0391 L1542.2969,537.0391 L1542.2969,533.9141 Z " fill="#000000"/><text fill="#000000" font-family="sans-serif" font-size="12" font-style="italic" lengthAdjust="spacing" textLength="63" x="1582.25" y="533.1387">«protocol»</text><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="101" x="1563.25" y="548.9639">StoreProtocol</text><line style="stroke:#181818;stroke-width:0.5;" x1="1397.5" x2="1797.5" y1="557.2656" y2="557.2656"/><polygon fill="none" points="1407.5,566.9141,1403.5,572.9141,1411.5,572.9141" style="stroke:#1963A0;stroke-width:1.0;"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" text-decoration="underline" textLength="191" x="1416.5" y="574.2607">shared : any StoreProtocol</text><polygon fill="none" points="1407.5,583.2109,1403.5,589.2109,1411.5,589.2109" style="stroke:#1963A0;stroke-width:1.0;"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="252" x="1416.5" y="590.5576">favoriteStations : [FavoriteStation]</text><polygon fill="none" points="1407.5,599.5078,1403.5,605.5078,1411.5,605.5078" style="stroke:#1963A0;stroke-width:1.0;"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="206" x="1416.5" y="606.8545">recentOffers : [RecentOffer]</text><polygon fill="none" points="1407.5,615.8047,1403.5,621.8047,1411.5,621.8047" style="stroke:#1963A0;stroke-width:1.0;"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="241" x="1416.5" y="623.1514">controller : PersistenceController</text><polygon fill="none" points="1407.5,632.1016,1403.5,638.1016,1411.5,638.1016" style="stroke:#1963A0;stroke-width:1.0;"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="376" x="1416.5" y="639.4482">publisher : PassthroughSubject&lt;StoreFields, Never&gt;</text><line style="stroke:#181818;stroke-width:0.5;" x1="1397.5" x2="1797.5" y1="646.75" y2="646.75"/><polygon fill="#4177AF" points="1407.5,656.3984,1403.5,662.3984,1411.5,662.3984" style="stroke:#1963A0;stroke-width:1.0;"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="199" x="1416.5" y="663.7451">updateFavoriteStationList()</text><polygon fill="#4177AF" points="1407.5,672.6953,1403.5,678.6953,1411.5,678.6953" style="stroke:#1963A0;stroke-width:1.0;"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="364" x="1416.5" y="680.042">saveFavoriteStation(code:searchCount:isFavorite:)</text><polygon fill="#4177AF" points="1407.5,688.9922,1403.5,694.9922,1411.5,694.9922" style="stroke:#1963A0;stroke-width:1.0;"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="177" x="1416.5" y="696.3389">updateRecentOfferList()</text><polygon fill="#4177AF" points="1407.5,705.2891,1403.5,711.2891,1411.5,711.2891" style="stroke:#1963A0;stroke-width:1.0;"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="165" x="1416.5" y="712.6357">deleteRecentOffer(id:)</text><polygon fill="#4177AF" points="1407.5,721.5859,1403.5,727.5859,1411.5,727.5859" style="stroke:#1963A0;stroke-width:1.0;"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="278" x="1416.5" y="728.9326">saveRecentOffer(startCode:endCode:)</text><polygon fill="#4177AF" points="1407.5,737.8828,1403.5,743.8828,1411.5,743.8828" style="stroke:#1963A0;stroke-width:1.0;"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="252" x="1416.5" y="745.2295">favoriteStationSearchCount(code:)</text><polygon fill="#4177AF" points="1407.5,754.1797,1403.5,760.1797,1411.5,760.1797" style="stroke:#1963A0;stroke-width:1.0;"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="173" x="1416.5" y="761.5264">isFavoriteStation(code:)</text></g><!--MD5=[167ae95e1b2e11f1d45a5604a466e373]
+class StoreRepository--><g id="elem_StoreRepository"><rect codeLine="59" fill="#F1F1F1" height="276.1563" id="StoreRepository" rx="2.5" ry="2.5" style="stroke:#181818;stroke-width:0.5;" width="390" x="1402.5" y="903"/><ellipse cx="1533.75" cy="919" fill="#8FBC8F" rx="11" ry="11" style="stroke:#181818;stroke-width:1.0;"/><path d="M1536.0938,914.6719 C1535.1563,914.2344 1534.5625,914.0938 1533.6875,914.0938 C1531.0625,914.0938 1529.0625,916.1719 1529.0625,918.8906 L1529.0625,920.0156 C1529.0625,922.5938 1531.1719,924.4844 1534.0625,924.4844 C1535.2813,924.4844 1536.4375,924.1875 1537.1875,923.6406 C1537.7656,923.2344 1538.0938,922.7813 1538.0938,922.3906 C1538.0938,921.9375 1537.7031,921.5469 1537.2344,921.5469 C1537.0156,921.5469 1536.8125,921.625 1536.625,921.8125 C1536.1719,922.2969 1536.1719,922.2969 1535.9844,922.3906 C1535.5625,922.6563 1534.875,922.7813 1534.1094,922.7813 C1532.0625,922.7813 1530.7656,921.6875 1530.7656,919.9844 L1530.7656,918.8906 C1530.7656,917.1094 1532.0156,915.7969 1533.75,915.7969 C1534.3281,915.7969 1534.9375,915.9531 1535.4063,916.2031 C1535.8906,916.4844 1536.0625,916.7031 1536.1563,917.1094 C1536.2188,917.5156 1536.25,917.6406 1536.3906,917.7656 C1536.5313,917.9063 1536.7656,918.0156 1536.9844,918.0156 C1537.25,918.0156 1537.5156,917.875 1537.6875,917.6563 C1537.7969,917.5 1537.8281,917.3125 1537.8281,916.8906 L1537.8281,915.4688 C1537.8281,915.0313 1537.8125,914.9063 1537.7188,914.75 C1537.5625,914.4844 1537.2813,914.3438 1536.9844,914.3438 C1536.6875,914.3438 1536.4844,914.4375 1536.2656,914.75 L1536.0938,914.6719 Z " fill="#000000"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="119" x="1554.25" y="923.8467">StoreRepository</text><line style="stroke:#181818;stroke-width:0.5;" x1="1403.5" x2="1791.5" y1="935" y2="935"/><polygon fill="none" points="1413.5,944.6484,1409.5,950.6484,1417.5,950.6484" style="stroke:#1963A0;stroke-width:1.0;"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" text-decoration="underline" textLength="48" x="1422.5" y="951.9951">shared</text><polygon fill="none" points="1413.5,960.9453,1409.5,966.9453,1417.5,966.9453" style="stroke:#1963A0;stroke-width:1.0;"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="252" x="1422.5" y="968.292">favoriteStations : [FavoriteStation]</text><polygon fill="none" points="1413.5,977.2422,1409.5,983.2422,1417.5,983.2422" style="stroke:#1963A0;stroke-width:1.0;"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="206" x="1422.5" y="984.5889">recentOffers : [RecentOffer]</text><polygon fill="none" points="1413.5,993.5391,1409.5,999.5391,1417.5,999.5391" style="stroke:#1963A0;stroke-width:1.0;"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="241" x="1422.5" y="1000.8857">controller : PersistenceController</text><polygon fill="none" points="1413.5,1009.8359,1409.5,1015.8359,1417.5,1015.8359" style="stroke:#1963A0;stroke-width:1.0;"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="67" x="1422.5" y="1017.1826">publisher</text><line style="stroke:#181818;stroke-width:0.5;" x1="1403.5" x2="1791.5" y1="1024.4844" y2="1024.4844"/><rect fill="#F24D5C" height="6" style="stroke:#C82930;stroke-width:1.0;" width="6" x="1410.5" y="1035.1328"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="34" x="1422.5" y="1041.4795">init()</text><polygon fill="#4177AF" points="1413.5,1050.4297,1409.5,1056.4297,1417.5,1056.4297" style="stroke:#1963A0;stroke-width:1.0;"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="53" x="1422.5" y="1057.7764">notify()</text><polygon fill="#4177AF" points="1413.5,1066.7266,1409.5,1072.7266,1417.5,1072.7266" style="stroke:#1963A0;stroke-width:1.0;"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="199" x="1422.5" y="1074.0732">updateFavoriteStationList()</text><polygon fill="#4177AF" points="1413.5,1083.0234,1409.5,1089.0234,1417.5,1089.0234" style="stroke:#1963A0;stroke-width:1.0;"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="364" x="1422.5" y="1090.3701">saveFavoriteStation(code:searchCount:isFavorite:)</text><polygon fill="#4177AF" points="1413.5,1099.3203,1409.5,1105.3203,1417.5,1105.3203" style="stroke:#1963A0;stroke-width:1.0;"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="177" x="1422.5" y="1106.667">updateRecentOfferList()</text><polygon fill="#4177AF" points="1413.5,1115.6172,1409.5,1121.6172,1417.5,1121.6172" style="stroke:#1963A0;stroke-width:1.0;"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="165" x="1422.5" y="1122.9639">deleteRecentOffer(id:)</text><polygon fill="#4177AF" points="1413.5,1131.9141,1409.5,1137.9141,1417.5,1137.9141" style="stroke:#1963A0;stroke-width:1.0;"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="278" x="1422.5" y="1139.2607">saveRecentOffer(startCode:endCode:)</text><polygon fill="#4177AF" points="1413.5,1148.2109,1409.5,1154.2109,1417.5,1154.2109" style="stroke:#1963A0;stroke-width:1.0;"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="252" x="1422.5" y="1155.5576">favoriteStationSearchCount(code:)</text><polygon fill="#4177AF" points="1413.5,1164.5078,1409.5,1170.5078,1417.5,1170.5078" style="stroke:#1963A0;stroke-width:1.0;"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="173" x="1422.5" y="1171.8545">isFavoriteStation(code:)</text></g><!--MD5=[4510963e57f9756c45c7463a2818a9bc]
+class RssProtocol--><g id="elem_RssProtocol"><rect codeLine="78" fill="#F1F1F1" height="105.1563" id="RssProtocol" rx="2.5" ry="2.5" style="stroke:#181818;stroke-width:0.5;" width="386" x="2222.5" y="590.5"/><ellipse cx="2368.75" cy="610.6328" fill="#DAA520" rx="11" ry="11" style="stroke:#181818;stroke-width:1.0;"/><path d="M2368.2969,612.2266 L2369.9688,612.2266 C2371.5469,612.2266 2372.3906,611.9453 2373.1406,611.1172 C2373.6875,610.5234 2374,609.7109 2374,608.9297 C2374,607.0547 2372.4688,605.7266 2370.2969,605.7266 L2366.3438,605.7266 C2365.9063,605.7266 2365.7813,605.7422 2365.625,605.8359 C2365.375,605.9922 2365.2188,606.2891 2365.2188,606.5703 C2365.2188,606.8203 2365.3594,607.1016 2365.5781,607.2734 C2365.7344,607.3828 2365.9219,607.4141 2366.3438,607.4141 L2366.5938,607.4141 L2366.5938,613.9297 L2366.3438,613.9297 C2365.9375,613.9297 2365.7813,613.9453 2365.625,614.0547 C2365.375,614.2109 2365.2188,614.4922 2365.2188,614.7891 C2365.2188,615.0391 2365.3594,615.3047 2365.5781,615.4609 C2365.7188,615.5859 2365.9531,615.6328 2366.3438,615.6328 L2369.9844,615.6328 C2370.3281,615.6328 2370.5781,615.5859 2370.6875,615.5078 C2370.9531,615.3672 2371.1094,615.0703 2371.1094,614.7891 C2371.1094,614.5078 2370.9688,614.2578 2370.75,614.0859 C2370.5781,613.9609 2370.4375,613.9297 2369.9844,613.9297 L2368.2969,613.9297 L2368.2969,612.2266 Z M2368.2969,607.4141 L2370.2969,607.4141 C2371.4844,607.4141 2372.1875,608.0234 2372.1875,608.9922 C2372.1875,609.9453 2371.4844,610.5391 2370.2969,610.5391 L2368.2969,610.5391 L2368.2969,607.4141 Z " fill="#000000"/><text fill="#000000" font-family="sans-serif" font-size="12" font-style="italic" lengthAdjust="spacing" textLength="63" x="2400.25" y="606.6387">«protocol»</text><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="85" x="2389.25" y="622.4639">RssProtocol</text><line style="stroke:#181818;stroke-width:0.5;" x1="2223.5" x2="2607.5" y1="630.7656" y2="630.7656"/><polygon fill="none" points="2233.5,640.4141,2229.5,646.4141,2237.5,646.4141" style="stroke:#1963A0;stroke-width:1.0;"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" text-decoration="underline" textLength="146" x="2242.5" y="647.7607">shared : RssProtocol</text><polygon fill="none" points="2233.5,656.7109,2229.5,662.7109,2237.5,662.7109" style="stroke:#1963A0;stroke-width:1.0;"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="161" x="2242.5" y="664.0576">rssItemList : [RssItem]</text><polygon fill="none" points="2233.5,673.0078,2229.5,679.0078,2237.5,679.0078" style="stroke:#1963A0;stroke-width:1.0;"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="360" x="2242.5" y="680.3545">publisher : PassthroughSubject&lt;RssFields, Never&gt;</text><line style="stroke:#181818;stroke-width:0.5;" x1="2223.5" x2="2607.5" y1="687.6563" y2="687.6563"/></g><!--MD5=[62a65cd02a55d2376c5773cec09cb8fa]
+class RssRepository--><g id="elem_RssRepository"><rect codeLine="83" fill="#F1F1F1" height="276.1563" id="RssRepository" rx="2.5" ry="2.5" style="stroke:#181818;stroke-width:0.5;" width="514" x="2158.5" y="903"/><ellipse cx="2359.75" cy="919" fill="#8FBC8F" rx="11" ry="11" style="stroke:#181818;stroke-width:1.0;"/><path d="M2362.0938,914.6719 C2361.1563,914.2344 2360.5625,914.0938 2359.6875,914.0938 C2357.0625,914.0938 2355.0625,916.1719 2355.0625,918.8906 L2355.0625,920.0156 C2355.0625,922.5938 2357.1719,924.4844 2360.0625,924.4844 C2361.2813,924.4844 2362.4375,924.1875 2363.1875,923.6406 C2363.7656,923.2344 2364.0938,922.7813 2364.0938,922.3906 C2364.0938,921.9375 2363.7031,921.5469 2363.2344,921.5469 C2363.0156,921.5469 2362.8125,921.625 2362.625,921.8125 C2362.1719,922.2969 2362.1719,922.2969 2361.9844,922.3906 C2361.5625,922.6563 2360.875,922.7813 2360.1094,922.7813 C2358.0625,922.7813 2356.7656,921.6875 2356.7656,919.9844 L2356.7656,918.8906 C2356.7656,917.1094 2358.0156,915.7969 2359.75,915.7969 C2360.3281,915.7969 2360.9375,915.9531 2361.4063,916.2031 C2361.8906,916.4844 2362.0625,916.7031 2362.1563,917.1094 C2362.2188,917.5156 2362.25,917.6406 2362.3906,917.7656 C2362.5313,917.9063 2362.7656,918.0156 2362.9844,918.0156 C2363.25,918.0156 2363.5156,917.875 2363.6875,917.6563 C2363.7969,917.5 2363.8281,917.3125 2363.8281,916.8906 L2363.8281,915.4688 C2363.8281,915.0313 2363.8125,914.9063 2363.7188,914.75 C2363.5625,914.4844 2363.2813,914.3438 2362.9844,914.3438 C2362.6875,914.3438 2362.4844,914.4375 2362.2656,914.75 L2362.0938,914.6719 Z " fill="#000000"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="103" x="2380.25" y="923.8467">RssRepository</text><line style="stroke:#181818;stroke-width:0.5;" x1="2159.5" x2="2671.5" y1="935" y2="935"/><polygon fill="none" points="2169.5,944.6484,2165.5,950.6484,2173.5,950.6484" style="stroke:#1963A0;stroke-width:1.0;"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" text-decoration="underline" textLength="48" x="2178.5" y="951.9951">shared</text><polygon fill="none" points="2169.5,960.9453,2165.5,966.9453,2173.5,966.9453" style="stroke:#1963A0;stroke-width:1.0;"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="161" x="2178.5" y="968.292">rssItemList : [RssItem]</text><polygon fill="none" points="2169.5,977.2422,2165.5,983.2422,2173.5,983.2422" style="stroke:#1963A0;stroke-width:1.0;"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="92" x="2178.5" y="984.5889">isError : Bool</text><polygon fill="none" points="2169.5,993.5391,2165.5,999.5391,2173.5,999.5391" style="stroke:#1963A0;stroke-width:1.0;"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="112" x="2178.5" y="1000.8857">isLoading : Bool</text><rect fill="none" height="6" style="stroke:#C82930;stroke-width:1.0;" width="6" x="2166.5" y="1010.8359"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="116" x="2178.5" y="1017.1826">lastTag : String?</text><rect fill="none" height="6" style="stroke:#C82930;stroke-width:1.0;" width="6" x="2166.5" y="1027.1328"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="150" x="2178.5" y="1033.4795">lastContent : String?</text><rect fill="none" height="6" style="stroke:#C82930;stroke-width:1.0;" width="6" x="2166.5" y="1043.4297"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="147" x="2178.5" y="1049.7764">parseList : [RssItem]</text><polygon fill="none" points="2169.5,1058.7266,2165.5,1064.7266,2173.5,1064.7266" style="stroke:#1963A0;stroke-width:1.0;"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="67" x="2178.5" y="1066.0732">publisher</text><line style="stroke:#181818;stroke-width:0.5;" x1="2159.5" x2="2671.5" y1="1073.375" y2="1073.375"/><ellipse cx="2169.5" cy="1087.0234" fill="#84BE84" rx="3" ry="3" style="stroke:#038048;stroke-width:1.0;"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="34" x="2178.5" y="1090.3701">init()</text><ellipse cx="2169.5" cy="1103.3203" fill="#84BE84" rx="3" ry="3" style="stroke:#038048;stroke-width:1.0;"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="61" x="2178.5" y="1106.667">update()</text><rect fill="#F24D5C" height="6" style="stroke:#C82930;stroke-width:1.0;" width="6" x="2166.5" y="1116.6172"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="174" x="2178.5" y="1122.9639">startParsing(inputData:)</text><rect fill="#F24D5C" height="6" style="stroke:#C82930;stroke-width:1.0;" width="6" x="2166.5" y="1132.9141"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="114" x="2178.5" y="1139.2607">handleNewTag()</text><ellipse cx="2169.5" cy="1152.2109" fill="#84BE84" rx="3" ry="3" style="stroke:#038048;stroke-width:1.0;"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="192" x="2178.5" y="1155.5576">parser(_:foundCharacters:)</text><ellipse cx="2169.5" cy="1168.5078" fill="#84BE84" rx="3" ry="3" style="stroke:#038048;stroke-width:1.0;"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="488" x="2178.5" y="1171.8545">parser(_:didStartElement:namespaceURI:qualifiedName:attributes:)</text></g><!--MD5=[2190807ad916046605120436847b165a]
+class StationListViewModel--><g id="elem_StationListViewModel"><rect codeLine="100" fill="#F1F1F1" height="96.8906" id="StationListViewModel" rx="2.5" ry="2.5" style="stroke:#181818;stroke-width:0.5;" width="239" x="1407" y="121"/><ellipse cx="1444.95" cy="137" fill="#8FBC8F" rx="11" ry="11" style="stroke:#181818;stroke-width:1.0;"/><path d="M1447.2938,132.6719 C1446.3563,132.2344 1445.7625,132.0938 1444.8875,132.0938 C1442.2625,132.0938 1440.2625,134.1719 1440.2625,136.8906 L1440.2625,138.0156 C1440.2625,140.5938 1442.3719,142.4844 1445.2625,142.4844 C1446.4813,142.4844 1447.6375,142.1875 1448.3875,141.6406 C1448.9656,141.2344 1449.2938,140.7813 1449.2938,140.3906 C1449.2938,139.9375 1448.9031,139.5469 1448.4344,139.5469 C1448.2156,139.5469 1448.0125,139.625 1447.825,139.8125 C1447.3719,140.2969 1447.3719,140.2969 1447.1844,140.3906 C1446.7625,140.6563 1446.075,140.7813 1445.3094,140.7813 C1443.2625,140.7813 1441.9656,139.6875 1441.9656,137.9844 L1441.9656,136.8906 C1441.9656,135.1094 1443.2156,133.7969 1444.95,133.7969 C1445.5281,133.7969 1446.1375,133.9531 1446.6063,134.2031 C1447.0906,134.4844 1447.2625,134.7031 1447.3563,135.1094 C1447.4188,135.5156 1447.45,135.6406 1447.5906,135.7656 C1447.7313,135.9063 1447.9656,136.0156 1448.1844,136.0156 C1448.45,136.0156 1448.7156,135.875 1448.8875,135.6563 C1448.9969,135.5 1449.0281,135.3125 1449.0281,134.8906 L1449.0281,133.4688 C1449.0281,133.0313 1449.0125,132.9063 1448.9188,132.75 C1448.7625,132.4844 1448.4813,132.3438 1448.1844,132.3438 C1447.8875,132.3438 1447.6844,132.4375 1447.4656,132.75 L1447.2938,132.6719 Z " fill="#000000"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="156" x="1464.05" y="141.8467">StationListViewModel</text><line style="stroke:#181818;stroke-width:0.5;" x1="1408" x2="1645" y1="153" y2="153"/><polygon fill="none" points="1418,162.6484,1414,168.6484,1422,168.6484" style="stroke:#1963A0;stroke-width:1.0;"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="213" x="1427" y="169.9951">stationList : [StationListItem]</text><line style="stroke:#181818;stroke-width:0.5;" x1="1408" x2="1645" y1="177.2969" y2="177.2969"/><polygon fill="#4177AF" points="1418,186.9453,1414,192.9453,1422,192.9453" style="stroke:#1963A0;stroke-width:1.0;"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="34" x="1427" y="194.292">init()</text><polygon fill="#4177AF" points="1418,203.2422,1414,209.2422,1422,209.2422" style="stroke:#1963A0;stroke-width:1.0;"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="61" x="1427" y="210.5889">update()</text></g><!--MD5=[933317a3ae4d983179f2c7b35ae1c213]
+class StationDetailsViewModel--><g id="elem_StationDetailsViewModel"><rect codeLine="108" fill="#F1F1F1" height="162.0781" id="StationDetailsViewModel" rx="2.5" ry="2.5" style="stroke:#181818;stroke-width:0.5;" width="212" x="733.5" y="88.5"/><ellipse cx="748.5" cy="104.5" fill="#8FBC8F" rx="11" ry="11" style="stroke:#181818;stroke-width:1.0;"/><path d="M750.8438,100.1719 C749.9063,99.7344 749.3125,99.5938 748.4375,99.5938 C745.8125,99.5938 743.8125,101.6719 743.8125,104.3906 L743.8125,105.5156 C743.8125,108.0938 745.9219,109.9844 748.8125,109.9844 C750.0313,109.9844 751.1875,109.6875 751.9375,109.1406 C752.5156,108.7344 752.8438,108.2813 752.8438,107.8906 C752.8438,107.4375 752.4531,107.0469 751.9844,107.0469 C751.7656,107.0469 751.5625,107.125 751.375,107.3125 C750.9219,107.7969 750.9219,107.7969 750.7344,107.8906 C750.3125,108.1563 749.625,108.2813 748.8594,108.2813 C746.8125,108.2813 745.5156,107.1875 745.5156,105.4844 L745.5156,104.3906 C745.5156,102.6094 746.7656,101.2969 748.5,101.2969 C749.0781,101.2969 749.6875,101.4531 750.1563,101.7031 C750.6406,101.9844 750.8125,102.2031 750.9063,102.6094 C750.9688,103.0156 751,103.1406 751.1406,103.2656 C751.2813,103.4063 751.5156,103.5156 751.7344,103.5156 C752,103.5156 752.2656,103.375 752.4375,103.1563 C752.5469,103 752.5781,102.8125 752.5781,102.3906 L752.5781,100.9688 C752.5781,100.5313 752.5625,100.4063 752.4688,100.25 C752.3125,99.9844 752.0313,99.8438 751.7344,99.8438 C751.4375,99.8438 751.2344,99.9375 751.0156,100.25 L750.8438,100.1719 Z " fill="#000000"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="180" x="762.5" y="109.3467">StationDetailsViewModel</text><line style="stroke:#181818;stroke-width:0.5;" x1="734.5" x2="944.5" y1="120.5" y2="120.5"/><polygon fill="none" points="744.5,130.1484,740.5,136.1484,748.5,136.1484" style="stroke:#1963A0;stroke-width:1.0;"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="174" x="753.5" y="137.4951">station : StationDetails?</text><polygon fill="none" points="744.5,146.4453,740.5,152.4453,748.5,152.4453" style="stroke:#1963A0;stroke-width:1.0;"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="112" x="753.5" y="153.792">isLoading : Bool</text><polygon fill="none" points="744.5,162.7422,740.5,168.7422,748.5,168.7422" style="stroke:#1963A0;stroke-width:1.0;"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="92" x="753.5" y="170.0889">isError : Bool</text><rect fill="none" height="6" style="stroke:#C82930;stroke-width:1.0;" width="6" x="741.5" y="180.0391"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="92" x="753.5" y="186.3857">code : String</text><line style="stroke:#181818;stroke-width:0.5;" x1="734.5" x2="944.5" y1="193.6875" y2="193.6875"/><polygon fill="#4177AF" points="744.5,203.3359,740.5,209.3359,748.5,209.3359" style="stroke:#1963A0;stroke-width:1.0;"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="74" x="753.5" y="210.6826">init(code:)</text><polygon fill="#4177AF" points="744.5,219.6328,740.5,225.6328,748.5,225.6328" style="stroke:#1963A0;stroke-width:1.0;"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="61" x="753.5" y="226.9795">update()</text><polygon fill="#4177AF" points="744.5,235.9297,740.5,241.9297,748.5,241.9297" style="stroke:#1963A0;stroke-width:1.0;"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="116" x="753.5" y="243.2764">toggleFavorite()</text></g><!--MD5=[f1b7ac532e8988899b7871759f274190]
+class MapViewModel--><g id="elem_MapViewModel"><rect codeLine="121" fill="#F1F1F1" height="325.0469" id="MapViewModel" rx="2.5" ry="2.5" style="stroke:#181818;stroke-width:0.5;" width="270" x="428.5" y="7"/><ellipse cx="505.75" cy="23" fill="#8FBC8F" rx="11" ry="11" style="stroke:#181818;stroke-width:1.0;"/><path d="M508.0938,18.6719 C507.1563,18.2344 506.5625,18.0938 505.6875,18.0938 C503.0625,18.0938 501.0625,20.1719 501.0625,22.8906 L501.0625,24.0156 C501.0625,26.5938 503.1719,28.4844 506.0625,28.4844 C507.2813,28.4844 508.4375,28.1875 509.1875,27.6406 C509.7656,27.2344 510.0938,26.7813 510.0938,26.3906 C510.0938,25.9375 509.7031,25.5469 509.2344,25.5469 C509.0156,25.5469 508.8125,25.625 508.625,25.8125 C508.1719,26.2969 508.1719,26.2969 507.9844,26.3906 C507.5625,26.6563 506.875,26.7813 506.1094,26.7813 C504.0625,26.7813 502.7656,25.6875 502.7656,23.9844 L502.7656,22.8906 C502.7656,21.1094 504.0156,19.7969 505.75,19.7969 C506.3281,19.7969 506.9375,19.9531 507.4063,20.2031 C507.8906,20.4844 508.0625,20.7031 508.1563,21.1094 C508.2188,21.5156 508.25,21.6406 508.3906,21.7656 C508.5313,21.9063 508.7656,22.0156 508.9844,22.0156 C509.25,22.0156 509.5156,21.875 509.6875,21.6563 C509.7969,21.5 509.8281,21.3125 509.8281,20.8906 L509.8281,19.4688 C509.8281,19.0313 509.8125,18.9063 509.7188,18.75 C509.5625,18.4844 509.2813,18.3438 508.9844,18.3438 C508.6875,18.3438 508.4844,18.4375 508.2656,18.75 L508.0938,18.6719 Z " fill="#000000"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="107" x="526.25" y="27.8467">MapViewModel</text><line style="stroke:#181818;stroke-width:0.5;" x1="429.5" x2="697.5" y1="39" y2="39"/><polygon fill="none" points="439.5,48.6484,435.5,54.6484,443.5,54.6484" style="stroke:#1963A0;stroke-width:1.0;"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="184" x="448.5" y="55.9951">locations : [LocationItem]</text><polygon fill="none" points="439.5,64.9453,435.5,70.9453,443.5,70.9453" style="stroke:#1963A0;stroke-width:1.0;"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="230" x="448.5" y="72.292">allLocationsList : [LocationItem]</text><polygon fill="none" points="439.5,81.2422,435.5,87.2422,443.5,87.2422" style="stroke:#1963A0;stroke-width:1.0;"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="92" x="448.5" y="88.5889">isError : Bool</text><polygon fill="none" points="439.5,97.5391,435.5,103.5391,443.5,103.5391" style="stroke:#1963A0;stroke-width:1.0;"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="112" x="448.5" y="104.8857">isLoading : Bool</text><polygon fill="none" points="439.5,113.8359,435.5,119.8359,443.5,119.8359" style="stroke:#1963A0;stroke-width:1.0;"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="211" x="448.5" y="121.1826">region : MKCoordinateRegion</text><polygon fill="none" points="439.5,130.1328,435.5,136.1328,443.5,136.1328" style="stroke:#1963A0;stroke-width:1.0;"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="141" x="448.5" y="137.4795">showStations : Bool</text><polygon fill="none" points="439.5,146.4297,435.5,152.4297,443.5,152.4297" style="stroke:#1963A0;stroke-width:1.0;"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="124" x="448.5" y="153.7764">showTrains : Bool</text><polygon fill="none" points="439.5,162.7266,435.5,168.7266,443.5,168.7266" style="stroke:#1963A0;stroke-width:1.0;"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="244" x="448.5" y="170.0732">locationNavStack : [LocationItem]</text><polygon fill="none" points="439.5,179.0234,435.5,185.0234,443.5,185.0234" style="stroke:#1963A0;stroke-width:1.0;"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="169" x="448.5" y="186.3701">uiKitMap : MKMapView?</text><rect fill="none" height="6" style="stroke:#C82930;stroke-width:1.0;" width="6" x="436.5" y="196.3203"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="102" x="448.5" y="202.667">timer : Timer?</text><rect fill="none" height="6" style="stroke:#C82930;stroke-width:1.0;" width="6" x="436.5" y="212.6172"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="84" x="448.5" y="218.9639">disposables</text><line style="stroke:#181818;stroke-width:0.5;" x1="429.5" x2="697.5" y1="226.2656" y2="226.2656"/><polygon fill="#4177AF" points="439.5,235.9141,435.5,241.9141,443.5,241.9141" style="stroke:#1963A0;stroke-width:1.0;"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="34" x="448.5" y="243.2607">init()</text><ellipse cx="439.5" cy="256.2109" fill="#84BE84" rx="3" ry="3" style="stroke:#038048;stroke-width:1.0;"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="87" x="448.5" y="259.5576">startTimer()</text><ellipse cx="439.5" cy="272.5078" fill="#84BE84" rx="3" ry="3" style="stroke:#038048;stroke-width:1.0;"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="85" x="448.5" y="275.8545">stopTimer()</text><rect fill="#F24D5C" height="6" style="stroke:#C82930;stroke-width:1.0;" width="6" x="436.5" y="285.8047"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="179" x="448.5" y="292.1514">filterForVisibleLocation()</text><rect fill="#F24D5C" height="6" style="stroke:#C82930;stroke-width:1.0;" width="6" x="436.5" y="302.1016"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="104" x="448.5" y="308.4482">updateTrains()</text><polygon fill="#4177AF" points="439.5,317.3984,435.5,323.3984,443.5,323.3984" style="stroke:#1963A0;stroke-width:1.0;"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="61" x="448.5" y="324.7451">update()</text></g><!--MD5=[06952db80e2dc5b4c73bbdd92c1636af]
+class HomeViewModel--><g id="elem_HomeViewModel"><rect codeLine="144" fill="#F1F1F1" height="210.9688" id="HomeViewModel" rx="2.5" ry="2.5" style="stroke:#181818;stroke-width:0.5;" width="338" x="2045.5" y="64"/><ellipse cx="2150.75" cy="80" fill="#8FBC8F" rx="11" ry="11" style="stroke:#181818;stroke-width:1.0;"/><path d="M2153.0938,75.6719 C2152.1563,75.2344 2151.5625,75.0938 2150.6875,75.0938 C2148.0625,75.0938 2146.0625,77.1719 2146.0625,79.8906 L2146.0625,81.0156 C2146.0625,83.5938 2148.1719,85.4844 2151.0625,85.4844 C2152.2813,85.4844 2153.4375,85.1875 2154.1875,84.6406 C2154.7656,84.2344 2155.0938,83.7813 2155.0938,83.3906 C2155.0938,82.9375 2154.7031,82.5469 2154.2344,82.5469 C2154.0156,82.5469 2153.8125,82.625 2153.625,82.8125 C2153.1719,83.2969 2153.1719,83.2969 2152.9844,83.3906 C2152.5625,83.6563 2151.875,83.7813 2151.1094,83.7813 C2149.0625,83.7813 2147.7656,82.6875 2147.7656,80.9844 L2147.7656,79.8906 C2147.7656,78.1094 2149.0156,76.7969 2150.75,76.7969 C2151.3281,76.7969 2151.9375,76.9531 2152.4063,77.2031 C2152.8906,77.4844 2153.0625,77.7031 2153.1563,78.1094 C2153.2188,78.5156 2153.25,78.6406 2153.3906,78.7656 C2153.5313,78.9063 2153.7656,79.0156 2153.9844,79.0156 C2154.25,79.0156 2154.5156,78.875 2154.6875,78.6563 C2154.7969,78.5 2154.8281,78.3125 2154.8281,77.8906 L2154.8281,76.4688 C2154.8281,76.0313 2154.8125,75.9063 2154.7188,75.75 C2154.5625,75.4844 2154.2813,75.3438 2153.9844,75.3438 C2153.6875,75.3438 2153.4844,75.4375 2153.2656,75.75 L2153.0938,75.6719 Z " fill="#000000"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="119" x="2171.25" y="84.8467">HomeViewModel</text><line style="stroke:#181818;stroke-width:0.5;" x1="2046.5" x2="2382.5" y1="96" y2="96"/><polygon fill="none" points="2056.5,105.6484,2052.5,111.6484,2060.5,111.6484" style="stroke:#1963A0;stroke-width:1.0;"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="312" x="2065.5" y="112.9951">favoriteStations : [FavoriteStationListItem]</text><polygon fill="none" points="2056.5,121.9453,2052.5,127.9453,2060.5,127.9453" style="stroke:#1963A0;stroke-width:1.0;"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="266" x="2065.5" y="129.292">recentOffers : [RecentOfferListItem]</text><polygon fill="none" points="2056.5,138.2422,2052.5,144.2422,2060.5,144.2422" style="stroke:#1963A0;stroke-width:1.0;"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="160" x="2065.5" y="145.5889">alerts : [AlertListItem]</text><rect fill="none" height="6" style="stroke:#C82930;stroke-width:1.0;" width="6" x="2053.5" y="155.5391"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="84" x="2065.5" y="161.8857">disposables</text><line style="stroke:#181818;stroke-width:0.5;" x1="2046.5" x2="2382.5" y1="169.1875" y2="169.1875"/><polygon fill="#4177AF" points="2056.5,178.8359,2052.5,184.8359,2060.5,184.8359" style="stroke:#1963A0;stroke-width:1.0;"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="34" x="2065.5" y="186.1826">init()</text><polygon fill="#4177AF" points="2056.5,195.1328,2052.5,201.1328,2060.5,201.1328" style="stroke:#1963A0;stroke-width:1.0;"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="165" x="2065.5" y="202.4795">deleteRecentOffer(id:)</text><polygon fill="#4177AF" points="2056.5,211.4297,2052.5,217.4297,2060.5,217.4297" style="stroke:#1963A0;stroke-width:1.0;"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="79" x="2065.5" y="218.7764">subscribe()</text><polygon fill="#4177AF" points="2056.5,227.7266,2052.5,233.7266,2060.5,233.7266" style="stroke:#1963A0;stroke-width:1.0;"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="61" x="2065.5" y="235.0732">update()</text><polygon fill="#4177AF" points="2056.5,244.0234,2052.5,250.0234,2060.5,250.0234" style="stroke:#1963A0;stroke-width:1.0;"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="180" x="2065.5" y="251.3701">updateFavoriteStations()</text><polygon fill="#4177AF" points="2056.5,260.3203,2052.5,266.3203,2060.5,266.3203" style="stroke:#1963A0;stroke-width:1.0;"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="158" x="2065.5" y="267.667">updateRecentOffers()</text></g><!--MD5=[755c1691ea3641a7ddf7b1b2bf6d527d]
+class OfferViewModel--><g id="elem_OfferViewModel"><rect codeLine="159" fill="#F1F1F1" height="194.6719" id="OfferViewModel" rx="2.5" ry="2.5" style="stroke:#181818;stroke-width:0.5;" width="329" x="1681" y="72"/><ellipse cx="1783.75" cy="88" fill="#8FBC8F" rx="11" ry="11" style="stroke:#181818;stroke-width:1.0;"/><path d="M1786.0938,83.6719 C1785.1563,83.2344 1784.5625,83.0938 1783.6875,83.0938 C1781.0625,83.0938 1779.0625,85.1719 1779.0625,87.8906 L1779.0625,89.0156 C1779.0625,91.5938 1781.1719,93.4844 1784.0625,93.4844 C1785.2813,93.4844 1786.4375,93.1875 1787.1875,92.6406 C1787.7656,92.2344 1788.0938,91.7813 1788.0938,91.3906 C1788.0938,90.9375 1787.7031,90.5469 1787.2344,90.5469 C1787.0156,90.5469 1786.8125,90.625 1786.625,90.8125 C1786.1719,91.2969 1786.1719,91.2969 1785.9844,91.3906 C1785.5625,91.6563 1784.875,91.7813 1784.1094,91.7813 C1782.0625,91.7813 1780.7656,90.6875 1780.7656,88.9844 L1780.7656,87.8906 C1780.7656,86.1094 1782.0156,84.7969 1783.75,84.7969 C1784.3281,84.7969 1784.9375,84.9531 1785.4063,85.2031 C1785.8906,85.4844 1786.0625,85.7031 1786.1563,86.1094 C1786.2188,86.5156 1786.25,86.6406 1786.3906,86.7656 C1786.5313,86.9063 1786.7656,87.0156 1786.9844,87.0156 C1787.25,87.0156 1787.5156,86.875 1787.6875,86.6563 C1787.7969,86.5 1787.8281,86.3125 1787.8281,85.8906 L1787.8281,84.4688 C1787.8281,84.0313 1787.8125,83.9063 1787.7188,83.75 C1787.5625,83.4844 1787.2813,83.3438 1786.9844,83.3438 C1786.6875,83.3438 1786.4844,83.4375 1786.2656,83.75 L1786.0938,83.6719 Z " fill="#000000"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="115" x="1804.25" y="92.8467">OfferViewModel</text><line style="stroke:#181818;stroke-width:0.5;" x1="1682" x2="2009" y1="104" y2="104"/><polygon fill="none" points="1692,113.6484,1688,119.6484,1696,119.6484" style="stroke:#1963A0;stroke-width:1.0;"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="138" x="1701" y="120.9951">offers : [OfferData]</text><polygon fill="none" points="1692,129.9453,1688,135.9453,1696,135.9453" style="stroke:#1963A0;stroke-width:1.0;"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="112" x="1701" y="137.292">isLoading : Bool</text><polygon fill="none" points="1692,146.2422,1688,152.2422,1696,152.2422" style="stroke:#1963A0;stroke-width:1.0;"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="92" x="1701" y="153.5889">isError : Bool</text><polygon fill="none" points="1692,162.5391,1688,168.5391,1696,168.5391" style="stroke:#1963A0;stroke-width:1.0;"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="198" x="1701" y="169.8857">start : FormStationListItem</text><polygon fill="none" points="1692,178.8359,1688,184.8359,1696,184.8359" style="stroke:#1963A0;stroke-width:1.0;"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="190" x="1701" y="186.1826">end : FormStationListItem</text><polygon fill="none" points="1692,195.1328,1688,201.1328,1696,201.1328" style="stroke:#1963A0;stroke-width:1.0;"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="150" x="1701" y="202.4795">passengerCount : Int</text><polygon fill="none" points="1692,211.4297,1688,217.4297,1696,217.4297" style="stroke:#1963A0;stroke-width:1.0;"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="118" x="1701" y="218.7764">startDate : Date</text><line style="stroke:#181818;stroke-width:0.5;" x1="1682" x2="2009" y1="226.0781" y2="226.0781"/><polygon fill="#4177AF" points="1692,235.7266,1688,241.7266,1696,241.7266" style="stroke:#1963A0;stroke-width:1.0;"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="303" x="1701" y="243.0732">init(start:end:passengerCount:startDate:)</text><polygon fill="#4177AF" points="1692,252.0234,1688,258.0234,1696,258.0234" style="stroke:#1963A0;stroke-width:1.0;"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="61" x="1701" y="259.3701">update()</text></g><!--MD5=[b2e4d8bced72b112b0e7351edc4c42cb]
+class AlertsViewModel--><g id="elem_AlertsViewModel"><rect codeLine="173" fill="#F1F1F1" height="145.7813" id="AlertsViewModel" rx="2.5" ry="2.5" style="stroke:#181818;stroke-width:0.5;" width="152" x="2418.5" y="96.5"/><ellipse cx="2433.5" cy="112.5" fill="#8FBC8F" rx="11" ry="11" style="stroke:#181818;stroke-width:1.0;"/><path d="M2435.8438,108.1719 C2434.9063,107.7344 2434.3125,107.5938 2433.4375,107.5938 C2430.8125,107.5938 2428.8125,109.6719 2428.8125,112.3906 L2428.8125,113.5156 C2428.8125,116.0938 2430.9219,117.9844 2433.8125,117.9844 C2435.0313,117.9844 2436.1875,117.6875 2436.9375,117.1406 C2437.5156,116.7344 2437.8438,116.2813 2437.8438,115.8906 C2437.8438,115.4375 2437.4531,115.0469 2436.9844,115.0469 C2436.7656,115.0469 2436.5625,115.125 2436.375,115.3125 C2435.9219,115.7969 2435.9219,115.7969 2435.7344,115.8906 C2435.3125,116.1563 2434.625,116.2813 2433.8594,116.2813 C2431.8125,116.2813 2430.5156,115.1875 2430.5156,113.4844 L2430.5156,112.3906 C2430.5156,110.6094 2431.7656,109.2969 2433.5,109.2969 C2434.0781,109.2969 2434.6875,109.4531 2435.1563,109.7031 C2435.6406,109.9844 2435.8125,110.2031 2435.9063,110.6094 C2435.9688,111.0156 2436,111.1406 2436.1406,111.2656 C2436.2813,111.4063 2436.5156,111.5156 2436.7344,111.5156 C2437,111.5156 2437.2656,111.375 2437.4375,111.1563 C2437.5469,111 2437.5781,110.8125 2437.5781,110.3906 L2437.5781,108.9688 C2437.5781,108.5313 2437.5625,108.4063 2437.4688,108.25 C2437.3125,107.9844 2437.0313,107.8438 2436.7344,107.8438 C2436.4375,107.8438 2436.2344,107.9375 2436.0156,108.25 L2435.8438,108.1719 Z " fill="#000000"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="120" x="2447.5" y="117.3467">AlertsViewModel</text><line style="stroke:#181818;stroke-width:0.5;" x1="2419.5" x2="2569.5" y1="128.5" y2="128.5"/><polygon fill="none" points="2429.5,138.1484,2425.5,144.1484,2433.5,144.1484" style="stroke:#1963A0;stroke-width:1.0;"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="100" x="2438.5" y="145.4951">alerts : [Alert]</text><polygon fill="none" points="2429.5,154.4453,2425.5,160.4453,2433.5,160.4453" style="stroke:#1963A0;stroke-width:1.0;"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="92" x="2438.5" y="161.792">isError : Bool</text><polygon fill="none" points="2429.5,170.7422,2425.5,176.7422,2433.5,176.7422" style="stroke:#1963A0;stroke-width:1.0;"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="112" x="2438.5" y="178.0889">isLoading : Bool</text><rect fill="none" height="6" style="stroke:#C82930;stroke-width:1.0;" width="6" x="2426.5" y="188.0391"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="84" x="2438.5" y="194.3857">disposables</text><line style="stroke:#181818;stroke-width:0.5;" x1="2419.5" x2="2569.5" y1="201.6875" y2="201.6875"/><polygon fill="#4177AF" points="2429.5,211.3359,2425.5,217.3359,2433.5,217.3359" style="stroke:#1963A0;stroke-width:1.0;"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="34" x="2438.5" y="218.6826">init()</text><polygon fill="#4177AF" points="2429.5,227.6328,2425.5,233.6328,2433.5,233.6328" style="stroke:#1963A0;stroke-width:1.0;"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="79" x="2438.5" y="234.9795">subscribe()</text></g><!--MD5=[034003a5369932c3fdc10e5faf01c9c9]
+class DirectionsFormViewModel--><g id="elem_DirectionsFormViewModel"><rect codeLine="184" fill="#F1F1F1" height="129.4844" id="DirectionsFormViewModel" rx="2.5" ry="2.5" style="stroke:#181818;stroke-width:0.5;" width="391" x="981" y="105"/><ellipse cx="1078.25" cy="121" fill="#8FBC8F" rx="11" ry="11" style="stroke:#181818;stroke-width:1.0;"/><path d="M1080.5938,116.6719 C1079.6563,116.2344 1079.0625,116.0938 1078.1875,116.0938 C1075.5625,116.0938 1073.5625,118.1719 1073.5625,120.8906 L1073.5625,122.0156 C1073.5625,124.5938 1075.6719,126.4844 1078.5625,126.4844 C1079.7813,126.4844 1080.9375,126.1875 1081.6875,125.6406 C1082.2656,125.2344 1082.5938,124.7813 1082.5938,124.3906 C1082.5938,123.9375 1082.2031,123.5469 1081.7344,123.5469 C1081.5156,123.5469 1081.3125,123.625 1081.125,123.8125 C1080.6719,124.2969 1080.6719,124.2969 1080.4844,124.3906 C1080.0625,124.6563 1079.375,124.7813 1078.6094,124.7813 C1076.5625,124.7813 1075.2656,123.6875 1075.2656,121.9844 L1075.2656,120.8906 C1075.2656,119.1094 1076.5156,117.7969 1078.25,117.7969 C1078.8281,117.7969 1079.4375,117.9531 1079.9063,118.2031 C1080.3906,118.4844 1080.5625,118.7031 1080.6563,119.1094 C1080.7188,119.5156 1080.75,119.6406 1080.8906,119.7656 C1081.0313,119.9063 1081.2656,120.0156 1081.4844,120.0156 C1081.75,120.0156 1082.0156,119.875 1082.1875,119.6563 C1082.2969,119.5 1082.3281,119.3125 1082.3281,118.8906 L1082.3281,117.4688 C1082.3281,117.0313 1082.3125,116.9063 1082.2188,116.75 C1082.0625,116.4844 1081.7813,116.3438 1081.4844,116.3438 C1081.1875,116.3438 1080.9844,116.4375 1080.7656,116.75 L1080.5938,116.6719 Z " fill="#000000"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="188" x="1098.75" y="125.8467">DirectionsFormViewModel</text><line style="stroke:#181818;stroke-width:0.5;" x1="982" x2="1371" y1="137" y2="137"/><polygon fill="none" points="992,146.6484,988,152.6484,996,152.6484" style="stroke:#1963A0;stroke-width:1.0;"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="250" x="1001" y="153.9951">stationList : [FormStationListItem]</text><rect fill="none" height="6" style="stroke:#C82930;stroke-width:1.0;" width="6" x="989" y="163.9453"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="84" x="1001" y="170.292">disposables</text><line style="stroke:#181818;stroke-width:0.5;" x1="982" x2="1371" y1="177.5938" y2="177.5938"/><polygon fill="#4177AF" points="992,187.2422,988,193.2422,996,193.2422" style="stroke:#1963A0;stroke-width:1.0;"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="34" x="1001" y="194.5889">init()</text><rect fill="#F24D5C" height="6" style="stroke:#C82930;stroke-width:1.0;" width="6" x="989" y="204.5391"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="302" x="1001" y="210.8857">incrementStationSearchCount(start:end:)</text><ellipse cx="992" cy="223.8359" fill="#84BE84" rx="3" ry="3" style="stroke:#038048;stroke-width:1.0;"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="365" x="1001" y="227.1826">createOfferViewModel(start:end:count:startDate:)</text></g><!--MD5=[4f4156c0453d78f319dec5f07f0203b5]
+class LoadingViewModel--><g id="elem_LoadingViewModel"><rect codeLine="195" fill="#F1F1F1" height="129.4844" id="LoadingViewModel" rx="2.5" ry="2.5" style="stroke:#181818;stroke-width:0.5;" width="165" x="9" y="105"/><ellipse cx="24" cy="121" fill="#8FBC8F" rx="11" ry="11" style="stroke:#181818;stroke-width:1.0;"/><path d="M26.3438,116.6719 C25.4063,116.2344 24.8125,116.0938 23.9375,116.0938 C21.3125,116.0938 19.3125,118.1719 19.3125,120.8906 L19.3125,122.0156 C19.3125,124.5938 21.4219,126.4844 24.3125,126.4844 C25.5313,126.4844 26.6875,126.1875 27.4375,125.6406 C28.0156,125.2344 28.3438,124.7813 28.3438,124.3906 C28.3438,123.9375 27.9531,123.5469 27.4844,123.5469 C27.2656,123.5469 27.0625,123.625 26.875,123.8125 C26.4219,124.2969 26.4219,124.2969 26.2344,124.3906 C25.8125,124.6563 25.125,124.7813 24.3594,124.7813 C22.3125,124.7813 21.0156,123.6875 21.0156,121.9844 L21.0156,120.8906 C21.0156,119.1094 22.2656,117.7969 24,117.7969 C24.5781,117.7969 25.1875,117.9531 25.6563,118.2031 C26.1406,118.4844 26.3125,118.7031 26.4063,119.1094 C26.4688,119.5156 26.5,119.6406 26.6406,119.7656 C26.7813,119.9063 27.0156,120.0156 27.2344,120.0156 C27.5,120.0156 27.7656,119.875 27.9375,119.6563 C28.0469,119.5 28.0781,119.3125 28.0781,118.8906 L28.0781,117.4688 C28.0781,117.0313 28.0625,116.9063 27.9688,116.75 C27.8125,116.4844 27.5313,116.3438 27.2344,116.3438 C26.9375,116.3438 26.7344,116.4375 26.5156,116.75 L26.3438,116.6719 Z " fill="#000000"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="133" x="38" y="125.8467">LoadingViewModel</text><line style="stroke:#181818;stroke-width:0.5;" x1="10" x2="173" y1="137" y2="137"/><polygon fill="none" points="20,146.6484,16,152.6484,24,152.6484" style="stroke:#1963A0;stroke-width:1.0;"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="112" x="29" y="153.9951">isLoading : Bool</text><polygon fill="none" points="20,162.9453,16,168.9453,24,168.9453" style="stroke:#1963A0;stroke-width:1.0;"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="92" x="29" y="170.292">isError : Bool</text><rect fill="none" height="6" style="stroke:#C82930;stroke-width:1.0;" width="6" x="17" y="180.2422"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="88" x="29" y="186.5889">cancellables</text><line style="stroke:#181818;stroke-width:0.5;" x1="10" x2="173" y1="193.8906" y2="193.8906"/><polygon fill="#4177AF" points="20,203.5391,16,209.5391,24,209.5391" style="stroke:#1963A0;stroke-width:1.0;"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="34" x="29" y="210.8857">init()</text><polygon fill="#4177AF" points="20,219.8359,16,225.8359,24,225.8359" style="stroke:#1963A0;stroke-width:1.0;"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="61" x="29" y="227.1826">update()</text></g><!--MD5=[98579ace874d8bab67cd84760584eeea]
+class TrainViewModel--><g id="elem_TrainViewModel"><rect codeLine="206" fill="#F1F1F1" height="145.7813" id="TrainViewModel" rx="2.5" ry="2.5" style="stroke:#181818;stroke-width:0.5;" width="184" x="209.5" y="96.5"/><ellipse cx="242.05" cy="112.5" fill="#8FBC8F" rx="11" ry="11" style="stroke:#181818;stroke-width:1.0;"/><path d="M244.3938,108.1719 C243.4563,107.7344 242.8625,107.5938 241.9875,107.5938 C239.3625,107.5938 237.3625,109.6719 237.3625,112.3906 L237.3625,113.5156 C237.3625,116.0938 239.4719,117.9844 242.3625,117.9844 C243.5813,117.9844 244.7375,117.6875 245.4875,117.1406 C246.0656,116.7344 246.3938,116.2813 246.3938,115.8906 C246.3938,115.4375 246.0031,115.0469 245.5344,115.0469 C245.3156,115.0469 245.1125,115.125 244.925,115.3125 C244.4719,115.7969 244.4719,115.7969 244.2844,115.8906 C243.8625,116.1563 243.175,116.2813 242.4094,116.2813 C240.3625,116.2813 239.0656,115.1875 239.0656,113.4844 L239.0656,112.3906 C239.0656,110.6094 240.3156,109.2969 242.05,109.2969 C242.6281,109.2969 243.2375,109.4531 243.7063,109.7031 C244.1906,109.9844 244.3625,110.2031 244.4563,110.6094 C244.5188,111.0156 244.55,111.1406 244.6906,111.2656 C244.8313,111.4063 245.0656,111.5156 245.2844,111.5156 C245.55,111.5156 245.8156,111.375 245.9875,111.1563 C246.0969,111 246.1281,110.8125 246.1281,110.3906 L246.1281,108.9688 C246.1281,108.5313 246.1125,108.4063 246.0188,108.25 C245.8625,107.9844 245.5813,107.8438 245.2844,107.8438 C244.9875,107.8438 244.7844,107.9375 244.5656,108.25 L244.3938,108.1719 Z " fill="#000000"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="113" x="259.95" y="117.3467">TrainViewModel</text><line style="stroke:#181818;stroke-width:0.5;" x1="210.5" x2="392.5" y1="128.5" y2="128.5"/><polygon fill="none" points="220.5,138.1484,216.5,144.1484,224.5,144.1484" style="stroke:#1963A0;stroke-width:1.0;"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="80" x="229.5" y="145.4951">trainId : Int</text><polygon fill="none" points="220.5,154.4453,216.5,160.4453,224.5,160.4453" style="stroke:#1963A0;stroke-width:1.0;"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="92" x="229.5" y="161.792">isError : Bool</text><polygon fill="none" points="220.5,170.7422,216.5,176.7422,224.5,176.7422" style="stroke:#1963A0;stroke-width:1.0;"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="112" x="229.5" y="178.0889">isLoading : Bool</text><polygon fill="none" points="220.5,187.0391,216.5,193.0391,224.5,193.0391" style="stroke:#1963A0;stroke-width:1.0;"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="158" x="229.5" y="194.3857">trainData : TrainData?</text><line style="stroke:#181818;stroke-width:0.5;" x1="210.5" x2="392.5" y1="201.6875" y2="201.6875"/><polygon fill="#4177AF" points="220.5,211.3359,216.5,217.3359,224.5,217.3359" style="stroke:#1963A0;stroke-width:1.0;"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="86" x="229.5" y="218.6826">init(trainId:)</text><polygon fill="#4177AF" points="220.5,227.6328,216.5,233.6328,224.5,233.6328" style="stroke:#1963A0;stroke-width:1.0;"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="61" x="229.5" y="234.9795">update()</text></g><!--MD5=[0f5d8dd47187e928a80a899b893d8dbb]
+reverse link ApiProtocol to ApiRepository--><g id="link_ApiProtocol_ApiRepository"><path codeLine="43" d="M980.5,781.298 C980.5,802.18 980.5,824.058 980.5,845.873 " fill="none" id="ApiProtocol-backto-ApiRepository" style="stroke:#181818;stroke-width:1.0;stroke-dasharray:7.0,7.0;"/><polygon fill="none" points="973.5,781.206,980.5,761.206,987.5,781.206,973.5,781.206" style="stroke:#181818;stroke-width:1.0;"/><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="73" x="981.5" y="812.0669">confirms to</text></g><!--MD5=[a22c54b06fa92307dd3c3b9c78e94dd7]
+reverse link StoreProtocol to StoreRepository--><g id="link_StoreProtocol_StoreRepository"><path codeLine="75" d="M1597.5,789.088 C1597.5,826.299 1597.5,866.201 1597.5,902.989 " fill="none" id="StoreProtocol-backto-StoreRepository" style="stroke:#181818;stroke-width:1.0;stroke-dasharray:7.0,7.0;"/><polygon fill="none" points="1590.5,789.025,1597.5,769.025,1604.5,789.025,1590.5,789.025" style="stroke:#181818;stroke-width:1.0;"/><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="73" x="1598.5" y="812.0669">confirms to</text></g><!--MD5=[93fd350935efc55eb6911932d9ed3c5a]
+reverse link RssProtocol to RssRepository--><g id="link_RssProtocol_RssRepository"><path codeLine="76" d="M2415.5,716.05 C2415.5,768.026 2415.5,839.798 2415.5,902.579 " fill="none" id="RssProtocol-backto-RssRepository" style="stroke:#181818;stroke-width:1.0;stroke-dasharray:7.0,7.0;"/><polygon fill="none" points="2408.5,715.77,2415.5,695.77,2422.5,715.77,2408.5,715.77" style="stroke:#181818;stroke-width:1.0;"/><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="73" x="2416.5" y="812.0669">confirms to</text></g><!--MD5=[d981e77d812419f53e3b98f8dea7778f]
+link StationListViewModel to ApiProtocol--><g id="link_StationListViewModel_ApiProtocol"><path codeLine="106" d="M1494.04,218.41 C1460.31,266.142 1404.31,339.929 1345.5,394 C1294.04,441.315 1232.89,486.409 1175.5,524.854 " fill="none" id="StationListViewModel-ApiProtocol" style="stroke:#181818;stroke-width:1.0;"/></g><!--MD5=[18e08d6edb0cfc2dd377006f4e4c10e7]
+link StationDetailsViewModel to ApiProtocol--><g id="link_StationDetailsViewModel_ApiProtocol"><path codeLine="118" d="M863.499,250.751 C886.021,326.065 919.973,439.6 945.511,524.998 " fill="none" id="StationDetailsViewModel-ApiProtocol" style="stroke:#181818;stroke-width:1.0;"/></g><!--MD5=[6cbe154c2cbb4b20b660b86a6d1e5480]
+link MapViewModel to ApiProtocol--><g id="link_MapViewModel_ApiProtocol"><path codeLine="141" d="M698.6,323.257 C756.406,388.618 822.841,463.735 876.692,524.625 " fill="none" id="MapViewModel-ApiProtocol" style="stroke:#181818;stroke-width:1.0;"/></g><!--MD5=[784bc1c4661140f9f869903863cf1321]
+link HomeViewModel to ApiProtocol--><g id="link_HomeViewModel_ApiProtocol"><path codeLine="157" d="M2109.2,275.19 C2083.95,296.249 2056,316.609 2027.5,332 C1763.98,474.335 1666.43,431.112 1379.5,517 C1336.12,529.984 1290.2,544.062 1245.54,557.93 " fill="none" id="HomeViewModel-ApiProtocol" style="stroke:#181818;stroke-width:1.0;"/></g><!--MD5=[cbf2f21278696c56302d4ed8ef0920a5]
+link OfferViewModel to ApiProtocol--><g id="link_OfferViewModel_ApiProtocol"><path codeLine="171" d="M1747.34,267.181 C1721.31,290.069 1692.37,313.25 1663.5,332 C1533.4,416.483 1376.49,489.466 1245.89,543.358 " fill="none" id="OfferViewModel-ApiProtocol" style="stroke:#181818;stroke-width:1.0;"/></g><!--MD5=[d8158e2fb4527da00eb5fb03cd2b7177]
+link AlertsViewModel to RssProtocol--><g id="link_AlertsViewModel_RssProtocol"><path codeLine="182" d="M2482.42,242.624 C2466.34,338.589 2438.3,505.933 2424.17,590.274 " fill="none" id="AlertsViewModel-RssProtocol" style="stroke:#181818;stroke-width:1.0;"/></g><!--MD5=[f6859dc8cb421e5e9d8f0601fd39359a]
+link DirectionsFormViewModel to ApiProtocol--><g id="link_DirectionsFormViewModel_ApiProtocol"><path codeLine="192" d="M1150.07,234.09 C1119.19,308.367 1067.47,432.782 1029.25,524.718 " fill="none" id="DirectionsFormViewModel-ApiProtocol" style="stroke:#181818;stroke-width:1.0;"/></g><!--MD5=[86700e73f1aa97fe446211cd3d437a53]
+link LoadingViewModel to ApiProtocol--><g id="link_LoadingViewModel_ApiProtocol"><path codeLine="203" d="M118.8,234.14 C135.659,267.091 160.102,305.801 191.5,332 C342.356,457.877 550.44,536.772 715.039,583.453 " fill="none" id="LoadingViewModel-ApiProtocol" style="stroke:#181818;stroke-width:1.0;"/></g><!--MD5=[f7d8b6fc390ed70e1622fcc7793433c2]
+link TrainViewModel to ApiProtocol--><g id="link_TrainViewModel_ApiProtocol"><path codeLine="215" d="M339.8,242.533 C358.311,272.728 382.587,306.635 410.5,332 C499.286,412.681 612.849,479.885 715.207,530.861 " fill="none" id="TrainViewModel-ApiProtocol" style="stroke:#181818;stroke-width:1.0;"/></g><!--MD5=[ec53cc71cd0d70efeb7e82b2e9ab57ce]
+link StationListViewModel to StoreProtocol--><g id="link_StationListViewModel_StoreProtocol"><path codeLine="217" d="M1525.62,218.3 C1531.29,287.721 1549.92,418.829 1567.25,516.898 " fill="none" id="StationListViewModel-StoreProtocol" style="stroke:#181818;stroke-width:1.0;"/></g><!--MD5=[ec53cc71cd0d70efeb7e82b2e9ab57ce]
+link StationListViewModel to StoreProtocol--><g id="link_StationListViewModel_StoreProtocol"><path codeLine="220" d="M1542.25,218.3 C1557.77,287.721 1578.69,418.829 1590.74,516.898 " fill="none" id="StationListViewModel-StoreProtocol-1" style="stroke:#181818;stroke-width:1.0;"/></g><!--MD5=[8facc8007fff4742c98bddb8463ad14c]
+link StationDetailsViewModel to StoreProtocol--><g id="link_StationDetailsViewModel_StoreProtocol"><path codeLine="218" d="M891.419,250.783 C931.757,307.136 992.505,380.161 1062.5,425 C1092.8,444.413 1257.5,510.347 1396.26,564.491 " fill="none" id="StationDetailsViewModel-StoreProtocol" style="stroke:#181818;stroke-width:1.0;"/></g><!--MD5=[73e19b5efdf6e19cb4e71a86fe784737]
+link HomeViewModel to StoreProtocol--><g id="link_HomeViewModel_StoreProtocol"><path codeLine="219" d="M2096.61,275.046 C2073.96,294.343 2050.22,314.053 2027.5,332 C1947.52,395.173 1856.26,461.705 1778.45,516.867 " fill="none" id="HomeViewModel-StoreProtocol" style="stroke:#181818;stroke-width:1.0;"/></g><!--MD5=[82e1f378d9acf8b93c0ee978ee74411c]
+link OfferViewModel to StoreProtocol--><g id="link_OfferViewModel_StoreProtocol"><path codeLine="221" d="M1794.72,267.053 C1756.74,339.258 1704.48,438.604 1663.3,516.894 " fill="none" id="OfferViewModel-StoreProtocol" style="stroke:#181818;stroke-width:1.0;"/></g><!--MD5=[eb3c1973fb71cf866cbf54431ecc7341]
+link DirectionsFormViewModel to StoreProtocol--><g id="link_DirectionsFormViewModel_StoreProtocol"><path codeLine="222" d="M1219.37,234.29 C1251.22,280.209 1296.73,342.811 1341.5,394 C1378.06,435.804 1420.45,478.778 1460.09,516.964 " fill="none" id="DirectionsFormViewModel-StoreProtocol" style="stroke:#181818;stroke-width:1.0;"/></g><!--MD5=[9c9d4d8b3474843dc9cb92b9a57789aa]
+link HomeViewModel to RssProtocol--><g id="link_HomeViewModel_RssProtocol"><path codeLine="223" d="M2259.11,275.141 C2300.8,372.946 2361.32,514.896 2393.48,590.337 " fill="none" id="HomeViewModel-RssProtocol" style="stroke:#181818;stroke-width:1.0;"/></g><!--MD5=[aabc175734d85b48b38f1d338fb18a0b]
+@startuml
+' STYLE START
+
+skinparam shadowing false
+' STYLE END
+
+
+class "ApiProtocol" as ApiProtocol << (P, GoldenRod) protocol >> { 
+  ~{static} shared : any ApiProtocol
+  ~cities : Cities
+  ~customers : CustomersAndDiscounts?
+  ~stationList : StationList
+  ~stationLocationList : [StationLocation]
+  ~services : ServicesDto?
+  ~getOffer(startCode:endCode:passengerCount:startDate:completion:)
+  ~getTrainLocations(completion:)
+  ~getStationInfo(stationNumberCode:completion:)
+  ~getTrainInfo(trainId:completion:)
+  ~notifier : PassthroughSubject<(), Never> 
+}
+class "ApiRepository" as ApiRepository << (C, DarkSeaGreen) >> { 
+  ~{static} shared
+  ~cities : Cities
+  ~customers : CustomersAndDiscounts?
+  ~stationList : StationList
+  ~services : ServicesDto?
+  ~stationLocationList : [StationLocation]
+  ~isLoading : Bool
+  ~isError : Bool
+  -cancellableSet : Set<AnyCancellable>
+  +notifier
+  -init()
+  +update()
+  -updateCities()
+  -updateCustomersAndDiscounts()
+  -updateStationList()
+  -updateServices()
+  ~getOffer(startCode:endCode:passengerCount:startDate:completion:)
+  ~getStationLocation()
+  ~getTrainLocations(completion:)
+  ~getStationInfo(stationNumberCode:completion:)
+  ~getTrainInfo(trainId:completion:) 
+}
+ApiProtocol <|.. ApiRepository : confirms to
+
+class "StoreProtocol" as StoreProtocol << (P, GoldenRod) protocol >> { 
+  ~{static} shared : any StoreProtocol
+  ~favoriteStations : [FavoriteStation]
+  ~recentOffers : [RecentOffer]
+  ~controller : PersistenceController
+  ~updateFavoriteStationList()
+  ~saveFavoriteStation(code:searchCount:isFavorite:)
+  ~updateRecentOfferList()
+  ~deleteRecentOffer(id:)
+  ~saveRecentOffer(startCode:endCode:)
+  ~favoriteStationSearchCount(code:)
+  ~isFavoriteStation(code:)
+  ~publisher : PassthroughSubject<StoreFields, Never> 
+}
+class "StoreRepository" as StoreRepository << (C, DarkSeaGreen) >> { 
+  ~{static} shared
+  ~favoriteStations : [FavoriteStation]
+  ~recentOffers : [RecentOffer]
+  ~controller : PersistenceController
+  ~publisher
+  -init()
+  ~notify()
+  ~updateFavoriteStationList()
+  ~saveFavoriteStation(code:searchCount:isFavorite:)
+  ~updateRecentOfferList()
+  ~deleteRecentOffer(id:)
+  ~saveRecentOffer(startCode:endCode:)
+  ~favoriteStationSearchCount(code:)
+  ~isFavoriteStation(code:) 
+}
+StoreProtocol <|.. StoreRepository : confirms to
+RssProtocol <|.. RssRepository : confirms to
+
+class "RssProtocol" as RssProtocol << (P, GoldenRod) protocol >> { 
+  ~{static} shared : RssProtocol
+  ~rssItemList : [RssItem]
+  ~publisher : PassthroughSubject<RssFields, Never> 
+}
+class "RssRepository" as RssRepository << (C, DarkSeaGreen) >> { 
+  ~{static} shared
+  ~rssItemList : [RssItem]
+  ~isError : Bool
+  ~isLoading : Bool
+  -lastTag : String?
+  -lastContent : String?
+  -parseList : [RssItem]
+  ~publisher
+  +init()
+  +update()
+  -startParsing(inputData:)
+  -handleNewTag()
+  +parser(_:foundCharacters:)
+  +parser(_:didStartElement:namespaceURI:qualifiedName:attributes:) 
+}
+
+class "StationListViewModel" as StationListViewModel << (C, DarkSeaGreen) >> { 
+  ~stationList : [StationListItem]
+  ~init()
+  ~update() 
+}
+
+StationListViewModel - - - - ApiProtocol
+
+class "StationDetailsViewModel" as StationDetailsViewModel << (C, DarkSeaGreen) >> { 
+  ~station : StationDetails?
+  ~isLoading : Bool
+  ~isError : Bool
+  -code : String
+  ~init(code:)
+  ~update()
+  ~toggleFavorite() 
+}
+
+StationDetailsViewModel - - - - ApiProtocol
+
+
+class "MapViewModel" as MapViewModel << (C, DarkSeaGreen) >> { 
+  ~locations : [LocationItem]
+  ~allLocationsList : [LocationItem]
+  ~isError : Bool
+  ~isLoading : Bool
+  ~region : MKCoordinateRegion
+  ~showStations : Bool
+  ~showTrains : Bool
+  ~locationNavStack : [LocationItem]
+  ~uiKitMap : MKMapView?
+  -timer : Timer?
+  -disposables
+  ~init()
+  +startTimer()
+  +stopTimer()
+  -filterForVisibleLocation()
+  -updateTrains()
+  ~update() 
+}
+
+MapViewModel - - - - ApiProtocol
+
+
+class "HomeViewModel" as HomeViewModel << (C, DarkSeaGreen) >> { 
+  ~favoriteStations : [FavoriteStationListItem]
+  ~recentOffers : [RecentOfferListItem]
+  ~alerts : [AlertListItem]
+  -disposables
+  ~init()
+  ~deleteRecentOffer(id:)
+  ~subscribe()
+  ~update()
+  ~updateFavoriteStations()
+  ~updateRecentOffers() 
+}
+
+HomeViewModel - - - - ApiProtocol
+
+class "OfferViewModel" as OfferViewModel << (C, DarkSeaGreen) >> { 
+  ~offers : [OfferData]
+  ~isLoading : Bool
+  ~isError : Bool
+  ~start : FormStationListItem
+  ~end : FormStationListItem
+  ~passengerCount : Int
+  ~startDate : Date
+  ~init(start:end:passengerCount:startDate:)
+  ~update() 
+}
+
+OfferViewModel - - - - ApiProtocol
+
+class "AlertsViewModel" as AlertsViewModel << (C, DarkSeaGreen) >> { 
+  ~alerts : [Alert]
+  ~isError : Bool
+  ~isLoading : Bool
+  -disposables
+  ~init()
+  ~subscribe() 
+}
+
+AlertsViewModel - - - - RssProtocol
+
+class "DirectionsFormViewModel" as DirectionsFormViewModel << (C, DarkSeaGreen) >> { 
+  ~stationList : [FormStationListItem]
+  -disposables
+  ~init()
+  -incrementStationSearchCount(start:end:)
+  +createOfferViewModel(start:end:count:startDate:) 
+}
+
+DirectionsFormViewModel - - - - ApiProtocol
+
+
+class "LoadingViewModel" as LoadingViewModel << (C, DarkSeaGreen) >> { 
+  ~isLoading : Bool
+  ~isError : Bool
+  -cancellables
+  ~init()
+  ~update() 
+}
+
+LoadingViewModel - - - - ApiProtocol
+
+
+class "TrainViewModel" as TrainViewModel << (C, DarkSeaGreen) >> { 
+  ~trainId : Int
+  ~isError : Bool
+  ~isLoading : Bool
+  ~trainData : TrainData?
+  ~init(trainId:)
+  ~update() 
+}
+
+TrainViewModel - - - - ApiProtocol
+
+StationListViewModel - - - - StoreProtocol
+StationDetailsViewModel - - - - StoreProtocol
+HomeViewModel - - - - StoreProtocol
+StationListViewModel - - - - StoreProtocol
+OfferViewModel - - - - StoreProtocol
+DirectionsFormViewModel - - - - StoreProtocol
+HomeViewModel - - - - RssProtocol
+@enduml
+
+@startuml
+
+skinparam shadowing false
+
+
+class "ApiProtocol" as ApiProtocol << (P, GoldenRod) protocol >> { 
+  ~{static} shared : any ApiProtocol
+  ~cities : Cities
+  ~customers : CustomersAndDiscounts?
+  ~stationList : StationList
+  ~stationLocationList : [StationLocation]
+  ~services : ServicesDto?
+  ~getOffer(startCode:endCode:passengerCount:startDate:completion:)
+  ~getTrainLocations(completion:)
+  ~getStationInfo(stationNumberCode:completion:)
+  ~getTrainInfo(trainId:completion:)
+  ~notifier : PassthroughSubject<(), Never> 
+}
+class "ApiRepository" as ApiRepository << (C, DarkSeaGreen) >> { 
+  ~{static} shared
+  ~cities : Cities
+  ~customers : CustomersAndDiscounts?
+  ~stationList : StationList
+  ~services : ServicesDto?
+  ~stationLocationList : [StationLocation]
+  ~isLoading : Bool
+  ~isError : Bool
+  -cancellableSet : Set<AnyCancellable>
+  +notifier
+  -init()
+  +update()
+  -updateCities()
+  -updateCustomersAndDiscounts()
+  -updateStationList()
+  -updateServices()
+  ~getOffer(startCode:endCode:passengerCount:startDate:completion:)
+  ~getStationLocation()
+  ~getTrainLocations(completion:)
+  ~getStationInfo(stationNumberCode:completion:)
+  ~getTrainInfo(trainId:completion:) 
+}
+ApiProtocol <|.. ApiRepository : confirms to
+
+class "StoreProtocol" as StoreProtocol << (P, GoldenRod) protocol >> { 
+  ~{static} shared : any StoreProtocol
+  ~favoriteStations : [FavoriteStation]
+  ~recentOffers : [RecentOffer]
+  ~controller : PersistenceController
+  ~updateFavoriteStationList()
+  ~saveFavoriteStation(code:searchCount:isFavorite:)
+  ~updateRecentOfferList()
+  ~deleteRecentOffer(id:)
+  ~saveRecentOffer(startCode:endCode:)
+  ~favoriteStationSearchCount(code:)
+  ~isFavoriteStation(code:)
+  ~publisher : PassthroughSubject<StoreFields, Never> 
+}
+class "StoreRepository" as StoreRepository << (C, DarkSeaGreen) >> { 
+  ~{static} shared
+  ~favoriteStations : [FavoriteStation]
+  ~recentOffers : [RecentOffer]
+  ~controller : PersistenceController
+  ~publisher
+  -init()
+  ~notify()
+  ~updateFavoriteStationList()
+  ~saveFavoriteStation(code:searchCount:isFavorite:)
+  ~updateRecentOfferList()
+  ~deleteRecentOffer(id:)
+  ~saveRecentOffer(startCode:endCode:)
+  ~favoriteStationSearchCount(code:)
+  ~isFavoriteStation(code:) 
+}
+StoreProtocol <|.. StoreRepository : confirms to
+RssProtocol <|.. RssRepository : confirms to
+
+class "RssProtocol" as RssProtocol << (P, GoldenRod) protocol >> { 
+  ~{static} shared : RssProtocol
+  ~rssItemList : [RssItem]
+  ~publisher : PassthroughSubject<RssFields, Never> 
+}
+class "RssRepository" as RssRepository << (C, DarkSeaGreen) >> { 
+  ~{static} shared
+  ~rssItemList : [RssItem]
+  ~isError : Bool
+  ~isLoading : Bool
+  -lastTag : String?
+  -lastContent : String?
+  -parseList : [RssItem]
+  ~publisher
+  +init()
+  +update()
+  -startParsing(inputData:)
+  -handleNewTag()
+  +parser(_:foundCharacters:)
+  +parser(_:didStartElement:namespaceURI:qualifiedName:attributes:) 
+}
+
+class "StationListViewModel" as StationListViewModel << (C, DarkSeaGreen) >> { 
+  ~stationList : [StationListItem]
+  ~init()
+  ~update() 
+}
+
+StationListViewModel - - - - ApiProtocol
+
+class "StationDetailsViewModel" as StationDetailsViewModel << (C, DarkSeaGreen) >> { 
+  ~station : StationDetails?
+  ~isLoading : Bool
+  ~isError : Bool
+  -code : String
+  ~init(code:)
+  ~update()
+  ~toggleFavorite() 
+}
+
+StationDetailsViewModel - - - - ApiProtocol
+
+
+class "MapViewModel" as MapViewModel << (C, DarkSeaGreen) >> { 
+  ~locations : [LocationItem]
+  ~allLocationsList : [LocationItem]
+  ~isError : Bool
+  ~isLoading : Bool
+  ~region : MKCoordinateRegion
+  ~showStations : Bool
+  ~showTrains : Bool
+  ~locationNavStack : [LocationItem]
+  ~uiKitMap : MKMapView?
+  -timer : Timer?
+  -disposables
+  ~init()
+  +startTimer()
+  +stopTimer()
+  -filterForVisibleLocation()
+  -updateTrains()
+  ~update() 
+}
+
+MapViewModel - - - - ApiProtocol
+
+
+class "HomeViewModel" as HomeViewModel << (C, DarkSeaGreen) >> { 
+  ~favoriteStations : [FavoriteStationListItem]
+  ~recentOffers : [RecentOfferListItem]
+  ~alerts : [AlertListItem]
+  -disposables
+  ~init()
+  ~deleteRecentOffer(id:)
+  ~subscribe()
+  ~update()
+  ~updateFavoriteStations()
+  ~updateRecentOffers() 
+}
+
+HomeViewModel - - - - ApiProtocol
+
+class "OfferViewModel" as OfferViewModel << (C, DarkSeaGreen) >> { 
+  ~offers : [OfferData]
+  ~isLoading : Bool
+  ~isError : Bool
+  ~start : FormStationListItem
+  ~end : FormStationListItem
+  ~passengerCount : Int
+  ~startDate : Date
+  ~init(start:end:passengerCount:startDate:)
+  ~update() 
+}
+
+OfferViewModel - - - - ApiProtocol
+
+class "AlertsViewModel" as AlertsViewModel << (C, DarkSeaGreen) >> { 
+  ~alerts : [Alert]
+  ~isError : Bool
+  ~isLoading : Bool
+  -disposables
+  ~init()
+  ~subscribe() 
+}
+
+AlertsViewModel - - - - RssProtocol
+
+class "DirectionsFormViewModel" as DirectionsFormViewModel << (C, DarkSeaGreen) >> { 
+  ~stationList : [FormStationListItem]
+  -disposables
+  ~init()
+  -incrementStationSearchCount(start:end:)
+  +createOfferViewModel(start:end:count:startDate:) 
+}
+
+DirectionsFormViewModel - - - - ApiProtocol
+
+
+class "LoadingViewModel" as LoadingViewModel << (C, DarkSeaGreen) >> { 
+  ~isLoading : Bool
+  ~isError : Bool
+  -cancellables
+  ~init()
+  ~update() 
+}
+
+LoadingViewModel - - - - ApiProtocol
+
+
+class "TrainViewModel" as TrainViewModel << (C, DarkSeaGreen) >> { 
+  ~trainId : Int
+  ~isError : Bool
+  ~isLoading : Bool
+  ~trainData : TrainData?
+  ~init(trainId:)
+  ~update() 
+}
+
+TrainViewModel - - - - ApiProtocol
+
+StationListViewModel - - - - StoreProtocol
+StationDetailsViewModel - - - - StoreProtocol
+HomeViewModel - - - - StoreProtocol
+StationListViewModel - - - - StoreProtocol
+OfferViewModel - - - - StoreProtocol
+DirectionsFormViewModel - - - - StoreProtocol
+HomeViewModel - - - - RssProtocol
+@enduml
+
+PlantUML version 1.2022.14beta6(Unknown compile time)
+(GPL source distribution)
+Java Runtime: Java(TM) SE Runtime Environment
+JVM: Java HotSpot(TM) 64-Bit Server VM
+Default Encoding: UTF-8
+Language: en
+Country: US
+--></g></svg>

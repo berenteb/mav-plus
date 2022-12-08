@@ -1,0 +1,1990 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MavPlus - Unofficial MÁV application</title>
+    <link rel="stylesheet" type="text/css" href="./all.css" media="all"/>
+</head>
+<body>
+<header>
+    <a href="/">
+        <strong>
+            MavPlus - Unofficial MÁV application
+        </strong>
+        <span>Documentation</span>
+    </a>
+</header>
+
+<!--
+<form class="search">
+    <input type="search" placeholder="Search" />
+</form>
+-->
+
+<nav>
+    <div class="wrapper">
+        <h2>On This Page</h2>
+        <ol>
+            <li><a href="#summary">Summary</a></li>
+            <li><a href="#diagram">Class diagram</a></li>
+            <li><a href="#classes">Classes</a></li>
+            <li><a href="#structures">Structures</a></li>
+            <li><a href="#enumerations">Enumerations</a></li>
+            <li><a href="#protocols">Protocols</a></li>
+            <li><a href="#typealiases">Typealiases</a></li>
+            <li><a href="#functions">Functions</a></li>
+            <li><a href="#variables">Variables</a></li>
+            <li><a href="#extensions">Extensions</a></li>
+        </ol>
+    </div>
+</nav>
+
+<main>
+    <article>
+        <section id="summary">
+            <h2>Summary</h2>
+            <p>The application has been built with SwiftUI and the data it uses comes from the new MÁV Elvira API used by <a href="https://jegy.mav.hu">jegy.mav.hu</a></p>
+            <p>We used the MVVM Architecture with Repositories. There are 3 repositories in the architecture: ApiRepository (for initial and singular API calls), RSSRepository (for the news feed) and StoreRepository (to save and load user data to and from CoreData).
+                There are protocols for each repository that should be implemented. These repositories are implemented as singleton classes.
+            </p>
+            <p>Created by: Bálint Berente and Márton Pfemeter</p>
+        </section>
+        <section id="diagram">
+            <h2>Class diagram (view model and repository area)</h2>
+            <img style="width: 100%" src="mavplus.png" alt="Class diagram">
+        </section>
+        <section id="classes">
+            <h2>Classes</h2>
+            <dl>
+                <dt class="class">
+                    <a href="/ApiRepository" title="class - ApiRepository">
+                        Api​Repository
+                    </a>
+                </dt>
+                <dd>
+
+                </dd>
+                <dt class="class">
+                    <a href="/RssRepository" title="class - RssRepository">
+                        Rss​Repository
+                    </a>
+                </dt>
+                <dd>
+                    <p>Class parsing RSS feed</p>
+
+                </dd>
+                <dt class="class">
+                    <a href="/StoreRepository" title="class - StoreRepository">
+                        Store​Repository
+                    </a>
+                </dt>
+                <dd>
+                    <p>Store repository to load inital data and to proxy requests to CoreData</p>
+
+                </dd>
+                <dt class="class">
+                    <a href="/RssItem" title="class - RssItem">
+                        Rss​Item
+                    </a>
+                </dt>
+                <dd>
+                    <p>Data type representing an RSS feed item</p>
+
+                </dd>
+                <dt class="class">
+                    <a href="/UniqueObjectWithId" title="class - UniqueObjectWithId">
+                        Unique​Object​With​Id
+                    </a>
+                </dt>
+                <dd>
+                    <p>Data type for easy conformance with Identifiable, Equatable, and Hashable protocols</p>
+
+                </dd>
+                <dt class="class">
+                    <a href="/TextFieldDebouncer" title="class - TextFieldDebouncer">
+                        Text​Field​Debouncer
+                    </a>
+                </dt>
+                <dd>
+                    <p>Class handling debouncing (delaying) of a TextField's input</p>
+
+                </dd>
+                <dt class="class">
+                    <a href="/Theme" title="class - Theme">
+                        Theme
+                    </a>
+                </dt>
+                <dd>
+
+                </dd>
+                <dt class="class">
+                    <a href="/CustomMapAnnotation" title="class - CustomMapAnnotation">
+                        Custom​Map​Annotation
+                    </a>
+                </dt>
+                <dd>
+                    <p>Custom annotation view using MapIcon SwiftUI component</p>
+
+                </dd>
+                <dt class="class">
+                    <a href="/MapKitMap_Coordinator" title="class - MapKitMap.Coordinator">
+                        Map​Kit​Map.​Coordinator
+                    </a>
+                </dt>
+                <dd>
+                    <p>Internal class for MapKit compatibility</p>
+
+                </dd>
+                <dt class="class">
+                    <a href="/AlertsViewModel" title="class - AlertsViewModel">
+                        Alerts​View​Model
+                    </a>
+                </dt>
+                <dd>
+                    <p>Alert View Model for Alert List</p>
+
+                </dd>
+                <dt class="class">
+                    <a href="/DirectionsFormViewModel" title="class - DirectionsFormViewModel">
+                        Directions​Form​View​Model
+                    </a>
+                </dt>
+                <dd>
+                    <p>Form view model</p>
+
+                </dd>
+                <dt class="class">
+                    <a href="/HomeViewModel" title="class - HomeViewModel">
+                        Home​View​Model
+                    </a>
+                </dt>
+                <dd>
+                    <p>Home view model with favorite stations, recent offers and alerts</p>
+
+                </dd>
+                <dt class="class">
+                    <a href="/LoadingViewModel" title="class - LoadingViewModel">
+                        Loading​View​Model
+                    </a>
+                </dt>
+                <dd>
+                    <p>Loading view model to handle initial API calls, wait for them and indicate error or loading</p>
+
+                </dd>
+                <dt class="class">
+                    <a href="/LocationItem" title="class - LocationItem">
+                        Location​Item
+                    </a>
+                </dt>
+                <dd>
+                    <p>Location item for MapKit</p>
+
+                </dd>
+                <dt class="class">
+                    <a href="/MapViewModel" title="class - MapViewModel">
+                        Map​View​Model
+                    </a>
+                </dt>
+                <dd>
+                    <p>Map view model for the main map</p>
+
+                </dd>
+                <dt class="class">
+                    <a href="/OfferViewModel" title="class - OfferViewModel">
+                        Offer​View​Model
+                    </a>
+                </dt>
+                <dd>
+                    <p>Offer view model for result screen</p>
+
+                </dd>
+                <dt class="class">
+                    <a href="/StationDetailsViewModel" title="class - StationDetailsViewModel">
+                        Station​Details​View​Model
+                    </a>
+                </dt>
+                <dd>
+                    <p>Station details view model</p>
+
+                </dd>
+                <dt class="class">
+                    <a href="/StationListViewModel" title="class - StationListViewModel">
+                        Station​List​View​Model
+                    </a>
+                </dt>
+                <dd>
+                    <p>Station list view model with every station the API returns</p>
+
+                </dd>
+                <dt class="class">
+                    <a href="/TrainViewModel" title="class - TrainViewModel">
+                        Train​View​Model
+                    </a>
+                </dt>
+                <dd>
+                    <p>Train details view model</p>
+
+                </dd>
+            </dl>
+        </section>
+        <section id="structures">
+            <h2>Structures</h2>
+            <dl>
+                <dt class="structure">
+                    <a href="/MavPlusApp" title="structure - MavPlusApp">
+                        Mav​Plus​App
+                    </a>
+                </dt>
+                <dd>
+
+                </dd>
+                <dt class="structure">
+                    <a href="/PersistenceController" title="structure - PersistenceController">
+                        Persistence​Controller
+                    </a>
+                </dt>
+                <dd>
+
+                </dd>
+                <dt class="structure">
+                    <a href="/StationLocation" title="structure - StationLocation">
+                        Station​Location
+                    </a>
+                </dt>
+                <dd>
+                    <p>Station location with code and coordinates</p>
+
+                </dd>
+                <dt class="structure">
+                    <a href="/ApiRepositoryFields" title="structure - ApiRepositoryFields">
+                        Api​Repository​Fields
+                    </a>
+                </dt>
+                <dd>
+
+                </dd>
+                <dt class="structure">
+                    <a href="/RssFields" title="structure - RssFields">
+                        Rss​Fields
+                    </a>
+                </dt>
+                <dd>
+                    <p>Data type for the result of RSS parsing</p>
+
+                </dd>
+                <dt class="structure">
+                    <a href="/StoreFields" title="structure - StoreFields">
+                        Store​Fields
+                    </a>
+                </dt>
+                <dd>
+                    <p>Store fields main data type</p>
+
+                </dd>
+                <dt class="structure">
+                    <a href="/City" title="structure - City">
+                        City
+                    </a>
+                </dt>
+                <dd>
+                    <p>Data type representing a city</p>
+
+                </dd>
+                <dt class="structure">
+                    <a href="/CustomersAndDiscounts" title="structure - CustomersAndDiscounts">
+                        Customers​And​Discounts
+                    </a>
+                </dt>
+                <dd>
+                    <p>Data type representing discounts and customer types</p>
+
+                </dd>
+                <dt class="structure">
+                    <a href="/CustomerType" title="structure - CustomerType">
+                        Customer​Type
+                    </a>
+                </dt>
+                <dd>
+                    <p>Data type representing the different types of customers</p>
+
+                </dd>
+                <dt class="structure">
+                    <a href="/DiscountProp" title="structure - DiscountProp">
+                        Discount​Prop
+                    </a>
+                </dt>
+                <dd>
+
+                </dd>
+                <dt class="structure">
+                    <a href="/ForeignDescriptions" title="structure - ForeignDescriptions">
+                        Foreign​Descriptions
+                    </a>
+                </dt>
+                <dd>
+                    <p>Data type representing the description of CustomerType objects in foreign languages</p>
+
+                </dd>
+                <dt class="structure">
+                    <a href="/Foreign" title="structure - Foreign">
+                        Foreign
+                    </a>
+                </dt>
+                <dd>
+                    <p>Data type representing the name of CustomerType objects in foreign languages</p>
+
+                </dd>
+                <dt class="structure">
+                    <a href="/Discount" title="structure - Discount">
+                        Discount
+                    </a>
+                </dt>
+                <dd>
+                    <p>Data type representing the types of discounts</p>
+
+                </dd>
+                <dt class="structure">
+                    <a href="/DiscountValue" title="structure - DiscountValue">
+                        Discount​Value
+                    </a>
+                </dt>
+                <dd>
+                    <p>Data type representing the value of a discount type</p>
+
+                </dd>
+                <dt class="structure">
+                    <a href="/CustomersQueryDto" title="structure - CustomersQueryDto">
+                        Customers​Query​Dto
+                    </a>
+                </dt>
+                <dd>
+
+                </dd>
+                <dt class="structure">
+                    <a href="/Offer" title="structure - Offer">
+                        Offer
+                    </a>
+                </dt>
+                <dd>
+                    <p>Data type representing a direction offer</p>
+
+                </dd>
+                <dt class="structure">
+                    <a href="/OfferRoute" title="structure - OfferRoute">
+                        Offer​Route
+                    </a>
+                </dt>
+                <dd>
+                    <p>Data type representing the parts of an Offer</p>
+
+                </dd>
+                <dt class="structure">
+                    <a href="/Arrival" title="structure - Arrival">
+                        Arrival
+                    </a>
+                </dt>
+                <dd>
+                    <p>The time data of the departure/arrival of a train at a station</p>
+
+                </dd>
+                <dt class="structure">
+                    <a href="/Track" title="structure - Track">
+                        Track
+                    </a>
+                </dt>
+                <dd>
+                    <p>Data type representing the arrival/departing track of a train at a station</p>
+
+                </dd>
+                <dt class="structure">
+                    <a href="/Details" title="structure - Details">
+                        Details
+                    </a>
+                </dt>
+                <dd>
+                    <p>Data type representing details of a part of a route (OfferRoute)</p>
+
+                </dd>
+                <dt class="structure">
+                    <a href="/DetailsRoute" title="structure - DetailsRoute">
+                        Details​Route
+                    </a>
+                </dt>
+                <dd>
+                    <p>Details of a part of a route in Details</p>
+
+                </dd>
+                <dt class="structure">
+                    <a href="/DestionationStationClass" title="structure - DestionationStationClass">
+                        Destionation​Station​Class
+                    </a>
+                </dt>
+                <dd>
+                    <p>Data for a station along a part of a route</p>
+
+                </dd>
+                <dt class="structure">
+                    <a href="/MasodlagosEszkozSzolgaltatasok" title="structure - MasodlagosEszkozSzolgaltatasok">
+                        Masodlagos​Eszkoz​Szolgaltatasok
+                    </a>
+                </dt>
+                <dd>
+
+                </dd>
+                <dt class="structure">
+                    <a href="/Services" title="structure - Services">
+                        Services
+                    </a>
+                </dt>
+                <dd>
+                    <p>The list of services on the train, and along a part of a route</p>
+
+                </dd>
+                <dt class="structure">
+                    <a href="/RouteService" title="structure - RouteService">
+                        Route​Service
+                    </a>
+                </dt>
+                <dd>
+
+                </dd>
+                <dt class="structure">
+                    <a href="/TrainDetails" title="structure - TrainDetails">
+                        Train​Details
+                    </a>
+                </dt>
+                <dd>
+                    <p>Details about a train</p>
+
+                </dd>
+                <dt class="structure">
+                    <a href="/TrainKind" title="structure - TrainKind">
+                        Train​Kind
+                    </a>
+                </dt>
+                <dd>
+                    <p>Data type with the kind of a train</p>
+
+                </dd>
+                <dt class="structure">
+                    <a href="/EndStationClass" title="structure - EndStationClass">
+                        End​Station​Class
+                    </a>
+                </dt>
+                <dd>
+                    <p>Data about a starting/ending station of a train</p>
+
+                </dd>
+                <dt class="structure">
+                    <a href="/TravelClass" title="structure - TravelClass">
+                        Travel​Class
+                    </a>
+                </dt>
+                <dd>
+                    <p>Data about a travel class on a train</p>
+
+                </dd>
+                <dt class="structure">
+                    <a href="/Price" title="structure - Price">
+                        Price
+                    </a>
+                </dt>
+                <dd>
+                    <p>Price of a TravelClass on a train</p>
+
+                </dd>
+                <dt class="structure">
+                    <a href="/PriceCurrency" title="structure - PriceCurrency">
+                        Price​Currency
+                    </a>
+                </dt>
+                <dd>
+                    <p>Currency associated with a Price</p>
+
+                </dd>
+                <dt class="structure">
+                    <a href="/Ticket" title="structure - Ticket">
+                        Ticket
+                    </a>
+                </dt>
+                <dd>
+                    <p>Data type of a ticket</p>
+
+                </dd>
+                <dt class="structure">
+                    <a href="/Params" title="structure - Params">
+                        Params
+                    </a>
+                </dt>
+                <dd>
+
+                </dd>
+                <dt class="structure">
+                    <a href="/ClientDiscount" title="structure - ClientDiscount">
+                        Client​Discount
+                    </a>
+                </dt>
+                <dd>
+                    <p>A discount a client has</p>
+
+                </dd>
+                <dt class="structure">
+                    <a href="/DiscountedGrossPrice" title="structure - DiscountedGrossPrice">
+                        Discounted​Gross​Price
+                    </a>
+                </dt>
+                <dd>
+                    <p>Gross price after a discount</p>
+
+                </dd>
+                <dt class="structure">
+                    <a href="/DiscountedGrossPriceCurrency" title="structure - DiscountedGrossPriceCurrency">
+                        Discounted​Gross​Price​Currency
+                    </a>
+                </dt>
+                <dd>
+                    <p>Currency of a discounted price</p>
+
+                </dd>
+                <dt class="structure">
+                    <a href="/PlaceTicket" title="structure - PlaceTicket">
+                        Place​Ticket
+                    </a>
+                </dt>
+                <dd>
+                    <p>Seat reservation data</p>
+
+                </dd>
+                <dt class="structure">
+                    <a href="/TicketTrain" title="structure - TicketTrain">
+                        Ticket​Train
+                    </a>
+                </dt>
+                <dd>
+                    <p>Train associated with a ticket</p>
+
+                </dd>
+                <dt class="structure">
+                    <a href="/OfferRequestQueryDto" title="structure - OfferRequestQueryDto">
+                        Offer​Request​Query​Dto
+                    </a>
+                </dt>
+                <dd>
+                    <p>Data Transfer Object (DTO) for an Offer request</p>
+
+                </dd>
+                <dt class="structure">
+                    <a href="/Passenger" title="structure - Passenger">
+                        Passenger
+                    </a>
+                </dt>
+                <dd>
+                    <p>Data type representing passengers</p>
+
+                </dd>
+                <dt class="structure">
+                    <a href="/ServicesDto" title="structure - ServicesDto">
+                        Services​Dto
+                    </a>
+                </dt>
+                <dd>
+                    <p>Data Transfer Object (DTO) for services</p>
+
+                </dd>
+                <dt class="structure">
+                    <a href="/SearchService" title="structure - SearchService">
+                        Search​Service
+                    </a>
+                </dt>
+                <dd>
+                    <p>Data type for search parameters</p>
+
+                </dd>
+                <dt class="structure">
+                    <a href="/ForeignNames" title="structure - ForeignNames">
+                        Foreign​Names
+                    </a>
+                </dt>
+                <dd>
+                    <p>Name of a service/parameter in foreign languages</p>
+
+                </dd>
+                <dt class="structure">
+                    <a href="/Service" title="structure - Service">
+                        Service
+                    </a>
+                </dt>
+                <dd>
+                    <p>Data type for services</p>
+
+                </dd>
+                <dt class="structure">
+                    <a href="/ServiceQueryDto" title="structure - ServiceQueryDto">
+                        Service​Query​Dto
+                    </a>
+                </dt>
+                <dd>
+
+                </dd>
+                <dt class="structure">
+                    <a href="/StationInfo" title="structure - StationInfo">
+                        Station​Info
+                    </a>
+                </dt>
+                <dd>
+                    <p>Data on a station</p>
+
+                </dd>
+                <dt class="structure">
+                    <a href="/StationSchedulerDetails" title="structure - StationSchedulerDetails">
+                        Station​Scheduler​Details
+                    </a>
+                </dt>
+                <dd>
+                    <p>Station scheduler</p>
+
+                </dd>
+                <dt class="structure">
+                    <a href="/Scheduler" title="structure - Scheduler">
+                        Scheduler
+                    </a>
+                </dt>
+                <dd>
+                    <p>Schedule data</p>
+
+                </dd>
+                <dt class="structure">
+                    <a href="/FullNameAndPiktogram" title="structure - FullNameAndPiktogram">
+                        Full​Name​And​Piktogram
+                    </a>
+                </dt>
+                <dd>
+                    <p>Full name and icon of a train</p>
+
+                </dd>
+                <dt class="structure">
+                    <a href="/HavarianInfok" title="structure - HavarianInfok">
+                        Havarian​Infok
+                    </a>
+                </dt>
+                <dd>
+                    <p>Additional information in case of a service disturbance</p>
+
+                </dd>
+                <dt class="structure">
+                    <a href="/Kind" title="structure - Kind">
+                        Kind
+                    </a>
+                </dt>
+                <dd>
+
+                </dd>
+                <dt class="structure">
+                    <a href="/Sign" title="structure - Sign">
+                        Sign
+                    </a>
+                </dt>
+                <dd>
+                    <p>An icon</p>
+
+                </dd>
+                <dt class="structure">
+                    <a href="/StationService" title="structure - StationService">
+                        Station​Service
+                    </a>
+                </dt>
+                <dd>
+
+                </dd>
+                <dt class="structure">
+                    <a href="/ViszonylatObject" title="structure - ViszonylatObject">
+                        Viszonylat​Object
+                    </a>
+                </dt>
+                <dd>
+                    <p>Data on a route</p>
+
+                </dd>
+                <dt class="structure">
+                    <a href="/ViszonylatiJel" title="structure - ViszonylatiJel">
+                        Viszonylati​Jel
+                    </a>
+                </dt>
+                <dd>
+                    <p>Icon for a route</p>
+
+                </dd>
+                <dt class="structure">
+                    <a href="/StationInfoQueryDto" title="structure - StationInfoQueryDto">
+                        Station​Info​Query​Dto
+                    </a>
+                </dt>
+                <dd>
+                    <p>Data Transfer Object (DTO) for station info queries</p>
+
+                </dd>
+                <dt class="structure">
+                    <a href="/Station" title="structure - Station">
+                        Station
+                    </a>
+                </dt>
+                <dd>
+                    <p>Data on a station</p>
+
+                </dd>
+                <dt class="structure">
+                    <a href="/TrainInfo" title="structure - TrainInfo">
+                        Train​Info
+                    </a>
+                </dt>
+                <dd>
+                    <p>Data on train schedules</p>
+
+                </dd>
+                <dt class="structure">
+                    <a href="/TrainSchedulerDetail" title="structure - TrainSchedulerDetail">
+                        Train​Scheduler​Detail
+                    </a>
+                </dt>
+                <dd>
+                    <p>Data for a scheduled arrivals/departures of a train</p>
+
+                </dd>
+                <dt class="structure">
+                    <a href="/TrainScheduler" title="structure - TrainScheduler">
+                        Train​Scheduler
+                    </a>
+                </dt>
+                <dd>
+                    <p>Scheduled arrival/departure of a train at a station</p>
+
+                </dd>
+                <dt class="structure">
+                    <a href="/Train" title="structure - Train">
+                        Train
+                    </a>
+                </dt>
+                <dd>
+                    <p>Data on a train</p>
+
+                </dd>
+                <dt class="structure">
+                    <a href="/TrainInfoQueryDto" title="structure - TrainInfoQueryDto">
+                        Train​Info​Query​Dto
+                    </a>
+                </dt>
+                <dd>
+                    <p>Data Transfer Object (DTO) for train info queries</p>
+
+                </dd>
+                <dt class="structure">
+                    <a href="/TrainLocationList" title="structure - TrainLocationList">
+                        Train​Location​List
+                    </a>
+                </dt>
+                <dd>
+                    <p>List of train locations</p>
+
+                </dd>
+                <dt class="structure">
+                    <a href="/TrainLocation" title="structure - TrainLocation">
+                        Train​Location
+                    </a>
+                </dt>
+                <dd>
+                    <p>Data on a train location</p>
+
+                </dd>
+                <dt class="structure">
+                    <a href="/Viszonylat" title="structure - Viszonylat">
+                        Viszonylat
+                    </a>
+                </dt>
+                <dd>
+                    <p>Data on a route for trains</p>
+
+                </dd>
+                <dt class="structure">
+                    <a href="/LocationQueryDto" title="structure - LocationQueryDto">
+                        Location​Query​Dto
+                    </a>
+                </dt>
+                <dd>
+                    <p>Data Transfer Object (DTO) for a location query</p>
+
+                </dd>
+                <dt class="structure">
+                    <a href="/WarninMessagesDto" title="structure - WarninMessagesDto">
+                        Warnin​Messages​Dto
+                    </a>
+                </dt>
+                <dd>
+                    <p>Data Transfer Object (DTO) for warning messages</p>
+
+                </dd>
+                <dt class="structure">
+                    <a href="/ErrorView" title="structure - ErrorView">
+                        Error​View
+                    </a>
+                </dt>
+                <dd>
+                    <p>Error screen.</p>
+
+                </dd>
+                <dt class="structure">
+                    <a href="/ErrorView_Previews" title="structure - ErrorView_Previews">
+                        Error​View_Previews
+                    </a>
+                </dt>
+                <dd>
+                    <p>SwiftUI Preview</p>
+
+                </dd>
+                <dt class="structure">
+                    <a href="/IconField" title="structure - IconField">
+                        Icon​Field
+                    </a>
+                </dt>
+                <dd>
+                    <p>A UI component with text and an image</p>
+
+                </dd>
+                <dt class="structure">
+                    <a href="/IconField_Previews" title="structure - IconField_Previews">
+                        Icon​Field_Previews
+                    </a>
+                </dt>
+                <dd>
+                    <p>SwiftUI Preview</p>
+
+                </dd>
+                <dt class="structure">
+                    <a href="/MapIcon" title="structure - MapIcon">
+                        Map​Icon
+                    </a>
+                </dt>
+                <dd>
+                    <p>An icon on the map with an image.</p>
+
+                </dd>
+                <dt class="structure">
+                    <a href="/MapIcon_Previews" title="structure - MapIcon_Previews">
+                        Map​Icon_Previews
+                    </a>
+                </dt>
+                <dd>
+                    <p>SwiftUI view generation.</p>
+
+                </dd>
+                <dt class="structure">
+                    <a href="/MapKitMap" title="structure - MapKitMap">
+                        Map​Kit​Map
+                    </a>
+                </dt>
+                <dd>
+                    <p>SwiftUI embeddable UIKit based Map view</p>
+
+                </dd>
+                <dt class="structure">
+                    <a href="/MapKitMap_Previews" title="structure - MapKitMap_Previews">
+                        Map​Kit​Map_Previews
+                    </a>
+                </dt>
+                <dd>
+                    <p>SwiftUI Preview</p>
+
+                </dd>
+                <dt class="structure">
+                    <a href="/SpinnerView" title="structure - SpinnerView">
+                        Spinner​View
+                    </a>
+                </dt>
+                <dd>
+                    <p>Spinning loading icon UI component</p>
+
+                </dd>
+                <dt class="structure">
+                    <a href="/Spinner" title="structure - Spinner">
+                        Spinner
+                    </a>
+                </dt>
+                <dd>
+                    <p>Model for custom loading UI component</p>
+
+                </dd>
+                <dt class="structure">
+                    <a href="/SpinnerCircle" title="structure - SpinnerCircle">
+                        Spinner​Circle
+                    </a>
+                </dt>
+                <dd>
+
+                </dd>
+                <dt class="structure">
+                    <a href="/Spinner_Previews" title="structure - Spinner_Previews">
+                        Spinner_Previews
+                    </a>
+                </dt>
+                <dd>
+                    <p>SwiftUI Preview</p>
+
+                </dd>
+                <dt class="structure">
+                    <a href="/WebView" title="structure - WebView">
+                        Web​View
+                    </a>
+                </dt>
+                <dd>
+                    <p>SwiftUI embeddable UIKit based web view component</p>
+
+                </dd>
+                <dt class="structure">
+                    <a href="/WebView_Previews" title="structure - WebView_Previews">
+                        Web​View_Previews
+                    </a>
+                </dt>
+                <dd>
+                    <p>SwiftUI Preview</p>
+
+                </dd>
+                <dt class="structure">
+                    <a href="/DirectionsOfferListItem" title="structure - DirectionsOfferListItem">
+                        Directions​Offer​List​Item
+                    </a>
+                </dt>
+                <dd>
+                    <p>View for an Offer item in the list of Offers</p>
+
+                </dd>
+                <dt class="structure">
+                    <a href="/DirectionsOfferView_Previews" title="structure - DirectionsOfferView_Previews">
+                        Directions​Offer​View_Previews
+                    </a>
+                </dt>
+                <dd>
+                    <p>SwiftUI Preview</p>
+
+                </dd>
+                <dt class="structure">
+                    <a href="/DirectionsQuerySummary" title="structure - DirectionsQuerySummary">
+                        Directions​Query​Summary
+                    </a>
+                </dt>
+                <dd>
+                    <p>View for the summary of the query</p>
+
+                </dd>
+                <dt class="structure">
+                    <a href="/DirectionsQuerySummary_Previews" title="structure - DirectionsQuerySummary_Previews">
+                        Directions​Query​Summary_Previews
+                    </a>
+                </dt>
+                <dd>
+                    <p>SwiftUI Preview</p>
+
+                </dd>
+                <dt class="structure">
+                    <a href="/StationPickerField" title="structure - StationPickerField">
+                        Station​Picker​Field
+                    </a>
+                </dt>
+                <dd>
+
+                </dd>
+                <dt class="structure">
+                    <a href="/StationPickerModal" title="structure - StationPickerModal">
+                        Station​Picker​Modal
+                    </a>
+                </dt>
+                <dd>
+
+                </dd>
+                <dt class="structure">
+                    <a href="/StationPicker_Previews" title="structure - StationPicker_Previews">
+                        Station​Picker_Previews
+                    </a>
+                </dt>
+                <dd>
+                    <p>SwiftUI Preview</p>
+
+                </dd>
+                <dt class="structure">
+                    <a href="/TrainListItemData" title="structure - TrainListItemData">
+                        Train​List​Item​Data
+                    </a>
+                </dt>
+                <dd>
+                    <p>Data class representing a train in the trainlist.</p>
+
+                </dd>
+                <dt class="structure">
+                    <a href="/TrainListItem" title="structure - TrainListItem">
+                        Train​List​Item
+                    </a>
+                </dt>
+                <dd>
+                    <p>View component representing a single train in the trainlist.</p>
+
+                </dd>
+                <dt class="structure">
+                    <a href="/TrainListItem_Previews" title="structure - TrainListItem_Previews">
+                        Train​List​Item_Previews
+                    </a>
+                </dt>
+                <dd>
+                    <p>SwiftUI Preview</p>
+
+                </dd>
+                <dt class="structure">
+                    <a href="/RootNavigation" title="structure - RootNavigation">
+                        Root​Navigation
+                    </a>
+                </dt>
+                <dd>
+                    <p>Main TabView component containing every screen of tha app.</p>
+
+                </dd>
+                <dt class="structure">
+                    <a href="/RootNavigation_Previews" title="structure - RootNavigation_Previews">
+                        Root​Navigation_Previews
+                    </a>
+                </dt>
+                <dd>
+                    <p>SwiftUI Preview</p>
+
+                </dd>
+                <dt class="structure">
+                    <a href="/DirectionsFinal" title="structure - DirectionsFinal">
+                        Directions​Final
+                    </a>
+                </dt>
+                <dd>
+                    <p>View presenting a single directions Offer</p>
+
+                </dd>
+                <dt class="structure">
+                    <a href="/DirectionsFinal_Previews" title="structure - DirectionsFinal_Previews">
+                        Directions​Final_Previews
+                    </a>
+                </dt>
+                <dd>
+                    <p>SwiftUI Preview</p>
+
+                </dd>
+                <dt class="structure">
+                    <a href="/DirectionsFormScreen" title="structure - DirectionsFormScreen">
+                        Directions​Form​Screen
+                    </a>
+                </dt>
+                <dd>
+                    <p>View for direction query input, with TextInputs</p>
+
+                </dd>
+                <dt class="structure">
+                    <a href="/Directions_Previews" title="structure - Directions_Previews">
+                        Directions_Previews
+                    </a>
+                </dt>
+                <dd>
+                    <p>SwiftUI Preview</p>
+
+                </dd>
+                <dt class="structure">
+                    <a href="/DirectionsResultScreen" title="structure - DirectionsResultScreen">
+                        Directions​Result​Screen
+                    </a>
+                </dt>
+                <dd>
+                    <p>List view showing the results for a direction query</p>
+
+                </dd>
+                <dt class="structure">
+                    <a href="/Home" title="structure - Home">
+                        Home
+                    </a>
+                </dt>
+                <dd>
+
+                </dd>
+                <dt class="structure">
+                    <a href="/Home_Previews" title="structure - Home_Previews">
+                        Home_Previews
+                    </a>
+                </dt>
+                <dd>
+
+                </dd>
+                <dt class="structure">
+                    <a href="/HomeScreen" title="structure - HomeScreen">
+                        Home​Screen
+                    </a>
+                </dt>
+                <dd>
+                    <p>View for the landing screen</p>
+
+                </dd>
+                <dt class="structure">
+                    <a href="/Home_Previews" title="structure - Home_Previews">
+                        Home_Previews
+                    </a>
+                </dt>
+                <dd>
+                    <p>SwiftUI Preview</p>
+
+                </dd>
+                <dt class="structure">
+                    <a href="/LoadingScreen" title="structure - LoadingScreen">
+                        Loading​Screen
+                    </a>
+                </dt>
+                <dd>
+                    <p>View presenting a loading screen with a spinning loading icon</p>
+
+                </dd>
+                <dt class="structure">
+                    <a href="/LoadingScreen_Previews" title="structure - LoadingScreen_Previews">
+                        Loading​Screen_Previews
+                    </a>
+                </dt>
+                <dd>
+                    <p>SwiftUI Preview</p>
+
+                </dd>
+                <dt class="structure">
+                    <a href="/MavMap" title="structure - MavMap">
+                        Mav​Map
+                    </a>
+                </dt>
+                <dd>
+                    <p>Custom map for showing stations and trains using MapKit Map, refreshing every 5 seconds</p>
+
+                </dd>
+                <dt class="structure">
+                    <a href="/Settings" title="structure - Settings">
+                        Settings
+                    </a>
+                </dt>
+                <dd>
+                    <p>Placeholder view for settings</p>
+
+                </dd>
+                <dt class="structure">
+                    <a href="/Settings_Previews" title="structure - Settings_Previews">
+                        Settings_Previews
+                    </a>
+                </dt>
+                <dd>
+                    <p>SwiftUI Preview</p>
+
+                </dd>
+                <dt class="structure">
+                    <a href="/StationDetailsMapScreen" title="structure - StationDetailsMapScreen">
+                        Station​Details​Map​Screen
+                    </a>
+                </dt>
+                <dd>
+                    <p>Map view showing the location of a single station</p>
+
+                </dd>
+                <dt class="structure">
+                    <a href="/StationDetailsScreen" title="structure - StationDetailsScreen">
+                        Station​Details​Screen
+                    </a>
+                </dt>
+                <dd>
+                    <p>View showing the details of a station (e.g. location, name, train departures, etc.)</p>
+
+                </dd>
+                <dt class="structure">
+                    <a href="/DepartureListItem" title="structure - DepartureListItem">
+                        Departure​List​Item
+                    </a>
+                </dt>
+                <dd>
+
+                </dd>
+                <dt class="structure">
+                    <a href="/StationDetailsScreen_Previews" title="structure - StationDetailsScreen_Previews">
+                        Station​Details​Screen_Previews
+                    </a>
+                </dt>
+                <dd>
+
+                </dd>
+                <dt class="structure">
+                    <a href="/StationListScreen" title="structure - StationListScreen">
+                        Station​List​Screen
+                    </a>
+                </dt>
+                <dd>
+                    <p>View listing every station</p>
+
+                </dd>
+                <dt class="structure">
+                    <a href="/StationListView_Previews" title="structure - StationListView_Previews">
+                        Station​List​View_Previews
+                    </a>
+                </dt>
+                <dd>
+                    <p>SwiftUI Preview</p>
+
+                </dd>
+                <dt class="structure">
+                    <a href="/TrafficNews" title="structure - TrafficNews">
+                        Traffic​News
+                    </a>
+                </dt>
+                <dd>
+                    <p>View for RSS feed showing traffic news</p>
+
+                </dd>
+                <dt class="structure">
+                    <a href="/TrafficNews_Previews" title="structure - TrafficNews_Previews">
+                        Traffic​News_Previews
+                    </a>
+                </dt>
+                <dd>
+                    <p>SwiftUI Preview</p>
+
+                </dd>
+                <dt class="structure">
+                    <a href="/TrainDetailsScreen" title="structure - TrainDetailsScreen">
+                        Train​Details​Screen
+                    </a>
+                </dt>
+                <dd>
+                    <p>View presenting the details of a train (e.g. name, stops, how late it is, etc.)</p>
+
+                </dd>
+                <dt class="structure">
+                    <a href="/TrainDetailsScreen_Previews" title="structure - TrainDetailsScreen_Previews">
+                        Train​Details​Screen_Previews
+                    </a>
+                </dt>
+                <dd>
+                    <p>SwiftUI Preview</p>
+
+                </dd>
+                <dt class="structure">
+                    <a href="/Alert" title="structure - Alert">
+                        Alert
+                    </a>
+                </dt>
+                <dd>
+                    <p>Alert list item with url</p>
+
+                </dd>
+                <dt class="structure">
+                    <a href="/FormStationListItem" title="structure - FormStationListItem">
+                        Form​Station​List​Item
+                    </a>
+                </dt>
+                <dd>
+                    <p>Station picker data model</p>
+
+                </dd>
+                <dt class="structure">
+                    <a href="/FavoriteStationListItem" title="structure - FavoriteStationListItem">
+                        Favorite​Station​List​Item
+                    </a>
+                </dt>
+                <dd>
+                    <p>Favorite stations</p>
+
+                </dd>
+                <dt class="structure">
+                    <a href="/RecentOfferListItem" title="structure - RecentOfferListItem">
+                        Recent​Offer​List​Item
+                    </a>
+                </dt>
+                <dd>
+                    <p>Recent offers</p>
+
+                </dd>
+                <dt class="structure">
+                    <a href="/AlertListItem" title="structure - AlertListItem">
+                        Alert​List​Item
+                    </a>
+                </dt>
+                <dd>
+                    <p>Alerts</p>
+
+                </dd>
+                <dt class="structure">
+                    <a href="/OfferData" title="structure - OfferData">
+                        Offer​Data
+                    </a>
+                </dt>
+                <dd>
+                    <p>Offer data</p>
+
+                </dd>
+                <dt class="structure">
+                    <a href="/OfferRoutePart" title="structure - OfferRoutePart">
+                        Offer​Route​Part
+                    </a>
+                </dt>
+                <dd>
+                    <p>Offer Route Part between two stations in a route, there may be multiple route parts in an
+                        offer</p>
+
+                </dd>
+                <dt class="structure">
+                    <a href="/StationDetails" title="structure - StationDetails">
+                        Station​Details
+                    </a>
+                </dt>
+                <dd>
+                    <p>Station details</p>
+
+                </dd>
+                <dt class="structure">
+                    <a href="/TrainPictogram" title="structure - TrainPictogram">
+                        Train​Pictogram
+                    </a>
+                </dt>
+                <dd>
+                    <p>Train pictogram with color and name</p>
+
+                </dd>
+                <dt class="structure">
+                    <a href="/Departure" title="structure - Departure">
+                        Departure
+                    </a>
+                </dt>
+                <dd>
+                    <p>Departure with UUID</p>
+
+                </dd>
+                <dt class="structure">
+                    <a href="/StationListItem" title="structure - StationListItem">
+                        Station​List​Item
+                    </a>
+                </dt>
+                <dd>
+                    <p>Station list item data struct</p>
+
+                </dd>
+                <dt class="structure">
+                    <a href="/TrainData" title="structure - TrainData">
+                        Train​Data
+                    </a>
+                </dt>
+                <dd>
+                    <p>Main data type for trains</p>
+
+                </dd>
+                <dt class="structure">
+                    <a href="/Stop" title="structure - Stop">
+                        Stop
+                    </a>
+                </dt>
+                <dd>
+                    <p>Where the train stops and when</p>
+
+                </dd>
+            </dl>
+        </section>
+        <section id="enumerations">
+            <h2>Enumerations</h2>
+            <dl>
+                <dt class="enumeration">
+                    <a href="/InterestingTag" title="enumeration - InterestingTag">
+                        Interesting​Tag
+                    </a>
+                </dt>
+                <dd>
+                    <p>Enum for the tags to parse</p>
+
+                </dd>
+                <dt class="enumeration">
+                    <a href="/FullNameAndPiktogram_CodingKeys" title="enumeration - FullNameAndPiktogram.CodingKeys">
+                        Full​Name​And​Piktogram.​Coding​Keys
+                    </a>
+                </dt>
+                <dd>
+
+                </dd>
+            </dl>
+        </section>
+        <section id="protocols">
+            <h2>Protocols</h2>
+            <dl>
+                <dt class="protocol">
+                    <a href="/RssProtocol" title="protocol - RssProtocol">
+                        Rss​Protocol
+                    </a>
+                </dt>
+                <dd>
+                    <p>Protocol for accessing RssRepository</p>
+
+                </dd>
+                <dt class="protocol">
+                    <a href="/RequestStatus" title="protocol - RequestStatus">
+                        Request​Status
+                    </a>
+                </dt>
+                <dd>
+                    <p>Protocol for a request's status</p>
+
+                </dd>
+                <dt class="protocol">
+                    <a href="/Updateable" title="protocol - Updateable">
+                        Updateable
+                    </a>
+                </dt>
+                <dd>
+                    <p>Protocol for updatable classes</p>
+
+                </dd>
+            </dl>
+        </section>
+        <section id="typealiases">
+            <h2>Typealiases</h2>
+            <dl>
+                <dt class="typealias">
+                    <a href="/Cities" title="typealias - Cities">
+                        Cities
+                    </a>
+                </dt>
+                <dd>
+
+                </dd>
+                <dt class="typealias">
+                    <a href="/StationList" title="typealias - StationList">
+                        Station​List
+                    </a>
+                </dt>
+                <dd>
+
+                </dd>
+            </dl>
+        </section>
+        <section id="functions">
+            <h2>Functions</h2>
+            <dl>
+                <dt class="function">
+                    <a href="/citiesRequest(completion_)" title="function - citiesRequest(completion:)">
+                        cities​Request(completion:​)
+                    </a>
+                </dt>
+                <dd>
+                    <p>Gets the cities with postal codes</p>
+
+                </dd>
+                <dt class="function">
+                    <a href="/customersRequest(completion_)" title="function - customersRequest(completion:)">
+                        customers​Request(completion:​)
+                    </a>
+                </dt>
+                <dd>
+                    <p>Gets customer types and dicount types</p>
+
+                </dd>
+                <dt class="function">
+                    <a href="/stationListRequest(completion_)" title="function - stationListRequest(completion:)">
+                        station​List​Request(completion:​)
+                    </a>
+                </dt>
+                <dd>
+                    <p>Gets the station list</p>
+
+                </dd>
+                <dt class="function">
+                    <a href="/servicesRequest(completion_)" title="function - servicesRequest(completion:)">
+                        services​Request(completion:​)
+                    </a>
+                </dt>
+                <dd>
+                    <p>Gets available services to search for in offers</p>
+
+                </dd>
+                <dt class="function">
+                    <a href="/trainInfoRequest(trainId_completion_)"
+                       title="function - trainInfoRequest(trainId:completion:)">
+                        train​Info​Request(train​Id:​completion:​)
+                    </a>
+                </dt>
+                <dd>
+                    <p>Gets data of a single train</p>
+
+                </dd>
+                <dt class="function">
+                    <a href="/stationInfoRequest(stationNumberCode_completion_)"
+                       title="function - stationInfoRequest(stationNumberCode:completion:)">
+                        station​Info​Request(station​Number​Code:​completion:​)
+                    </a>
+                </dt>
+                <dd>
+                    <p>Gets data of a single station</p>
+
+                </dd>
+                <dt class="function">
+                    <a href="/offerRequest(startCode_endCode_passengerCount_startDate_completion_)"
+                       title="function - offerRequest(startCode:endCode:passengerCount:startDate:completion:)">
+                        offer​Request(start​Code:​end​Code:​passenger​Count:​start​Date:​completion:​)
+                    </a>
+                </dt>
+                <dd>
+                    <p>Get offer by start, end, passenger count and start date</p>
+
+                </dd>
+                <dt class="function">
+                    <a href="/trainLocationRequest(completion_)" title="function - trainLocationRequest(completion:)">
+                        train​Location​Request(completion:​)
+                    </a>
+                </dt>
+                <dd>
+                    <p>Get train location list (for every train)</p>
+
+                </dd>
+                <dt class="function">
+                    <a href="/getOffer(startCode_endCode_passengerCount_startDate_completion_)"
+                       title="function - getOffer(startCode:endCode:passengerCount:startDate:completion:)">
+                        get​Offer(start​Code:​end​Code:​passenger​Count:​start​Date:​completion:​)
+                    </a>
+                </dt>
+                <dd>
+                    <p>Get offer by start, end, passenger count and start date</p>
+
+                </dd>
+                <dt class="function">
+                    <a href="/getTrainLocations(completion_)" title="function - getTrainLocations(completion:)">
+                        get​Train​Locations(completion:​)
+                    </a>
+                </dt>
+                <dd>
+                    <p>Get train location list (for every train)</p>
+
+                </dd>
+                <dt class="function">
+                    <a href="/getStationInfo(stationNumberCode_completion_)"
+                       title="function - getStationInfo(stationNumberCode:completion:)">
+                        get​Station​Info(station​Number​Code:​completion:​)
+                    </a>
+                </dt>
+                <dd>
+                    <p>Get info for a single station</p>
+
+                </dd>
+                <dt class="function">
+                    <a href="/getTrainInfo(trainId_completion_)" title="function - getTrainInfo(trainId:completion:)">
+                        get​Train​Info(train​Id:​completion:​)
+                    </a>
+                </dt>
+                <dd>
+                    <p>Get info for a single train</p>
+
+                </dd>
+                <dt class="function">
+                    <a href="/updateFavoriteStationList()" title="function - updateFavoriteStationList()">
+                        update​Favorite​Station​List()
+                    </a>
+                </dt>
+                <dd>
+                    <p>Retrieves every saved favorite station</p>
+
+                </dd>
+                <dt class="function">
+                    <a href="/saveFavoriteStation(code_searchCount_isFavorite_)"
+                       title="function - saveFavoriteStation(code:searchCount:isFavorite:)">
+                        save​Favorite​Station(code:​search​Count:​is​Favorite:​)
+                    </a>
+                </dt>
+                <dd>
+                    <p>Saves a station as favorite</p>
+
+                </dd>
+                <dt class="function">
+                    <a href="/updateRecentOfferList()" title="function - updateRecentOfferList()">
+                        update​Recent​Offer​List()
+                    </a>
+                </dt>
+                <dd>
+                    <p>Retrieves every saved recent offer</p>
+
+                </dd>
+                <dt class="function">
+                    <a href="/deleteRecentOffer(id_)" title="function - deleteRecentOffer(id:)">
+                        delete​Recent​Offer(id:​)
+                    </a>
+                </dt>
+                <dd>
+                    <p>Deletes a recent offer by ID</p>
+
+                </dd>
+                <dt class="function">
+                    <a href="/saveRecentOffer(startCode_endCode_)"
+                       title="function - saveRecentOffer(startCode:endCode:)">
+                        save​Recent​Offer(start​Code:​end​Code:​)
+                    </a>
+                </dt>
+                <dd>
+                    <p>Saves recent offer</p>
+
+                </dd>
+                <dt class="function">
+                    <a href="/favoriteStationSearchCount(code_)" title="function - favoriteStationSearchCount(code:)">
+                        favorite​Station​Search​Count(code:​)
+                    </a>
+                </dt>
+                <dd>
+                    <p>Retrieves station search count</p>
+
+                </dd>
+                <dt class="function">
+                    <a href="/isFavoriteStation(code_)" title="function - isFavoriteStation(code:)">
+                        is​Favorite​Station(code:​)
+                    </a>
+                </dt>
+                <dd>
+                    <p>Checks whether the station with the given code is saved as favorite</p>
+
+                </dd>
+                <dt class="function">
+                    <a href="/DateFromIso(__)" title="function - DateFromIso(_:)">
+                        Date​From​Iso(_:​)
+                    </a>
+                </dt>
+                <dd>
+                    <p>Conveniance function converting an ISO8601 date as a String to Date object</p>
+
+                </dd>
+            </dl>
+        </section>
+        <section id="variables">
+            <h2>Variables</h2>
+            <dl>
+                <dt class="variable">
+                    <a href="/ContentType" title="variable - ContentType">
+                        Content​Type
+                    </a>
+                </dt>
+                <dd>
+
+                </dd>
+                <dt class="variable">
+                    <a href="/Accept" title="variable - Accept">
+                        Accept
+                    </a>
+                </dt>
+                <dd>
+
+                </dd>
+                <dt class="variable">
+                    <a href="/Language" title="variable - Language">
+                        Language
+                    </a>
+                </dt>
+                <dd>
+
+                </dd>
+                <dt class="variable">
+                    <a href="/UserSessionId" title="variable - UserSessionId">
+                        User​Session​Id
+                    </a>
+                </dt>
+                <dd>
+
+                </dd>
+                <dt class="variable">
+                    <a href="/shared" title="variable - shared">
+                        shared
+                    </a>
+                </dt>
+                <dd>
+                    <p>Singleton instance</p>
+
+                </dd>
+                <dt class="variable">
+                    <a href="/cities" title="variable - cities">
+                        cities
+                    </a>
+                </dt>
+                <dd>
+                    <p>Cities with postal codes</p>
+
+                </dd>
+                <dt class="variable">
+                    <a href="/customers" title="variable - customers">
+                        customers
+                    </a>
+                </dt>
+                <dd>
+                    <p>Customer types and discounts</p>
+
+                </dd>
+                <dt class="variable">
+                    <a href="/stationList" title="variable - stationList">
+                        station​List
+                    </a>
+                </dt>
+                <dd>
+                    <p>Station list</p>
+
+                </dd>
+                <dt class="variable">
+                    <a href="/stationLocationList" title="variable - stationLocationList">
+                        station​Location​List
+                    </a>
+                </dt>
+                <dd>
+                    <p>Station locations</p>
+
+                </dd>
+                <dt class="variable">
+                    <a href="/services" title="variable - services">
+                        services
+                    </a>
+                </dt>
+                <dd>
+                    <p>Search services</p>
+
+                </dd>
+                <dt class="variable">
+                    <a href="/notifier" title="variable - notifier">
+                        notifier
+                    </a>
+                </dt>
+                <dd>
+                    <p>Notifies whether data is available</p>
+
+                </dd>
+                <dt class="variable">
+                    <a href="/shared" title="variable - shared">
+                        shared
+                    </a>
+                </dt>
+                <dd>
+                    <p>Singleton instance of the class</p>
+
+                </dd>
+                <dt class="variable">
+                    <a href="/favoriteStations" title="variable - favoriteStations">
+                        favorite​Stations
+                    </a>
+                </dt>
+                <dd>
+                    <p>Favorite stations without any additional data</p>
+
+                </dd>
+                <dt class="variable">
+                    <a href="/recentOffers" title="variable - recentOffers">
+                        recent​Offers
+                    </a>
+                </dt>
+                <dd>
+                    <p>Recent offers without any additional data</p>
+
+                </dd>
+                <dt class="variable">
+                    <a href="/controller" title="variable - controller">
+                        controller
+                    </a>
+                </dt>
+                <dd>
+                    <p>Persistence controller for CoreData</p>
+
+                </dd>
+                <dt class="variable">
+                    <a href="/publisher" title="variable - publisher">
+                        publisher
+                    </a>
+                </dt>
+                <dd>
+                    <p>Async publisher, which sends when the data is retrieved from the storage</p>
+
+                </dd>
+                <dt class="variable">
+                    <a href="/MockStationList" title="variable - MockStationList">
+                        Mock​Station​List
+                    </a>
+                </dt>
+                <dd>
+
+                </dd>
+                <dt class="variable">
+                    <a href="/MockTrainPictogram" title="variable - MockTrainPictogram">
+                        Mock​Train​Pictogram
+                    </a>
+                </dt>
+                <dd>
+
+                </dd>
+                <dt class="variable">
+                    <a href="/MockOfferRoutePart" title="variable - MockOfferRoutePart">
+                        Mock​Offer​Route​Part
+                    </a>
+                </dt>
+                <dd>
+
+                </dd>
+                <dt class="variable">
+                    <a href="/MockOfferData" title="variable - MockOfferData">
+                        Mock​Offer​Data
+                    </a>
+                </dt>
+                <dd>
+
+                </dd>
+                <dt class="variable">
+                    <a href="/MockTrainData" title="variable - MockTrainData">
+                        Mock​Train​Data
+                    </a>
+                </dt>
+                <dd>
+
+                </dd>
+                <dt class="variable">
+                    <a href="/MockError" title="variable - MockError">
+                        Mock​Error
+                    </a>
+                </dt>
+                <dd>
+
+                </dd>
+                <dt class="variable">
+                    <a href="/MockQueryStartName" title="variable - MockQueryStartName">
+                        Mock​Query​Start​Name
+                    </a>
+                </dt>
+                <dd>
+
+                </dd>
+                <dt class="variable">
+                    <a href="/MockQueryEndName" title="variable - MockQueryEndName">
+                        Mock​Query​End​Name
+                    </a>
+                </dt>
+                <dd>
+
+                </dd>
+                <dt class="variable">
+                    <a href="/MockQueryPassengerCount" title="variable - MockQueryPassengerCount">
+                        Mock​Query​Passenger​Count
+                    </a>
+                </dt>
+                <dd>
+
+                </dd>
+                <dt class="variable">
+                    <a href="/MockQueryStartDate" title="variable - MockQueryStartDate">
+                        Mock​Query​Start​Date
+                    </a>
+                </dt>
+                <dd>
+
+                </dd>
+                <dt class="variable">
+                    <a href="/CitiesRequestPath" title="variable - CitiesRequestPath">
+                        Cities​Request​Path
+                    </a>
+                </dt>
+                <dd>
+                    <p>URL for requests of cities</p>
+
+                </dd>
+                <dt class="variable">
+                    <a href="/CustomersRequestPath" title="variable - CustomersRequestPath">
+                        Customers​Request​Path
+                    </a>
+                </dt>
+                <dd>
+                    <p>URL for requests of customers</p>
+
+                </dd>
+                <dt class="variable">
+                    <a href="/OfferRequestPath" title="variable - OfferRequestPath">
+                        Offer​Request​Path
+                    </a>
+                </dt>
+                <dd>
+                    <p>URL for requests of offers</p>
+
+                </dd>
+                <dt class="variable">
+                    <a href="/ServicesRequestPath" title="variable - ServicesRequestPath">
+                        Services​Request​Path
+                    </a>
+                </dt>
+                <dd>
+                    <p>URL for requests of services</p>
+
+                </dd>
+                <dt class="variable">
+                    <a href="/TimetableRequestPath" title="variable - TimetableRequestPath">
+                        Timetable​Request​Path
+                    </a>
+                </dt>
+                <dd>
+                    <p>URL for requests of schedules</p>
+
+                </dd>
+                <dt class="variable">
+                    <a href="/StationsRequestPath" title="variable - StationsRequestPath">
+                        Stations​Request​Path
+                    </a>
+                </dt>
+                <dd>
+                    <p>URL for requests of stations</p>
+
+                </dd>
+                <dt class="variable">
+                    <a href="/WarningMessagesRequestPath" title="variable - WarningMessagesRequestPath">
+                        Warning​Messages​Request​Path
+                    </a>
+                </dt>
+                <dd>
+                    <p>URL for requests of warning messages</p>
+
+                </dd>
+                <dt class="variable">
+                    <a href="/TrainLocationRequestPath" title="variable - TrainLocationRequestPath">
+                        Train​Location​Request​Path
+                    </a>
+                </dt>
+                <dd>
+                    <p>URL for requests of train locations</p>
+
+                </dd>
+                <dt class="variable">
+                    <a href="/RssFeedRequestPath" title="variable - RssFeedRequestPath">
+                        Rss​Feed​Request​Path
+                    </a>
+                </dt>
+                <dd>
+                    <p>URL for requests of RSS feed</p>
+
+                </dd>
+                <dt class="variable">
+                    <a href="/clusterID" title="variable - clusterID">
+                        cluster​ID
+                    </a>
+                </dt>
+                <dd>
+
+                </dd>
+            </dl>
+        </section>
+        <section id="extensions">
+            <h2>Extensions</h2>
+            <dl>
+                <dt class="extension">
+                    <a href="/Color">Color</a>
+                </dt>
+                <dd></dd>
+            </dl>
+            <section>
+    </article>
+</main>
+
+<footer>
+    <p>
+        Generated on
+        <time datetime="2022-12-07T21:32:57+0100">December 7, 2022</time>
+        using <a href="https://github.com/SwiftDocOrg/swift-doc">swift-doc</a> <span class="version">1.0.0-rc.1</span>.
+    </p>
+</footer>
+</body>
+</html>

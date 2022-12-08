@@ -1,0 +1,583 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MavPlus - TicketTrain</title>
+    <link rel="stylesheet" type="text/css" href="/all.css" media="all" />
+</head>
+<body>
+    <header>
+        <a href="/">
+            <strong>
+                MavPlus
+            </strong>
+            <span>Documentation</span>
+        </a>
+    </header>
+
+    <!--
+    <form class="search">
+        <input type="search" placeholder="Search" />
+    </form>
+    -->
+
+    <nav>
+        <div class="wrapper">
+            <h2>On This Page</h2>
+            <ol><li><a href="#relationships">Relationships</a><ul><li><a href="#relationships">Conforms To</a></li></ul></li><li><a href="#properties">Properties</a><ul><li class="variable"><a href="#tickettrain.aggregatedserviceids">aggregated​Service​Ids</a></li><li class="variable"><a href="#tickettrain.name">name</a></li><li class="variable"><a href="#tickettrain.seatreservationcode">seat​Reservation​Code</a></li><li class="variable"><a href="#tickettrain.code">code</a></li><li class="variable"><a href="#tickettrain.companycode">company​Code</a></li><li class="variable"><a href="#tickettrain.startstationreservationcode">start​Station​Reservation​Code</a></li><li class="variable"><a href="#tickettrain.endstationreservationcode">end​Station​Reservation​Code</a></li><li class="variable"><a href="#tickettrain.startstation">start​Station</a></li><li class="variable"><a href="#tickettrain.endstation">end​Station</a></li><li class="variable"><a href="#tickettrain.startdate">start​Date</a></li><li class="variable"><a href="#tickettrain.origstartstation">orig​Start​Station</a></li><li class="variable"><a href="#tickettrain.origendstation">orig​End​Station</a></li><li class="variable"><a href="#tickettrain.start">start</a></li><li class="variable"><a href="#tickettrain.virtualstart">virtual​Start</a></li><li class="variable"><a href="#tickettrain.arrive">arrive</a></li><li class="variable"><a href="#tickettrain.virtualarrive">virtual​Arrive</a></li><li class="variable"><a href="#tickettrain.distance">distance</a></li><li class="variable"><a href="#tickettrain.closedtrackway">closed​Trackway</a></li><li class="variable"><a href="#tickettrain.fullname">full​Name</a></li><li class="variable"><a href="#tickettrain.fullnameandtype">full​Name​And​Type</a></li><li class="variable"><a href="#tickettrain.kinds">kinds</a></li><li class="variable"><a href="#tickettrain.kindstodisplay">kinds​ToDisplay</a></li><li class="variable"><a href="#tickettrain.kind">kind</a></li><li class="variable"><a href="#tickettrain.services">services</a></li><li class="variable"><a href="#tickettrain.actualorestimatedstart">actual​OrEstimated​Start</a></li><li class="variable"><a href="#tickettrain.actualorestimatedarrive">actual​OrEstimated​Arrive</a></li><li class="variable"><a href="#tickettrain.havarianinfok">havarian​Infok</a></li><li class="variable"><a href="#tickettrain.directtrains">direct​Trains</a></li><li class="variable"><a href="#tickettrain.carriertrains">carrier​Trains</a></li><li class="variable"><a href="#tickettrain.starttrack">start​Track</a></li><li class="variable"><a href="#tickettrain.endtrack">end​Track</a></li><li class="variable"><a href="#tickettrain.jeeszkozalapid">je​Eszkoz​Alap​Id</a></li><li class="variable"><a href="#tickettrain.fulltype">full​Type</a></li><li class="variable"><a href="#tickettrain.fullshorttype">full​Short​Type</a></li><li class="variable"><a href="#tickettrain.fullnameandpiktogram">full​Name​And​Piktogram</a></li><li class="variable"><a href="#tickettrain.footer">footer</a></li><li class="variable"><a href="#tickettrain.viszonylatijel">viszonylati​Jel</a></li><li class="variable"><a href="#tickettrain.viszonylatobject">viszonylat​Object</a></li><li class="variable"><a href="#tickettrain.description">description</a></li><li class="variable"><a href="#tickettrain.samecar">same​Car</a></li><li class="variable"><a href="#tickettrain.starttimezone">start​Time​Zone</a></li><li class="variable"><a href="#tickettrain.arrivetimezone">arrive​Time​Zone</a></li><li class="variable"><a href="#tickettrain.trainid">train​Id</a></li></ul></li></ol>
+        </div>
+    </nav>
+
+    <main>
+        <article>
+            <h1>
+    <small>Structure</small>
+    <code class="name">Ticket​Train</code>
+</h1>
+
+<div class="declaration">
+<pre class="highlight"><code><html><body><span class="keyword">struct</span> <span class="type">TicketTrain</span>: <span class="type">Codable</span>  </body></html></code></pre>
+</div>
+<div class="summary" role="doc-abstract">
+    <p>Train associated with a ticket</p>
+
+</div>
+<section id="relationships">
+    <h2 hidden>Relationships</h2>
+        <figure>
+    <?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN"
+ "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<!-- Generated by graphviz version 7.0.1 (20221109.1506)
+ -->
+<!-- Pages: 1 -->
+<svg width="872pt" height="116pt"
+ viewBox="0.00 0.00 872.00 116.00" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+<g id="graph0" class="graph" transform="scale(1 1) rotate(0) translate(4 112)">
+<polygon fill="white" stroke="none" points="-4,4 -4,-112 868,-112 868,4 -4,4"/>
+<!-- TicketTrain -->
+<g id="node1" class="node structure current">
+<title>TicketTrain</title>
+<g id="a_node1"><a xlink:href="/TicketTrain" xlink:title="TicketTrain">
+<path fill="none" stroke="black" stroke-width="3" d="M528,-108C528,-108 336,-108 336,-108 330,-108 324,-102 324,-96 324,-96 324,-84 324,-84 324,-78 330,-72 336,-72 336,-72 528,-72 528,-72 534,-72 540,-78 540,-84 540,-84 540,-96 540,-96 540,-102 534,-108 528,-108"/>
+<text text-anchor="middle" x="432" y="-86.3" font-family="Menlo" font-size="14.00">TicketTrain</text>
+</a>
+</g>
+</g>
+<!-- Codable -->
+<g id="node2" class="node unknown">
+<title>Codable</title>
+<path fill="none" stroke="black" d="M528,-36C528,-36 336,-36 336,-36 330,-36 324,-30 324,-24 324,-24 324,-12 324,-12 324,-6 330,0 336,0 336,0 528,0 528,0 534,0 540,-6 540,-12 540,-12 540,-24 540,-24 540,-30 534,-36 528,-36"/>
+<text text-anchor="middle" x="432" y="-14.3" font-family="Menlo" font-size="14.00">Codable</text>
+</g>
+<!-- TicketTrain&#45;&gt;Codable -->
+<g id="edge1" class="edge conformsTo">
+<title>TicketTrain&#45;&gt;Codable</title>
+<path fill="none" stroke="black" d="M432,-70.61C432,-63.51 432,-55.22 432,-47.39"/>
+<polygon fill="black" stroke="black" points="435.5,-47.58 432,-37.58 428.5,-47.58 435.5,-47.58"/>
+</g>
+</g>
+</svg>
+
+
+    <figcaption hidden>Inheritance graph for TicketTrain.</figcaption>
+</figure>
+        <h3>Conforms To</h3>
+<dl>
+    <dt class="unknown"><code>Codable</code></dt>
+</dl>
+</section>
+    <section id="properties">
+        <h2>Properties</h2>
+
+        <div role="article" class="variable" id="tickettrain.aggregatedserviceids">
+    <h3>
+        <code><a href="#tickettrain.aggregatedserviceids">aggregated​Service​Ids</a></code>
+    </h3>
+    <div class="declaration">
+<pre class="highlight"><code><html><body><span class="keyword">let</span> <span class="variable">aggregatedServiceIds</span>: [<span class="type">String</span>]? </body></html></code></pre>
+</div>
+<div class="summary" role="doc-abstract">
+    <p>List of service IDs for this train</p>
+
+</div>
+</div>
+<div role="article" class="variable" id="tickettrain.name">
+    <h3>
+        <code><a href="#tickettrain.name">name</a></code>
+    </h3>
+    <div class="declaration">
+<pre class="highlight"><code><html><body><span class="keyword">let</span> <span class="variable">name</span>: <span class="type">String</span>? </body></html></code></pre>
+</div>
+<div class="summary" role="doc-abstract">
+    <p>Name of the train</p>
+
+</div>
+</div>
+<div role="article" class="variable" id="tickettrain.seatreservationcode">
+    <h3>
+        <code><a href="#tickettrain.seatreservationcode">seat​Reservation​Code</a></code>
+    </h3>
+    <div class="declaration">
+<pre class="highlight"><code><html><body><span class="keyword">let</span> <span class="variable">seatReservationCode</span>: <span class="type">String</span>? </body></html></code></pre>
+</div>
+<div class="summary" role="doc-abstract">
+    <p>Code of the seat reservation</p>
+
+</div>
+</div>
+<div role="article" class="variable" id="tickettrain.code">
+    <h3>
+        <code><a href="#tickettrain.code">code</a></code>
+    </h3>
+    <div class="declaration">
+<pre class="highlight"><code><html><body><span class="keyword">let</span> <span class="variable">code</span>: <span class="type">String</span>? </body></html></code></pre>
+</div>
+<div class="summary" role="doc-abstract">
+    <p>Code of the train</p>
+
+</div>
+</div>
+<div role="article" class="variable" id="tickettrain.companycode">
+    <h3>
+        <code><a href="#tickettrain.companycode">company​Code</a></code>
+    </h3>
+    <div class="declaration">
+<pre class="highlight"><code><html><body><span class="keyword">let</span> <span class="variable">companyCode</span>: <span class="type">String</span>? </body></html></code></pre>
+</div>
+<div class="summary" role="doc-abstract">
+    <p>Code of the company operating the train</p>
+
+</div>
+</div>
+<div role="article" class="variable" id="tickettrain.startstationreservationcode">
+    <h3>
+        <code><a href="#tickettrain.startstationreservationcode">start​Station​Reservation​Code</a></code>
+    </h3>
+    <div class="declaration">
+<pre class="highlight"><code><html><body><span class="keyword">let</span> <span class="variable">startStationReservationCode</span>: <span class="type">String</span>? </body></html></code></pre>
+</div>
+</div>
+<div role="article" class="variable" id="tickettrain.endstationreservationcode">
+    <h3>
+        <code><a href="#tickettrain.endstationreservationcode">end​Station​Reservation​Code</a></code>
+    </h3>
+    <div class="declaration">
+<pre class="highlight"><code><html><body><span class="keyword">let</span> <span class="variable">endStationReservationCode</span>: <span class="type">String</span>? </body></html></code></pre>
+</div>
+</div>
+<div role="article" class="variable" id="tickettrain.startstation">
+    <h3>
+        <code><a href="#tickettrain.startstation">start​Station</a></code>
+    </h3>
+    <div class="declaration">
+<pre class="highlight"><code><html><body><span class="keyword">let</span> <span class="variable">startStation</span>: <a href="/EndStationClass"><span class="type">EndStationClass</span></a>? </body></html></code></pre>
+</div>
+<div class="summary" role="doc-abstract">
+    <p>Start station for the train</p>
+
+</div>
+</div>
+<div role="article" class="variable" id="tickettrain.endstation">
+    <h3>
+        <code><a href="#tickettrain.endstation">end​Station</a></code>
+    </h3>
+    <div class="declaration">
+<pre class="highlight"><code><html><body><span class="keyword">let</span> <span class="variable">endStation</span>: <a href="/EndStationClass"><span class="type">EndStationClass</span></a>? </body></html></code></pre>
+</div>
+<div class="summary" role="doc-abstract">
+    <p>End station for the train</p>
+
+</div>
+</div>
+<div role="article" class="variable" id="tickettrain.startdate">
+    <h3>
+        <code><a href="#tickettrain.startdate">start​Date</a></code>
+    </h3>
+    <div class="declaration">
+<pre class="highlight"><code><html><body><span class="keyword">let</span> <span class="variable">startDate</span>: <span class="type">String</span>? </body></html></code></pre>
+</div>
+<div class="summary" role="doc-abstract">
+    <p>Date of deprarture</p>
+
+</div>
+</div>
+<div role="article" class="variable" id="tickettrain.origstartstation">
+    <h3>
+        <code><a href="#tickettrain.origstartstation">orig​Start​Station</a></code>
+    </h3>
+    <div class="declaration">
+<pre class="highlight"><code><html><body><span class="keyword">let</span> <span class="variable">origStartStation</span>: <a href="/EndStationClass"><span class="type">EndStationClass</span></a>? </body></html></code></pre>
+</div>
+<div class="summary" role="doc-abstract">
+    <p>Original start station for the train</p>
+
+</div>
+</div>
+<div role="article" class="variable" id="tickettrain.origendstation">
+    <h3>
+        <code><a href="#tickettrain.origendstation">orig​End​Station</a></code>
+    </h3>
+    <div class="declaration">
+<pre class="highlight"><code><html><body><span class="keyword">let</span> <span class="variable">origEndStation</span>: <a href="/EndStationClass"><span class="type">EndStationClass</span></a>? </body></html></code></pre>
+</div>
+<div class="summary" role="doc-abstract">
+    <p>Original end station for the train</p>
+
+</div>
+</div>
+<div role="article" class="variable" id="tickettrain.start">
+    <h3>
+        <code><a href="#tickettrain.start">start</a></code>
+    </h3>
+    <div class="declaration">
+<pre class="highlight"><code><html><body><span class="keyword">let</span> <span class="variable">start</span>: <span class="type">String</span>? </body></html></code></pre>
+</div>
+<div class="summary" role="doc-abstract">
+    <p>Starting time for the train</p>
+
+</div>
+</div>
+<div role="article" class="variable" id="tickettrain.virtualstart">
+    <h3>
+        <code><a href="#tickettrain.virtualstart">virtual​Start</a></code>
+    </h3>
+    <div class="declaration">
+<pre class="highlight"><code><html><body><span class="keyword">let</span> <span class="variable">virtualStart</span>: <span class="type">Bool</span></body></html></code></pre>
+</div>
+<div class="summary" role="doc-abstract">
+    <p>Whether the starting time is only scheduled</p>
+
+</div>
+</div>
+<div role="article" class="variable" id="tickettrain.arrive">
+    <h3>
+        <code><a href="#tickettrain.arrive">arrive</a></code>
+    </h3>
+    <div class="declaration">
+<pre class="highlight"><code><html><body><span class="keyword">let</span> <span class="variable">arrive</span>: <span class="type">String</span>? </body></html></code></pre>
+</div>
+<div class="summary" role="doc-abstract">
+    <p>Arrival time for the train</p>
+
+</div>
+</div>
+<div role="article" class="variable" id="tickettrain.virtualarrive">
+    <h3>
+        <code><a href="#tickettrain.virtualarrive">virtual​Arrive</a></code>
+    </h3>
+    <div class="declaration">
+<pre class="highlight"><code><html><body><span class="keyword">let</span> <span class="variable">virtualArrive</span>: <span class="type">Bool</span></body></html></code></pre>
+</div>
+<div class="summary" role="doc-abstract">
+    <p>Whether the arrival time is only scheduled</p>
+
+</div>
+</div>
+<div role="article" class="variable" id="tickettrain.distance">
+    <h3>
+        <code><a href="#tickettrain.distance">distance</a></code>
+    </h3>
+    <div class="declaration">
+<pre class="highlight"><code><html><body><span class="keyword">let</span> <span class="variable">distance</span>: <span class="type">Int</span></body></html></code></pre>
+</div>
+<div class="summary" role="doc-abstract">
+    <p>The length of the route of the train</p>
+
+</div>
+</div>
+<div role="article" class="variable" id="tickettrain.closedtrackway">
+    <h3>
+        <code><a href="#tickettrain.closedtrackway">closed​Trackway</a></code>
+    </h3>
+    <div class="declaration">
+<pre class="highlight"><code><html><body><span class="keyword">let</span> <span class="variable">closedTrackway</span>: <span class="type">Bool</span></body></html></code></pre>
+</div>
+</div>
+<div role="article" class="variable" id="tickettrain.fullname">
+    <h3>
+        <code><a href="#tickettrain.fullname">full​Name</a></code>
+    </h3>
+    <div class="declaration">
+<pre class="highlight"><code><html><body><span class="keyword">let</span> <span class="variable">fullName</span>: <span class="type">String</span>? </body></html></code></pre>
+</div>
+<div class="summary" role="doc-abstract">
+    <p>Full name of the train</p>
+
+</div>
+</div>
+<div role="article" class="variable" id="tickettrain.fullnameandtype">
+    <h3>
+        <code><a href="#tickettrain.fullnameandtype">full​Name​And​Type</a></code>
+    </h3>
+    <div class="declaration">
+<pre class="highlight"><code><html><body><span class="keyword">let</span> <span class="variable">fullNameAndType</span>: <span class="type">String</span>? </body></html></code></pre>
+</div>
+<div class="summary" role="doc-abstract">
+    <p>Full name, and type of the train</p>
+
+</div>
+</div>
+<div role="article" class="variable" id="tickettrain.kinds">
+    <h3>
+        <code><a href="#tickettrain.kinds">kinds</a></code>
+    </h3>
+    <div class="declaration">
+<pre class="highlight"><code><html><body><span class="keyword">let</span> <span class="variable">kinds</span>: [<a href="/Kind"><span class="type">Kind</span></a>] </body></html></code></pre>
+</div>
+</div>
+<div role="article" class="variable" id="tickettrain.kindstodisplay">
+    <h3>
+        <code><a href="#tickettrain.kindstodisplay">kinds​ToDisplay</a></code>
+    </h3>
+    <div class="declaration">
+<pre class="highlight"><code><html><body><span class="keyword">let</span> <span class="variable">kindsToDisplay</span>: <span class="type">String</span>? </body></html></code></pre>
+</div>
+</div>
+<div role="article" class="variable" id="tickettrain.kind">
+    <h3>
+        <code><a href="#tickettrain.kind">kind</a></code>
+    </h3>
+    <div class="declaration">
+<pre class="highlight"><code><html><body><span class="keyword">let</span> <span class="variable">kind</span>: <a href="/Kind"><span class="type">Kind</span></a>? </body></html></code></pre>
+</div>
+</div>
+<div role="article" class="variable" id="tickettrain.services">
+    <h3>
+        <code><a href="#tickettrain.services">services</a></code>
+    </h3>
+    <div class="declaration">
+<pre class="highlight"><code><html><body><span class="keyword">let</span> <span class="variable">services</span>: [<a href="/RouteService"><span class="type">RouteService</span></a>] </body></html></code></pre>
+</div>
+<div class="summary" role="doc-abstract">
+    <p>Services available on the train</p>
+
+</div>
+</div>
+<div role="article" class="variable" id="tickettrain.actualorestimatedstart">
+    <h3>
+        <code><a href="#tickettrain.actualorestimatedstart">actual​OrEstimated​Start</a></code>
+    </h3>
+    <div class="declaration">
+<pre class="highlight"><code><html><body><span class="keyword">let</span> <span class="variable">actualOrEstimatedStart</span>: <span class="type">String</span>? </body></html></code></pre>
+</div>
+<div class="summary" role="doc-abstract">
+    <p>Estimated start time of the train</p>
+
+</div>
+</div>
+<div role="article" class="variable" id="tickettrain.actualorestimatedarrive">
+    <h3>
+        <code><a href="#tickettrain.actualorestimatedarrive">actual​OrEstimated​Arrive</a></code>
+    </h3>
+    <div class="declaration">
+<pre class="highlight"><code><html><body><span class="keyword">let</span> <span class="variable">actualOrEstimatedArrive</span>: <span class="type">String</span>? </body></html></code></pre>
+</div>
+<div class="summary" role="doc-abstract">
+    <p>Estimated time of arrival (ETA) for the train</p>
+
+</div>
+</div>
+<div role="article" class="variable" id="tickettrain.havarianinfok">
+    <h3>
+        <code><a href="#tickettrain.havarianinfok">havarian​Infok</a></code>
+    </h3>
+    <div class="declaration">
+<pre class="highlight"><code><html><body><span class="keyword">let</span> <span class="variable">havarianInfok</span>: <a href="/HavarianInfok"><span class="type">HavarianInfok</span></a></body></html></code></pre>
+</div>
+<div class="summary" role="doc-abstract">
+    <p>Additional information in case of service disturbance</p>
+
+</div>
+</div>
+<div role="article" class="variable" id="tickettrain.directtrains">
+    <h3>
+        <code><a href="#tickettrain.directtrains">direct​Trains</a></code>
+    </h3>
+    <div class="declaration">
+<pre class="highlight"><code><html><body><span class="keyword">let</span> <span class="variable">directTrains</span>: <span class="type">String</span>? </body></html></code></pre>
+</div>
+</div>
+<div role="article" class="variable" id="tickettrain.carriertrains">
+    <h3>
+        <code><a href="#tickettrain.carriertrains">carrier​Trains</a></code>
+    </h3>
+    <div class="declaration">
+<pre class="highlight"><code><html><body><span class="keyword">let</span> <span class="variable">carrierTrains</span>: <span class="type">String</span>? </body></html></code></pre>
+</div>
+</div>
+<div role="article" class="variable" id="tickettrain.starttrack">
+    <h3>
+        <code><a href="#tickettrain.starttrack">start​Track</a></code>
+    </h3>
+    <div class="declaration">
+<pre class="highlight"><code><html><body><span class="keyword">let</span> <span class="variable">startTrack</span>: <span class="type">String</span>? </body></html></code></pre>
+</div>
+<div class="summary" role="doc-abstract">
+    <p>Starting track for the train</p>
+
+</div>
+</div>
+<div role="article" class="variable" id="tickettrain.endtrack">
+    <h3>
+        <code><a href="#tickettrain.endtrack">end​Track</a></code>
+    </h3>
+    <div class="declaration">
+<pre class="highlight"><code><html><body><span class="keyword">let</span> <span class="variable">endTrack</span>: <span class="type">String</span>? </body></html></code></pre>
+</div>
+<div class="summary" role="doc-abstract">
+    <p>Ending track for the train</p>
+
+</div>
+</div>
+<div role="article" class="variable" id="tickettrain.jeeszkozalapid">
+    <h3>
+        <code><a href="#tickettrain.jeeszkozalapid">je​Eszkoz​Alap​Id</a></code>
+    </h3>
+    <div class="declaration">
+<pre class="highlight"><code><html><body><span class="keyword">let</span> <span class="variable">jeEszkozAlapId</span>: <span class="type">Int</span>? </body></html></code></pre>
+</div>
+</div>
+<div role="article" class="variable" id="tickettrain.fulltype">
+    <h3>
+        <code><a href="#tickettrain.fulltype">full​Type</a></code>
+    </h3>
+    <div class="declaration">
+<pre class="highlight"><code><html><body><span class="keyword">let</span> <span class="variable">fullType</span>: <span class="type">String</span>? </body></html></code></pre>
+</div>
+<div class="summary" role="doc-abstract">
+    <p>Full type of the train</p>
+
+</div>
+</div>
+<div role="article" class="variable" id="tickettrain.fullshorttype">
+    <h3>
+        <code><a href="#tickettrain.fullshorttype">full​Short​Type</a></code>
+    </h3>
+    <div class="declaration">
+<pre class="highlight"><code><html><body><span class="keyword">let</span> <span class="variable">fullShortType</span>: <span class="type">String</span>? </body></html></code></pre>
+</div>
+<div class="summary" role="doc-abstract">
+    <p>Shortened type of the train</p>
+
+</div>
+</div>
+<div role="article" class="variable" id="tickettrain.fullnameandpiktogram">
+    <h3>
+        <code><a href="#tickettrain.fullnameandpiktogram">full​Name​And​Piktogram</a></code>
+    </h3>
+    <div class="declaration">
+<pre class="highlight"><code><html><body><span class="keyword">let</span> <span class="variable">fullNameAndPiktogram</span>: <a href="/FullNameAndPiktogram"><span class="type">FullNameAndPiktogram</span></a>? </body></html></code></pre>
+</div>
+<div class="summary" role="doc-abstract">
+    <p>Full name and icon for the train</p>
+
+</div>
+</div>
+<div role="article" class="variable" id="tickettrain.footer">
+    <h3>
+        <code><a href="#tickettrain.footer">footer</a></code>
+    </h3>
+    <div class="declaration">
+<pre class="highlight"><code><html><body><span class="keyword">let</span> <span class="variable">footer</span>: <span class="type">String</span>? </body></html></code></pre>
+</div>
+<div class="summary" role="doc-abstract">
+    <p>Footer for the train</p>
+
+</div>
+</div>
+<div role="article" class="variable" id="tickettrain.viszonylatijel">
+    <h3>
+        <code><a href="#tickettrain.viszonylatijel">viszonylati​Jel</a></code>
+    </h3>
+    <div class="declaration">
+<pre class="highlight"><code><html><body><span class="keyword">let</span> <span class="variable">viszonylatiJel</span>: <span class="type">String</span>? </body></html></code></pre>
+</div>
+<div class="summary" role="doc-abstract">
+    <p>Name of the route the train is operating on</p>
+
+</div>
+</div>
+<div role="article" class="variable" id="tickettrain.viszonylatobject">
+    <h3>
+        <code><a href="#tickettrain.viszonylatobject">viszonylat​Object</a></code>
+    </h3>
+    <div class="declaration">
+<pre class="highlight"><code><html><body><span class="keyword">let</span> <span class="variable">viszonylatObject</span>: <a href="/ViszonylatObject"><span class="type">ViszonylatObject</span></a>? </body></html></code></pre>
+</div>
+<div class="summary" role="doc-abstract">
+    <p>Sign of the route this train is operating on</p>
+
+</div>
+</div>
+<div role="article" class="variable" id="tickettrain.description">
+    <h3>
+        <code><a href="#tickettrain.description">description</a></code>
+    </h3>
+    <div class="declaration">
+<pre class="highlight"><code><html><body><span class="keyword">let</span> <span class="variable">description</span>: <span class="type">String</span>? </body></html></code></pre>
+</div>
+<div class="summary" role="doc-abstract">
+    <p>Description of the train</p>
+
+</div>
+</div>
+<div role="article" class="variable" id="tickettrain.samecar">
+    <h3>
+        <code><a href="#tickettrain.samecar">same​Car</a></code>
+    </h3>
+    <div class="declaration">
+<pre class="highlight"><code><html><body><span class="keyword">let</span> <span class="variable">sameCar</span>: <span class="type">Bool</span></body></html></code></pre>
+</div>
+</div>
+<div role="article" class="variable" id="tickettrain.starttimezone">
+    <h3>
+        <code><a href="#tickettrain.starttimezone">start​Time​Zone</a></code>
+    </h3>
+    <div class="declaration">
+<pre class="highlight"><code><html><body><span class="keyword">let</span> <span class="variable">startTimeZone</span>: <span class="type">String</span>? </body></html></code></pre>
+</div>
+<div class="summary" role="doc-abstract">
+    <p>Time zone of the starting station</p>
+
+</div>
+</div>
+<div role="article" class="variable" id="tickettrain.arrivetimezone">
+    <h3>
+        <code><a href="#tickettrain.arrivetimezone">arrive​Time​Zone</a></code>
+    </h3>
+    <div class="declaration">
+<pre class="highlight"><code><html><body><span class="keyword">let</span> <span class="variable">arriveTimeZone</span>: <span class="type">String</span>? </body></html></code></pre>
+</div>
+<div class="summary" role="doc-abstract">
+    <p>Time zone of the ending station</p>
+
+</div>
+</div>
+<div role="article" class="variable" id="tickettrain.trainid">
+    <h3>
+        <code><a href="#tickettrain.trainid">train​Id</a></code>
+    </h3>
+    <div class="declaration">
+<pre class="highlight"><code><html><body><span class="keyword">let</span> <span class="variable">trainId</span>: <span class="type">String</span>? </body></html></code></pre>
+</div>
+<div class="summary" role="doc-abstract">
+    <p>ID of the train</p>
+
+</div>
+</div>
+    </section>
+
+
+
+        </article>
+    </main>
+
+    <footer>
+        <p>
+    Generated on <time datetime="2022-12-07T21:32:57+0100">December 7, 2022</time> using <a href="https://github.com/SwiftDocOrg/swift-doc">swift-doc</a> <span class="version">1.0.0-rc.1</span>.
+</p>
+    </footer>
+</body>
+</html>
