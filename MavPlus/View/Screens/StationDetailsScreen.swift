@@ -1,14 +1,22 @@
 import SwiftUI
 
+/// View showing the details of a station (e.g. location, name, train departures, etc.)
 struct StationDetailsScreen: View {
+    
+    /// Data for the view.
     @ObservedObject var model: StationDetailsViewModel
+    
+    /// The code of the station presented
     let code: String
     
+    /// Default initializer
+    /// - Parameter code: The code of the station to present
     init(code: String) {
         self.code = code
         self.model = StationDetailsViewModel(code: code)
     }
     
+    /// SwiftUI view generation.
     var body: some View {
         VStack{
             if model.isLoading{
@@ -91,6 +99,8 @@ struct DepartureListItem: View{
 }
 
 struct StationDetailsScreen_Previews: PreviewProvider {
+    
+    /// SwiftUI Preview content generation.
     static var previews: some View {
         StationDetailsScreen(code: "005517228")
     }

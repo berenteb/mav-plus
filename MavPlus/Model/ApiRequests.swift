@@ -9,6 +9,9 @@ let Language = HTTPHeader(name: "Language", value: "hu")
 let UserSessionId = HTTPHeader(name: "UserSessionId", value: "9e31260c-4b3e-4da4-825d-2daef339f98c")
 
 // MARK: Cities
+/// Gets the cities with postal codes
+/// - Parameters:
+///     - completion: Callback with data or error
 func citiesRequest(completion: @escaping (Cities, Error?) -> Void){
     let request = AF.request(
         CitiesRequestPath,
@@ -26,6 +29,9 @@ func citiesRequest(completion: @escaping (Cities, Error?) -> Void){
 }
 
 // MARK: Customers
+/// Gets customer types and dicount types
+/// - Parameters:
+///     - completion: Callback with data or error
 func customersRequest(completion: @escaping (CustomersAndDiscounts?, Error?) -> Void){
     let body = CustomersQueryDto(offerKind: "InternalTicket")
     let request = AF.request(
@@ -46,6 +52,9 @@ func customersRequest(completion: @escaping (CustomersAndDiscounts?, Error?) -> 
 }
 
 // MARK: StationList
+/// Gets the station list
+/// - Parameters:
+///     - completion: Callback with data or error
 func stationListRequest(completion: @escaping (StationList, Error?) -> Void){
     let request = AF.request(
         StationsRequestPath,
@@ -63,6 +72,9 @@ func stationListRequest(completion: @escaping (StationList, Error?) -> Void){
 }
 
 // MARK: Services
+/// Gets available services to search for in offers
+/// - Parameters:
+///     - completion: Callback with data or error
 func servicesRequest(completion: @escaping (ServicesDto?, Error?) -> Void){
     let body = ServiceQueryDto(offerKind: "InternalTicket")
     let request = AF.request(
@@ -83,6 +95,10 @@ func servicesRequest(completion: @escaping (ServicesDto?, Error?) -> Void){
 }
 
 // MARK: TrainInfo
+/// Gets data of a single train
+/// - Parameters:
+///     - trainId: id of the train to look for
+///     - completion: Callback with data or error
 func trainInfoRequest(trainId: Int, completion: @escaping (TrainInfo?, Error?) -> Void){
     let body = TrainInfoQueryDto(travelDate: Date().ISO8601Format(), trainId: trainId)
     let request = AF.request(
@@ -103,6 +119,10 @@ func trainInfoRequest(trainId: Int, completion: @escaping (TrainInfo?, Error?) -
 }
 
 // MARK: StationInfo
+/// Gets data of a single station
+/// - Parameters:
+///     - stationNumberCode: code of the station to look for
+///     - completion: Callback with data or error
 func stationInfoRequest(stationNumberCode: String,completion: @escaping (StationInfo?, Error?) -> Void){
     let body = StationInfoQueryDto(travelDate: Date().ISO8601Format(), stationNumberCode: stationNumberCode)
     let request = AF.request(
@@ -123,6 +143,13 @@ func stationInfoRequest(stationNumberCode: String,completion: @escaping (Station
 }
 
 // MARK: Offer
+/// Get offer by start, end, passenger count and start date
+/// - Parameters:
+///     - startCode: Start station code
+///     - endCode: End station code
+///     - passengerCount: Count of passengers (normal type)
+///     - startDate: Date of travel
+///     - completion: Callback with data or error
 func offerRequest(startCode: String, endCode: String, passengerCount: Int, startDate: Date, completion: @escaping (Offer?, Error?) -> Void){
     let passenger = Passenger(
         passengerCount: passengerCount,
@@ -155,6 +182,9 @@ func offerRequest(startCode: String, endCode: String, passengerCount: Int, start
 }
 
 // MARK: TrainLocation
+/// Get train location list (for every train)
+/// - Parameters:
+///     - completion: Callback with data or error
 func trainLocationRequest(completion: @escaping (TrainLocationList?, Error?) -> Void){
     let body = LocationQueryDto()
     let request = AF.request(

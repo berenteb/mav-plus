@@ -1,3 +1,7 @@
+
+/// Data Transfer Object (DTO) for warning messages
 struct WarninMessagesDto {
- let messages: [String]?
+    
+    /// List of messages
+    let messages: [String]?
 }

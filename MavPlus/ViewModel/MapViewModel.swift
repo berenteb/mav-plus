@@ -2,6 +2,7 @@ import Foundation
 import MapKit
 import Combine
 
+/// Location item for MapKit
 class LocationItem: NSObject, MKAnnotation, Identifiable {
     private let realId: String
     var id: String {
@@ -29,25 +30,32 @@ class LocationItem: NSObject, MKAnnotation, Identifiable {
     }
 }
 
+/// Map view model for the main map
 class MapViewModel: Updateable, RequestStatus, ObservableObject {
+    /// Locations to be displayed
     @Published var locations: [LocationItem]
+    /// Local station property to save the VM from calculating stations in every update
     private var stations: [LocationItem]
+    /// All locations including stations and trains
     @Published var allLocationsList: [LocationItem]
     
     @Published var isError: Bool
     @Published var isLoading: Bool
     
+    /// Displayed region of the map
     @Published var region: MKCoordinateRegion {
         didSet {
             self.filterForVisibleLocation()
         }
     }
-    
+    /// Filter for stations
     @Published var showStations: Bool {
         didSet {
             self.filterForVisibleLocation()
         }
     }
+    
+    /// Filter for trains
     @Published var showTrains: Bool {
         didSet {
             self.filterForVisibleLocation()
@@ -81,6 +89,7 @@ class MapViewModel: Updateable, RequestStatus, ObservableObject {
         self.update()
     }
     
+    /// Starts periodic train location update
     public func startTimer(){
         timer?.invalidate()
         timer = Timer.scheduledTimer(withTimeInterval: 10.0, repeats: true) { timer in
@@ -88,10 +97,12 @@ class MapViewModel: Updateable, RequestStatus, ObservableObject {
         }
     }
     
+    /// Stops periodic train location update
     public func stopTimer(){
         timer?.invalidate()
     }
     
+    /// Filters locations based on switches
     private func filterForVisibleLocation() -> Void {
         DispatchQueue.main.async {
             self.locations.removeAll()
@@ -107,7 +118,7 @@ class MapViewModel: Updateable, RequestStatus, ObservableObject {
     
     func update() {
         isLoading = true
-        self.updateStations()
+        if stations.isEmpty {self.updateStations()}
         ApiRepository.shared.getTrainLocations(){ locations, error in
             self.isError = error != nil
             if let trains = locations?.Vonatok {
@@ -130,8 +141,8 @@ class MapViewModel: Updateable, RequestStatus, ObservableObject {
         }
     }
     
+    /// Updates stations list if it is empty
     func updateStations(){
-        if !stations.isEmpty {return}
         ApiRepository.shared.stationList.forEach{ station in
             let stationLocation = ApiRepository.shared.stationLocationList.first{ loc in
                 return loc.code == station.code

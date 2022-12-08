@@ -1,6 +1,6 @@
 import Foundation
 import MapKit
-
+/// Station details
 struct StationDetails {
     var name: String
     var isFavorite: Bool
@@ -8,13 +8,14 @@ struct StationDetails {
     var departures: [Departure]
     var location: CLLocationCoordinate2D?
 }
-
+/// Train pictogram with color and name
 struct TrainPictogram{
     var foregroundColor: String
     var backgroundColor: String
     var name: String
 }
 
+/// Departure with UUID
 struct Departure: Identifiable {
     var id: UUID
     var trainCode: String
@@ -39,12 +40,16 @@ struct Departure: Identifiable {
     }
 }
 
+/// Station details view model
 class StationDetailsViewModel: RequestStatus, Updateable, ObservableObject {
+    /// Station details with departures and more
     @Published var station: StationDetails?
     @Published var isLoading: Bool
     @Published var isError: Bool
     private var code: String
     
+    /// - Parameters:
+    ///     - code: Station code as string
     init(code: String){
         self.code = code
         self.isLoading = true
@@ -109,6 +114,7 @@ class StationDetailsViewModel: RequestStatus, Updateable, ObservableObject {
         }
     }
     
+    // Toggle favorite station and save it
     func toggleFavorite() {
         self.station?.isFavorite.toggle()
         if let isFavorite = self.station?.isFavorite {

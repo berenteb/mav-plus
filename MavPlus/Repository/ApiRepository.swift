@@ -1,23 +1,50 @@
 import Foundation
 import Combine
 
+/// Station location with code and coordinates
 struct StationLocation: Decodable {
     var code: String
     var lat: Double?
     var lon: Double?
 }
 
+/// ApiProtocol singleton to store data which is barely updated and to proxy other requests
 protocol ApiProtocol: Updateable, RequestStatus{
+    /// Singleton instance
     static var shared: any ApiProtocol {get}
+    /// Cities with postal codes
     var cities: Cities {get}
+    /// Customer types and discounts
     var customers: CustomersAndDiscounts? {get}
+    /// Station list
     var stationList: StationList {get}
+    /// Station locations
     var stationLocationList: [StationLocation] {get}
+    /// Search services
     var services: ServicesDto? {get}
+    /// Get offer by start, end, passenger count and start date
+    /// - Parameters:
+    ///     - startCode: Start station code
+    ///     - endCode: End station code
+    ///     - passengerCount: Count of passengers (normal type)
+    ///     - startDate: Date of travel
+    ///     - completion: Callback with data or error
     func getOffer(startCode: String, endCode: String, passengerCount: Int, startDate: Date, completion: @escaping (Offer?, Error?) -> Void) -> Void
+    /// Get train location list (for every train)
+    /// - Parameters:
+    ///     - completion: Callback with data or error
     func getTrainLocations(completion: @escaping (TrainLocationList?, Error?) -> Void)
+    /// Get info for a single station
+    /// - Parameters:
+    ///     - stationNumberCode: code of station
+    ///     - completion: Callback with data or error
     func getStationInfo(stationNumberCode: String, completion: @escaping (StationInfo?, Error?) -> Void)
+    /// Get info for a single train
+    /// - Parameters:
+    ///     - trainId: id of train
+    ///     - completion: Callback with data or error
     func getTrainInfo(trainId: Int, completion: @escaping (TrainInfo?, Error?)->Void)
+    /// Notifies whether data is available
     var notifier: PassthroughSubject<(), Never> {get}
 }
 
@@ -30,13 +57,11 @@ struct ApiRepositoryFields {
 
 class ApiRepository: ApiProtocol{
     static var shared = ApiRepository() as (any ApiProtocol)
-    // Idea: implement fields as CurrentValueSubject
     var cities: Cities = []
     var customers: CustomersAndDiscounts?
     var stationList: StationList = []
     var services: ServicesDto?
     var stationLocationList: [StationLocation] = []
-    // TODO: remove this
     var isLoading: Bool
     var isError: Bool
     

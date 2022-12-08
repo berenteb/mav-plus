@@ -2,35 +2,67 @@ import Foundation
 import WebKit
 import Combine
 
+/// Protocol for accessing RssRepository
 protocol RssProtocol: RequestStatus, Updateable, XMLParserDelegate {
+    
+    /// Getting singleton instance
     static var shared: RssProtocol {get}
+    
+    /// The parsed list of RssItems
     var rssItemList: [RssItem] {get}
+    
     var publisher: PassthroughSubject<RssFields, Never> { get }
 }
 
+/// Enum for the tags to parse
 enum InterestingTag: String {
+    /// Title of an item
     case title
+    
+    /// Link to the item
     case link
 }
 
+/// Data type for the result of RSS parsing
 struct RssFields {
+    
+    /// The parsed list of RssItems
     var rssItemList: [RssItem]
+    
+    /// Whether the parsing resulted in an error
     var isError: Bool
+    
+    /// Whether the parsing is still loading
     var isLoading: Bool
 }
 
+/// Class parsing RSS feed
 public class RssRepository: NSObject, RssProtocol {
+    
+    /// Singleton instance
     static var shared = RssRepository() as (any RssProtocol)
+    
+    /// The parsed list of RssItems
     var rssItemList: [RssItem]
+    
+    /// Whether the parsing resulted in an error
     var isError: Bool
+    
+    /// Whether the parsing is still loading
     var isLoading: Bool
     
+    /// Last tag visited during parsing
     private var lastTag: String?
+    
+    /// String accumulating the content of the tags since the last valid tag
     private var lastContent: String?
+    
+    /// The items parsed so far
     private var parseList: [RssItem]
     
     var publisher = PassthroughSubject<RssFields, Never>()
     
+    /// Default initializer, calls self.update()
     public override init() {
         self.rssItemList = []
         self.isError = false
@@ -42,6 +74,7 @@ public class RssRepository: NSObject, RssProtocol {
         update()
     }
     
+    /// Updates self.rssItemList by downloading and parsing the RSS feed again
     public func update() {
         self.isLoading = true
         self.parseList.removeAll()
@@ -50,7 +83,7 @@ public class RssRepository: NSObject, RssProtocol {
             return
         }
         
-        var request: URLRequest = URLRequest(url: url)
+        let request: URLRequest = URLRequest(url: url)
         
         let task = URLSession.shared.dataTask(with: request) { data, response, error in
             if (error != nil) {
@@ -67,6 +100,9 @@ public class RssRepository: NSObject, RssProtocol {
         task.resume()
     }
     
+    /// Function starting the parsing of the RSS feed
+    /// - Parameter inputData: The data received at downloading the RSS feed
+    /// - Returns: Nothing
     private func startParsing(inputData: Data?) -> Void {
         if let realInputData: Data = inputData {
             let parser: XMLParser = XMLParser(data: realInputData)
@@ -87,6 +123,8 @@ public class RssRepository: NSObject, RssProtocol {
         }
     }
     
+    /// Handles a tag in the RSS feed
+    /// - Returns: Nothing
     private func handleNewTag() -> Void {
         if let actualTag = self.lastTag, let actualContent = self.lastContent {
             switch actualTag {
@@ -109,6 +147,11 @@ public class RssRepository: NSObject, RssProtocol {
         }
     }
     
+    /// Called during the parsing of the RSS feed, updates self.lastContent
+    /// - Parameters:
+    ///     - parser: The parser parsing the RSS feed
+    ///     - string: The content encountered during parsing
+    /// - Returns: Nothing
     public func parser(
         _ parser: XMLParser,
         foundCharacters string: String
@@ -122,6 +165,14 @@ public class RssRepository: NSObject, RssProtocol {
         }
     }
     
+    /// Called during the parsing of the RSS feed, at the opening of a new tag
+    /// - Parameters:
+    ///     - parser: Teh parser parsing the RSS feed
+    ///     - elementName: The name of the tag started
+    ///     - namespaceURI: URI of the namespace
+    ///     - qName: Qualified name
+    ///     - attributeDict: Dictionary of the attributes of the tag
+    /// - Returns: Nothing
     public func parser(
         _ parser: XMLParser,
         didStartElement elementName: String,

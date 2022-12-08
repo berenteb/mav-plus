@@ -1,7 +1,12 @@
 import SwiftUI
 
+/// View presenting a loading screen with a spinning loading icon
 struct LoadingScreen: View {
+    
+    /// Data for the view.
     @ObservedObject var model = LoadingViewModel()
+    
+    /// SwiftUI view generation.
     var body: some View {
         if model.isLoading{
             SpinnerView(size: 100)
@@ -17,7 +22,10 @@ struct LoadingScreen: View {
     }
 }
 
+/// SwiftUI Preview
 struct LoadingScreen_Previews: PreviewProvider {
+    
+    /// SwiftUI Preview content generation.
     static var previews: some View {
         LoadingScreen()
     }

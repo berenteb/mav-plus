@@ -1,12 +1,14 @@
 import Foundation
 import Combine
 
+/// Favorite stations
 struct FavoriteStationListItem {
     var name: String
     var code: String
     var searchCount: Int32
 }
 
+/// Recent offers
 struct RecentOfferListItem: Identifiable {
     var id: UUID
     var startStationName: String
@@ -15,15 +17,20 @@ struct RecentOfferListItem: Identifiable {
     var endStationCode: String
 }
 
+/// Alerts
 struct AlertListItem: Identifiable{
     var id: UUID
     var title: String
     var url: String
 }
 
+/// Home view model with favorite stations, recent offers and alerts
 class HomeViewModel: Updateable, ObservableObject {
+    /// Favorite stations based on CoreData and StationList
     @Published var favoriteStations: [FavoriteStationListItem]
+    /// Recent offers based on CoreData and StationList
     @Published var recentOffers: [RecentOfferListItem]
+    /// Alerts based on RSS feed
     @Published var alerts: [AlertListItem]
     
     private var disposables = Set<AnyCancellable>()
@@ -39,11 +46,13 @@ class HomeViewModel: Updateable, ObservableObject {
         subscribe()
     }
     
+    /// Deletes recent offer from storage
     func deleteRecentOffer(id: UUID){
         StoreRepository.shared.deleteRecentOffer(id: id)
         update()
     }
     
+    /// Subscribes to async data
     func subscribe(){
         StoreRepository.shared.publisher
             .receive(on: DispatchQueue.main)
@@ -68,6 +77,7 @@ class HomeViewModel: Updateable, ObservableObject {
         updateFavoriteStations()
     }
     
+    /// Updates favorite station list
     func updateFavoriteStations(){
         self.favoriteStations = ApiRepository.shared.stationList
             .filter { station in
@@ -79,6 +89,7 @@ class HomeViewModel: Updateable, ObservableObject {
         
     }
     
+    /// Updates recent offers
     func updateRecentOffers(){
         self.recentOffers = []
         StoreRepository.shared.recentOffers.forEach{offer in

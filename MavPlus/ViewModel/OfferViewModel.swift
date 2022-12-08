@@ -1,5 +1,6 @@
 import Foundation
 
+/// Offer data
 struct OfferData: Identifiable {
     var id: UUID = UUID()
     var startStationName: String
@@ -12,6 +13,7 @@ struct OfferData: Identifiable {
     var route: [OfferRoutePart]
 }
 
+/// Offer Route Part between two stations in a route, there may be multiple route parts in an offer
 struct OfferRoutePart: Identifiable {
     var id: UUID
     var startStationName: String
@@ -35,6 +37,7 @@ struct OfferRoutePart: Identifiable {
     }
 }
 
+/// Offer view model for result screen
 class OfferViewModel: RequestStatus, Updateable, ObservableObject {
     @Published var offers: [OfferData] = []
     @Published var isLoading: Bool = true
@@ -44,6 +47,11 @@ class OfferViewModel: RequestStatus, Updateable, ObservableObject {
      var passengerCount: Int
      var startDate: Date
     
+    /// - Parameters:
+    ///     - start: FormStationlistItem, the start station
+    ///     - start: FormStationlistItem, the destination station
+    ///     - passengerCount: Int, the desired passenger count, currently only one type is available
+    ///     - startDate: Date, start date
     init(start: FormStationListItem, end: FormStationListItem, passengerCount: Int, startDate: Date) {
         self.start = start
         self.end = end
